@@ -150,3 +150,4 @@ const conversionChart = new Chart(conversionCtx, {
         },
     },
 });
+
