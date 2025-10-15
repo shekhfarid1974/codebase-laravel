@@ -1,5 +1,4 @@
 <?php
-// app/Http/Controllers/DashboardController.php
 
 namespace App\Http\Controllers;
 
@@ -14,6 +13,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        // You can pass data to the view here if needed in the future
+        // $data = [...];
+        // return view('dashboard.index', $data);
+
+        // For now, just return the view
+        return view('dashboard.index');
     }
 }
