@@ -15,10 +15,10 @@
                     <i class="ri-download-line"></i>
                     Export
                 </button>
-                <button class="btn btn-primary">
+                {{-- <button class="btn btn-primary">
                     <i class="ri-add-line"></i>
                     New Report
-                </button>
+                </button> --}}
             </div>
         </div>
 

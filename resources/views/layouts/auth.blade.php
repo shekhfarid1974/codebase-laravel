@@ -25,8 +25,8 @@
                 <div class="shape shape-3"></div>
             </div>
             <div class="auth-logo">
-                <div class="auth-logo-icon">M</div>
-                <div class="auth-logo-text">MyDashboard</div>
+                <div class="auth-logo-icon">A</div>
+                <div class="auth-logo-text">ACCLDashboard</div>
             </div>
             <h1 class="auth-title">Welcome Back!</h1>
             <p class="auth-subtitle">Sign in to access your personalized dashboard and analytics.</p>
