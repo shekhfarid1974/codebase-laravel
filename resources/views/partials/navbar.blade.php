@@ -15,14 +15,8 @@
 
     <div class="navbar-right">
         <div class="navbar-actions">
-            <button class="nav-action notification">
-                <i class="ri-notification-3-line"></i>
-            </button>
             <button class="nav-action" id="themeToggle">
                 <i class="ri-sun-line"></i>
-            </button>
-            <button class="nav-action">
-                <i class="ri-global-line"></i>
             </button>
 
             <div class="profile-dropdown">
@@ -48,12 +42,6 @@
                             <i class="ri-settings-3-line"></i>
                             <span>Settings</span>
                         </a>
-
-                        {{-- Example: Theme switcher item (could be a button triggering JS) --}}
-                        <div class="dropdown-item" id="themeToggleDropdownItem">
-                            <i class="ri-moon-line"></i>
-                            <span>Toggle Theme</span>
-                        </div>
 
                         {{-- Example: Logout link --}}
                         <a href="{{ route('logout') }}" class="dropdown-item"

@@ -1,10 +1,12 @@
 {{-- Extracted sidebar HTML --}}
 <aside class="sidebar">
     <div class="sidebar-header">
-        <div class="sidebar-logo">
-            <div class="sidebar-logo-icon">M</div>
-            <span class="nav-text">MyDashboard</span>
-        </div>
+        <a href="{{ route('dashboard.index') }}" class="sidebar-logo">
+            <div class="sidebar-logo-icon">
+                {{ strtoupper(substr(config('app.name', 'MyDashboard'), 0, 1)) }}
+            </div>
+            <span class="nav-text">{{ config('app.name', 'MyDashboard') }}</span>
+        </a>
     </div>
 
     <nav class="sidebar-nav">
@@ -32,9 +34,14 @@
                 <i class="ri-arrow-down-s-line ml-auto"></i>
             </div>
             <div class="nav-dropdown">
-                <div class="nav-item">
-                    <i class="nav-icon ri-user-line"></i>
-                    <span class="nav-text">CRM</span>
+                <div class="nav-section">
+                    <div class="nav-section-header">Management</div>
+                    {{-- ... other items ... --}}
+                    <a href="{{ route('crm.index') }}"
+                        class="nav-item {{ request()->routeIs('crm.index') ? 'active' : '' }}"> {{-- Example: Add active state --}}
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Farmer CRM</span>
+                    </a>
                 </div>
                 <div class="nav-item">
                     <i class="nav-icon ri-coupon-line"></i>
