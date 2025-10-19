@@ -10,16 +10,6 @@
                 <h1 class="content-title">Dashboard</h1>
                 <p class="content-subtitle">Welcome back! Here's what's happening today.</p>
             </div>
-            <div class="content-actions">
-                <button class="btn btn-outline">
-                    <i class="ri-download-line"></i>
-                    Export
-                </button>
-                {{-- <button class="btn btn-primary">
-                    <i class="ri-add-line"></i>
-                    New Report
-                </button> --}}
-            </div>
         </div>
 
 

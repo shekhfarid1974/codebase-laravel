@@ -16,14 +16,6 @@
                 <i class="nav-icon ri-dashboard-line"></i>
                 <span class="nav-text">Dashboard</span>
             </div>
-            <div class="nav-item">
-                <i class="nav-icon ri-bar-chart-line"></i>
-                <span class="nav-text">Analytics</span>
-            </div>
-            <div class="nav-item">
-                <i class="nav-icon ri-brain-line"></i>
-                <span class="nav-text">AI Insights</span>
-            </div>
         </div>
 
         <div class="nav-section">
@@ -35,44 +27,160 @@
             </div>
             <div class="nav-dropdown">
                 <div class="nav-section">
-                    <div class="nav-section-header">Management</div>
                     {{-- ... other items ... --}}
-                    <a href="{{ route('crm.index') }}"
-                        class="nav-item {{ request()->routeIs('crm.index') ? 'active' : '' }}"> {{-- Example: Add active state --}}
                         <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
-                        <span class="nav-text">Farmer CRM</span>
+                        <span class="nav-text">Farmer</span>
                     </a>
                 </div>
-                <div class="nav-item">
-                    <i class="nav-icon ri-coupon-line"></i>
-                    <span class="nav-text">Tickets</span>
+                <div class="nav-section">
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Dealer</span>
+                    </a>
                 </div>
-                <div class="nav-item">
-                    <i class="nav-icon ri-phone-line"></i>
-                    <span class="nav-text">Call Center</span>
+                <div class="nav-section">
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Retailers</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Others</span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="nav-section">
-            <div class="nav-section-header">Business</div>
+            <div class="nav-section-header">CRM</div>
+            <div class="nav-item has-dropdown">
+                <i class="nav-icon ri-group-line"></i>
+                <span class="nav-text">Crm</span>
+                <i class="ri-arrow-down-s-line ml-auto"></i>
+            </div>
+            <div class="nav-dropdown">
+                <div class="nav-section">
+                    <div class="nav-section-header">Management</div>
+                    {{-- ... other items ... --}}
+                    <a href="{{ route('crm.index') }}"
+                        class="nav-item {{ request()->routeIs('crm.index') ? '' : '' }}"> {{-- Example: Add active state --}}
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Farmer CRM</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-header">Management</div>
+                    {{-- ... other items ... --}}
+                    <a href="{{ route('crm.index') }}"
+                        class="nav-item {{ request()->routeIs('crm.index') ? '' : '' }}"> {{-- Example: Add active state --}}
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Dealer CRM</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-header">Management</div>
+                    {{-- ... other items ... --}}
+                    <a href="{{ route('crm.index') }}"
+                        class="nav-item {{ request()->routeIs('crm.index') ? '' : '' }}"> {{-- Example: Add active state --}}
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Retailers CRM</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-header">Management</div>
+                    {{-- ... other items ... --}}
+                    <a href="{{ route('crm.index') }}"
+                        class="nav-item {{ request()->routeIs('crm.index') ? '' : '' }}"> {{-- Example: Add active state --}}
+                        <i class="nav-icon ri-user-line"></i> {{-- Or choose a more specific icon if available --}}
+                        <span class="nav-text">Others CRM</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-header">SURVEY REPORTS</div>
             <div class="nav-item has-dropdown">
                 <i class="nav-icon ri-building-line"></i>
-                <span class="nav-text">Business</span>
+                <span class="nav-text">REPORTS</span>
                 <i class="ri-arrow-down-s-line ml-auto"></i>
             </div>
             <div class="nav-dropdown">
                 <div class="nav-item">
                     <i class="nav-icon ri-file-text-line"></i>
-                    <span class="nav-text">Reports</span>
+                    <span class="nav-text">Product Survey</span>
                 </div>
                 <div class="nav-item">
                     <i class="nav-icon ri-trending-up-line"></i>
-                    <span class="nav-text">Performance</span>
+                    <span class="nav-text">Seed Survey</span>
                 </div>
                 <div class="nav-item">
                     <i class="nav-icon ri-bar-chart-line"></i>
-                    <span class="nav-text">Analytics</span>
+                    <span class="nav-text">Crop Survey</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-header">SURVEY LEAD</div>
+            <div class="nav-item has-dropdown">
+                <i class="nav-icon ri-building-line"></i>
+                <span class="nav-text">Lead</span>
+                <i class="ri-arrow-down-s-line ml-auto"></i>
+            </div>
+            <div class="nav-dropdown">
+                <div class="nav-item">
+                    <i class="nav-icon ri-file-text-line"></i>
+                    <span class="nav-text">Import</span>
+                </div>
+                <div class="nav-item">
+                    <i class="nav-icon ri-trending-up-line"></i>
+                    <span class="nav-text">Reset Lead</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-header">TICKETS</div>
+            <div class="nav-item has-dropdown">
+                <i class="nav-icon ri-building-line"></i>
+                <span class="nav-text">Tickets</span>
+                <i class="ri-arrow-down-s-line ml-auto"></i>
+            </div>
+            <div class="nav-dropdown">
+                <div class="nav-item">
+                    <i class="nav-icon ri-file-text-line"></i>
+                    <span class="nav-text">Product Survey</span>
+                </div>
+                <div class="nav-item">
+                    <i class="nav-icon ri-trending-up-line"></i>
+                    <span class="nav-text">Seed Survey</span>
+                </div>
+                <div class="nav-item">
+                    <i class="nav-icon ri-bar-chart-line"></i>
+                    <span class="nav-text">Crop Survey</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-header">CALL CENTER</div>
+            <div class="nav-item has-dropdown">
+                <i class="nav-icon ri-building-line"></i>
+                <span class="nav-text">Call Center</span>
+                <i class="ri-arrow-down-s-line ml-auto"></i>
+            </div>
+            <div class="nav-dropdown">
+                <div class="nav-item">
+                    <i class="nav-icon ri-file-text-line"></i>
+                    <span class="nav-text">Product Survey</span>
+                </div>
+                <div class="nav-item">
+                    <i class="nav-icon ri-trending-up-line"></i>
+                    <span class="nav-text">Seed Survey</span>
+                </div>
+                <div class="nav-item">
+                    <i class="nav-icon ri-bar-chart-line"></i>
+                    <span class="nav-text">Crop Survey</span>
                 </div>
             </div>
         </div>
