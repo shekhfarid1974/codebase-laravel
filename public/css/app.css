@@ -69,7 +69,7 @@ body {
     grid-template-columns: var(--sidebar-width-expanded) 1fr;
 }
 
-/* Sidebar Styles */
+/* ========== SIDEBAR STYLES START ========== */
 .sidebar {
     grid-area: sidebar;
     background-color: var(--sidebar-bg-light);
@@ -254,8 +254,9 @@ body {
 .sidebar-expanded .collapse-btn i {
     transform: rotate(180deg);
 }
+/* ========== SIDEBAR STYLES END ========== */
 
-/* Navbar Styles */
+/* ========== NAVBAR STYLES START ========== */
 .navbar {
     grid-area: navbar;
     display: flex;
@@ -460,8 +461,9 @@ body {
 .dropdown-item:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
+/* ========== NAVBAR STYLES END ========== */
 
-/* Breadcrumb Styles */
+/* ========== BREADCRUMB STYLES START ========== */
 .breadcrumb {
     grid-area: breadcrumb;
     padding: 12px 32px;
@@ -490,8 +492,9 @@ body {
 .breadcrumb-separator {
     color: var(--muted-text);
 }
+/* ========== BREADCRUMB STYLES END ========== */
 
-/* Content Area Styles */
+/* ========== CONTENT STYLES START ========== */
 .content {
     grid-area: content;
     padding: 24px 32px;
@@ -846,8 +849,9 @@ body {
     background: rgba(245, 158, 11, 0.1);
     color: #d97706;
 }
+/* ========== CONTENT STYLES END ========== */
 
-/* Footer Styles */
+/* ========== FOOTER STYLES START ========== */
 .footer {
     grid-area: footer;
     display: flex;
@@ -878,6 +882,7 @@ body {
 .system-health:hover {
     color: var(--primary-text);
 }
+/* ========== FOOTER STYLES END ========== */
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
