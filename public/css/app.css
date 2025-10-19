@@ -928,9 +928,6 @@ body {
     }
 }
 
-
-
-
 /* crm css start */
 /* Tab Styles */
 .tab-buttons {
@@ -1382,7 +1379,8 @@ body {
         padding: 16px;
     }
 
-    .history-container, .followup-container {
+    .history-container,
+    .followup-container {
         padding: 16px;
     }
 }
