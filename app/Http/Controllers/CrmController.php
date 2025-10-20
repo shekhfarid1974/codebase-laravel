@@ -1,4 +1,5 @@
 <?php
+// App\Http\Controllers\CrmController.php
 
 namespace App\Http\Controllers;
 
@@ -6,18 +7,16 @@ use Illuminate\Http\Request;
 
 class CrmController extends Controller
 {
-    /**
-     * Display the Farmer CRM page.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(Request $request)
     {
-        // You can pass data to the view here if needed in the future
-        // $farmers = Farmer::all(); // Example
-        // return view('crm.index', compact('farmers'));
+        $phoneNumber = $request->query('phone_number');
+        $agent = $request->query('agent');
 
-        // For now, just return the view
-        return view('crm.index');
+        // You could potentially fetch customer data here based on $phoneNumber
+        // $customerData = Customer::where('mobile_number', $phoneNumber)->first();
+        // Then pass $customerData to the view
+
+        // For now, just pass the parameters to the view
+        return view('crm.index', compact('phoneNumber', 'agent'));
     }
 }

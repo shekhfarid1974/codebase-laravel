@@ -13,6 +13,17 @@
         </div>
     </div>
 
+    <a href="http://127.0.0.1:8000/crm/crm?phone_number=01814485175&agent=Myolbd" target="_blank" 
+        style="display: inline-flex; align-items: center; background-color: #007bff; color: #fff;
+          padding: 6px 14px; border-radius: 6px; font-weight: 500; font-size: 14px;
+          text-decoration: none; transition: background 0.2s ease-in-out;"
+        onmouseover="this.style.backgroundColor='#0056b3';"
+        onmouseout="this.style.backgroundColor='#007bff';">
+        <i class="ri-database-2-line" style="font-size: 16px; margin-right: 6px;"></i>
+        <span>CRM</span>
+    </a>
+
+
     <div class="navbar-right">
         <div class="navbar-actions">
             <button class="nav-action" id="themeToggle">
@@ -30,7 +41,8 @@
                     </button>
                     <div class="dropdown-menu" id="profileMenu">
                         {{-- Example: Conditional link based on user role --}}
-                        @can('view-profile') {{-- Example: Using Laravel's @can directive --}}
+                        @can('view-profile')
+                            {{-- Example: Using Laravel's @can directive --}}
                             <a href="{{ route('profile.show') }}" class="dropdown-item">
                                 <i class="ri-user-line"></i>
                                 <span>Profile</span>
@@ -45,7 +57,7 @@
 
                         {{-- Example: Logout link --}}
                         <a href="{{ route('logout') }}" class="dropdown-item"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="ri-logout-box-r-line"></i>
                             <span>Logout</span>
                         </a>
