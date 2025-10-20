@@ -1,88 +1,64 @@
-{{-- resources/views/auth/register.blade.php --}}
 @extends('layouts.auth')
 
 @section('title', 'Register')
 
 @section('content')
-    <div class="auth-form-container">
-        <div class="form-container hidden" id="registerForm"> {{-- Initially hidden, show via JS or direct link --}}
-            <h2 class="form-title">Create Account</h2>
-            <p class="form-subtitle">Set up your new account in just a few steps</p>
-
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <form id="register" method="POST" action="{{ route('register.attempt') }}"> {{-- Define this route --}}
+    <div class="container">
+        <!-- Register Form -->
+        <div class="form-container">
+            <h1>Create Account</h1>
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <div class="form-group">
-                    <label class="form-label" for="registerName">Full Name</label>
-                    <input type="text" class="form-input" id="registerName" name="name" placeholder="John Doe"
-                        required>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="name" placeholder="Full Name" required value="{{ old('name') }}">
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="registerEmail">Email Address</label>
-                    <input type="email" class="form-input" id="registerEmail" name="email"
-                        placeholder="name@company.com" required>
+                @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email Address" required value="{{ old('email') }}">
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="registerPassword">Password</label>
-                    <input type="password" class="form-input" id="registerPassword" name="password" placeholder="••••••••"
-                        required>
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="registerConfirmPassword">Confirm Password</label>
-                    <input type="password" class="form-input" id="registerConfirmPassword" name="password_confirmation"
-                        placeholder="••••••••" required>
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
                 </div>
-
-                <div class="form-options">
-                    <div class="checkbox-container">
-                        <input type="checkbox" class="checkbox" id="agreeTerms" name="terms" required>
-                        <label for="agreeTerms">I agree to the <a href="#" class="forgot-link">Terms &
-                                Conditions</a></label>
-                    </div>
+                
+                <div class="remember-forgot">
+                    <label><input type="checkbox" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}> I agree to the Terms & Conditions</label>
+                    @error('terms')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-
-                <button type="submit" class="btn btn-primary">
-                    <i class="ri-user-add-line"></i>
-                    Create Account
-                </button>
+                
+                <button type="submit" class="btn">Register</button>
+                
+                <div class="toggle-container">
+                    <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
+                </div>
             </form>
+        </div>
 
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-text">or</div>
-                <div class="divider-line"></div>
-            </div>
-
-            <button class="btn btn-google">
-                <i class="ri-google-fill"></i>
-                Continue with Google
-            </button>
-
-            <div class="auth-switch">
-                Already have an account?
-                <a href="{{ route('login') }}" class="auth-link" id="showLogin">Sign in</a> {{-- Define this route --}}
+        <!-- Image Section -->
+        <div class="image-container">
+            <div class="image-overlay">
+                <h2>Welcome Back!</h2>
+                <p>To keep connected with us please login with your personal info</p>
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script>
-        // Include your JS logic here if needed, or adjust the JS to handle direct page load showing register
-        // For now, ensure the register form is visible if the user lands directly on the register page
-        document.getElementById('loginForm').classList.add('hidden');
-        document.getElementById('registerForm').classList.remove('hidden');
-    </script>
 @endsection

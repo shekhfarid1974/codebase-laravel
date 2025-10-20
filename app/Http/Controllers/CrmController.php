@@ -1,5 +1,4 @@
 <?php
-// App\Http\Controllers\CrmController.php
 
 namespace App\Http\Controllers;
 
@@ -7,16 +6,38 @@ use Illuminate\Http\Request;
 
 class CrmController extends Controller
 {
-    public function index(Request $request)
+    public function farmer()
     {
-        $phoneNumber = $request->query('phone_number');
-        $agent = $request->query('agent');
+        return view('crm.farmer.index');
+    }
 
-        // You could potentially fetch customer data here based on $phoneNumber
-        // $customerData = Customer::where('mobile_number', $phoneNumber)->first();
-        // Then pass $customerData to the view
+    public function dealer()
+    {
+        return view('crm.dealer.index');
+    }
 
-        // For now, just pass the parameters to the view
-        return view('crm.index', compact('phoneNumber', 'agent'));
+    public function retailer()
+    {
+        return view('crm.retailer.index');
+    }
+
+    public function other()
+    {
+        return view('crm.other.index');
+    }
+
+    public function campaign()
+    {
+        return view('crm.campaign.index');
+    }
+
+    public function surveyLead()
+    {
+        return view('crm.survey.lead');
+    }
+
+    public function surveyReports()
+    {
+        return view('crm.survey.reports');
     }
 }

@@ -2,51 +2,105 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Log;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    public function showLoginForm()
+    use AuthenticatesUsers;
+
+    protected $redirectTo = '/dashboard';
+
+    public function __construct()
     {
-        return view('auth.login');
+        $this->middleware('guest')->except('logout');
+    }
+
+    public function username()
+    {
+        return 'login';
     }
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $this->validateLogin($request);
 
-        $credentials = $request->only('email', 'password');
-        $remember = $request->filled('remember'); // Check if 'remember me' checkbox was checked
-
-        if (Auth::attempt($credentials, $remember)) {
-            // Authentication passed...
-            $request->session()->regenerate(); // Regenerate session ID for security
-
-            // Redirect to intended page or dashboard
-            return redirect()->intended(route('dashboard.index')); // Use your dashboard route name
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
+            $this->fireLockoutEvent($request);
+            return $this->sendLockoutResponse($request);
         }
 
-        // Authentication failed...
-        // The `withErrors` is handled automatically by Laravel's Auth facade if validation fails,
-        // but for incorrect credentials, you might want to manually flash an error:
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials do not match our records.'],
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+        $this->incrementLoginAttempts($request);
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'login' => 'required|string',
+            'password' => 'required|string',
         ]);
     }
 
-    public function logout(Request $request)
+    protected function attemptLogin(Request $request)
     {
-        Auth::logout();
+        $login = $request->input('login');
+        $password = $request->input('password');
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        // Determine if login is email or username
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        return redirect('/login'); // Redirect to login page after logout
+        // Debug: Check what field is being used
+        Log::info("Login attempt with field: {$field}, value: {$login}");
+
+        $credentials = [
+            $field => $login,
+            'password' => $password,
+            'active' => 1
+        ];
+
+        return $this->guard()->attempt(
+            $credentials,
+            $request->filled('remember')
+        );
+    }
+
+    // Override to handle redirection more explicitly
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect()->intended($this->redirectPath());
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'login' => [trans('auth.failed')],
+        ]);
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.auth', ['isRegister' => false]);
     }
 }

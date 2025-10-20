@@ -1,52 +1,116 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CrmController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\CrmController; // Add this controller
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make sure something handles this!
-|
-*/
+// Public routes
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-// Public Auth Routes (Accessible without login)
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.attempt');
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.attempt');
-
-// Logout Route (POST request)
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Protected Routes (Require authentication)
+// Protected routes
 Route::middleware('auth')->group(function () {
-    // Dashboard Route
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.main');
+    // Dashboard and root redirect
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    });
 
-    // Profile Route
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    // Settings
+    Route::get('/settings/mail', [SettingsController::class, 'mailConfigure'])->name('mail.configure');
 
-    // Settings Route
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+    // CRM Routes
+    Route::prefix('crm')->group(function () {
+        Route::get('/farmer', [CrmController::class, 'farmer'])->name('crm.farmer');
+        Route::get('/dealer', [CrmController::class, 'dealer'])->name('crm.dealer');
+        Route::get('/retailer', [CrmController::class, 'retailer'])->name('crm.retailer');
+        Route::get('/other', [CrmController::class, 'other'])->name('crm.other');
+        Route::get('/campaign', [CrmController::class, 'campaign'])->name('crm.campaign');
+    });
 
-    // CRM Route
-    Route::get('/crm', [CrmController::class, 'index'])->name('crm.index');
-    // You might also want routes for storing, updating, deleting CRM data
-    // Route::post('/crm', [CrmController::class, 'store'])->name('crm.store');
-    // Route::get('/crm/{id}', [CrmController::class, 'show'])->name('crm.show');
-    // Route::put('/crm/{id}', [CrmController::class, 'update'])->name('crm.update');
-    // Route::delete('/crm/{id}', [CrmController::class, 'destroy'])->name('crm.destroy');
+    // Survey Routes
+    Route::prefix('survey')->group(function () {
+        Route::get('/lead', [CrmController::class, 'surveyLead'])->name('survey.lead');
+        Route::get('/reports', [CrmController::class, 'surveyReports'])->name('survey.reports');
+    });
+
+    // Reports Routes
+    Route::prefix('reports')->group(function () {
+        Route::get('/crm', [ReportController::class, 'crm'])->name('reports.crm');
+        Route::get('/campaign', [ReportController::class, 'campaign'])->name('reports.campaign');
+        Route::get('/sms', [ReportController::class, 'sms'])->name('reports.sms');
+        Route::get('/ticket', [ReportController::class, 'ticket'])->name('reports.ticket');
+    });
+
+    // Tickets Routes
+    Route::prefix('tickets')->group(function () {
+        Route::get('/all', [TicketController::class, 'all'])->name('tickets.all');
+        Route::get('/create', [TicketController::class, 'create'])->name('tickets.create');
+        Route::get('/resolved', [TicketController::class, 'resolved'])->name('tickets.resolved');
+    });
+
+    // Leads Routes
+    Route::prefix('leads')->group(function () {
+        Route::get('/import', [LeadController::class, 'import'])->name('leads.import');
+        Route::get('/reset', [LeadController::class, 'reset'])->name('leads.reset');
+    });
+
+    // Campaigns Routes
+    Route::prefix('campaigns')->group(function () {
+        Route::get('/active', [CampaignController::class, 'active'])->name('campaigns.active');
+        Route::get('/create', [CampaignController::class, 'create'])->name('campaigns.create');
+        Route::get('/archive', [CampaignController::class, 'archive'])->name('campaigns.archive');
+    });
+
+    // FAQs Routes
+    Route::prefix('faqs')->group(function () {
+        Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
+        Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
+        Route::get('/categories', [FaqController::class, 'categories'])->name('faqs.categories');
+    });
+
+    // Products Routes
+    Route::prefix('products')->group(function () {
+        Route::get('/list', [ProductController::class, 'list'])->name('products.list');
+        Route::get('/addFeature', [ProductController::class, 'addFeature'])->name('products.addFeature');
+        Route::get('/featureCategories', [ProductController::class, 'featureCategories'])->name('products.featureCategories');
+    });
+
+    // SMS Routes
+    Route::prefix('sms')->group(function () {
+        Route::get('/feature', [SmsController::class, 'feature'])->name('sms.feature');
+        Route::get('/brochure', [SmsController::class, 'brochure'])->name('sms.brochure');
+        Route::get('/templates', [SmsController::class, 'templates'])->name('sms.templates');
+        Route::get('/sendBulk', [SmsController::class, 'sendBulk'])->name('sms.sendBulk');
+    });
+
+    // Profile routes
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'index'])->name('profile');
+        // Add other profile routes here if needed
+    });
+
+    // Temporary debug routes
+    Route::get('/debug-session', function() {
+        dd(session()->all());
+    });
+
+    Route::get('/debug-user', function() {
+        dd(auth()->user());
+    });
 });

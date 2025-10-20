@@ -1,12 +1,11 @@
-{{-- Extracted footer HTML --}}
+<!-- Footer -->
 <footer class="footer">
-    <div class="footer-left">
-        © 2025 MY Outsourcing Ltd.
-    </div>
-    <div class="footer-center">
-        Powered by Laravel 10 • Built by Shekh Farid
-    </div>
-    <div class="footer-right">
-        <span class="system-health">v1.0.0 • System Health ✅</span>
+    <!-- Add footer content here if needed -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center text-muted mb-0">© 2023 ACCL. All rights reserved.</p>
+            </div>
+        </div>
     </div>
 </footer>

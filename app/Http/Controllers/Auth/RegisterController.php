@@ -2,39 +2,94 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\User; // You need to create this User model
-use Illuminate\Auth\Events\Registered;
+use Log;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
-    public function showRegistrationForm()
+    use RegistersUsers;
+
+    protected $redirectTo = '/dashboard';
+
+    public function __construct()
     {
-        return view('auth.register');
+        $this->middleware('guest');
     }
 
-    public function register(Request $request)
+    protected function validator(array $data)
     {
-        $request->validate([
+        return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()], // Requires illuminate/validation
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'terms' => ['required', 'accepted'], // Changed to accepted
         ]);
+    }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // Hash the password
-        ]);
+    protected function create(array $data)
+    {
+        // Debug: Log the registration attempt
+        \Log::info('Creating user with data:', $data);
 
-        event(new Registered($user)); // Optional: Trigger registration event
+        try {
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'username' => $this->generateUsername($data['name']), // Add username field
+                'password' => Hash::make($data['password']),
+                'active' => 1,
+            ]);
 
-        Auth::login($user); // Log the user in immediately after registration
+            \Log::info('User created successfully with ID: ' . $user->id);
+            return $user;
+        } catch (\Exception $e) {
+            Log::error('User creation failed: ' . $e->getMessage());
+            throw $e;
+        }
+    }
 
-        return redirect(route('dashboard.index')); // Redirect to dashboard
+    // Generate username from name
+    private function generateUsername($name)
+    {
+        $username = strtolower(str_replace(' ', '', $name));
+        $counter = 1;
+        $originalUsername = $username;
+
+        while (User::where('username', $username)->exists()) {
+            $username = $originalUsername . $counter;
+            $counter++;
+        }
+
+        return $username;
+    }
+
+    // Override registered method to handle redirection
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        // Manually log in the user
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect($this->redirectPath());
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.auth', ['isRegister' => true]);
     }
 }
