@@ -12,9 +12,10 @@
                 <span class="menu-title">Mail Configure</span>
             </a>
         </div>
+        
         <div class="menu-section">
             <div class="section-title">CRM</div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('crmSubmenu')">
+            <a href="#" class="menu-item submenu-trigger" data-submenu="crmSubmenu">
                 <i class="fas fa-users menu-icon"></i>
                 <span class="menu-title">CRM</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -42,9 +43,12 @@
                 </a>
             </div>
         </div>
+        
         <div class="menu-section">
             <div class="section-title">Operations</div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('surveySubmenu')">
+            
+            <!-- Survey Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="surveySubmenu">
                 <i class="fas fa-poll menu-icon"></i>
                 <span class="menu-title">Survey</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -59,7 +63,9 @@
                     <span class="menu-title">Survey Reports</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('reportsSubmenu')">
+            
+            <!-- Reports Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Reports</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -82,7 +88,9 @@
                     <span class="menu-title">Ticket Reports</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('ticketSubmenu')">
+            
+            <!-- Ticket Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="ticketSubmenu">
                 <i class="fas fa-ticket-alt menu-icon"></i>
                 <span class="menu-title">Ticket</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -101,7 +109,9 @@
                     <span class="menu-title">Resolved History</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('leadSubmenu')">
+            
+            <!-- Lead Management Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="leadSubmenu">
                 <i class="fas fa-user-friends menu-icon"></i>
                 <span class="menu-title">Lead Management</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -116,7 +126,9 @@
                     <span class="menu-title">Reset Lead Data</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('campaignsSubmenu')">
+            
+            <!-- Campaigns Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="campaignsSubmenu">
                 <i class="fas fa-bullhorn menu-icon"></i>
                 <span class="menu-title">Campaigns</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -136,7 +148,9 @@
                     <span class="menu-title">Campaign Archive</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('faqSubmenu')">
+            
+            <!-- FAQ Management Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="faqSubmenu">
                 <i class="fas fa-question-circle menu-icon"></i>
                 <span class="menu-title">FAQ Management</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -155,7 +169,9 @@
                     <span class="menu-title">Categories</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('productSubmenu')">
+            
+            <!-- Product Features Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="productSubmenu">
                 <i class="fas fa-box menu-icon"></i>
                 <span class="menu-title">Product Features</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -174,7 +190,9 @@
                     <span class="menu-title">Feature Categories</span>
                 </a>
             </div>
-            <a href="#" class="menu-item" onclick="toggleSubmenu('smsSubmenu')">
+            
+            <!-- SMS Center Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="smsSubmenu">
                 <i class="fas fa-sms menu-icon"></i>
                 <span class="menu-title">SMS Center</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
@@ -185,7 +203,7 @@
                     <span class="menu-title">SMS Feature</span>
                 </a>
                 <a href="{{ route('sms.brochure') }}" class="menu-item {{ request()->routeIs('sms.brochure') ? 'active' : '' }}">
-                    <i class="fas fa-brochure menu-icon"></i>
+                    <i class="fas fa-newspaper menu-icon"></i>
                     <span class="menu-title">SMS Brochure</span>
                 </a>
                 <a href="{{ route('sms.templates') }}" class="menu-item {{ request()->routeIs('sms.templates') ? 'active' : '' }}">
@@ -200,3 +218,103 @@
         </div>
     </nav>
 </aside>
+
+<script>
+// Enhanced submenu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const submenuTriggers = document.querySelectorAll('.submenu-trigger');
+    
+    submenuTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            const submenuId = this.getAttribute('data-submenu');
+            const submenu = document.getElementById(submenuId);
+            const arrow = this.querySelector('.menu-arrow');
+            
+            if (submenu) {
+                // Close other submenus in the same section
+                const parentSection = this.closest('.menu-section');
+                const otherSubmenus = parentSection.querySelectorAll('.submenu');
+                const otherArrows = parentSection.querySelectorAll('.menu-arrow');
+                
+                otherSubmenus.forEach(otherSubmenu => {
+                    if (otherSubmenu !== submenu) {
+                        otherSubmenu.classList.remove('show');
+                    }
+                });
+                
+                otherArrows.forEach(otherArrow => {
+                    if (otherArrow !== arrow) {
+                        otherArrow.classList.remove('rotate');
+                    }
+                });
+                
+                // Toggle current submenu
+                submenu.classList.toggle('show');
+                arrow.classList.toggle('rotate');
+            }
+        });
+    });
+    
+    // Mobile menu functionality
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (mobileMenuToggle && sidebar) {
+        mobileMenuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('show');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992 && 
+                !sidebar.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+    }
+});
+</script>
+
+<style>
+/* Enhanced submenu styles */
+.menu-arrow {
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+.menu-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.submenu.show {
+    max-height: 500px;
+}
+
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+/* Active state improvements */
+.menu-item.active {
+    background-color: rgba(0, 126, 51, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left: 3px solid var(--primary-color);
+}
+</style>

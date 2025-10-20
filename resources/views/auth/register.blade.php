@@ -39,11 +39,14 @@
                 </div>
                 
                 <div class="remember-forgot">
-                    <label><input type="checkbox" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}> I agree to the Terms & Conditions</label>
-                    @error('terms')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
+                    <label>
+                        <input type="checkbox" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}> 
+                        I agree to the Terms & Conditions
+                    </label>
                 </div>
+                @error('terms')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 
                 <button type="submit" class="btn">Register</button>
                 

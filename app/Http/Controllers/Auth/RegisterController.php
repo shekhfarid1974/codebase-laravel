@@ -90,6 +90,6 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.auth', ['isRegister' => true]);
+        return view('auth.register', ['isRegister' => true]);
     }
 }

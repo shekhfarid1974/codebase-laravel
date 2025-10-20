@@ -101,6 +101,6 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.auth', ['isRegister' => false]);
+        return view('auth.login', ['isRegister' => false]);
     }
 }

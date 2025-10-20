@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -200,15 +201,15 @@
                 flex-direction: column;
                 max-width: 450px;
             }
-            
+
             .image-container {
                 min-height: 200px;
             }
-            
+
             .image-overlay h2 {
                 font-size: 1.8rem;
             }
-            
+
             .image-overlay p {
                 font-size: 1rem;
             }
@@ -221,6 +222,7 @@
         }
     </style>
 </head>
+
 <body>
     @yield('content')
 
@@ -231,67 +233,107 @@
         const showRegisterLink = document.getElementById('show-register');
         const showLoginLink = document.getElementById('show-login');
         const imageOverlay = document.querySelector('.image-overlay');
-        
+
+        // Function to show login form
+        function showLoginForm() {
+            if (loginForm && registerForm) {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            }
+            if (imageOverlay) {
+                imageOverlay.innerHTML = `
+                <h2>Hello, Friend!</h2>
+                <p>Enter your personal details and start your journey with us today</p>
+            `;
+            }
+            document.title = 'Login - ACCL';
+            // Update URL without reload
+            window.history.pushState({}, '', '{{ route('login') }}');
+        }
+
+        // Function to show register form
+        function showRegisterForm() {
+            if (loginForm && registerForm) {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+            }
+            if (imageOverlay) {
+                imageOverlay.innerHTML = `
+                <h2>Welcome Back!</h2>
+                <p>To keep connected with us please login with your personal info</p>
+            `;
+            }
+            document.title = 'Register - ACCL';
+            // Update URL without reload
+            window.history.pushState({}, '', '{{ route('register') }}');
+        }
+
         // Toggle to register form
         if (showRegisterLink) {
             showRegisterLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-                imageOverlay.innerHTML = `
-                    <h2>Welcome Back!</h2>
-                    <p>To keep connected with us please login with your personal info</p>
-                `;
-                document.title = 'Register';
+                showRegisterForm();
             });
         }
-        
+
         // Toggle to login form
         if (showLoginLink) {
             showLoginLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                registerForm.classList.add('hidden');
-                loginForm.classList.remove('hidden');
-                imageOverlay.innerHTML = `
-                    <h2>Hello, Friend!</h2>
-                    <p>Enter your personal details and start your journey with us today</p>
-                `;
-                document.title = 'Login';
+                showLoginForm();
             });
         }
-        
-        // Form submission handlers - REMOVED the preventDefault() that was blocking form submission
+
+        // Form submission handlers
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', (e) => {
-                // REMOVED: e.preventDefault(); // This was preventing form submission
-                
                 // Add loading state
                 const submitBtn = form.querySelector('.btn');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Please wait...';
-                submitBtn.classList.add('loading');
-                
-                // The form will now submit normally to your Laravel routes
+                if (submitBtn) {
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Please wait...';
+                    submitBtn.classList.add('loading');
+
+                    // Re-enable button after 5 seconds in case submission fails
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.classList.remove('loading');
+                    }, 5000);
+                }
             });
         });
 
-        // Check initial state based on which form should be visible
+        // Check initial state based on current URL
         document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const isRegister = window.location.pathname.includes('register');
-            
-            if (isRegister && loginForm && registerForm) {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-                if (imageOverlay) {
-                    imageOverlay.innerHTML = `
-                        <h2>Welcome Back!</h2>
-                        <p>To keep connected with us please login with your personal info</p>
-                    `;
-                }
-                document.title = 'Register';
+            const currentPath = window.location.pathname;
+            const isRegisterPage = currentPath === '/register' || currentPath === '{{ route('register') }}'.replace(
+                /^https?:\/\/[^\/]+/, '');
+
+            console.log('Current path:', currentPath);
+            console.log('Is register page:', isRegisterPage);
+
+            if (isRegisterPage) {
+                // Show register form if we're on the register URL
+                showRegisterForm();
+            } else {
+                // Default to login form
+                showLoginForm();
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            const currentPath = window.location.pathname;
+            const isRegisterPage = currentPath === '/register' || currentPath === '{{ route('register') }}'.replace(
+                /^https?:\/\/[^\/]+/, '');
+
+            if (isRegisterPage) {
+                showRegisterForm();
+            } else {
+                showLoginForm();
             }
         });
     </script>
 </body>
+
 </html>

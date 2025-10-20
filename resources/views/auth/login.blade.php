@@ -26,7 +26,7 @@
                 @enderror
                 
                 <div class="remember-forgot">
-                    <label><input type="checkbox" name="remember"> Remember me</label>
+                    <label><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me</label>
                 </div>
                 
                 <button type="submit" class="btn">Sign In</button>
