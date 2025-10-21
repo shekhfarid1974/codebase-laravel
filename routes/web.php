@@ -1,19 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CrmController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\TicketController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\LeadController;
-use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\FaqController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\CrmFormController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ProfileController;
 
 // Public routes
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -35,6 +36,12 @@ Route::middleware('auth')->group(function () {
 
     // Settings
     Route::get('/settings/mail', [SettingsController::class, 'mailConfigure'])->name('mail.configure');
+
+    // CRM Form Routes
+    Route::get('/crmform', [CrmFormController::class, 'create'])->name('crmform.create');
+    Route::post('/crmform/store', [CrmFormController::class, 'store'])->name('crmform.store');
+    Route::get('/crmform/data', [CrmFormController::class, 'getData'])->name('crmform.data');
+
 
     // CRM Routes
     Route::prefix('crm')->group(function () {
@@ -108,11 +115,11 @@ Route::middleware('auth')->group(function () {
     });
 
     // Temporary debug routes
-    Route::get('/debug-session', function() {
+    Route::get('/debug-session', function () {
         dd(session()->all());
     });
 
-    Route::get('/debug-user', function() {
+    Route::get('/debug-user', function () {
         dd(auth()->user());
     });
 });

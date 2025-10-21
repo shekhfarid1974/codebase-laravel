@@ -11,6 +11,12 @@
         <h2 class="page-title" id="pageTitle">@yield('page_title', 'Dashboard')</h2>
     </div>
     <div class="header-right">
+        <!-- CRM Form Button -->
+        <button class="crm-form-btn" id="crmFormBtn">
+            <i class="fas fa-plus-circle"></i>
+            CRM Form
+        </button>
+
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search...">
             <i class="fas fa-search search-icon"></i>
@@ -73,6 +79,7 @@
 
         const profileTrigger = document.getElementById('profileTrigger');
         const profileDropdown = document.getElementById('profileDropdown');
+        const crmFormBtn = document.getElementById('crmFormBtn');
 
         console.log('Profile Trigger:', profileTrigger); // Debug
         console.log('Profile Dropdown:', profileDropdown); // Debug
@@ -80,7 +87,6 @@
         // Profile dropdown toggle
         if (profileTrigger && profileDropdown) {
             profileTrigger.addEventListener('click', function(e) {
-                // Removed e.preventDefault(); - not typically needed for a div click handler
                 e
                     .stopPropagation(); // This prevents the outside click listener from immediately closing it
                 console.log('Profile trigger clicked'); // Debug
@@ -113,6 +119,19 @@
             console.error('Profile elements not found!');
         }
 
+        // CRM Form Button functionality
+        if (crmFormBtn) {
+            crmFormBtn.addEventListener('click', function() {
+                // Use your new CRM form URL
+                const crmUrl = '{{ url('/crmform') }}?phone_number=01521204476&agent=ShekhFarid';
+
+                console.log('Opening New CRM Form:', crmUrl);
+
+                // Open in NEW TAB
+                window.open(crmUrl, '_blank');
+            });
+        }
+
         // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const sidebar = document.querySelector('.sidebar');
@@ -138,6 +157,39 @@
 </script>
 
 <style>
+    /* CRM Form Button Styles */
+    .crm-form-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #007E33 0%, #00a041 100%);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-right: 15px;
+        box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
+    }
+
+    .crm-form-btn:hover {
+        background: linear-gradient(135deg, #006627 0%, #008533 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 126, 51, 0.3);
+    }
+
+    .crm-form-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
+    }
+
+    .crm-form-btn i {
+        font-size: 0.8rem;
+    }
+
     /* Profile dropdown styles that work with your existing CSS */
     .profile-dropdown {
         position: relative;
@@ -244,6 +296,21 @@
 
     /* Mobile responsiveness */
     @media (max-width: 768px) {
+        .crm-form-btn {
+            margin-right: 10px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        .crm-form-btn span {
+            display: none;
+        }
+
+        .crm-form-btn i {
+            margin-right: 0;
+            font-size: 0.9rem;
+        }
+
         .profile-name {
             display: none;
         }
@@ -263,6 +330,11 @@
     }
 
     @media (max-width: 576px) {
+        .crm-form-btn {
+            margin-right: 5px;
+            padding: 6px 8px;
+        }
+
         .notification-icon {
             margin-right: 10px;
         }
