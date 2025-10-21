@@ -82,7 +82,7 @@
             profileTrigger.addEventListener('click', function(e) {
                 // Removed e.preventDefault(); - not typically needed for a div click handler
                 e
-            .stopPropagation(); // This prevents the outside click listener from immediately closing it
+                    .stopPropagation(); // This prevents the outside click listener from immediately closing it
                 console.log('Profile trigger clicked'); // Debug
                 // Explicitly add the 'show' class. If it's already there, it won't add it again.
                 // If it's not, it will add it.

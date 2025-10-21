@@ -1038,7 +1038,8 @@
                         datasets: [{
                             label: 'Customers',
                             data: [6500, 6800, 7200, 7600, 7900, 8100, 8150, 8200,
-                            8247], // Fixed: removed the extra bracket
+                                8247
+                            ], // Fixed: removed the extra bracket
                             borderColor: '#007E33',
                             backgroundColor: 'rgba(0, 126, 51, 0.1)',
                             borderWidth: 2,
