@@ -5,43 +5,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Simple Clean Design */
+        /* Design to match the screenshot */
         :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --success: #10b981;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --success: #28a745;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --border-radius: 4px;
+        }
+
+        /* Apply border-box to all elements */
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9fafb;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
             color: var(--gray-800);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 14px;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 15px;
         }
 
         /* Header */
         .header {
             background: white;
-            border-bottom: 1px solid var(--gray-200);
-            padding: 1.5rem 0;
-            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-300);
+            padding: 15px 0;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
         }
 
         .header-content {
@@ -51,19 +60,20 @@
         }
 
         .header h1 {
-            font-size: 1.75rem;
+            font-size: 22px;
             font-weight: 600;
-            color: var(--gray-800);
+            color: var(--gray-900);
             margin: 0;
         }
 
         .agent-info {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 8px;
             background: var(--gray-100);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+            padding: 6px 12px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
         }
 
         .agent-info i {
@@ -73,50 +83,58 @@
         /* Cards */
         .card {
             background: white;
-            border-radius: 0.5rem;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
             overflow: hidden;
+            border: 1px solid var(--gray-200);
         }
 
         .card-header {
-            background: var(--gray-100);
-            padding: 1rem 1.5rem;
+            background: white;
+            padding: 15px;
             border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .card-title {
-            font-size: 1.125rem;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--gray-700);
+            color: var(--gray-800);
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
 
         .card-body {
-            padding: 1.5rem;
+            padding: 15px;
         }
 
         /* Category Tabs */
         .category-tabs {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 5px;
+            margin-bottom: 20px;
             border-bottom: 1px solid var(--gray-200);
-            padding-bottom: 1rem;
+            padding-bottom: 10px;
         }
 
         .category-tab {
-            padding: 0.5rem 1rem;
+            padding: 8px 15px;
             background: transparent;
             border: 1px solid var(--gray-300);
-            border-radius: 0.375rem;
-            color: var(--gray-600);
+            border-radius: var(--border-radius);
+            color: var(--gray-700);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
         }
 
         .category-tab:hover {
@@ -131,67 +149,70 @@
 
         /* Form Styles */
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
 
         .form-label {
             display: block;
             font-weight: 500;
             color: var(--gray-700);
-            margin-bottom: 0.25rem;
-            font-size: 0.875rem;
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
         .required::after {
             content: " *";
-            color: #ef4444;
+            color: #dc3545;
         }
 
         .form-control,
         .form-select {
             width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
+            padding: 8px 12px;
+            border: 1px solid var(--gray-400);
+            border-radius: var(--border-radius);
+            font-size: 14px;
             transition: border-color 0.2s;
+            height: 36px;
         }
 
         .form-control:focus,
         .form-select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.25);
         }
 
         .form-control[readonly] {
             background-color: var(--gray-100);
-            color: var(--gray-500);
+            color: var(--gray-600);
         }
 
         textarea.form-control {
             resize: vertical;
-            min-height: 80px;
+            min-height: 70px;
+            padding-top: 8px;
         }
 
-        /* Form Grid */
+        /* Form Grid - Updated to match image */
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
         /* Buttons */
         .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
             font-weight: 500;
             border: none;
             cursor: pointer;
             transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 6px;
+            font-size: 14px;
         }
 
         .btn-primary {
@@ -209,23 +230,24 @@
         }
 
         .btn-success:hover {
-            background: #059669;
+            background: #218838;
         }
 
         .btn-sm {
-            padding: 0.375rem 0.75rem;
-            font-size: 0.875rem;
+            padding: 6px 12px;
+            font-size: 13px;
         }
 
-        /* Tables */
+        /* Tables - Updated to match image */
         .table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 14px;
         }
 
         .table th,
         .table td {
-            padding: 0.75rem;
+            padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid var(--gray-200);
         }
@@ -234,43 +256,81 @@
             background: var(--gray-100);
             font-weight: 600;
             color: var(--gray-700);
-            font-size: 0.875rem;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .table tbody tr:hover {
-            background: var(--gray-100);
+            background: rgba(0, 102, 204, 0.05);
         }
 
         .table-responsive {
             overflow-x: auto;
         }
 
-        /* Search Box */
+        /* Action button with phone icon */
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px 8px;
+            border-radius: var(--border-radius);
+            transition: background-color 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: rgba(0, 102, 204, 0.1);
+        }
+
+        /* Search Box - Right Aligned */
+        .card-header {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .search-box {
             position: relative;
-            max-width: 300px;
+            width: 220px;
         }
 
         .search-box input {
-            padding-left: 2.5rem;
+            padding-left: 32px;
+            height: 36px;
+            font-size: 14px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-400);
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
         .search-box i {
             position: absolute;
-            left: 0.75rem;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--gray-400);
+            color: var(--gray-600);
+            font-size: 14px;
+            z-index: 1;
         }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.25);
+        }
+
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem 0;
-            color: var(--gray-500);
-            font-size: 0.875rem;
+            padding: 20px 0;
+            color: var(--gray-600);
+            font-size: 13px;
         }
 
         .footer a {
@@ -280,18 +340,44 @@
 
         /* Select2 Customization */
         .select2-container--default .select2-selection--single {
-            height: 2.25rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 0.375rem;
+            height: 36px;
+            border: 1px solid var(--gray-400);
+            border-radius: var(--border-radius);
         }
 
         .select2-container--default .select2-selection--single .select2-selection__rendered {
-            padding-left: 0.75rem;
-            line-height: 2.25rem;
+            padding-left: 12px;
+            line-height: 34px;
+            font-size: 14px;
         }
 
         .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 2.25rem;
+            height: 34px;
+        }
+
+        .select2-container--default .select2-selection--multiple {
+            height: auto;
+            min-height: 36px;
+            border: 1px solid var(--gray-400);
+            border-radius: var(--border-radius);
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+            padding: 2px 8px;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 6px;
+            margin: 3px 3px 3px 0;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            color: white;
+            margin-right: 4px;
         }
 
         /* Loader */
@@ -310,7 +396,7 @@
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 10px;
                 text-align: center;
             }
 
@@ -331,17 +417,14 @@
     <div class="container">
         <!-- Customer Form Card -->
         <div class="card">
-            <div class="card-header"
-                style="display: flex; justify-content: space-between; align-items: center; 
-            padding: 6px 12px; background-color: #f8f9fa; border-bottom: 1px solid #ddd;">
-
-                <h2 class="card-title" style="font-size: 16px; margin: 0; display: flex; align-items: center; gap: 6px;">
-                    <i class="fas fa-user-plus" style="font-size: 14px; color: #007bff;"></i>
+            <div class="card-header">
+                <h2 class="card-title">
+                    <i class="fas fa-user-plus"></i>
                     <span>Customer Information</span>
                 </h2>
 
-                <div class="agent-info" style="display: flex; align-items: center; gap: 6px; font-size: 14px; color: #555;">
-                    <i class="fas fa-user-tie" style="font-size: 13px; color: #28a745;"></i>
+                <div class="agent-info">
+                    <i class="fas fa-user-tie"></i>
                     @if (!empty($agent))
                         <span>Agent: {{ $agent }}</span>
                     @endif
@@ -376,13 +459,13 @@
                             <div class="form-group">
                                 <label class="form-label">Customer ID</label>
                                 <input type="text" readonly name="customer_id"
-                                    value="{{ $data->customer_id ?? 'NTR-001' }}" class="form-control">
+                                    value="{{ $data->customer_id ?? 'NTR - 001' }}" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label required">Name</label>
-                                <input type="text" name="name" value="{{ $data->name ?? '' }}" class="form-control"
-                                    placeholder="Enter full name">
+                                <input type="text" name="name" value="{{ $data->name ?? 'Tarek Test' }}"
+                                    class="form-control" placeholder="Enter full name">
                             </div>
 
                             <div class="form-group">
@@ -395,11 +478,11 @@
                                 <label class="form-label required">Gender</label>
                                 <select name="gender" id="gender" class="form-select select2-hide">
                                     <option value="">Select Gender</option>
-                                    @foreach (gender_options() as $key => $value)
+                                    {{-- @foreach (GENDER as $key => $value)
                                         <option value="{{ $key }}"
                                             @isset($data){{ $data->gender == $key ? 'selected' : '' }}@endisset>
                                             {{ $value }}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                             </div>
 
@@ -435,11 +518,21 @@
                                     class="form-control" placeholder="Land size in decimals">
                             </div>
 
+                            <!-- Other Crops -->
                             <div class="form-group">
                                 <label class="form-label">Other Crops</label>
-                                <input type="text" name="other_crop" value="{{ $data->other_crop ?? '' }}"
-                                    class="form-control" placeholder="Other crops grown">
+                                <select name="other_crop[]" multiple class="form-select select2-multiple">
+                                    <option value="Rice">Rice</option>
+                                    <option value="Wheat">Wheat</option>
+                                    <option value="Maize">Maize</option>
+                                    <option value="Jute">Jute</option>
+                                    <option value="Sugarcane">Sugarcane</option>
+                                    <option value="Potato">Potato</option>
+                                    <option value="Vegetables">Vegetables</option>
+                                    <option value="Fruits">Fruits</option>
+                                </select>
                             </div>
+
 
                             <div class="form-group">
                                 <label class="form-label">Problem/Query Type</label>
@@ -456,27 +549,46 @@
                                 <textarea name="verbatim" rows="2" class="form-control" placeholder="Any additional information"></textarea>
                             </div>
 
+                            <!-- Recommended Products -->
                             <div class="form-group">
-                                <label class="form-label">Recommended Solution</label>
-                                <textarea name="product_solution" rows="2" class="form-control"
-                                    placeholder="Products or solutions recommended"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Lead Status</label>
-                                <select name="lead_status[]" multiple class="form-select select2">
-                                    <option value="Interested">Interested</option>
-                                    <option value="Not Interested">Not Interested</option>
-                                    <option value="Callback">Callback</option>
+                                <label class="form-label">Recommended Products</label>
+                                <select name="product_solution[]" multiple class="form-select select2-multiple">
+                                    <option value="Fertilizer A">Fertilizer A</option>
+                                    <option value="Pesticide B">Pesticide B</option>
+                                    <option value="Herbicide C">Herbicide C</option>
+                                    <option value="Seed D">Seed D</option>
+                                    <option value="Equipment E">Equipment E</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
+                                <label class="form-label">Solution Details</label>
+                                <textarea name="product_solution_text" rows="2" class="form-control"
+                                    placeholder="Detailed solution information"></textarea>
+                            </div>
+
+                            <!-- Lead Status -->
+                            <div class="form-group">
+                                <label class="form-label">Lead Status</label>
+                                <select name="lead_status[]" multiple class="form-select select2-multiple">
+                                    <option value="Interested">Interested</option>
+                                    <option value="Not Interested">Not Interested</option>
+                                    <option value="Callback">Callback</option>
+                                    <option value="Hot Lead">Hot Lead</option>
+                                    <option value="Cold Lead">Cold Lead</option>
+                                </select>
+                            </div>
+
+                            <!-- Lead Source -->
+                            <div class="form-group">
                                 <label class="form-label">Lead Source</label>
-                                <select name="lead_source[]" multiple class="form-select select2">
+                                <select name="lead_source[]" multiple class="form-select select2-multiple">
                                     <option value="Farmer Meeting">Farmer Meeting</option>
                                     <option value="IFS">IFS</option>
                                     <option value="Website">Website</option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Referral">Referral</option>
+                                    <option value="Advertisement">Advertisement</option>
                                 </select>
                             </div>
 
@@ -501,25 +613,6 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Other Category Fields -->
-                    <div id="dealer_fields" class="category-fields d-none">
-                        <div class="text-center py-4 text-muted">
-                            <p>Dealer form fields will appear here.</p>
-                        </div>
-                    </div>
-
-                    <div id="retailer_fields" class="category-fields d-none">
-                        <div class="text-center py-4 text-muted">
-                            <p>Retailer form fields will appear here.</p>
-                        </div>
-                    </div>
-
-                    <div id="others_fields" class="category-fields d-none">
-                        <div class="text-center py-4 text-muted">
-                            <p>Other category fields will appear here.</p>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -534,8 +627,8 @@
                     </h2>
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" name="search_here" id="search_here"
-                            placeholder="Search...">
+                        <input type="text" class="form-control" name="search_interaction"
+                            placeholder="Search interaction...">
                     </div>
                 </div>
             </div>
@@ -553,7 +646,33 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <!-- Sample data to match the screenshot -->
+                            <tr>
+                                <td>1</td>
+                                <td>Tarek Test</td>
+                                <td>01712345678</td>
+                                <td>Crop disease issue</td>
+                                <td>Recommended pesticide solution</td>
+                                <td>
+                                    <button class="action-btn" title="Call">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>John Farmer</td>
+                                <td>01887654321</td>
+                                <td>Fertilizer inquiry</td>
+                                <td>Suggested organic fertilizer</td>
+                                <td>
+                                    <button class="action-btn" title="Call">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -569,8 +688,7 @@
                     </h2>
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="form-control" name="search_here" id="search_here"
-                            placeholder="Search...">
+                        <input type="text" class="form-control" name="search_faq" placeholder="Search FAQ...">
                     </div>
                 </div>
             </div>
@@ -586,12 +704,43 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <!-- Sample data -->
+                            <tr>
+                                <td>1</td>
+                                <td>How to treat rice blast disease?</td>
+                                <td>Disease Control</td>
+                                <td>
+                                    <button class="action-btn" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Best fertilizer for wheat cultivation?</td>
+                                <td>Fertilizer</td>
+                                <td>
+                                    <button class="action-btn" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; {{ date('Y') }} All rights reserved | Developed by Shekh Farid
+                <a href="https://myolbd.com" target="_blank">My Outsourcing Ltd</a>
+            </p>
+        </footer>
     </div>
+
+    {{-- @include('crm.update') --}}
 @endSection
 
 @push('scripts')
@@ -600,8 +749,19 @@
         $(document).ready(function() {
             // Initialize Select2
             $('.select2').select2({
-                placeholder: 'Select an option',
+                placeholder: 'Select options',
                 allowClear: true
+            });
+
+            // Initialize multiple select with better configuration
+            $('.select2-multiple').select2({
+                placeholder: 'Select options',
+                allowClear: true,
+                closeOnSelect: false
+            });
+
+            $('.select2-hide').select2({
+                minimumResultsForSearch: Infinity
             });
 
             $('.select2-hide').select2({
@@ -646,41 +806,35 @@
                 ordering: false,
                 paging: true,
                 ajax: {
-                    url: "{{ route('crmform.data') }}",
+                    url: "{{ route('crmform.store', ['phone_number' => $phone_number, 'agent' => $agent]) }}",
                     type: "GET",
                     dataType: "JSON",
                     data: function(d) {
-                        d._token = '{{ csrf_token() }}';
+                        d._token = _token;
                         d.search = $('input[name="search_here"]').val();
-                        d.agent = "{{ $agent ?? '' }}";
-                        d.phone_number = "{{ $phone_number ?? '' }}";
+                        d.agent = "{{ request()->get('agent') }}"
                     },
                 },
                 columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'DT_RowIndex'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'name'
                     },
                     {
-                        data: 'phone_number',
-                        name: 'phone_number'
+                        data: 'phone_number'
                     },
                     {
-                        data: 'problem',
-                        name: 'problem'
+                        data: 'problem'
                     },
                     {
-                        data: 'solution',
-                        name: 'solution'
+                        data: 'solution'
                     },
                     {
                         data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
+                        render: function(data, type, row) {
+                            return '<button class="action-btn" title="Call"><i class="fas fa-phone"></i></button>';
+                        }
                     }
                 ],
                 language: {
@@ -694,9 +848,62 @@
                 }
             });
 
-            // Search functionality
-            $(document).on('keyup keydown', '#search_here', function() {
+            // Initialize FAQ DataTable
+            let faqTable = $('#faq-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                searching: false,
+                order: [],
+                bInfo: false,
+                bFilter: false,
+                ordering: false,
+                paging: true,
+                ajax: {
+                    url: "{{ route('crmform.store') }}",
+                    type: "GET",
+                    dataType: "JSON",
+                    data: function(d) {
+                        d._token = '{{ csrf_token() }}';
+                        d.search = $('#faq-datatable').closest('.card').find(
+                            'input[name="search_here"]').val();
+                    },
+                },
+                columns: [{
+                        data: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'question'
+                    },
+                    {
+                        data: 'category'
+                    },
+                    {
+                        data: 'action',
+                        render: function(data, type, row) {
+                            return '<button class="action-btn" title="View"><i class="fas fa-eye"></i></button>';
+                        }
+                    }
+                ],
+                language: {
+                    emptyTable: '<div class="text-center py-4 text-muted">No FAQ records found</div>',
+                    infoEmpty: '',
+                    zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>',
+                    paginate: {
+                        previous: "Previous",
+                        next: "Next"
+                    }
+                }
+            });
+
+            // Search functionality for Interaction History
+            $('input[name="search_interaction"]').on('keyup', function() {
                 interactionTable.search($(this).val()).draw();
+            });
+
+            // Search functionality for FAQ
+            $('input[name="search_faq"]').on('keyup', function() {
+                faqTable.search($(this).val()).draw();
             });
 
             // Save functionality
