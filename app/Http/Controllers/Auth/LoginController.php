@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Log;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;

@@ -634,7 +634,7 @@
                         customerId: 'NTR - 001',
                         fields: [
                             { type: 'text', name: 'customer_id', label: 'Customer ID', readonly: true, value: 'NTR - 001', required: false },
-                            { type: 'text', name: 'name', label: 'Name', placeholder: 'Enter full name', value: 'Tarek Test', required: true },
+                            { type: 'text', name: 'name', label: 'Name', placeholder: 'Enter full name', value: 'Farid Test', required: true },
                             { type: 'text', name: 'phone_number', label: 'Mobile Number', readonly: true, value: '{{ $phone_number ?? '' }}', required: true },
                             { type: 'select', name: 'gender', label: 'Gender', options: ['', 'male', 'female', 'other'], optionLabels: ['Select Gender', 'Male', 'Female', 'Other'], required: true, select2Hide: true },
                             { type: 'select', name: 'district_id', label: 'District', options: ['', '1', '2', '3', '4', '5', '6', '7', '8'], optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'], required: false },
@@ -853,7 +853,7 @@
                     bInfo: true,
                     paging: true,
                     data: [
-                        [1, 'Tarek Test', '01712345678', 'Crop disease issue', 'Recommended pesticide solution', ''],
+                        [1, 'Farid Test', '01521204476', 'Crop disease issue', 'Recommended pesticide solution', ''],
                         [2, 'John Farmer', '01887654321', 'Fertilizer inquiry', 'Suggested organic fertilizer', ''],
                         [3, 'Mary Retailer', '01911223344', 'Product availability', 'Confirmed stock availability', ''],
                         [4, 'Robert Dealer', '01555666777', 'Pricing inquiry', 'Provided bulk pricing', '']
