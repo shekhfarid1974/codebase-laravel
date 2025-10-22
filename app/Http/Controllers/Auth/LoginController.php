@@ -99,8 +99,23 @@ class LoginController extends Controller
         ]);
     }
 
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
+
+
     public function showLoginForm()
     {
-        return view('auth.login', ['isRegister' => false]);
+        if (auth()->check()) {
+            return redirect()->route('dashboard');
+        }
+        return view('auth.login');
+        // return view('auth.login', ['isRegister' => false]);
     }
 }
