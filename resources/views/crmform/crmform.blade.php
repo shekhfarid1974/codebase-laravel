@@ -511,32 +511,20 @@
 
                     <!-- Category Tabs -->
                     <div class="category-tabs" role="tablist">
-                        <button type="button" class="category-tab active" 
-                                role="tab" 
-                                aria-selected="true"
-                                aria-controls="dynamic_fields"
-                                data-category="Farmer">
+                        <button type="button" class="category-tab active" role="tab" aria-selected="true"
+                            aria-controls="dynamic_fields" data-category="Farmer">
                             <i class="fas fa-tractor"></i> Farmer
                         </button>
-                        <button type="button" class="category-tab" 
-                                role="tab" 
-                                aria-selected="false"
-                                aria-controls="dynamic_fields"
-                                data-category="Dealer">
-                            <i class="fas fa-store"></i> Dealer
-                        </button>
-                        <button type="button" class="category-tab" 
-                                role="tab" 
-                                aria-selected="false"
-                                aria-controls="dynamic_fields"
-                                data-category="Retailer">
+                        <button type="button" class="category-tab" role="tab" aria-selected="false"
+                            aria-controls="dynamic_fields" data-category="Retailer">
                             <i class="fas fa-shopping-cart"></i> Retailer
                         </button>
-                        <button type="button" class="category-tab" 
-                                role="tab" 
-                                aria-selected="false"
-                                aria-controls="dynamic_fields"
-                                data-category="Others">
+                        <button type="button" class="category-tab" role="tab" aria-selected="false"
+                            aria-controls="dynamic_fields" data-category="Dealer">
+                            <i class="fas fa-store"></i> Dealer
+                        </button>
+                        <button type="button" class="category-tab" role="tab" aria-selected="false"
+                            aria-controls="dynamic_fields" data-category="Others">
                             <i class="fas fa-ellipsis-h"></i> Others
                         </button>
                     </div>
@@ -622,66 +610,523 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    
+
     <script>
         (function($) {
             'use strict';
-            
+
             // Configuration object
             const CONFIG = {
                 categoryFields: {
                     Farmer: {
                         customerId: 'NTR - 001',
-                        fields: [
-                            { type: 'text', name: 'customer_id', label: 'Customer ID', readonly: true, value: 'NTR - 001', required: false },
-                            { type: 'text', name: 'name', label: 'Name', placeholder: 'Enter full name', value: 'Farid Test', required: true },
-                            { type: 'text', name: 'phone_number', label: 'Mobile Number', readonly: true, value: '{{ $phone_number ?? '' }}', required: true },
-                            { type: 'select', name: 'gender', label: 'Gender', options: ['', 'male', 'female', 'other'], optionLabels: ['Select Gender', 'Male', 'Female', 'Other'], required: true, select2Hide: true },
-                            { type: 'select', name: 'district_id', label: 'District', options: ['', '1', '2', '3', '4', '5', '6', '7', '8'], optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'], required: false },
-                            { type: 'select', name: 'upazila_id', label: 'Upazila', options: [''], optionLabels: ['Select Upazila'], required: false },
-                            { type: 'text', name: 'village', label: 'Village/Area', placeholder: 'Enter village name', required: false },
-                            { type: 'text', name: 'targeted_crop', label: 'Targeted Crop', placeholder: 'e.g. Rice, Wheat', required: false },
-                            { type: 'text', name: 'land_size', label: 'Land Size (Decimal)', placeholder: 'Land size in decimals', required: false },
-                            { type: 'select-multiple', name: 'other_crop[]', label: 'Other Crops', options: ['Rice', 'Wheat', 'Maize', 'Jute', 'Sugarcane', 'Potato', 'Vegetables', 'Fruits'], required: false },
-                            { type: 'textarea', name: 'q_type', label: 'Problem/Query Type', placeholder: 'Describe the problem', rows: 2, required: false },
-                            { type: 'textarea', name: 'interested_query', label: 'Customer Interests', placeholder: 'Customer\'s interests', rows: 2, required: false },
-                            { type: 'textarea', name: 'verbatim', label: 'Additional Details', placeholder: 'Any additional information', rows: 2, required: false },
-                            { type: 'select-multiple', name: 'product_solution[]', label: 'Recommended Products', options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D', 'Equipment E'], required: false },
-                            { type: 'textarea', name: 'product_solution_text', label: 'Solution Details', placeholder: 'Detailed solution information', rows: 2, required: false },
-                            { type: 'select-multiple', name: 'lead_status[]', label: 'Lead Status', options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'], required: false },
-                            { type: 'select-multiple', name: 'lead_source[]', label: 'Lead Source', options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral', 'Advertisement'], required: false },
-                            { type: 'select', name: 'existing_customer', label: 'Existing Customer', options: ['Yes', 'No'], optionLabels: ['Yes', 'No'], value: 'No', required: false, select2Hide: true },
-                            { type: 'text', name: 'registration_date', label: 'Registration Date', readonly: true, value: '{{ now()->format('Y-m-d') }}', required: false }
-                        ]
-                    },
-                    Dealer: {
-                        customerId: 'DLR - 001',
-                        fields: [
-                            { type: 'text', name: 'customer_id', label: 'Customer ID', readonly: true, value: 'DLR - 001', required: false },
-                            { type: 'text', name: 'business_name', label: 'Business Name', placeholder: 'Enter business name', value: 'ABC Agro Store', required: true },
-                            { type: 'text', name: 'owner_name', label: 'Owner Name', placeholder: 'Enter owner name', value: 'John Smith', required: true },
-                            { type: 'text', name: 'phone_number', label: 'Mobile Number', readonly: true, value: '{{ $phone_number ?? '' }}', required: true },
-                            { type: 'select', name: 'business_type', label: 'Business Type', options: ['', 'Wholesale', 'Retail', 'Both'], optionLabels: ['Select Business Type', 'Wholesale', 'Retail', 'Both'], required: false },
-                            { type: 'text', name: 'business_address', label: 'Business Address', placeholder: 'Enter business address', required: false },
-                            { type: 'select', name: 'district_id', label: 'District', options: ['', '1', '2', '3', '4', '5', '6', '7', '8'], optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'], required: false }
+                        fields: [{
+                                type: 'text',
+                                name: 'customer_id',
+                                label: 'Customer ID',
+                                readonly: true,
+                                value: 'NTR - 001',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'name',
+                                label: 'Name',
+                                placeholder: 'Enter full name',
+                                value: 'Farid Test',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'phone_number',
+                                label: 'Mobile Number',
+                                readonly: true,
+                                value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'gender',
+                                label: 'Gender',
+                                options: ['', 'male', 'female', 'other'],
+                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                required: true,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'district_id',
+                                label: 'District',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'upazila_id',
+                                label: 'Upazila',
+                                options: [''],
+                                optionLabels: ['Select Upazila'],
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'village',
+                                label: 'Village/Area',
+                                placeholder: 'Enter village name',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'targeted_crop',
+                                label: 'Targeted Crop',
+                                placeholder: 'e.g. Rice, Wheat',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'land_size',
+                                label: 'Land Size (Decimal)',
+                                placeholder: 'Land size in decimals',
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'other_crop[]',
+                                label: 'Other Crops',
+                                options: ['Rice', 'Wheat', 'Maize', 'Jute', 'Sugarcane', 'Potato', 'Vegetables',
+                                    'Fruits'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'q_type',
+                                label: 'Problem/Query Type',
+                                placeholder: 'Describe the problem',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'interested_query',
+                                label: 'Customer Interests',
+                                placeholder: 'Customer\'s interests',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'verbatim',
+                                label: 'Additional Details',
+                                placeholder: 'Any additional information',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'product_solution[]',
+                                label: 'Recommended Products',
+                                options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D',
+                                    'Equipment E'],
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'product_solution_text',
+                                label: 'Solution Details',
+                                placeholder: 'Detailed solution information',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_status[]',
+                                label: 'Lead Status',
+                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_source[]',
+                                label: 'Lead Source',
+                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
+                                    'Advertisement'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'existing_customer',
+                                label: 'Existing Customer',
+                                options: ['Yes', 'No'],
+                                optionLabels: ['Yes', 'No'],
+                                value: 'No',
+                                required: false,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'registration_date',
+                                label: 'Registration Date',
+                                readonly: true,
+                                value: '{{ now()->format('Y-m-d') }}',
+                                required: false
+                            }
                         ]
                     },
                     Retailer: {
                         customerId: 'RTL - 001',
-                        fields: [
-                            { type: 'text', name: 'customer_id', label: 'Customer ID', readonly: true, value: 'RTL - 001', required: false },
-                            { type: 'text', name: 'shop_name', label: 'Shop Name', placeholder: 'Enter shop name', required: true },
-                            { type: 'text', name: 'owner_name', label: 'Owner Name', placeholder: 'Enter owner name', required: true },
-                            { type: 'text', name: 'phone_number', label: 'Mobile Number', readonly: true, value: '{{ $phone_number ?? '' }}', required: true }
+                        fields: [{
+                                type: 'text',
+                                name: 'customer_id',
+                                label: 'Customer ID',
+                                readonly: true,
+                                value: 'RTL - 001',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'owner_name',
+                                label: 'Owner Name',
+                                placeholder: 'Enter owner name',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'phone_number',
+                                label: 'Mobile Number',
+                                readonly: true,
+                                value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'gender',
+                                label: 'Gender',
+                                options: ['', 'male', 'female', 'other'],
+                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                required: true,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'district_id',
+                                label: 'District',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'upazila_id',
+                                label: 'Upazila',
+                                options: [''],
+                                optionLabels: ['Select Upazila'],
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'village',
+                                label: 'Village/Area',
+                                placeholder: 'Enter village name',
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'interested_query',
+                                label: 'Customer Interests',
+                                placeholder: 'Customer\'s interests',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'product_solution[]',
+                                label: 'Recommended Products',
+                                options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D',
+                                    'Equipment E'],
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'verbatim',
+                                label: 'Additional Details',
+                                placeholder: 'Any additional information',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_status[]',
+                                label: 'Lead Status',
+                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_source[]',
+                                label: 'Lead Source',
+                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
+                                    'Advertisement'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'existing_customer',
+                                label: 'Existing Customer',
+                                options: ['Yes', 'No'],
+                                optionLabels: ['Yes', 'No'],
+                                value: 'No',
+                                required: false,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'registration_date',
+                                label: 'Registration Date',
+                                readonly: true,
+                                value: '{{ now()->format('Y-m-d') }}',
+                                required: false
+                            }
+                        ]
+                    },
+                    Dealer: {
+                        customerId: 'DLR - 001',
+                        fields: [{
+                                type: 'text',
+                                name: 'customer_id',
+                                label: 'Customer ID',
+                                readonly: true,
+                                value: 'DLR - 001',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'owner_name',
+                                label: 'Owner Name',
+                                placeholder: 'Enter owner name',
+                                value: 'John Smith',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'phone_number',
+                                label: 'Mobile Number',
+                                readonly: true,
+                                value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'gender',
+                                label: 'Gender',
+                                options: ['', 'male', 'female', 'other'],
+                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                required: true,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'district_id',
+                                label: 'District',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'upazila_id',
+                                label: 'Upazila',
+                                options: [''],
+                                optionLabels: ['Select Upazila'],
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'village',
+                                label: 'Village/Area',
+                                placeholder: 'Enter village name',
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'interested_query',
+                                label: 'Customer Interests',
+                                placeholder: 'Customer\'s interests',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'verbatim',
+                                label: 'Additional Details',
+                                placeholder: 'Any additional information',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_status[]',
+                                label: 'Lead Status',
+                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_source[]',
+                                label: 'Lead Source',
+                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
+                                    'Advertisement'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'existing_customer',
+                                label: 'Existing Customer',
+                                options: ['Yes', 'No'],
+                                optionLabels: ['Yes', 'No'],
+                                value: 'No',
+                                required: false,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'registration_date',
+                                label: 'Registration Date',
+                                readonly: true,
+                                value: '{{ now()->format('Y-m-d') }}',
+                                required: false
+                            }
                         ]
                     },
                     Others: {
                         customerId: 'OTH - 001',
-                        fields: [
-                            { type: 'text', name: 'customer_id', label: 'Customer ID', readonly: true, value: 'OTH - 001', required: false },
-                            { type: 'text', name: 'name', label: 'Name', placeholder: 'Enter full name', required: true },
-                            { type: 'text', name: 'phone_number', label: 'Mobile Number', readonly: true, value: '{{ $phone_number ?? '' }}', required: true },
-                            { type: 'select', name: 'customer_type', label: 'Customer Type', options: ['', 'Researcher', 'Student', 'Government', 'NGO'], optionLabels: ['Select Customer Type', 'Researcher', 'Student', 'Government', 'NGO'], required: false }
+                        fields: [{
+                                type: 'text',
+                                name: 'customer_id',
+                                label: 'Customer ID',
+                                readonly: true,
+                                value: 'OTH - 001',
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'name',
+                                label: 'Name',
+                                placeholder: 'Enter full name',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'phone_number',
+                                label: 'Mobile Number',
+                                readonly: true,
+                                value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'gender',
+                                label: 'Gender',
+                                options: ['', 'male', 'female', 'other'],
+                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                required: true,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'district_id',
+                                label: 'District',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'upazila_id',
+                                label: 'Upazila',
+                                options: [''],
+                                optionLabels: ['Select Upazila'],
+                                required: false
+                            },
+                            {
+                                type: 'text',
+                                name: 'village',
+                                label: 'Village/Area',
+                                placeholder: 'Enter village name',
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'interested_query',
+                                label: 'Customer Interests',
+                                placeholder: 'Customer\'s interests',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'verbatim',
+                                label: 'Additional Details',
+                                placeholder: 'Any additional information',
+                                rows: 2,
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'customer_type',
+                                label: 'Customer Type',
+                                options: ['', 'Researcher', 'Student', 'Government', 'NGO'],
+                                optionLabels: ['Select Customer Type', 'Researcher', 'Student', 'Government',
+                                    'NGO'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_status[]',
+                                label: 'Lead Status',
+                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
+                                required: false
+                            },
+                            {
+                                type: 'select-multiple',
+                                name: 'lead_source[]',
+                                label: 'Lead Source',
+                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
+                                    'Advertisement'
+                                ],
+                                required: false
+                            },
+                            {
+                                type: 'select',
+                                name: 'existing_customer',
+                                label: 'Existing Customer',
+                                options: ['Yes', 'No'],
+                                optionLabels: ['Yes', 'No'],
+                                value: 'No',
+                                required: false,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'registration_date',
+                                label: 'Registration Date',
+                                readonly: true,
+                                value: '{{ now()->format('Y-m-d') }}',
+                                required: false
+                            }
                         ]
                     }
                 }
@@ -711,15 +1156,16 @@
                         placeholder: 'Select options',
                         allowClear: true
                     };
-                    
-                    if ($el.hasClass('select2-hide') || $el.attr('name') === 'gender' || $el.attr('name') === 'existing_customer') {
+
+                    if ($el.hasClass('select2-hide') || $el.attr('name') === 'gender' || $el.attr('name') ===
+                        'existing_customer') {
                         config.minimumResultsForSearch = Infinity;
                     }
-                    
+
                     if ($el.attr('multiple') || $el.hasClass('select2-multiple')) {
                         config.closeOnSelect = false;
                     }
-                    
+
                     $el.select2(config);
                 });
             }
@@ -727,7 +1173,7 @@
             function initializeCategoryTabs() {
                 // Load initial category
                 loadCategoryFields('Farmer');
-                
+
                 // Tab click handler
                 $(document).on('click', '.category-tab', function() {
                     const category = $(this).data('category');
@@ -739,10 +1185,10 @@
                 // Update UI
                 $('.category-tab').removeClass('active').attr('aria-selected', 'false');
                 $tab.addClass('active').attr('aria-selected', 'true');
-                
+
                 // Update hidden field
                 $('#customer_category').val(category);
-                
+
                 // Load fields
                 loadCategoryFields(category);
             }
@@ -752,7 +1198,7 @@
                 if (!categoryConfig) return;
 
                 const fieldsHtml = generateFieldsHtml(categoryConfig.fields);
-                
+
                 $('#dynamic_fields').html(`
                     <div class="form-grid">
                         ${fieldsHtml}
@@ -774,7 +1220,7 @@
                     const requiredAttr = field.required ? 'required' : '';
                     const readonlyAttr = field.readonly ? 'readonly' : '';
                     const value = field.value || '';
-                    
+
                     let fieldHtml = `
                         <div class="form-group">
                             <label class="form-label ${requiredClass}">
@@ -795,7 +1241,7 @@
                                        ${requiredAttr}>
                             `;
                             break;
-                            
+
                         case 'textarea':
                             fieldHtml += `
                                 <textarea name="${field.name}" 
@@ -805,14 +1251,15 @@
                                           ${requiredAttr}>${value}</textarea>
                             `;
                             break;
-                            
+
                         case 'select':
                             const selectOptions = field.options.map((option, index) => {
-                                const optionLabel = field.optionLabels ? field.optionLabels[index] : option;
+                                const optionLabel = field.optionLabels ? field.optionLabels[index] :
+                                    option;
                                 const selected = option === value ? 'selected' : '';
                                 return `<option value="${option}" ${selected}>${optionLabel}</option>`;
                             }).join('');
-                            
+
                             fieldHtml += `
                                 <select name="${field.name}" 
                                         class="form-select ${field.select2Hide ? 'select2-hide' : ''}"
@@ -821,12 +1268,12 @@
                                 </select>
                             `;
                             break;
-                            
+
                         case 'select-multiple':
                             const multipleOptions = field.options.map(option => {
                                 return `<option value="${option}">${option}</option>`;
                             }).join('');
-                            
+
                             fieldHtml += `
                                 <select name="${field.name}" 
                                         multiple 
@@ -837,7 +1284,7 @@
                             `;
                             break;
                     }
-                    
+
                     fieldHtml += `</div>`;
                     return fieldHtml;
                 }).join('');
@@ -853,18 +1300,33 @@
                     bInfo: true,
                     paging: true,
                     data: [
-                        [1, 'Farid Test', '01521204476', 'Crop disease issue', 'Recommended pesticide solution', ''],
-                        [2, 'John Farmer', '01887654321', 'Fertilizer inquiry', 'Suggested organic fertilizer', ''],
-                        [3, 'Mary Retailer', '01911223344', 'Product availability', 'Confirmed stock availability', ''],
+                        [1, 'Farid Test', '01521204476', 'Crop disease issue',
+                            'Recommended pesticide solution', ''
+                        ],
+                        [2, 'John Farmer', '01887654321', 'Fertilizer inquiry',
+                            'Suggested organic fertilizer', ''
+                        ],
+                        [3, 'Mary Retailer', '01911223344', 'Product availability',
+                            'Confirmed stock availability', ''
+                        ],
                         [4, 'Robert Dealer', '01555666777', 'Pricing inquiry', 'Provided bulk pricing', '']
                     ],
-                    columns: [
-                        { title: 'SL' },
-                        { title: 'Name' },
-                        { title: 'Phone Number' },
-                        { title: 'Problem' },
-                        { title: 'Solution' },
-                        { 
+                    columns: [{
+                            title: 'SL'
+                        },
+                        {
+                            title: 'Name'
+                        },
+                        {
+                            title: 'Phone Number'
+                        },
+                        {
+                            title: 'Problem'
+                        },
+                        {
+                            title: 'Solution'
+                        },
+                        {
                             title: 'Action',
                             orderable: false,
                             searchable: false,
@@ -893,11 +1355,16 @@
                         [3, 'How to control aphids in vegetables?', 'Pest Control', ''],
                         [4, 'What is the ideal pH for soil?', 'Soil Health', '']
                     ],
-                    columns: [
-                        { title: 'SL' },
-                        { title: 'Question' },
-                        { title: 'Category' },
-                        { 
+                    columns: [{
+                            title: 'SL'
+                        },
+                        {
+                            title: 'Question'
+                        },
+                        {
+                            title: 'Category'
+                        },
+                        {
                             title: 'Action',
                             orderable: false,
                             searchable: false,
@@ -916,7 +1383,7 @@
             function initializeEventHandlers() {
                 // Save button handler
                 $(document).on('click', '#save-btn', handleSave);
-                
+
                 // District change handler
                 $(document).on('change', '[name="district_id"]', handleDistrictChange);
             }
@@ -938,14 +1405,16 @@
                     processData: false,
                     cache: false,
                     beforeSend: function() {
-                        $('#save-btn').html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop('disabled', true);
+                        $('#save-btn').html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop(
+                            'disabled', true);
                     },
                     complete: function() {
-                        $('#save-btn').html('<i class="fas fa-save"></i> Save Customer').prop('disabled', false);
+                        $('#save-btn').html('<i class="fas fa-save"></i> Save Customer').prop('disabled',
+                            false);
                     },
                     success: function(data) {
                         clearValidationErrors();
-                        
+
                         if (data.status == false) {
                             handleValidationErrors(data.errors);
                         } else {
@@ -968,16 +1437,16 @@
                 const category = $('#customer_category').val();
                 const requiredFields = $(`[required]`);
                 let isValid = true;
-                
+
                 clearValidationErrors();
-                
+
                 requiredFields.each(function() {
                     if (!$(this).val().trim()) {
                         $(this).addClass('is-invalid');
                         isValid = false;
                     }
                 });
-                
+
                 return isValid;
             }
 
@@ -996,10 +1465,10 @@
             function handleDistrictChange() {
                 const districtId = $(this).val();
                 const $upazilaSelect = $('[name="upazila_id"]');
-                
+
                 // Clear existing options
                 $upazilaSelect.empty().append('<option value="">Select Upazila</option>');
-                
+
                 if (districtId) {
                     // Simulate loading upazilas based on district
                     const upazilas = getUpazilasByDistrict(districtId);
@@ -1007,29 +1476,41 @@
                         $upazilaSelect.append(`<option value="${upazila.id}">${upazila.name}</option>`);
                     });
                 }
-                
+
                 $upazilaSelect.trigger('change');
             }
 
             function getUpazilasByDistrict(districtId) {
                 // Mock data - replace with actual API call
                 const upazilaData = {
-                    '1': [{id: '1', name: 'Dhaka North'}, {id: '2', name: 'Dhaka South'}],
-                    '2': [{id: '3', name: 'Chittagong City'}, {id: '4', name: 'Rangunia'}],
+                    '1': [{
+                        id: '1',
+                        name: 'Dhaka North'
+                    }, {
+                        id: '2',
+                        name: 'Dhaka South'
+                    }],
+                    '2': [{
+                        id: '3',
+                        name: 'Chittagong City'
+                    }, {
+                        id: '4',
+                        name: 'Rangunia'
+                    }],
                     // Add more districts as needed
                 };
-                
+
                 return upazilaData[districtId] || [];
             }
 
             function showLoader() {
                 const loader = $('#topbar-loader');
                 loader.removeClass('d-none');
-                
+
                 setTimeout(() => loader.css('width', '30%'), 100);
                 setTimeout(() => loader.css('width', '70%'), 500);
                 setTimeout(() => loader.css('width', '100%'), 800);
-                
+
                 $(window).on('load', function() {
                     setTimeout(() => loader.fadeOut(300), 400);
                 });
@@ -1038,10 +1519,10 @@
             function showNotification(type, message) {
                 // Remove existing notifications
                 $('.alert').remove();
-                
+
                 const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
                 const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-                
+
                 const alertDiv = $(`
                     <div class="alert ${alertClass} alert-dismissible">
                         <i class="fas ${icon}"></i>
@@ -1049,12 +1530,12 @@
                         <button type="button" class="btn-close">&times;</button>
                     </div>
                 `);
-                
+
                 $('body').append(alertDiv);
-                
+
                 // Auto remove after 5 seconds
                 setTimeout(() => alertDiv.fadeOut(300, () => alertDiv.remove()), 5000);
-                
+
                 // Close button handler
                 alertDiv.find('.btn-close').on('click', function() {
                     alertDiv.fadeOut(300, () => alertDiv.remove());
