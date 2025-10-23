@@ -730,7 +730,8 @@
                                 name: 'product_solution[]',
                                 label: 'Recommended Products',
                                 options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D',
-                                    'Equipment E'],
+                                    'Equipment E'
+                                ],
                                 required: false
                             },
                             {
@@ -849,7 +850,8 @@
                                 name: 'product_solution[]',
                                 label: 'Recommended Products',
                                 options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D',
-                                    'Equipment E'],
+                                    'Equipment E'
+                                ],
                                 required: false
                             },
                             {
