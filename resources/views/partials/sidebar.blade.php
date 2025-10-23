@@ -21,7 +21,7 @@
                 <span class="menu-title">CRM</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="crmSubmenu">
+            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
                 <a href="{{ route('crm.farmer') }}"
                     class="menu-item {{ request()->routeIs('crm.farmer') ? 'active' : '' }}">
                     <i class="fas fa-user-tie menu-icon"></i>
@@ -59,7 +59,7 @@
                 <span class="menu-title">Survey</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="surveySubmenu">
+            <div class="submenu {{ request()->routeIs('survey.*') ? 'show' : '' }}" id="surveySubmenu">
                 <a href="{{ route('survey.lead') }}"
                     class="menu-item {{ request()->routeIs('survey.lead') ? 'active' : '' }}">
                     <i class="fas fa-user-plus menu-icon"></i>
@@ -78,7 +78,7 @@
                 <span class="menu-title">Reports</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="reportsSubmenu">
+            <div class="submenu {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="reportsSubmenu">
                 <a href="{{ route('reports.crm') }}"
                     class="menu-item {{ request()->routeIs('reports.crm') ? 'active' : '' }}">
                     <i class="fas fa-users-cog menu-icon"></i>
@@ -107,7 +107,7 @@
                 <span class="menu-title">Ticket</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="ticketSubmenu">
+            <div class="submenu {{ request()->routeIs('tickets.*') ? 'show' : '' }}" id="ticketSubmenu">
                 <a href="{{ route('tickets.all') }}"
                     class="menu-item {{ request()->routeIs('tickets.all') ? 'active' : '' }}">
                     <i class="fas fa-list menu-icon"></i>
@@ -131,7 +131,7 @@
                 <span class="menu-title">Lead Management</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="leadSubmenu">
+            <div class="submenu {{ request()->routeIs('leads.*') ? 'show' : '' }}" id="leadSubmenu">
                 <a href="{{ route('leads.import') }}"
                     class="menu-item {{ request()->routeIs('leads.import') ? 'active' : '' }}">
                     <i class="fas fa-file-import menu-icon"></i>
@@ -150,7 +150,7 @@
                 <span class="menu-title">Campaigns</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="campaignsSubmenu">
+            <div class="submenu {{ request()->routeIs('campaigns.*') ? 'show' : '' }}" id="campaignsSubmenu">
                 <a href="{{ route('campaigns.active') }}"
                     class="menu-item {{ request()->routeIs('campaigns.active') ? 'active' : '' }}">
                     <i class="fas fa-play-circle menu-icon"></i>
@@ -175,7 +175,7 @@
                 <span class="menu-title">FAQ Management</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="faqSubmenu">
+            <div class="submenu {{ request()->routeIs('faqs.*') ? 'show' : '' }}" id="faqSubmenu">
                 <a href="{{ route('faqs.view') }}"
                     class="menu-item {{ request()->routeIs('faqs.view') ? 'active' : '' }}">
                     <i class="fas fa-list menu-icon"></i>
@@ -199,7 +199,7 @@
                 <span class="menu-title">Product Features</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="productSubmenu">
+            <div class="submenu {{ request()->routeIs('products.*') ? 'show' : '' }}" id="productSubmenu">
                 <a href="{{ route('products.list') }}"
                     class="menu-item {{ request()->routeIs('products.list') ? 'active' : '' }}">
                     <i class="fas fa-list menu-icon"></i>
@@ -223,7 +223,7 @@
                 <span class="menu-title">SMS Center</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu" id="smsSubmenu">
+            <div class="submenu {{ request()->routeIs('sms.*') ? 'show' : '' }}" id="smsSubmenu">
                 <a href="{{ route('sms.feature') }}"
                     class="menu-item {{ request()->routeIs('sms.feature') ? 'active' : '' }}">
                     <i class="fas fa-comment-alt menu-icon"></i>
