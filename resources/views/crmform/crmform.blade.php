@@ -661,7 +661,7 @@
                                 optionLabels: ['Select District', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
                                     'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
                                 ],
-                                required: false
+                                required: true
                             },
                             {
                                 type: 'select',
@@ -669,20 +669,20 @@
                                 label: 'Upazila',
                                 options: [''],
                                 optionLabels: ['Select Upazila'],
-                                required: false
+                                required: true
                             },
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Village/Area',
+                                label: 'Union/Village',
                                 placeholder: 'Enter village name',
-                                required: false
+                                required: true
                             },
                             {
-                                type: 'text',
-                                name: 'targeted_crop',
+                                type: 'select-multiple',
+                                name: 'targeted_crop[]',
                                 label: 'Targeted Crop',
-                                placeholder: 'e.g. Rice, Wheat',
+                                options: ['Rice', 'Maize', 'Onion', 'Brinjal'],
                                 required: false
                             },
                             {
@@ -833,7 +833,7 @@
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Village/Area',
+                                label: 'Union/Village',
                                 placeholder: 'Enter village name',
                                 required: false
                             },
@@ -954,7 +954,7 @@
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Village/Area',
+                                label: 'Union/Village',
                                 placeholder: 'Enter village name',
                                 required: false
                             },
@@ -1065,7 +1065,7 @@
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Village/Area',
+                                label: 'Union/Village',
                                 placeholder: 'Enter village name',
                                 required: false
                             },
