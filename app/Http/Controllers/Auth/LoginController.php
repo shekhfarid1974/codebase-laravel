@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -34,6 +34,7 @@ class LoginController extends Controller
             $this->hasTooManyLoginAttempts($request)
         ) {
             $this->fireLockoutEvent($request);
+
             return $this->sendLockoutResponse($request);
         }
 
@@ -42,6 +43,7 @@ class LoginController extends Controller
         }
 
         $this->incrementLoginAttempts($request);
+
         return $this->sendFailedLoginResponse($request);
     }
 
@@ -67,7 +69,7 @@ class LoginController extends Controller
         $credentials = [
             $field => $login,
             'password' => $password,
-            'active' => 1
+            'active' => 1,
         ];
 
         return $this->guard()->attempt(
@@ -109,12 +111,12 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-
     public function showLoginForm()
     {
         if (auth()->check()) {
             return redirect()->route('dashboard');
         }
+
         return view('auth.login');
         // return view('auth.login', ['isRegister' => false]);
     }

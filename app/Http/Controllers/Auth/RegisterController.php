@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-
-use Illuminate\Support\Facades\Log;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\Auth\Authenticatable;
+// use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -29,30 +29,23 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'terms' => ['required', 'accepted'], // Changed to accepted
+            'terms' => ['required', 'accepted'],
         ]);
     }
 
     protected function create(array $data)
     {
-        // Debug: Log the registration attempt
-        \Log::info('Creating user with data:', $data);
 
-        try {
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'username' => $this->generateUsername($data['name']), // Add username field
-                'password' => Hash::make($data['password']),
-                'active' => 1,
-            ]);
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $this->generateUsername($data['name']),
+            'password' => Hash::make($data['password']),
+            'active' => 1,
+        ]);
 
-            \Log::info('User created successfully with ID: ' . $user->id);
-            return $user;
-        } catch (\Exception $e) {
-            Log::error('User creation failed: ' . $e->getMessage());
-            throw $e;
-        }
+        return $user;
+
     }
 
     // Generate username from name
@@ -63,7 +56,7 @@ class RegisterController extends Controller
         $originalUsername = $username;
 
         while (User::where('username', $username)->exists()) {
-            $username = $originalUsername . $counter;
+            $username = $originalUsername.$counter;
             $counter++;
         }
 
