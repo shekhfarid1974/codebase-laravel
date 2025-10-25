@@ -16,7 +16,7 @@
                 @error('login')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password" required>
@@ -24,13 +24,14 @@
                 @error('password')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <div class="remember-forgot">
-                    <label><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me</label>
+                    <label><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember
+                        me</label>
                 </div>
-                
+
                 <button type="submit" class="btn">Sign In</button>
-                
+
                 <div class="toggle-container">
                     <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>
                 </div>

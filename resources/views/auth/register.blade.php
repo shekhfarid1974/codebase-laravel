@@ -16,7 +16,7 @@
                 @error('name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <div class="input-group">
                     <i class="fas fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email Address" required value="{{ old('email') }}">
@@ -24,7 +24,7 @@
                 @error('email')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password" required>
@@ -32,24 +32,24 @@
                 @error('password')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
                 </div>
-                
+
                 <div class="remember-forgot">
                     <label>
-                        <input type="checkbox" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}> 
+                        <input type="checkbox" name="terms" value="1" {{ old('terms') ? 'checked' : '' }}>
                         I agree to the Terms & Conditions
                     </label>
                 </div>
                 @error('terms')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <button type="submit" class="btn">Register</button>
-                
+
                 <div class="toggle-container">
                     <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
                 </div>

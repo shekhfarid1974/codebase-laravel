@@ -10,7 +10,7 @@ class CrmFormController extends Controller
     {
         $phone_number = $request->get('phone_number', '01521204476');
         $agent = $request->get('agent', 'ShekhFarid');
-        
+
         return view('crmform.crmform', [
             'phone_number' => $phone_number,
             'agent' => $agent,
@@ -25,7 +25,7 @@ class CrmFormController extends Controller
         // For now, just return success
         return response()->json([
             'status' => 'success',
-            'message' => 'Customer information saved successfully!'
+            'message' => 'Customer information saved successfully!',
         ]);
     }
 
@@ -35,7 +35,7 @@ class CrmFormController extends Controller
         return response()->json([
             'data' => [],
             'recordsTotal' => 0,
-            'recordsFiltered' => 0
+            'recordsFiltered' => 0,
         ]);
     }
 }
