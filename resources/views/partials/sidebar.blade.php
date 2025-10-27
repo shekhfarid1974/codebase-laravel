@@ -15,6 +15,29 @@
         </div>
 
         <div class="menu-section">
+            <div class="section-title">CRM FORMS</div>
+
+            <!-- CRM FORM Submenu - Fixed structure -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="crmFormSubmenu">
+                <i class="fas fa-user-plus menu-icon"></i>
+                <span class="menu-title">CRM FORM</span>
+                <i class="fas fa-chevron-down menu-arrow"></i>
+            </a>
+            <div class="submenu {{ request()->routeIs('crmform.*') ? 'show' : '' }}" id="crmFormSubmenu">
+                <a href="{{ route('crmform.create', ['type' => 'inbound']) }}"
+                    class="menu-item {{ request()->is('crmform/create/inbound') ? 'active' : '' }}">
+                    <i class="fas fa-phone-volume menu-icon"></i>
+                    <span class="menu-title">Inbound Form</span>
+                </a>
+                <a href="{{ route('crmform.create', ['type' => 'outbound']) }}"
+                    class="menu-item {{ request()->is('crmform/create/outbound') ? 'active' : '' }}">
+                    <i class="fas fa-phone menu-icon"></i>
+                    <span class="menu-title">Outbound Form</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="menu-section">
             <div class="section-title">CRM</div>
             <a href="#" class="menu-item submenu-trigger" data-submenu="crmSubmenu">
                 <i class="fas fa-users menu-icon"></i>
