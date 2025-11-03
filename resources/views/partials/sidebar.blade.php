@@ -7,11 +7,11 @@
                 <i class="fas fa-tachometer-alt menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
-            <a href="{{ route('mail.configure') }}"
+            {{-- <a href="{{ route('mail.configure') }}"
                 class="menu-item {{ request()->routeIs('mail.configure') ? 'active' : '' }}">
                 <i class="fas fa-envelope menu-icon"></i>
                 <span class="menu-title">Mail Configure</span>
-            </a>
+            </a> --}}
         </div>
 
         <div class="menu-section">
@@ -29,15 +29,15 @@
                     <i class="fas fa-phone-volume menu-icon"></i>
                     <span class="menu-title">Inbound Form</span>
                 </a>
-                <a href="{{ route('crmform.create', ['type' => 'outbound']) }}"
+                {{-- <a href="{{ route('crmform.create', ['type' => 'outbound']) }}"
                     class="menu-item {{ request()->is('crmform/create/outbound') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
                     <span class="menu-title">Outbound Form</span>
-                </a>
+                </a> --}}
             </div>
         </div>
 
-        <div class="menu-section">
+        {{-- <div class="menu-section">
             <div class="section-title">CRM</div>
             <a href="#" class="menu-item submenu-trigger" data-submenu="crmSubmenu">
                 <i class="fas fa-users menu-icon"></i>
@@ -71,12 +71,12 @@
                     <span class="menu-title">Campaign CRM</span>
                 </a>
             </div>
-        </div>
+        </div> --}}
 
         <div class="menu-section">
             <div class="section-title">Operations</div>
 
-            <!-- Survey Submenu -->
+            {{-- <!-- Survey Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="surveySubmenu">
                 <i class="fas fa-poll menu-icon"></i>
                 <span class="menu-title">Survey</span>
@@ -93,9 +93,9 @@
                     <i class="fas fa-chart-pie menu-icon"></i>
                     <span class="menu-title">Survey Reports</span>
                 </a>
-            </div>
+            </div> --}}
 
-            <!-- Reports Submenu -->
+            {{-- <!-- Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Reports</span>
@@ -190,7 +190,7 @@
                     <i class="fas fa-archive menu-icon"></i>
                     <span class="menu-title">Campaign Archive</span>
                 </a>
-            </div>
+            </div> --}}
 
             <!-- FAQ Management Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="faqSubmenu">
@@ -216,7 +216,7 @@
                 </a>
             </div>
 
-            <!-- Product Features Submenu -->
+            {{-- <!-- Product Features Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="productSubmenu">
                 <i class="fas fa-box menu-icon"></i>
                 <span class="menu-title">Product Features</span>
@@ -267,7 +267,7 @@
                     <i class="fas fa-paper-plane menu-icon"></i>
                     <span class="menu-title">Send Bulk SMS</span>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </nav>
 </aside>

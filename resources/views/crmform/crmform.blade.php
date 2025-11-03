@@ -619,13 +619,13 @@
             const CONFIG = {
                 categoryFields: {
                     Farmer: {
-                        customerId: 'NTR - 001',
+                        customerId: 'FMR - 001',
                         fields: [{
                                 type: 'text',
                                 name: 'customer_id',
                                 label: 'Customer ID',
                                 readonly: true,
-                                value: 'NTR - 001',
+                                value: 'FMR - 001',
                                 required: false
                             },
                             {
@@ -642,6 +642,24 @@
                                 label: 'Mobile Number',
                                 readonly: true,
                                 value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'select',
+                                name: 'own_number',
+                                label: 'Phone Number Own',
+                                options: ['Yes', 'No'],
+                                optionLabels: ['Yes', 'No'],
+                                value: 'No',
+                                required: false,
+                                select2Hide: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'alt_number',
+                                label: 'Alternative Contact Number',
+                                placeholder: 'Enter alternative contact number',
+                                value: '',
                                 required: true
                             },
                             {
@@ -667,14 +685,26 @@
                                 type: 'select',
                                 name: 'upazila_id',
                                 label: 'Upazila',
-                                options: [''],
-                                optionLabels: ['Select Upazila'],
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Upazila', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'union_id',
+                                label: 'Union',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Union', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
                                 required: true
                             },
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Union/Village',
+                                label: 'Village',
                                 placeholder: 'Enter village name',
                                 required: true
                             },
@@ -704,7 +734,7 @@
                             {
                                 type: 'textarea',
                                 name: 'q_type',
-                                label: 'Problem/Query Type',
+                                label: 'Problem/Query',
                                 placeholder: 'Describe the problem',
                                 rows: 2,
                                 required: false
@@ -761,21 +791,13 @@
                             {
                                 type: 'select',
                                 name: 'existing_customer',
-                                label: 'Existing Customer',
+                                label: 'User of ACCL Product',
                                 options: ['Yes', 'No'],
                                 optionLabels: ['Yes', 'No'],
                                 value: 'No',
                                 required: false,
                                 select2Hide: true
                             },
-                            {
-                                type: 'text',
-                                name: 'registration_date',
-                                label: 'Registration Date',
-                                readonly: true,
-                                value: '{{ now()->format('Y-m-d') }}',
-                                required: false
-                            }
                         ]
                     },
                     Retailer: {
@@ -826,16 +848,28 @@
                                 type: 'select',
                                 name: 'upazila_id',
                                 label: 'Upazila',
-                                options: [''],
-                                optionLabels: ['Select Upazila'],
-                                required: false
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Upazila', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'union_id',
+                                label: 'Union',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Union', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
                             },
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Union/Village',
+                                label: 'Village',
                                 placeholder: 'Enter village name',
-                                required: false
+                                required: true
                             },
                             {
                                 type: 'textarea',
@@ -881,21 +915,13 @@
                             {
                                 type: 'select',
                                 name: 'existing_customer',
-                                label: 'Existing Customer',
+                                label: 'User of ACCL Product',
                                 options: ['Yes', 'No'],
                                 optionLabels: ['Yes', 'No'],
                                 value: 'No',
                                 required: false,
                                 select2Hide: true
                             },
-                            {
-                                type: 'text',
-                                name: 'registration_date',
-                                label: 'Registration Date',
-                                readonly: true,
-                                value: '{{ now()->format('Y-m-d') }}',
-                                required: false
-                            }
                         ]
                     },
                     Dealer: {
@@ -947,16 +973,28 @@
                                 type: 'select',
                                 name: 'upazila_id',
                                 label: 'Upazila',
-                                options: [''],
-                                optionLabels: ['Select Upazila'],
-                                required: false
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Upazila', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'union_id',
+                                label: 'Union',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Union', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
                             },
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Union/Village',
+                                label: 'Village',
                                 placeholder: 'Enter village name',
-                                required: false
+                                required: true
                             },
                             {
                                 type: 'textarea',
@@ -993,21 +1031,13 @@
                             {
                                 type: 'select',
                                 name: 'existing_customer',
-                                label: 'Existing Customer',
+                                label: 'User of ACCL Product',
                                 options: ['Yes', 'No'],
                                 optionLabels: ['Yes', 'No'],
                                 value: 'No',
                                 required: false,
                                 select2Hide: true
                             },
-                            {
-                                type: 'text',
-                                name: 'registration_date',
-                                label: 'Registration Date',
-                                readonly: true,
-                                value: '{{ now()->format('Y-m-d') }}',
-                                required: false
-                            }
                         ]
                     },
                     Others: {
@@ -1058,16 +1088,28 @@
                                 type: 'select',
                                 name: 'upazila_id',
                                 label: 'Upazila',
-                                options: [''],
-                                optionLabels: ['Select Upazila'],
-                                required: false
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Upazila', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'union_id',
+                                label: 'Union',
+                                options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
+                                optionLabels: ['Select Union', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
+                                    'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
+                                ],
+                                required: true
                             },
                             {
                                 type: 'text',
                                 name: 'village',
-                                label: 'Union/Village',
+                                label: 'Village',
                                 placeholder: 'Enter village name',
-                                required: false
+                                required: true
                             },
                             {
                                 type: 'textarea',
@@ -1114,21 +1156,13 @@
                             {
                                 type: 'select',
                                 name: 'existing_customer',
-                                label: 'Existing Customer',
+                                label: 'User of ACCL Product',
                                 options: ['Yes', 'No'],
                                 optionLabels: ['Yes', 'No'],
                                 value: 'No',
                                 required: false,
                                 select2Hide: true
                             },
-                            {
-                                type: 'text',
-                                name: 'registration_date',
-                                label: 'Registration Date',
-                                readonly: true,
-                                value: '{{ now()->format('Y-m-d') }}',
-                                required: false
-                            }
                         ]
                     }
                 }
@@ -1333,7 +1367,7 @@
                             orderable: false,
                             searchable: false,
                             render: function(data, type, row) {
-                                return '<button class="action-btn" title="Call"><i class="fas fa-phone"></i></button>';
+                                return '<button class="action-btn" title="Call"><i class="fas fa-eye"></i></button>';
                             }
                         }
                     ],
