@@ -620,14 +620,15 @@
                 categoryFields: {
                     Farmer: {
                         customerId: 'FMR - 001',
-                        fields: [{
-                                type: 'text',
-                                name: 'customer_id',
-                                label: 'Customer ID',
-                                readonly: true,
-                                value: 'FMR - 001',
-                                required: false
-                            },
+                        fields: [
+                            // {
+                            //     type: 'text',
+                            //     name: 'customer_id',
+                            //     label: 'Customer ID',
+                            //     readonly: true,
+                            //     value: 'FMR - 001',
+                            //     required: false
+                            // },
                             {
                                 type: 'text',
                                 name: 'name',
@@ -666,8 +667,8 @@
                                 type: 'select',
                                 name: 'gender',
                                 label: 'Gender',
-                                options: ['', 'male', 'female', 'other'],
-                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                options: ['', 'male', 'female'],
+                                optionLabels: ['Select Gender', 'Male', 'Female'],
                                 required: true,
                                 select2Hide: true
                             },
@@ -692,7 +693,7 @@
                                 required: true
                             },
                             {
-                                type: 'text',
+                                type: 'select',
                                 name: 'union_id',
                                 label: 'Union',
                                 options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
@@ -724,11 +725,9 @@
                             },
                             {
                                 type: 'select-multiple',
-                                name: 'other_crop[]',
-                                label: 'Other Crops',
-                                options: ['Rice', 'Wheat', 'Maize', 'Jute', 'Sugarcane', 'Potato', 'Vegetables',
-                                    'Fruits'
-                                ],
+                                name: 'product_interest[]',
+                                label: 'Products Interests',
+                                options: ['Insecticide', 'Fungicide', 'Herbicide', 'Others'],
                                 required: false
                             },
                             {
@@ -741,17 +740,9 @@
                             },
                             {
                                 type: 'textarea',
-                                name: 'interested_query',
-                                label: 'Customer Interests',
-                                placeholder: 'Customer\'s interests',
-                                rows: 2,
-                                required: false
-                            },
-                            {
-                                type: 'textarea',
                                 name: 'verbatim',
                                 label: 'Additional Details',
-                                placeholder: 'Any additional information',
+                                placeholder: 'Customer Provided notes or other crop info',
                                 rows: 2,
                                 required: false
                             },
@@ -773,19 +764,18 @@
                                 required: false
                             },
                             {
-                                type: 'select-multiple',
+                                type: 'select',
                                 name: 'lead_status[]',
                                 label: 'Lead Status',
-                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
+                                options: ['Regular', 'Irregular'],
+                                optionLabels: ['Regular', 'Irregular'],
                                 required: false
                             },
                             {
                                 type: 'select-multiple',
                                 name: 'lead_source[]',
                                 label: 'Lead Source',
-                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
-                                    'Advertisement'
-                                ],
+                                options: ['Farmer Meeting', 'IFS', 'Website', 'DAE', 'Trade', 'Call Center'],
                                 required: false
                             },
                             {
@@ -802,14 +792,15 @@
                     },
                     Retailer: {
                         customerId: 'RTL - 001',
-                        fields: [{
-                                type: 'text',
-                                name: 'customer_id',
-                                label: 'Customer ID',
-                                readonly: true,
-                                value: 'RTL - 001',
-                                required: false
-                            },
+                        fields: [
+                            // {
+                            //     type: 'text',
+                            //     name: 'customer_id',
+                            //     label: 'Customer ID',
+                            //     readonly: true,
+                            //     value: 'RTL - 001',
+                            //     required: false
+                            // },
                             {
                                 type: 'text',
                                 name: 'owner_name',
@@ -829,8 +820,8 @@
                                 type: 'select',
                                 name: 'gender',
                                 label: 'Gender',
-                                options: ['', 'male', 'female', 'other'],
-                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                options: ['', 'male', 'female'],
+                                optionLabels: ['Select Gender', 'Male', 'Female'],
                                 required: true,
                                 select2Hide: true
                             },
@@ -855,7 +846,7 @@
                                 required: true
                             },
                             {
-                                type: 'text',
+                                type: 'select',
                                 name: 'union_id',
                                 label: 'Union',
                                 options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
@@ -926,14 +917,15 @@
                     },
                     Dealer: {
                         customerId: 'DLR - 001',
-                        fields: [{
-                                type: 'text',
-                                name: 'customer_id',
-                                label: 'Customer ID',
-                                readonly: true,
-                                value: 'DLR - 001',
-                                required: false
-                            },
+                        fields: [
+                            // {
+                            //     type: 'text',
+                            //     name: 'customer_id',
+                            //     label: 'Customer ID',
+                            //     readonly: true,
+                            //     value: 'DLR - 001',
+                            //     required: false
+                            // },
                             {
                                 type: 'text',
                                 name: 'owner_name',
@@ -954,8 +946,8 @@
                                 type: 'select',
                                 name: 'gender',
                                 label: 'Gender',
-                                options: ['', 'male', 'female', 'other'],
-                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                options: ['', 'male', 'female'],
+                                optionLabels: ['Select Gender', 'Male', 'Female'],
                                 required: true,
                                 select2Hide: true
                             },
@@ -980,7 +972,7 @@
                                 required: true
                             },
                             {
-                                type: 'text',
+                                type: 'select',
                                 name: 'union_id',
                                 label: 'Union',
                                 options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
@@ -1042,14 +1034,15 @@
                     },
                     Others: {
                         customerId: 'OTH - 001',
-                        fields: [{
-                                type: 'text',
-                                name: 'customer_id',
-                                label: 'Customer ID',
-                                readonly: true,
-                                value: 'OTH - 001',
-                                required: false
-                            },
+                        fields: [
+                            // {
+                            //     type: 'text',
+                            //     name: 'customer_id',
+                            //     label: 'Customer ID',
+                            //     readonly: true,
+                            //     value: 'OTH - 001',
+                            //     required: false
+                            // },
                             {
                                 type: 'text',
                                 name: 'name',
@@ -1069,8 +1062,8 @@
                                 type: 'select',
                                 name: 'gender',
                                 label: 'Gender',
-                                options: ['', 'male', 'female', 'other'],
-                                optionLabels: ['Select Gender', 'Male', 'Female', 'Other'],
+                                options: ['', 'male', 'female'],
+                                optionLabels: ['Select Gender', 'Male', 'Female'],
                                 required: true,
                                 select2Hide: true
                             },
@@ -1095,7 +1088,7 @@
                                 required: true
                             },
                             {
-                                type: 'text',
+                                type: 'select',
                                 name: 'union_id',
                                 label: 'Union',
                                 options: ['', '1', '2', '3', '4', '5', '6', '7', '8'],
