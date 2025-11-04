@@ -38,4 +38,21 @@ class CrmFormController extends Controller
             'recordsFiltered' => 0,
         ]);
     }
+    public function getCategoryFields(Request $request)
+    {
+        $category = $request->get('category');
+
+        switch ($category) {
+            case 'Farmer':
+                return view('crmform.inbound.farmer');
+            case 'Retailer':
+                return view('crmform.inbound.retailer');
+            case 'Dealer':
+                return view('crmform.inbound.dealer');
+            case 'Others':
+                return view('crmform.inbound.other');
+            default:
+                return view('crmform.inbound.farmer');
+        }
+    }
 }

@@ -41,6 +41,23 @@ Route::middleware('auth')->group(function () {
     Route::get('/crmform', [CrmFormController::class, 'create'])->name('crmform.create');
     Route::post('/crmform/store', [CrmFormController::class, 'store'])->name('crmform.store');
     Route::get('/crmform/data', [CrmFormController::class, 'getData'])->name('crmform.data');
+    Route::get('/crmform/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('crmform.getCategoryFields');
+    // Example routes - adjust the controller method names and paths as needed
+Route::get('/crmform/inbound/farmer', function () {
+    return view('crmform.inbound.farmer');
+})->name('crmform.inbound.farmer');
+
+Route::get('/crmform/inbound/retailer', function () {
+    return view('crmform.inbound.retailer');
+})->name('crmform.inbound.retailer');
+
+Route::get('/crmform/inbound/dealer', function () {
+    return view('crmform.inbound.dealer');
+})->name('crmform.inbound.dealer');
+
+Route::get('/crmform/inbound/other', function () {
+    return view('crmform.inbound.other');
+})->name('crmform.inbound.other');
 
 
     // CRM Routes
