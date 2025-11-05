@@ -803,9 +803,9 @@
                             // },
                             {
                                 type: 'text',
-                                name: 'owner_name',
-                                label: 'Owner Name',
-                                placeholder: 'Enter owner name',
+                                name: 'retailer_name',
+                                label: 'Retailer Name',
+                                placeholder: 'Enter retailer name',
                                 required: true
                             },
                             {
@@ -814,6 +814,14 @@
                                 label: 'Mobile Number',
                                 readonly: true,
                                 value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'alt_number',
+                                label: 'Alternative Contact Number',
+                                placeholder: 'Enter alternative contact number',
+                                value: '',
                                 required: true
                             },
                             {
@@ -843,7 +851,7 @@
                                 optionLabels: ['Select Upazila', 'Dhaka', 'Chittagong', 'Rajshahi', 'Khulna',
                                     'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'
                                 ],
-                                required: true
+                                required: false
                             },
                             {
                                 type: 'select',
@@ -863,20 +871,12 @@
                                 required: true
                             },
                             {
-                                type: 'textarea',
-                                name: 'interested_query',
-                                label: 'Customer Interests',
-                                placeholder: 'Customer\'s interests',
-                                rows: 2,
-                                required: false
-                            },
-                            {
                                 type: 'select-multiple',
-                                name: 'product_solution[]',
-                                label: 'Recommended Products',
-                                options: ['Fertilizer A', 'Pesticide B', 'Herbicide C', 'Seed D',
-                                    'Equipment E'
-                                ],
+                                name: 'interested_query',
+                                label: 'Retailer Interests',
+                                placeholder: 'Retailer\'s interests',
+                                rows: 2,
+                                options: ['New retailer accquisition', 'Dealer Information', 'Officer Information', 'Complain', 'Offers',],
                                 required: false
                             },
                             {
@@ -886,32 +886,6 @@
                                 placeholder: 'Any additional information',
                                 rows: 2,
                                 required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_status[]',
-                                label: 'Lead Status',
-                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
-                                required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_source[]',
-                                label: 'Lead Source',
-                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
-                                    'Advertisement'
-                                ],
-                                required: false
-                            },
-                            {
-                                type: 'select',
-                                name: 'existing_customer',
-                                label: 'User of ACCL Product',
-                                options: ['Yes', 'No'],
-                                optionLabels: ['Yes', 'No'],
-                                value: 'No',
-                                required: false,
-                                select2Hide: true
                             },
                         ]
                     },
@@ -928,10 +902,9 @@
                             // },
                             {
                                 type: 'text',
-                                name: 'owner_name',
-                                label: 'Owner Name',
-                                placeholder: 'Enter owner name',
-                                value: 'John Smith',
+                                name: 'dealer_name',
+                                label: 'Dealer Name',
+                                placeholder: 'Enter dealer name',
                                 required: true
                             },
                             {
@@ -940,6 +913,14 @@
                                 label: 'Mobile Number',
                                 readonly: true,
                                 value: '{{ $phone_number ?? '' }}',
+                                required: true
+                            },
+                            {
+                                type: 'text',
+                                name: 'alt_number',
+                                label: 'Alternative Contact Number',
+                                placeholder: 'Enter alternative contact number',
+                                value: '',
                                 required: true
                             },
                             {
@@ -989,10 +970,18 @@
                                 required: true
                             },
                             {
-                                type: 'textarea',
+                                type: 'select-multiple',
                                 name: 'interested_query',
-                                label: 'Customer Interests',
-                                placeholder: 'Customer\'s interests',
+                                label: 'Dealer Interests',
+                                placeholder: 'Dealer\'s interests',
+                                options: ['New dealership', 'Credit Limit', 'Product Information', 'Officer Information', 'Complain', 'Offers',],
+                                required: false
+                            },
+                            {
+                                type: 'textarea',
+                                name: 'recommendate',
+                                label: 'Recommended',
+                                placeholder: 'Enter suggested product/solution',
                                 rows: 2,
                                 required: false
                             },
@@ -1003,32 +992,6 @@
                                 placeholder: 'Any additional information',
                                 rows: 2,
                                 required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_status[]',
-                                label: 'Lead Status',
-                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
-                                required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_source[]',
-                                label: 'Lead Source',
-                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
-                                    'Advertisement'
-                                ],
-                                required: false
-                            },
-                            {
-                                type: 'select',
-                                name: 'existing_customer',
-                                label: 'User of ACCL Product',
-                                options: ['Yes', 'No'],
-                                optionLabels: ['Yes', 'No'],
-                                value: 'No',
-                                required: false,
-                                select2Hide: true
                             },
                         ]
                     },
@@ -1105,11 +1068,11 @@
                                 required: true
                             },
                             {
-                                type: 'textarea',
+                                type: 'select-multiple',
                                 name: 'interested_query',
-                                label: 'Customer Interests',
-                                placeholder: 'Customer\'s interests',
-                                rows: 2,
+                                label: 'Others Interests',
+                                placeholder: 'Dealer\'s interests',
+                                options: ['Product', 'Officer Information', 'Disease', 'Complain'],
                                 required: false
                             },
                             {
@@ -1124,37 +1087,11 @@
                                 type: 'select',
                                 name: 'customer_type',
                                 label: 'Customer Type',
-                                options: ['', 'Researcher', 'Student', 'Government', 'NGO'],
-                                optionLabels: ['Select Customer Type', 'Researcher', 'Student', 'Government',
+                                options: ['', 'SAAO', 'Scientific Officer', 'NGO'],
+                                optionLabels: ['Select Customer Type', 'SAAO', 'Scientific Officer',
                                     'NGO'
                                 ],
                                 required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_status[]',
-                                label: 'Lead Status',
-                                options: ['Interested', 'Not Interested', 'Callback', 'Hot Lead', 'Cold Lead'],
-                                required: false
-                            },
-                            {
-                                type: 'select-multiple',
-                                name: 'lead_source[]',
-                                label: 'Lead Source',
-                                options: ['Farmer Meeting', 'IFS', 'Website', 'Social Media', 'Referral',
-                                    'Advertisement'
-                                ],
-                                required: false
-                            },
-                            {
-                                type: 'select',
-                                name: 'existing_customer',
-                                label: 'User of ACCL Product',
-                                options: ['Yes', 'No'],
-                                optionLabels: ['Yes', 'No'],
-                                value: 'No',
-                                required: false,
-                                select2Hide: true
                             },
                         ]
                     }
