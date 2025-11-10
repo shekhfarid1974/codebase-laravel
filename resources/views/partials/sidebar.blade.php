@@ -201,20 +201,31 @@
             <div class="submenu {{ request()->routeIs('faqs.*') ? 'show' : '' }}" id="faqSubmenu">
                 <a href="{{ route('faqs.view') }}"
                     class="menu-item {{ request()->routeIs('faqs.view') ? 'active' : '' }}">
-                    <i class="fas fa-list menu-icon"></i>
+                    <i class="fas fa-question-circle menu-icon"></i>
                     <span class="menu-title">View FAQs</span>
                 </a>
                 <a href="{{ route('faqs.add') }}"
                     class="menu-item {{ request()->routeIs('faqs.add') ? 'active' : '' }}">
-                    <i class="fas fa-plus menu-icon"></i>
+                    <i class="fas fa-plus-circle menu-icon"></i>
                     <span class="menu-title">Add FAQ</span>
                 </a>
                 <a href="{{ route('faqs.categories') }}"
                     class="menu-item {{ request()->routeIs('faqs.categories') ? 'active' : '' }}">
-                    <i class="fas fa-tags menu-icon"></i>
+                    <i class="fas fa-folder-open menu-icon"></i>
                     <span class="menu-title">Categories</span>
                 </a>
+                <a href="{{ route('faqs.crop') }}"
+                    class="menu-item {{ request()->routeIs('faqs.crop') ? 'active' : '' }}">
+                    <i class="fas fa-seedling menu-icon"></i>
+                    <span class="menu-title">Crop</span>
+                </a>
+                <a href="{{ route('faqs.identification') }}"
+                    class="menu-item {{ request()->routeIs('faqs.identification') ? 'active' : '' }}">
+                    <i class="fas fa-fingerprint menu-icon"></i>
+                    <span class="menu-title">Identification</span>
+                </a>
             </div>
+
 
             {{-- <!-- Product Features Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="productSubmenu">

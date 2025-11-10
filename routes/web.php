@@ -43,21 +43,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/crmform/data', [CrmFormController::class, 'getData'])->name('crmform.data');
     Route::get('/crmform/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('crmform.getCategoryFields');
     // Example routes - adjust the controller method names and paths as needed
-Route::get('/crmform/inbound/farmer', function () {
-    return view('crmform.inbound.farmer');
-})->name('crmform.inbound.farmer');
+    Route::get('/crmform/inbound/farmer', function () {
+        return view('crmform.inbound.farmer');
+    })->name('crmform.inbound.farmer');
 
-Route::get('/crmform/inbound/retailer', function () {
-    return view('crmform.inbound.retailer');
-})->name('crmform.inbound.retailer');
+    Route::get('/crmform/inbound/retailer', function () {
+        return view('crmform.inbound.retailer');
+    })->name('crmform.inbound.retailer');
 
-Route::get('/crmform/inbound/dealer', function () {
-    return view('crmform.inbound.dealer');
-})->name('crmform.inbound.dealer');
+    Route::get('/crmform/inbound/dealer', function () {
+        return view('crmform.inbound.dealer');
+    })->name('crmform.inbound.dealer');
 
-Route::get('/crmform/inbound/other', function () {
-    return view('crmform.inbound.other');
-})->name('crmform.inbound.other');
+    Route::get('/crmform/inbound/other', function () {
+        return view('crmform.inbound.other');
+    })->name('crmform.inbound.other');
 
 
     // CRM Routes
@@ -108,6 +108,9 @@ Route::get('/crmform/inbound/other', function () {
         Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
         Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
         Route::get('/categories', [FaqController::class, 'categories'])->name('faqs.categories');
+        Route::post('/store', [FaqController::class, 'store'])->name('faqs.store');
+        Route::get('/crop', [FaqController::class, 'crop'])->name('faqs.crop');
+        Route::get('/identification', [FaqController::class, 'identification'])->name('faqs.identification');
     });
 
     // Products Routes

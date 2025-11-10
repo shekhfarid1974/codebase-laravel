@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
+    
     public function view()
     {
         return view('faqs.view');
@@ -20,4 +21,13 @@ class FaqController extends Controller
     {
         return view('faqs.categories');
     }
+    public function crop()
+    {
+        return view('faqs.crop');
+    }
+    public function identification()
+    {
+        return view('faqs.identification');
+    }
+
 }

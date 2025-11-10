@@ -876,7 +876,9 @@
                                 label: 'Retailer Interests',
                                 placeholder: 'Retailer\'s interests',
                                 rows: 2,
-                                options: ['New retailer accquisition', 'Dealer Information', 'Officer Information', 'Complain', 'Offers',],
+                                options: ['New retailer accquisition', 'Dealer Information',
+                                    'Officer Information', 'Complain', 'Offers',
+                                ],
                                 required: false
                             },
                             {
@@ -974,7 +976,9 @@
                                 name: 'interested_query',
                                 label: 'Dealer Interests',
                                 placeholder: 'Dealer\'s interests',
-                                options: ['New dealership', 'Credit Limit', 'Product Information', 'Officer Information', 'Complain', 'Offers',],
+                                options: ['New dealership', 'Credit Limit', 'Product Information',
+                                    'Officer Information', 'Complain', 'Offers',
+                                ],
                                 required: false
                             },
                             {

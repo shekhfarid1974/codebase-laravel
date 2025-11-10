@@ -5,7 +5,7 @@
 
 @section('content')
 <div id="dashboardView">
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-3">
             <div class="dashboard-card">
                 <div class="dashboard-card-header">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- <div class="row">
         <div class="col-md-6">
             <div class="card">
