@@ -25,7 +25,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Crop *</label>
-                            <select class="form-control" name="crop" required>
+                            <select class="form-select" name="crop" required>
                                 <option value="">Select Crop</option>
                                 <option value="Rice">Rice</option>
                                 <option value="Wheat">Wheat</option>
@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Category *</label>
-                            <select class="form-control" name="category" required>
+                            <select class="form-select" name="category" required>
                                 <option value="">Select Category</option>
                                 <option value="Disease">Disease</option>
                                 <option value="Pest">Pest</option>
@@ -61,8 +61,17 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Identification *</label>
-                            <input type="text" class="form-control" name="identification"
-                                placeholder="Enter problem identification" required>
+                            <select class="form-select" name="identification" required>
+                                <option value="">Select Category</option>
+                                <option value="Disease">Disease</option>
+                                <option value="Pest">Pest</option>
+                                <option value="Nutrition">Nutrition</option>
+                                <option value="Soil">Soil</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Weed">Weed Management</option>
+                                <option value="Harvesting">Harvesting</option>
+                                <option value="Storage">Storage</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -97,7 +106,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Status *</label>
-                    <select class="form-control" name="status" required>
+                    <select class="form-select" name="status" required>
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                     </select>

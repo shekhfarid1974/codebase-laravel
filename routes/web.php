@@ -87,6 +87,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
         Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
         Route::get('/categories', [FaqController::class, 'categories'])->name('faqs.categories');
+        Route::get('/categories/create', [FaqController::class, 'categoriesCreate'])->name('faqs.categories.create');
+        Route::post('/categories/store', [FaqController::class, 'categoriesStore'])->name('faqs.categories.store');
         Route::post('/store', [FaqController::class, 'store'])->name('faqs.store');
         Route::get('/crop', [FaqController::class, 'crop'])->name('faqs.crop');
         Route::get('/identification', [FaqController::class, 'identification'])->name('faqs.identification');
