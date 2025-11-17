@@ -72,9 +72,9 @@ class CrmFormController extends Controller
     {
         // Validate the request based on category
         $category = $request->get('customer_category', 'Farmer');
-        
+
         $validationRules = $this->getValidationRules($category);
-        
+
         $validatedData = $request->validate($validationRules);
 
         // Your form processing logic here

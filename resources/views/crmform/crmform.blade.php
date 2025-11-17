@@ -766,8 +766,7 @@
                 categoryFields: {
                     Farmer: {
                         customerId: 'FMR - 001',
-                        fields: [
-                            {
+                        fields: [{
                                 type: 'text',
                                 name: 'name',
                                 label: 'Name',
@@ -930,8 +929,7 @@
                     },
                     Retailer: {
                         customerId: 'RTL - 001',
-                        fields: [
-                            {
+                        fields: [{
                                 type: 'text',
                                 name: 'retailer_name',
                                 label: 'Retailer Name',
@@ -1023,8 +1021,7 @@
                     },
                     Dealer: {
                         customerId: 'DLR - 001',
-                        fields: [
-                            {
+                        fields: [{
                                 type: 'text',
                                 name: 'dealer_name',
                                 label: 'Dealer Name',
@@ -1123,8 +1120,7 @@
                     },
                     Others: {
                         customerId: 'OTH - 001',
-                        fields: [
-                            {
+                        fields: [{
                                 type: 'text',
                                 name: 'name',
                                 label: 'Name',
@@ -1215,8 +1211,7 @@
                     }
                 },
                 products: {
-                    Retailer: [
-                        {
+                    Retailer: [{
                             id: 1,
                             name: 'Crop Protection Insecticide',
                             category: 'Insecticide',
@@ -1265,8 +1260,7 @@
                             image: null
                         }
                     ],
-                    Dealer: [
-                        {
+                    Dealer: [{
                             id: 1,
                             name: 'Premium Insecticide Pack',
                             category: 'Insecticide',
@@ -1404,7 +1398,7 @@
             function loadProductList(category) {
                 const products = CONFIG.products[category] || [];
                 const $productGrid = $('#product-grid');
-                
+
                 if (products.length === 0) {
                     $productGrid.html('<div class="text-center py-4 text-muted">No products available</div>');
                     return;
@@ -1801,7 +1795,8 @@
                     const $verbatimField = $('[name="verbatim"]');
                     const currentValue = $verbatimField.val();
                     const recommendationText = `Recommended: ${productName}`;
-                    $verbatimField.val(currentValue ? `${currentValue}\n${recommendationText}` : recommendationText);
+                    $verbatimField.val(currentValue ? `${currentValue}\n${recommendationText}` :
+                    recommendationText);
                 }
                 showNotification('success', `Added "${productName}" to recommendations`);
             }
