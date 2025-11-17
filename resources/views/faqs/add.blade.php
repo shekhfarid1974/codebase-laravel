@@ -87,9 +87,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="form-label">Suggestion</label>
-                            <textarea class="form-control" name="suggestion" rows="3"
-                                placeholder="Additional suggestions or preventive measures"></textarea>
+                            <label class="form-label">Notes</label>
+                            <textarea class="form-control" name="notes" rows="3"
+                                placeholder="Additional notes or preventive measures"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
