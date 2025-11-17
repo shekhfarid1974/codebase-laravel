@@ -20,7 +20,6 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
-
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
 
@@ -37,43 +36,23 @@ Route::middleware('auth')->group(function () {
     // Settings
     Route::get('/settings/mail', [SettingsController::class, 'mailConfigure'])->name('mail.configure');
 
-    // CRM Form Routes
-    Route::get('/crmform', [CrmFormController::class, 'create'])->name('crmform.create');
-    Route::post('/crmform/store', [CrmFormController::class, 'store'])->name('crmform.store');
-    Route::get('/crmform/data', [CrmFormController::class, 'getData'])->name('crmform.data');
-    Route::get('/crmform/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('crmform.getCategoryFields');
-    // Example routes - adjust the controller method names and paths as needed
-    Route::get('/crmform/inbound/farmer', function () {
-        return view('crmform.inbound.farmer');
-    })->name('crmform.inbound.farmer');
-
-    Route::get('/crmform/inbound/retailer', function () {
-        return view('crmform.inbound.retailer');
-    })->name('crmform.inbound.retailer');
-
-    Route::get('/crmform/inbound/dealer', function () {
-        return view('crmform.inbound.dealer');
-    })->name('crmform.inbound.dealer');
-
-    Route::get('/crmform/inbound/other', function () {
-        return view('crmform.inbound.other');
-    })->name('crmform.inbound.other');
-
-
-    // CRM Routes
-    Route::prefix('crm')->group(function () {
-        Route::get('/farmer', [CrmController::class, 'farmer'])->name('crm.farmer');
-        Route::get('/dealer', [CrmController::class, 'dealer'])->name('crm.dealer');
-        Route::get('/retailer', [CrmController::class, 'retailer'])->name('crm.retailer');
-        Route::get('/other', [CrmController::class, 'other'])->name('crm.other');
-        Route::get('/campaign', [CrmController::class, 'campaign'])->name('crm.campaign');
+    // CRM Form Routes - Consolidated and organized
+    Route::prefix('crmform')->group(function () {
+        // Main CRM form (original)
+        Route::get('/', [CrmFormController::class, 'create'])->name('crmform.create');
+        Route::post('/store', [CrmFormController::class, 'store'])->name('crmform.store');
+        Route::get('/data', [CrmFormController::class, 'getData'])->name('crmform.data');
+        Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('crmform.getCategoryFields');
+        
+        // Individual category forms - using controller methods
+        Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('crmform.farmer');
+        Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('crmform.retailer');
+        Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('crmform.dealer');
+        Route::get('/others', [CrmFormController::class, 'others'])->name('crmform.others');
     });
 
     // Survey Routes
-    Route::prefix('survey')->group(function () {
-        Route::get('/lead', [CrmController::class, 'surveyLead'])->name('survey.lead');
-        Route::get('/reports', [CrmController::class, 'surveyReports'])->name('survey.reports');
-    });
+    // Add your survey routes here when needed
 
     // Reports Routes
     Route::prefix('reports')->group(function () {

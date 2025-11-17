@@ -1,11 +1,11 @@
 @extends('layouts.standalone')
-@section('title', 'Dealer CRM Form')
+@section('title', 'Others CRM Form')
 
 @push('styles')
     <style>
-        /* Dealer-specific styles if needed */
-        .dealer-icon {
-            color: #ffc107;
+        /* Others-specific styles if needed */
+        .others-icon {
+            color: #6c757d;
         }
     </style>
 @endpush
@@ -15,8 +15,8 @@
     <div class="card">
         <div class="card-header">
             <h2 class="card-title">
-                <i class="fas fa-store dealer-icon"></i>
-                <span>Dealer Information</span>
+                <i class="fas fa-ellipsis-h others-icon"></i>
+                <span>Others Information</span>
             </h2>
 
             <div class="agent-info">
@@ -31,7 +31,7 @@
             <form method="POST" id="store_or_update_form">
                 @csrf
                 <input type="hidden" name="agent" value="{{ $agent ?? 'Default' }}">
-                <input type="hidden" name="customer_category" id="customer_category" value="Dealer">
+                <input type="hidden" name="customer_category" id="customer_category" value="Others">
 
                 <!-- Category Tabs -->
                 <div class="category-tabs" role="tablist">
@@ -41,10 +41,10 @@
                     <a href="{{ route('crmform.retailer') }}" class="category-tab" role="tab" aria-selected="false">
                         <i class="fas fa-shopping-cart"></i> Retailer
                     </a>
-                    <a href="{{ route('crmform.dealer') }}" class="category-tab active" role="tab" aria-selected="true">
+                    <a href="{{ route('crmform.dealer') }}" class="category-tab" role="tab" aria-selected="false">
                         <i class="fas fa-store"></i> Dealer
                     </a>
-                    <a href="{{ route('crmform.others') }}" class="category-tab" role="tab" aria-selected="false">
+                    <a href="{{ route('crmform.others') }}" class="category-tab active" role="tab" aria-selected="true">
                         <i class="fas fa-ellipsis-h"></i> Others
                     </a>
                 </div>
@@ -54,10 +54,10 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label class="form-label required">
-                                Dealer Name
+                                Name
                                 <span class="sr-only">(required)</span>
                             </label>
-                            <input type="text" name="dealer_name" class="form-control" placeholder="Enter dealer name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
                         </div>
                         
                         <div class="form-group">
@@ -66,14 +66,6 @@
                                 <span class="sr-only">(required)</span>
                             </label>
                             <input type="text" name="phone_number" class="form-control readonly" value="{{ $phone_number ?? '' }}" readonly required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Alternative Contact Number
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <input type="text" name="alt_number" class="form-control" placeholder="Enter alternative contact number" required>
                         </div>
                         
                         <div class="form-group">
@@ -151,23 +143,14 @@
                         
                         <div class="form-group">
                             <label class="form-label">
-                                Dealer Interests
+                                Others Interests
                             </label>
                             <select name="interested_query" multiple class="form-select select2-multiple">
-                                <option value="New dealership">New dealership</option>
-                                <option value="Credit Limit">Credit Limit</option>
-                                <option value="Product Information">Product Information</option>
+                                <option value="Product">Product</option>
                                 <option value="Officer Information">Officer Information</option>
+                                <option value="Disease">Disease</option>
                                 <option value="Complain">Complain</option>
-                                <option value="Offers">Offers</option>
                             </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Recommended
-                            </label>
-                            <textarea name="recommendate" class="form-control" placeholder="Enter suggested product/solution" rows="2"></textarea>
                         </div>
                         
                         <div class="form-group">
@@ -176,11 +159,23 @@
                             </label>
                             <textarea name="verbatim" class="form-control" placeholder="Any additional information" rows="2"></textarea>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Customer Type
+                            </label>
+                            <select name="customer_type" class="form-select">
+                                <option value="">Select Customer Type</option>
+                                <option value="SAAO">SAAO</option>
+                                <option value="Scientific Officer">Scientific Officer</option>
+                                <option value="NGO">NGO</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="text-center mt-4">
                         <button class="btn btn-success" type="button" id="save-btn">
-                            <i class="fas fa-save"></i> Save Dealer
+                            <i class="fas fa-save"></i> Save Customer
                         </button>
                     </div>
                 </div>
@@ -213,10 +208,10 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Robert Dealer</td>
-                            <td>01555666777</td>
-                            <td>Pricing inquiry</td>
-                            <td>Provided bulk pricing</td>
+                            <td>Sarah Officer</td>
+                            <td>01777888999</td>
+                            <td>Technical inquiry</td>
+                            <td>Provided technical guidance</td>
                             <td><button class="action-btn" title="Call"><i class="fas fa-eye"></i></button></td>
                         </tr>
                     </tbody>
@@ -247,14 +242,14 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>How to manage dealer network?</td>
-                            <td>Dealer Management</td>
+                            <td>General agricultural guidelines?</td>
+                            <td>General</td>
                             <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Best practices for dealer incentives?</td>
-                            <td>Incentives</td>
+                            <td>Government agricultural schemes?</td>
+                            <td>Schemes</td>
                             <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
                         </tr>
                     </tbody>
@@ -367,7 +362,7 @@
                         $('#save-btn').html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop('disabled', true);
                     },
                     complete: function() {
-                        $('#save-btn').html('<i class="fas fa-save"></i> Save Dealer').prop('disabled', false);
+                        $('#save-btn').html('<i class="fas fa-save"></i> Save Customer').prop('disabled', false);
                     },
                     success: function(data) {
                         clearValidationErrors();
@@ -377,7 +372,7 @@
                         } else {
                             showNotification(data.status, data.message);
                             if (data.status == 'success') {
-                                console.log('Dealer saved successfully');
+                                console.log('Customer saved successfully');
                             }
                         }
                     },
