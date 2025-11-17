@@ -436,6 +436,127 @@
             margin-left: auto;
         }
 
+        /* Product List Styles */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .product-image .placeholder {
+            color: var(--gray-500);
+            font-size: 48px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--gray-600);
+            background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .website-link {
+            text-align: center;
+            padding: 20px;
+            background: var(--gray-100);
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        .website-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .website-link a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -462,6 +583,11 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 10px;
             }
         }
 
@@ -572,24 +698,44 @@
             <div class="card-header">
                 <h2 class="card-title">
                     <i class="fas fa-book"></i>
-                    Knowledge Base FAQ
+                    <span id="knowledge-base-title">Knowledge Base FAQ</span>
                 </h2>
             </div>
             <div class="card-body p-0">
-                <div class="table-responsive">
-                    <table class="table" id="faq-datatable">
-                        <thead>
-                            <tr>
-                                <th>SL</th>
-                                <th>Question</th>
-                                <th>Category</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data will be loaded by DataTables -->
-                        </tbody>
-                    </table>
+                <!-- FAQ Table (for Farmer and Others) -->
+                <div id="faq-section">
+                    <div class="table-responsive">
+                        <table class="table" id="faq-datatable">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Question</th>
+                                    <th>Category</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be loaded by DataTables -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Product List (for Retailer and Dealer) -->
+                <div id="product-section" class="d-none">
+                    <!-- Website Link -->
+                    <div class="website-link">
+                        <p>For complete product catalog and details, visit our official website:</p>
+                        <a href="https://www.autocropcare.com/" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                            https://www.autocropcare.com/
+                        </a>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div class="product-grid" id="product-grid">
+                        <!-- Products will be loaded here dynamically -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -621,14 +767,6 @@
                     Farmer: {
                         customerId: 'FMR - 001',
                         fields: [
-                            // {
-                            //     type: 'text',
-                            //     name: 'customer_id',
-                            //     label: 'Customer ID',
-                            //     readonly: true,
-                            //     value: 'FMR - 001',
-                            //     required: false
-                            // },
                             {
                                 type: 'text',
                                 name: 'name',
@@ -793,14 +931,6 @@
                     Retailer: {
                         customerId: 'RTL - 001',
                         fields: [
-                            // {
-                            //     type: 'text',
-                            //     name: 'customer_id',
-                            //     label: 'Customer ID',
-                            //     readonly: true,
-                            //     value: 'RTL - 001',
-                            //     required: false
-                            // },
                             {
                                 type: 'text',
                                 name: 'retailer_name',
@@ -894,14 +1024,6 @@
                     Dealer: {
                         customerId: 'DLR - 001',
                         fields: [
-                            // {
-                            //     type: 'text',
-                            //     name: 'customer_id',
-                            //     label: 'Customer ID',
-                            //     readonly: true,
-                            //     value: 'DLR - 001',
-                            //     required: false
-                            // },
                             {
                                 type: 'text',
                                 name: 'dealer_name',
@@ -1002,14 +1124,6 @@
                     Others: {
                         customerId: 'OTH - 001',
                         fields: [
-                            // {
-                            //     type: 'text',
-                            //     name: 'customer_id',
-                            //     label: 'Customer ID',
-                            //     readonly: true,
-                            //     value: 'OTH - 001',
-                            //     required: false
-                            // },
                             {
                                 type: 'text',
                                 name: 'name',
@@ -1099,6 +1213,108 @@
                             },
                         ]
                     }
+                },
+                products: {
+                    Retailer: [
+                        {
+                            id: 1,
+                            name: 'Crop Protection Insecticide',
+                            category: 'Insecticide',
+                            description: 'Advanced formula for comprehensive crop protection against various insects.',
+                            price: '৳ 1,250',
+                            image: null
+                        },
+                        {
+                            id: 2,
+                            name: 'Fungicide Pro Max',
+                            category: 'Fungicide',
+                            description: 'Effective fungal disease control for multiple crops with long-lasting protection.',
+                            price: '৳ 980',
+                            image: null
+                        },
+                        {
+                            id: 3,
+                            name: 'Weed Master Herbicide',
+                            category: 'Herbicide',
+                            description: 'Broad-spectrum weed control solution for clean and healthy crops.',
+                            price: '৳ 1,150',
+                            image: null
+                        },
+                        {
+                            id: 4,
+                            name: 'Growth Booster Fertilizer',
+                            category: 'Fertilizer',
+                            description: 'Organic growth enhancer for improved yield and plant health.',
+                            price: '৳ 850',
+                            image: null
+                        },
+                        {
+                            id: 5,
+                            name: 'Seed Treatment Kit',
+                            category: 'Seed Treatment',
+                            description: 'Complete seed protection package for better germination and early growth.',
+                            price: '৳ 2,300',
+                            image: null
+                        },
+                        {
+                            id: 6,
+                            name: 'Soil Conditioner Pro',
+                            category: 'Soil Care',
+                            description: 'Improves soil structure and nutrient availability for optimal plant growth.',
+                            price: '৳ 1,750',
+                            image: null
+                        }
+                    ],
+                    Dealer: [
+                        {
+                            id: 1,
+                            name: 'Premium Insecticide Pack',
+                            category: 'Insecticide',
+                            description: 'Bulk packaging for dealers with special wholesale pricing.',
+                            price: 'Contact for Price',
+                            image: null
+                        },
+                        {
+                            id: 2,
+                            name: 'Dealer Fungicide Collection',
+                            category: 'Fungicide',
+                            description: 'Complete range of fungicides for comprehensive crop protection.',
+                            price: 'Contact for Price',
+                            image: null
+                        },
+                        {
+                            id: 3,
+                            name: 'Herbicide Bulk Pack',
+                            category: 'Herbicide',
+                            description: 'Economical bulk packaging for large-scale farming operations.',
+                            price: 'Contact for Price',
+                            image: null
+                        },
+                        {
+                            id: 4,
+                            name: 'Fertilizer Combo Pack',
+                            category: 'Fertilizer',
+                            description: 'Special combination pack for dealers with volume discounts.',
+                            price: 'Contact for Price',
+                            image: null
+                        },
+                        {
+                            id: 5,
+                            name: 'Complete Crop Care Kit',
+                            category: 'Package',
+                            description: 'All-in-one solution for complete crop management and protection.',
+                            price: 'Contact for Price',
+                            image: null
+                        },
+                        {
+                            id: 6,
+                            name: 'Seasonal Promotion Pack',
+                            category: 'Special Offer',
+                            description: 'Limited time promotional package with exclusive dealer benefits.',
+                            price: 'Contact for Price',
+                            image: null
+                        }
+                    ]
                 }
             };
 
@@ -1161,6 +1377,65 @@
 
                 // Load fields
                 loadCategoryFields(category);
+
+                // Update knowledge base section based on category
+                updateKnowledgeBaseSection(category);
+            }
+
+            function updateKnowledgeBaseSection(category) {
+                const $faqSection = $('#faq-section');
+                const $productSection = $('#product-section');
+                const $knowledgeBaseTitle = $('#knowledge-base-title');
+
+                if (category === 'Retailer' || category === 'Dealer') {
+                    // Show product list for Retailer and Dealer
+                    $faqSection.addClass('d-none');
+                    $productSection.removeClass('d-none');
+                    $knowledgeBaseTitle.html('Product Catalog');
+                    loadProductList(category);
+                } else {
+                    // Show FAQ for Farmer and Others
+                    $faqSection.removeClass('d-none');
+                    $productSection.addClass('d-none');
+                    $knowledgeBaseTitle.html('Knowledge Base FAQ');
+                }
+            }
+
+            function loadProductList(category) {
+                const products = CONFIG.products[category] || [];
+                const $productGrid = $('#product-grid');
+                
+                if (products.length === 0) {
+                    $productGrid.html('<div class="text-center py-4 text-muted">No products available</div>');
+                    return;
+                }
+
+                const productHtml = products.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${product.image ? 
+                                `<img src="${product.image}" alt="${product.name}" />` : 
+                                `<div class="placeholder"><i class="fas fa-seedling"></i></div>`
+                            }
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-description">${product.description}</div>
+                            <div class="product-price">${product.price}</div>
+                            <div class="product-actions">
+                                <a href="https://www.autocropcare.com/" target="_blank" class="btn-outline">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </a>
+                                <button class="btn-outline" onclick="addToRecommendation('${product.name}')">
+                                    <i class="fas fa-plus"></i> Recommend
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                $productGrid.html(productHtml);
             }
 
             function loadCategoryFields(category) {
@@ -1510,6 +1785,25 @@
                 alertDiv.find('.btn-close').on('click', function() {
                     alertDiv.fadeOut(300, () => alertDiv.remove());
                 });
+            }
+
+            // Global function to add product to recommendations
+            window.addToRecommendation = function(productName) {
+                const $solutionField = $('[name="product_solution[]"]');
+                if ($solutionField.length) {
+                    // For Farmer category
+                    if (!$solutionField.find(`option[value="${productName}"]`).length) {
+                        $solutionField.append(new Option(productName, productName));
+                    }
+                    $solutionField.val([...$solutionField.val(), productName]).trigger('change');
+                } else {
+                    // For Retailer/Dealer categories
+                    const $verbatimField = $('[name="verbatim"]');
+                    const currentValue = $verbatimField.val();
+                    const recommendationText = `Recommended: ${productName}`;
+                    $verbatimField.val(currentValue ? `${currentValue}\n${recommendationText}` : recommendationText);
+                }
+                showNotification('success', `Added "${productName}" to recommendations`);
             }
 
         })(jQuery);
