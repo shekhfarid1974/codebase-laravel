@@ -17,13 +17,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="form-label">Article/Crop ID *</label>
-                            <input type="text" class="form-control" name="article_id" placeholder="Enter Article/Crop ID"
-                                required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
                             <label class="form-label">Crop *</label>
                             <select class="form-select" name="crop" required>
                                 <option value="">Select Crop</option>
@@ -39,9 +32,7 @@
                             </select>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Category *</label>
@@ -74,20 +65,19 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Problem in brief *</label>
-                    <textarea class="form-control" name="problem" rows="4" placeholder="Describe the problem in detail" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Solution/Recommendation *</label>
-                    <textarea class="form-control" name="solution" rows="4" placeholder="Provide solution and recommendations"
-                        required></textarea>
-                </div>
-
-                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Problem in brief *</label>
+                            <textarea class="form-control" name="problem" rows="4" placeholder="Describe the problem in detail" required></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Solution/Recommendation *</label>
+                            <textarea class="form-control" name="solution" rows="4" placeholder="Provide solution and recommendations"
+                                required></textarea>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Snap/Videos</label>
@@ -102,14 +92,15 @@
                                 placeholder="Additional suggestions or preventive measures"></textarea>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Status *</label>
-                    <select class="form-select" name="status" required>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Status *</label>
+                            <select class="form-select" name="status" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group text-center mt-4">

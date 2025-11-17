@@ -214,12 +214,12 @@
                     <i class="fas fa-folder-open menu-icon"></i>
                     <span class="menu-title">Categories</span>
                 </a>
-                <a href="{{ route('faqs.crop') }}"
-                    class="menu-item {{ request()->routeIs('faqs.crop') ? 'active' : '' }}">
+                <a href="{{ route('faqs.crops') }}"
+                    class="menu-item {{ request()->routeIs('faqs.crops') ? 'active' : '' }}">
                     <i class="fas fa-seedling menu-icon"></i>
                     <span class="menu-title">Crop</span>
                 </a>
-                <a href="{{ route('faqs.identification') }}"
+                <a href="{{ route('faqs.identifications') }}"
                     class="menu-item {{ request()->routeIs('faqs.identification') ? 'active' : '' }}">
                     <i class="fas fa-fingerprint menu-icon"></i>
                     <span class="menu-title">Identification</span>

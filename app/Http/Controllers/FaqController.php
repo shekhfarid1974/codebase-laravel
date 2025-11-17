@@ -29,9 +29,19 @@ class FaqController extends Controller
     {
         return view('faqs.crop');
     }
+    public function cropsCreate()
+    {
+        return view('faqs.crop_create');
+    }
+
     public function identification()
     {
         return view('faqs.identification');
+    }
+
+    public function identificationCreate()
+    {
+        return view('faqs.identification_create');
     }
 
 }
