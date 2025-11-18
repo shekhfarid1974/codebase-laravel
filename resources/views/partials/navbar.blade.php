@@ -12,10 +12,10 @@
     </div>
     <div class="header-right">
         <!-- CRM Form Button -->
-        <button class="crm-form-btn" id="crmFormBtn">
+        {{-- <button class="crm-form-btn" id="crmFormBtn">
             <i class="fas fa-plus-circle"></i>
             CRM Form
-        </button>
+        </button> --}}
 
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search...">
