@@ -162,29 +162,7 @@
                 }, 2000);
             }, 1500);
 
-            // In production, you would use:
-            /*
-            fetch("{{ route('faqs.store') }}", {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                showToast('FAQ saved successfully!', 'success');
-                setTimeout(() => {
-                    window.location.href = "{{ route('faqs.view') }}";
-                }, 2000);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showToast('Error saving FAQ', 'error');
-                saveBtn.innerHTML = originalText;
-                saveBtn.disabled = false;
-            });
-            */
+            
         }
 
         // Add real-time validation
