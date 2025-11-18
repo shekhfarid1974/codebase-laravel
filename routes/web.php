@@ -36,92 +36,91 @@ Route::middleware('auth')->group(function () {
     // Settings
     Route::get('/settings/mail', [SettingsController::class, 'mailConfigure'])->name('mail.configure');
 
-    // CRM Form Routes - Consolidated and organized
-    Route::prefix('crmform')->group(function () {
-        // Main CRM form (original)
-        Route::get('/', [CrmFormController::class, 'create'])->name('crmform.create');
-        Route::post('/store', [CrmFormController::class, 'store'])->name('crmform.store');
-        Route::get('/data', [CrmFormController::class, 'getData'])->name('crmform.data');
-        Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('crmform.getCategoryFields');
+    // CRM Form Routes - Fixed to match sidebar
+    Route::prefix('crmform')->name('crmform.')->group(function () {
+        // Dynamic form creation with type parameter
+        Route::get('/create/{type}', [CrmFormController::class, 'create'])->name('create');
+        Route::post('/store', [CrmFormController::class, 'store'])->name('store');
+        Route::get('/data', [CrmFormController::class, 'getData'])->name('data');
+        Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
         
         // Individual category forms - using controller methods
-        Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('crmform.farmer');
-        Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('crmform.retailer');
-        Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('crmform.dealer');
-        Route::get('/others', [CrmFormController::class, 'others'])->name('crmform.others');
+        Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
+        Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
+        Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('dealer');
+        Route::get('/others', [CrmFormController::class, 'others'])->name('others');
+        Route::get('/campaign', [CrmFormController::class, 'campaign'])->name('campaign');
     });
 
-    // Survey Routes
-    // Add your survey routes here when needed
+    // CRM Routes (for the CRM submenu)
+    Route::prefix('crm')->name('crm.')->group(function () {
+        Route::get('/farmer', [CrmController::class, 'farmer'])->name('farmer');
+        Route::get('/dealer', [CrmController::class, 'dealer'])->name('dealer');
+        Route::get('/retailer', [CrmController::class, 'retailer'])->name('retailer');
+        Route::get('/others', [CrmController::class, 'others'])->name('other');
+        Route::get('/campaign', [CrmController::class, 'campaign'])->name('campaign');
+    });
+
+    // Survey Routes - Fixed to match sidebar
+    Route::prefix('survey')->name('survey.')->group(function () {
+        Route::get('/lead', [LeadController::class, 'surveyLead'])->name('lead');
+        Route::get('/reports', [LeadController::class, 'surveyReports'])->name('reports');
+    });
 
     // Reports Routes
-    Route::prefix('reports')->group(function () {
-        Route::get('/crm', [ReportController::class, 'crm'])->name('reports.crm');
-        Route::get('/campaign', [ReportController::class, 'campaign'])->name('reports.campaign');
-        Route::get('/sms', [ReportController::class, 'sms'])->name('reports.sms');
-        Route::get('/ticket', [ReportController::class, 'ticket'])->name('reports.ticket');
+    Route::prefix('reports')->name('reports.')->group(function () {
+        Route::get('/crm', [ReportController::class, 'crm'])->name('crm');
+        Route::get('/campaign', [ReportController::class, 'campaign'])->name('campaign');
+        Route::get('/sms', [ReportController::class, 'sms'])->name('sms');
+        Route::get('/ticket', [ReportController::class, 'ticket'])->name('ticket');
     });
 
-    // Tickets Routes
-    Route::prefix('tickets')->group(function () {
-        Route::get('/all', [TicketController::class, 'all'])->name('tickets.all');
-        Route::get('/create', [TicketController::class, 'create'])->name('tickets.create');
-        Route::get('/resolved', [TicketController::class, 'resolved'])->name('tickets.resolved');
+    // Tickets Routes - Fixed to match sidebar
+    Route::prefix('tickets')->name('tickets.')->group(function () {
+        Route::get('/all', [TicketController::class, 'all'])->name('all');
+        Route::get('/create', [TicketController::class, 'create'])->name('create');
+        Route::get('/resolved', [TicketController::class, 'resolved'])->name('resolved');
     });
 
     // Leads Routes
-    Route::prefix('leads')->group(function () {
-        Route::get('/import', [LeadController::class, 'import'])->name('leads.import');
-        Route::get('/reset', [LeadController::class, 'reset'])->name('leads.reset');
+    Route::prefix('leads')->name('leads.')->group(function () {
+        Route::get('/import', [LeadController::class, 'import'])->name('import');
+        Route::get('/reset', [LeadController::class, 'reset'])->name('reset');
     });
 
     // Campaigns Routes
-    Route::prefix('campaigns')->group(function () {
-        Route::get('/active', [CampaignController::class, 'active'])->name('campaigns.active');
-        Route::get('/create', [CampaignController::class, 'create'])->name('campaigns.create');
-        Route::get('/archive', [CampaignController::class, 'archive'])->name('campaigns.archive');
+    Route::prefix('campaigns')->name('campaigns.')->group(function () {
+        Route::get('/active', [CampaignController::class, 'active'])->name('active');
+        Route::get('/create', [CampaignController::class, 'create'])->name('create');
+        Route::get('/archive', [CampaignController::class, 'archive'])->name('archive');
     });
 
-    // FAQs Routes
-    Route::prefix('faqs')->group(function () {
-        Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
-        Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
-        Route::get('/categories', [FaqController::class, 'categories'])->name('faqs.categories');
-        Route::get('/categories/create', [FaqController::class, 'categoriesCreate'])->name('faqs.categories.create');
-        Route::post('/store', [FaqController::class, 'store'])->name('faqs.store');
-        Route::get('/crop', [FaqController::class, 'crop'])->name('faqs.crops');
-        Route::get('/crops/create', [FaqController::class, 'cropsCreate'])->name('faqs.crops.create');
-        Route::get('/identification', [FaqController::class, 'identification'])->name('faqs.identifications');
-        Route::get('/identification/create', [FaqController::class, 'identificationCreate'])->name('faqs.identifications.create');
+    // FAQs Routes - Fixed to match sidebar
+    Route::prefix('faqs')->name('faqs.')->group(function () {
+        Route::get('/view', [FaqController::class, 'view'])->name('view');
+        Route::get('/add', [FaqController::class, 'add'])->name('add');
+        Route::get('/categories', [FaqController::class, 'categories'])->name('categories');
+        Route::get('/crops', [FaqController::class, 'crops'])->name('crops');
+        Route::get('/identifications', [FaqController::class, 'identifications'])->name('identifications');
     });
 
     // Products Routes
-    Route::prefix('products')->group(function () {
-        Route::get('/list', [ProductController::class, 'list'])->name('products.list');
-        Route::get('/addFeature', [ProductController::class, 'addFeature'])->name('products.addFeature');
-        Route::get('/featureCategories', [ProductController::class, 'featureCategories'])->name('products.featureCategories');
+    Route::prefix('products')->name('products.')->group(function () {
+        Route::get('/list', [ProductController::class, 'list'])->name('list');
+        Route::get('/add-feature', [ProductController::class, 'addFeature'])->name('addFeature');
+        Route::get('/feature-categories', [ProductController::class, 'featureCategories'])->name('featureCategories');
     });
 
     // SMS Routes
-    Route::prefix('sms')->group(function () {
-        Route::get('/feature', [SmsController::class, 'feature'])->name('sms.feature');
-        Route::get('/brochure', [SmsController::class, 'brochure'])->name('sms.brochure');
-        Route::get('/templates', [SmsController::class, 'templates'])->name('sms.templates');
-        Route::get('/sendBulk', [SmsController::class, 'sendBulk'])->name('sms.sendBulk');
+    Route::prefix('sms')->name('sms.')->group(function () {
+        Route::get('/feature', [SmsController::class, 'feature'])->name('feature');
+        Route::get('/brochure', [SmsController::class, 'brochure'])->name('brochure');
+        Route::get('/templates', [SmsController::class, 'templates'])->name('templates');
+        Route::get('/send-bulk', [SmsController::class, 'sendBulk'])->name('sendBulk');
     });
 
     // Profile routes
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('profile');
-        // Add other profile routes here if needed
-    });
-
-    // Temporary debug routes
-    Route::get('/debug-session', function () {
-        dd(session()->all());
-    });
-
-    Route::get('/debug-user', function () {
-        dd(auth()->user());
     });
 });
