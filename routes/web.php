@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', [CrmFormController::class, 'store'])->name('store');
         Route::get('/data', [CrmFormController::class, 'getData'])->name('data');
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
-        
+
         // Individual category forms - using controller methods
         Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
         Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
@@ -95,13 +95,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/archive', [CampaignController::class, 'archive'])->name('archive');
     });
 
-    // FAQs Routes - Fixed to match sidebar
-    Route::prefix('faqs')->name('faqs.')->group(function () {
-        Route::get('/view', [FaqController::class, 'view'])->name('view');
-        Route::get('/add', [FaqController::class, 'add'])->name('add');
-        Route::get('/categories', [FaqController::class, 'categories'])->name('categories');
-        Route::get('/crops', [FaqController::class, 'crops'])->name('crops');
-        Route::get('/identifications', [FaqController::class, 'identifications'])->name('identifications');
+    // FAQs Routes
+    Route::prefix('faqs')->group(function () {
+        Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
+        Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
+        Route::get('/categories', [FaqController::class, 'categories'])->name('faqs.categories');
+        Route::get('/categories/create', [FaqController::class, 'categoriesCreate'])->name('faqs.categories.create');
+        Route::post('/store', [FaqController::class, 'store'])->name('faqs.store');
+        Route::get('/crop', [FaqController::class, 'crop'])->name('faqs.crops');
+        Route::get('/crops/create', [FaqController::class, 'cropsCreate'])->name('faqs.crops.create');
+        Route::get('/identification', [FaqController::class, 'identification'])->name('faqs.identifications');
+        Route::get('/identification/create', [FaqController::class, 'identificationCreate'])->name('faqs.identifications.create');
     });
 
     // Products Routes
