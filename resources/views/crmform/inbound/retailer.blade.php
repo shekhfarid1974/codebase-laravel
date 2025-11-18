@@ -1,23 +1,55 @@
-@extends('layouts.standalone')
-@section('title', 'Retailer CRM Form')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retailer Form</title>
 
-@push('styles')
+    <!-- Common CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
+
     <style>
-        /* Retailer-specific styles if needed */
-        .retailer-icon {
-            color: #17a2b8;
+        .form-label{
+            font-weight: 600;
+            margin-bottom: 0 !important;
+        }
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #dee2e6;
+        }
+        .select2-container .select2-selection--single {
+            height: 38px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 38px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 38px;
+        }
+        .select2-container--default.select2-container--focus .select2-selection--multiple {
+            border: 1px solid #dee2e6;
+        }
+        .select2-container--default .select2-selection--multiple {
+            border: 1px solid #dee2e6;
+        }
+        .select2-container .select2-selection--multiple {
+            min-height: 38px;
         }
     </style>
-@endpush
+</head>
+<body class="bg-light">
+    <div id="topbar-loader" class="d-none"></div>
 
-@section('content')
+    <div class="container">
     <!-- Customer Form Card -->
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">
-                <i class="fas fa-shopping-cart retailer-icon"></i>
+    <div class="card mb-3 border-0 shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center bg-white">
+            <h4 class="card-title ">
+                <i class="fas fa-store dealer-icon"></i>
                 <span>Retailer Information</span>
-            </h2>
+            </h4>
 
             <div class="agent-info">
                 <i class="fas fa-user-tie"></i>
@@ -31,68 +63,50 @@
             <form method="POST" id="store_or_update_form">
                 @csrf
                 <input type="hidden" name="agent" value="{{ $agent ?? 'Default' }}">
-                <input type="hidden" name="customer_category" id="customer_category" value="Retailer">
+                <input type="hidden" name="customer_category" id="customer_category" value="Dealer">
+                <div class="row">
 
-                <!-- Category Tabs -->
-                <div class="category-tabs" role="tablist">
-                    <a href="{{ route('crmform.farmer') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-tractor"></i> Farmer
-                    </a>
-                    <a href="{{ route('crmform.retailer') }}" class="category-tab active" role="tab" aria-selected="true">
-                        <i class="fas fa-shopping-cart"></i> Retailer
-                    </a>
-                    <a href="{{ route('crmform.dealer') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-store"></i> Dealer
-                    </a>
-                    <a href="{{ route('crmform.others') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-ellipsis-h"></i> Others
-                    </a>
-                </div>
-
-                <!-- Dynamic Fields Container -->
-                <div id="dynamic_fields" class="category-fields" role="tabpanel">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Retailer Name
-                                <span class="sr-only">(required)</span>
-                            </label>
+                    <!-- Retailer Name -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Retailer Name <span class="sr-only">(required)</span></label>
                             <input type="text" name="retailer_name" class="form-control" placeholder="Enter retailer name" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Mobile Number
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <input type="text" name="phone_number" class="form-control readonly" value="{{ $phone_number ?? '' }}" readonly required>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Mobile Number <span class="sr-only">(required)</span></label>
+                            <input type="text" name="phone_number" class="form-control" value="{{ $phone_number ?? '' }}" readonly required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Alternative Contact Number
-                                <span class="sr-only">(required)</span>
-                            </label>
+                    </div>
+
+                    <!-- Alternative Contact Number -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Alternative Contact Number <span class="sr-only">(required)</span></label>
                             <input type="text" name="alt_number" class="form-control" placeholder="Enter alternative contact number" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Gender
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <select name="gender" class="form-select select2-hide" required>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Gender <span class="sr-only">(required)</span></label>
+                            <select name="gender" class="form-control" required>
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                District
-                            </label>
-                            <select name="district_id" class="form-select">
+                    </div>
+
+                    <!-- District -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success">District</label>
+                            <select name="district_id" class="form-control select2">
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -104,12 +118,13 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Upazila
-                            </label>
-                            <select name="upazila_id" class="form-select">
+                    </div>
+
+                    <!-- Upazila -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success">Upazila</label>
+                            <select name="upazila_id" class="form-control select2">
                                 <option value="">Select Upazila</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -121,13 +136,13 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Union
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <select name="union_id" class="form-select" required>
+                    </div>
+
+                    <!-- Union -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Union <span class="sr-only">(required)</span></label>
+                            <select name="union_id" class="form-control select2" required>
                                 <option value="">Select Union</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -139,20 +154,21 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Village
-                                <span class="sr-only">(required)</span>
-                            </label>
+                    </div>
+
+                    <!-- Village -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success required">Village <span class="sr-only">(required)</span></label>
                             <input type="text" name="village" class="form-control" placeholder="Enter village name" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Retailer Interests
-                            </label>
-                            <select name="interested_query" multiple class="form-select select2-multiple">
+                    </div>
+
+                    <!-- Retailer Interests -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success">Retailer Interests</label>
+                            <select name="interested_query[]" class="form-control select2" multiple>
                                 <option value="New retailer accquisition">New retailer accquisition</option>
                                 <option value="Dealer Information">Dealer Information</option>
                                 <option value="Officer Information">Officer Information</option>
@@ -160,35 +176,43 @@
                                 <option value="Offers">Offers</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Additional Details
-                            </label>
-                            <textarea name="verbatim" class="form-control" placeholder="Any additional information" rows="2"></textarea>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-success">Additional Details</label>
+                            <textarea name="verbatim" rows="2" class="form-control" placeholder="Any additional information"></textarea>
                         </div>
                     </div>
-                    
-                    <div class="text-center mt-4">
-                        <button class="btn btn-success" type="button" id="save-btn">
-                            <i class="fas fa-save"></i> Save Retailer
-                        </button>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <button class="btn btn-success" type="button" id="save-btn">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>
 
     <!-- Interaction History Card -->
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">
+    <div class="card mb-3">
+        <div class="card-header bg-white">
+            <h4 class="card-title d-flex  align-items-center gap-2">
                 <i class="fas fa-history"></i>
                 Interaction History
-            </h2>
+            </h4>
         </div>
 
-        <div class="card-body p-0">
+        <div class="card-body">
             <div class="table-responsive">
                 <table class="table" id="data-datatable">
                     <thead>
@@ -204,10 +228,10 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Mary Retailer</td>
-                            <td>01911223344</td>
-                            <td>Product availability</td>
-                            <td>Confirmed stock availability</td>
+                            <td>Robert Dealer</td>
+                            <td>01555666777</td>
+                            <td>Pricing inquiry</td>
+                            <td>Provided bulk pricing</td>
                             <td><button class="action-btn" title="Call"><i class="fas fa-eye"></i></button></td>
                         </tr>
                     </tbody>
@@ -238,14 +262,14 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>How to increase retail sales?</td>
-                            <td>Sales</td>
+                            <td>How to manage dealer network?</td>
+                            <td>Dealer Management</td>
                             <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Best practices for inventory management?</td>
-                            <td>Inventory</td>
+                            <td>Best practices for dealer incentives?</td>
+                            <td>Incentives</td>
                             <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
                         </tr>
                     </tbody>
@@ -255,226 +279,71 @@
     </div> --}}
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer text-center">
         <p>&copy; {{ date('Y') }} All rights reserved | Developed by Shekh Farid
             <a href="https://myolbd.com" target="_blank">My Outsourcing Ltd</a>
         </p>
     </footer>
-@endsection
+</div>
 
-@push('scripts')
+    <!-- Common Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
-        (function($) {
-            'use strict';
-
-            // DOM Ready
-            $(document).ready(function() {
-                initializeApplication();
-            });
-
-            function initializeApplication() {
-                initializeSelect2();
-                initializeDataTables();
-                initializeEventHandlers();
-                showLoader();
-            }
-
-            function initializeSelect2() {
-                $('select').each(function() {
-                    const $el = $(this);
-                    const config = {
-                        width: '100%',
-                        placeholder: 'Select options',
-                        allowClear: true
-                    };
-
-                    if ($el.hasClass('select2-hide') || $el.attr('name') === 'gender') {
-                        config.minimumResultsForSearch = Infinity;
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+        // Interaction History Table
+        interactionTable = $('#data-datatable').DataTable({
+            processing: false,
+            serverSide: false,
+            responsive: true,
+            searching: true,
+            bInfo: true,
+            paging: true,
+            data: [
+                [1, 'Farid Test', '01521204476', 'Crop disease issue',
+                    'Recommended pesticide solution', ''
+                ],
+                [2, 'John Farmer', '01887654321', 'Fertilizer inquiry',
+                    'Suggested organic fertilizer', ''
+                ],
+                [3, 'Mary Retailer', '01911223344', 'Product availability',
+                    'Confirmed stock availability', ''
+                ],
+                [4, 'Robert Dealer', '01555666777', 'Pricing inquiry', 'Provided bulk pricing', '']
+            ],
+            columns: [{
+                    title: 'SL'
+                },
+                {
+                    title: 'Name'
+                },
+                {
+                    title: 'Phone Number'
+                },
+                {
+                    title: 'Problem'
+                },
+                {
+                    title: 'Solution'
+                },
+                {
+                    title: 'Action',
+                    orderable: false,
+                    searchable: false,
+                    render: function(data, type, row) {
+                        return '<button class="action-btn btn btn-sm btn-primary" title="Call"><i class="fas fa-eye"></i></button>';
                     }
-
-                    if ($el.attr('multiple') || $el.hasClass('select2-multiple')) {
-                        config.closeOnSelect = false;
-                    }
-
-                    $el.select2(config);
-                });
-            }
-
-            function initializeDataTables() {
-                // Interaction History Table
-                $('#data-datatable').DataTable({
-                    processing: false,
-                    serverSide: false,
-                    responsive: true,
-                    searching: true,
-                    bInfo: true,
-                    paging: true,
-                    language: {
-                        emptyTable: '<div class="text-center py-4 text-muted">No interaction records found</div>',
-                        zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
-                    }
-                });
-
-                // FAQ Table
-                $('#faq-datatable').DataTable({
-                    processing: false,
-                    serverSide: false,
-                    responsive: true,
-                    searching: true,
-                    bInfo: true,
-                    paging: true,
-                    language: {
-                        emptyTable: '<div class="text-center py-4 text-muted">No FAQ records found</div>',
-                        zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
-                    }
-                });
-            }
-
-            function initializeEventHandlers() {
-                // Save button handler
-                $(document).on('click', '#save-btn', handleSave);
-
-                // District change handler
-                $(document).on('change', '[name="district_id"]', handleDistrictChange);
-            }
-
-            function handleSave() {
-                if (!validateForm()) {
-                    showNotification('error', 'Please fill all required fields');
-                    return;
                 }
-
-                const formData = new FormData(document.getElementById('store_or_update_form'));
-
-                $.ajax({
-                    url: "{{ route('crmform.store') }}",
-                    type: "POST",
-                    data: formData,
-                    dataType: "JSON",
-                    contentType: false,
-                    processData: false,
-                    cache: false,
-                    beforeSend: function() {
-                        $('#save-btn').html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop('disabled', true);
-                    },
-                    complete: function() {
-                        $('#save-btn').html('<i class="fas fa-save"></i> Save Retailer').prop('disabled', false);
-                    },
-                    success: function(data) {
-                        clearValidationErrors();
-
-                        if (data.status == false) {
-                            handleValidationErrors(data.errors);
-                        } else {
-                            showNotification(data.status, data.message);
-                            if (data.status == 'success') {
-                                console.log('Retailer saved successfully');
-                            }
-                        }
-                    },
-                    error: function(xhr, ajaxOption, thrownError) {
-                        console.error('Error:', thrownError, xhr.statusText, xhr.responseText);
-                        showNotification('error', 'An error occurred. Please try again.');
-                    }
-                });
+            ],
+            language: {
+                emptyTable: '<div class="text-center py-4 text-muted">No interaction records found</div>',
+                zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
             }
-
-            function validateForm() {
-                const requiredFields = $(`[required]`);
-                let isValid = true;
-
-                clearValidationErrors();
-
-                requiredFields.each(function() {
-                    if (!$(this).val().trim()) {
-                        $(this).addClass('is-invalid');
-                        isValid = false;
-                    }
-                });
-
-                return isValid;
-            }
-
-            function clearValidationErrors() {
-                $('.is-invalid').removeClass('is-invalid');
-                $('.invalid-feedback').remove();
-            }
-
-            function handleValidationErrors(errors) {
-                $.each(errors, function(key, value) {
-                    showNotification('error', value);
-                    $(`[name="${key}"]`).addClass('is-invalid');
-                });
-            }
-
-            function handleDistrictChange() {
-                const districtId = $(this).val();
-                const $upazilaSelect = $('[name="upazila_id"]');
-
-                // Clear existing options
-                $upazilaSelect.empty().append('<option value="">Select Upazila</option>');
-
-                if (districtId) {
-                    // Simulate loading upazilas based on district
-                    const upazilas = getUpazilasByDistrict(districtId);
-                    upazilas.forEach(upazila => {
-                        $upazilaSelect.append(`<option value="${upazila.id}">${upazila.name}</option>`);
-                    });
-                }
-
-                $upazilaSelect.trigger('change');
-            }
-
-            function getUpazilasByDistrict(districtId) {
-                // Mock data - replace with actual API call
-                const upazilaData = {
-                    '1': [{ id: '1', name: 'Dhaka North' }, { id: '2', name: 'Dhaka South' }],
-                    '2': [{ id: '3', name: 'Chittagong City' }, { id: '4', name: 'Rangunia' }],
-                    // Add more districts as needed
-                };
-
-                return upazilaData[districtId] || [];
-            }
-
-            function showLoader() {
-                const loader = $('#topbar-loader');
-                loader.removeClass('d-none');
-
-                setTimeout(() => loader.css('width', '30%'), 100);
-                setTimeout(() => loader.css('width', '70%'), 500);
-                setTimeout(() => loader.css('width', '100%'), 800);
-
-                $(window).on('load', function() {
-                    setTimeout(() => loader.fadeOut(300), 400);
-                });
-            }
-
-            function showNotification(type, message) {
-                // Remove existing notifications
-                $('.alert').remove();
-
-                const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
-                const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-
-                const alertDiv = $(`
-                    <div class="alert ${alertClass} alert-dismissible">
-                        <i class="fas ${icon}"></i>
-                        <span>${message}</span>
-                        <button type="button" class="btn-close">&times;</button>
-                    </div>
-                `);
-
-                $('body').append(alertDiv);
-
-                // Auto remove after 5 seconds
-                setTimeout(() => alertDiv.fadeOut(300, () => alertDiv.remove()), 5000);
-
-                // Close button handler
-                alertDiv.find('.btn-close').on('click', function() {
-                    alertDiv.fadeOut(300, () => alertDiv.remove());
-                });
-            }
-
-        })(jQuery);
+        });
     </script>
-@endpush
+</body>
+</html>
