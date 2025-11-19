@@ -812,21 +812,34 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Mobile menu toggle
-        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('show');
-        });
+        const mobileToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (mobileToggle && sidebar) {
+            mobileToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+            });
+        }
+
         // Profile dropdown toggle
-        document.getElementById('profileTrigger').addEventListener('click', function() {
-            document.getElementById('profileDropdown').classList.toggle('show');
-        });
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        if (profileTrigger && profileDropdown) {
+            profileTrigger.addEventListener('click', function() {
+                profileDropdown.classList.toggle('show');
+            });
+        }
+
         // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const profileDropdown = document.getElementById('profileDropdown');
-            const profileTrigger = document.getElementById('profileTrigger');
-            if (!profileTrigger.contains(event.target) && !profileDropdown.contains(event.target)) {
-                profileDropdown.classList.remove('show');
-            }
-        });
+        if (profileTrigger && profileDropdown) {
+            document.addEventListener('click', function(event) {
+                if (!profileTrigger.contains(event.target) && !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.remove('show');
+                }
+            });
+        }
+
         // Submenu toggle
         function toggleSubmenu(submenuId) {
             const submenu = document.getElementById(submenuId);
