@@ -45,10 +45,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
 
         // Individual category forms - using controller methods
-        Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
-        Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
-        Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('dealer');
-        Route::get('/others', [CrmFormController::class, 'others'])->name('others');
+        // Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
+        // Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
+        // Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('dealer');
+        // Route::get('/others', [CrmFormController::class, 'others'])->name('others');
         Route::get('/campaign', [CrmFormController::class, 'campaign'])->name('campaign');
     });
 
