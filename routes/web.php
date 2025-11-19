@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', [CrmFormController::class, 'store'])->name('store');
         Route::get('/data', [CrmFormController::class, 'getData'])->name('data');
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
-        
+
         // Individual category forms - using controller methods
         Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
         Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
@@ -95,7 +95,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/archive', [CampaignController::class, 'archive'])->name('archive');
     });
 
-     // FAQs Routes
+    // FAQs Routes
     Route::prefix('faqs')->group(function () {
         Route::get('/view', [FaqController::class, 'view'])->name('faqs.view');
         Route::get('/add', [FaqController::class, 'add'])->name('faqs.add');
