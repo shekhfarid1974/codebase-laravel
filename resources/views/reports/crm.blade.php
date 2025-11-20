@@ -70,6 +70,19 @@
             table-layout: fixed;
             word-wrap: break-word;
         }
+
+        .chip {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            background: #f1f3f5;
+            font-size: 12px;
+            margin-right: 6px;
+        }
+
+        .modal-lg {
+            max-width: 900px;
+        }
     </style>
 
     <div class="container-fluid py-3">
@@ -113,42 +126,15 @@
             <div class="col-md-3 mb-3">
                 <div class="kpi-box">
                     <div class="small-muted">Avg Land Size</div>
-                    <h4 id="kpi_land">0 Acre</h4>
+                    <h4 id="kpi_land">0</h4>
                 </div>
             </div>
         </div>
 
-        <!-- FILTERS -->
+        <!-- FILTERS (dynamic per type) -->
         <div class="card mb-3">
-            <div class="card-body">
-                <div class="row g-2 align-items-center">
-                    <div class="col-md-2"><input id="f_name" type="text" class="form-control filter-input"
-                            placeholder="Search Name"></div>
-                    <div class="col-md-2"><input id="f_mobile" type="text" class="form-control filter-input"
-                            placeholder="Mobile"></div>
-                    <div class="col-md-2"><select id="f_district" class="form-control filter-input">
-                            <option value="">District</option>
-                            <option>Dhaka</option>
-                            <option>Chattogram</option>
-                            <option>Rajshahi</option>
-                        </select></div>
-                    <div class="col-md-2"><select id="f_upazila" class="form-control filter-input">
-                            <option value="">Upazila</option>
-                            <option>Mirpur</option>
-                            <option>Paltan</option>
-                        </select></div>
-                    <div class="col-md-2">
-                        <select id="f_gender" class="form-control filter-input">
-                            <option value="">Gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 text-end">
-                        <button id="btn_search" class="btn btn-primary btn-sm">Search</button>
-                        <button id="btn_reset" class="btn btn-secondary btn-sm">Reset</button>
-                    </div>
-                </div>
+            <div class="card-body" id="filterArea">
+                <!-- dynamic filters will be injected here -->
             </div>
         </div>
 
@@ -164,39 +150,105 @@
 
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table id="crm_table" class="table table-bordered table-striped mb-0 table-fixed">
+                    <!-- Tables for each type (only one visible at a time) -->
+
+                    <table id="table_farmer" class="table table-bordered table-striped mb-0 table-fixed d-none">
                         <thead class="table-light">
                             <tr>
                                 <th style="width:6%">ID</th>
-                                <th style="width:18%">Name</th>
-                                <th style="width:12%">Mobile</th>
-                                <th style="width:12%">District</th>
-                                <th style="width:12%">Upazila</th>
-                                <th style="width:12%">Union</th>
-                                <th style="width:8%">Gender</th>
-                                <th style="width:10%">Crop</th>
+                                <th style="width:16%">Name</th>
+                                <th style="width:10%">Mobile</th>
+                                <th style="width:8%">District</th>
+                                <th style="width:8%">Upazila</th>
+                                <th style="width:8%">Crop(s)</th>
+                                <th style="width:8%">Land Size</th>
                                 <th style="width:10%">Lead Source</th>
-                                <th style="width:10%">Status</th>
+                                <th style="width:8%">Status</th>
+                                <th style="width:18%">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="crm_tbody"></tbody>
+                        <tbody id="tbody_farmer"></tbody>
                     </table>
 
-                    <div id="emptyNote" class="empty-note d-none">
-                        No records to show for this report.
-                    </div>
+                    <table id="table_retailer" class="table table-bordered table-striped mb-0 table-fixed d-none">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:6%">ID</th>
+                                <th style="width:20%">Retailer Name</th>
+                                <th style="width:12%">Mobile(s)</th>
+                                <th style="width:10%">District / Upazila</th>
+                                <th style="width:12%">Interest</th>
+                                <th style="width:12%">Product List</th>
+                                <th style="width:10%">ACCL Link</th>
+                                <th style="width:8%">Status</th>
+                                <th style="width:10%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_retailer"></tbody>
+                    </table>
+
+                    <table id="table_dealer" class="table table-bordered table-striped mb-0 table-fixed d-none">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:6%">ID</th>
+                                <th style="width:20%">Dealer Name</th>
+                                <th style="width:12%">Mobile(s)</th>
+                                <th style="width:12%">District / Upazila</th>
+                                <th style="width:12%">Recommended</th>
+                                <th style="width:12%">Product List</th>
+                                <th style="width:8%">ACCL Link</th>
+                                <th style="width:8%">Status</th>
+                                <th style="width:10%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_dealer"></tbody>
+                    </table>
+
+                    <table id="table_others" class="table table-bordered table-striped mb-0 table-fixed d-none">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:6%">ID</th>
+                                <th style="width:22%">Name / Organisation</th>
+                                <th style="width:12%">Mobile(s)</th>
+                                <th style="width:12%">Category</th>
+                                <th style="width:14%">Interaction History</th>
+                                <th style="width:12%">ACCL Link</th>
+                                <th style="width:8%">Status</th>
+                                <th style="width:14%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_others"></tbody>
+                    </table>
+
+                    <div id="emptyNote" class="empty-note d-none">No records to show for this report.</div>
+
                 </div>
             </div>
         </div>
 
     </div>
 
+    <!-- Details modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Record Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- injected -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {{-- JS SCRIPT --}}
     <script>
-        /* ALL YOUR JS EXACTLY AS PROVIDED – NO CHANGE */
-
-        const demoData = {
+        // Demo data built from the forms you provided (trimmed examples). Replace with AJAX to server in production.
+        const demo = {
             farmer: {
                 kpi: {
                     total_customers: 1245,
@@ -205,64 +257,44 @@
                     avg_land: 2.4
                 },
                 rows: [{
-                        id: 1,
+                        id: 'FMR-001',
                         name: 'Abdul Rahman',
                         mobile: '01711110001',
+                        phone_own: 'Yes',
+                        alt_contact: '01710000001',
+                        gender: 'Male',
                         district: 'Dhaka',
                         upazila: 'Dhanmondi',
                         union: 'Uttara',
-                        gender: 'Male',
-                        crop: 'Rice',
+                        village: 'Ward 5',
+                        problem_query: 'Yellowing leaves',
+                        crops: ['Rice', 'Boro'],
+                        land_size: 2.5,
+                        solution: 'Apply fertilizer X',
+                        interests: ['Seed A', 'Fertilizer B'],
                         lead_source: 'Field',
-                        status: 'Active'
+                        lead_status: 'Regular',
+                        additional: 'Has previous purchases'
                     },
                     {
-                        id: 2,
-                        name: 'Jamal Uddin',
-                        mobile: '01711110002',
-                        district: 'Chattogram',
-                        upazila: 'Panchlaish',
-                        union: 'West',
-                        gender: 'Male',
-                        crop: 'Wheat',
-                        lead_source: 'Call',
-                        status: 'Follow-up'
-                    },
-                    {
-                        id: 3,
+                        id: 'FMR-002',
                         name: 'Rina Akter',
                         mobile: '01711110003',
+                        phone_own: 'No',
+                        alt_contact: '',
+                        gender: 'Female',
                         district: 'Rajshahi',
                         upazila: 'Bagha',
                         union: 'North',
-                        gender: 'Female',
-                        crop: 'Boro',
+                        village: 'Bagha',
+                        problem_query: 'Water logging',
+                        crops: ['Boro'],
+                        land_size: 1.2,
+                        solution: 'Raised bed',
+                        interests: ['Pump'],
                         lead_source: 'Referral',
-                        status: 'Active'
-                    },
-                    {
-                        id: 4,
-                        name: 'Karim Mia',
-                        mobile: '01711110004',
-                        district: 'Dhaka',
-                        upazila: 'Mirpur',
-                        union: 'Mirpur',
-                        gender: 'Male',
-                        crop: 'Corn',
-                        lead_source: 'Field',
-                        status: 'Active'
-                    },
-                    {
-                        id: 5,
-                        name: 'Fatema Begum',
-                        mobile: '01711110005',
-                        district: 'Chattogram',
-                        upazila: 'Kotwali',
-                        union: 'South',
-                        gender: 'Female',
-                        crop: 'Vegetables',
-                        lead_source: 'Call',
-                        status: 'Inactive'
+                        lead_status: 'Irregular',
+                        additional: ''
                     }
                 ]
             },
@@ -274,42 +306,19 @@
                     avg_land: 0
                 },
                 rows: [{
-                        id: 101,
-                        name: 'Retail Shop A',
-                        mobile: '01822220001',
-                        district: 'Dhaka',
-                        upazila: 'Gulshan',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'N/A',
-                        lead_source: 'Email',
-                        status: 'Active'
-                    },
-                    {
-                        id: 102,
-                        name: 'Retail Shop B',
-                        mobile: '01822220002',
-                        district: 'Dhaka',
-                        upazila: 'Banani',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'N/A',
-                        lead_source: 'Visit',
-                        status: 'Inactive'
-                    },
-                    {
-                        id: 103,
-                        name: 'Retail Shop C',
-                        mobile: '01822220003',
-                        district: 'Chattogram',
-                        upazila: 'Agrabad',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'N/A',
-                        lead_source: 'Referral',
-                        status: 'Active'
-                    }
-                ]
+                    id: 'RTR-001',
+                    name: 'Retail Shop A',
+                    mobiles: ['01822220001', '01822220005'],
+                    gender: 'N/A',
+                    district: 'Dhaka',
+                    upazila: 'Gulshan',
+                    village: 'Gulshan 2',
+                    interest: 'Seed Retail',
+                    product_list: ['Seed A', 'Fertilizer B'],
+                    acc_link: 'https://accl.example/shopA',
+                    remarks: 'Main retail',
+                    status: 'Active'
+                }]
             },
             dealer: {
                 kpi: {
@@ -319,30 +328,17 @@
                     avg_land: 0
                 },
                 rows: [{
-                        id: 201,
-                        name: 'Dealer One',
-                        mobile: '01933330001',
-                        district: 'Chattogram',
-                        upazila: 'Kotwali',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'N/A',
-                        lead_source: 'Trade',
-                        status: 'Active'
-                    },
-                    {
-                        id: 202,
-                        name: 'Dealer Two',
-                        mobile: '01933330002',
-                        district: 'Dhaka',
-                        upazila: 'Motijheel',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'N/A',
-                        lead_source: 'Email',
-                        status: 'Pending'
-                    }
-                ]
+                    id: 'DLR-001',
+                    name: 'Dealer One',
+                    mobiles: ['01933330001'],
+                    district: 'Chattogram',
+                    upazila: 'Kotwali',
+                    recommended: 'Fertilizer B',
+                    product_list: ['Seed A', 'Fertilizer B'],
+                    acc_link: 'https://accl.example/dealer1',
+                    remarks: 'Large capacity',
+                    status: 'Active'
+                }]
             },
             others: {
                 kpi: {
@@ -352,92 +348,307 @@
                     avg_land: 0.5
                 },
                 rows: [{
-                        id: 301,
-                        name: 'Coop Group',
-                        mobile: '01644440001',
-                        district: 'Dhaka',
-                        upazila: 'Mirpur',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'Vegetable',
-                        lead_source: 'Workshop',
-                        status: 'Active'
-                    },
-                    {
-                        id: 302,
-                        name: 'Agri NGO',
-                        mobile: '01644440002',
-                        district: 'Rajshahi',
-                        upazila: 'Godagari',
-                        union: 'N/A',
-                        gender: 'N/A',
-                        crop: 'Fruits',
-                        lead_source: 'Seminar',
-                        status: 'Active'
-                    }
-                ]
+                    id: 'OTH-001',
+                    category: 'NGO',
+                    name: 'Coop Group',
+                    mobiles: ['01644440001'],
+                    remarks: 'Community program',
+                    interaction_history: '2025-10-01: Workshop',
+                    acc_link: 'https://accl.example/coop',
+                    status: 'Active'
+                }]
             }
         };
 
         function escapeHtml(text) {
             if (text === null || text === undefined) return '';
-            return String(text)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
+            return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
         }
 
         let currentType = 'farmer';
-        let currentData = [...demoData.farmer.rows];
+        let currentData = [...demo.farmer.rows];
 
-        function renderReport(type) {
-            const data = demoData[type] || {
-                kpi: {},
-                rows: []
-            };
-            currentType = type;
-            currentData = [...data.rows];
-
-            document.getElementById('current_type').innerText = capitalize(type);
-            document.getElementById('kpi_customers').innerText = data.kpi.total_customers ?? 0;
-            document.getElementById('kpi_leads').innerText = data.kpi.total_leads ?? 0;
-            document.getElementById('kpi_users').innerText = data.kpi.accl_users ?? 0;
-            document.getElementById('kpi_land').innerText = (data.kpi.avg_land ?? 0) + ' Acre';
-
-            renderTableRows(currentData);
+        function renderKPIs(type) {
+            const data = demo[type].kpi || {};
+            document.getElementById('kpi_customers').innerText = data.total_customers ?? 0;
+            document.getElementById('kpi_leads').innerText = data.total_leads ?? 0;
+            document.getElementById('kpi_users').innerText = data.accl_users ?? 0;
+            document.getElementById('kpi_land').innerText = (data.avg_land ?? 0) + ' Acre';
         }
 
-        function renderTableRows(rows) {
-            const tbody = document.getElementById('crm_tbody');
-            tbody.innerHTML = '';
-
-            if (!rows || rows.length === 0) {
-                document.getElementById('emptyNote').classList.remove('d-none');
-                document.getElementById('crm_table').classList.add('d-none');
-                return;
+        function renderFilters(type) {
+            const area = document.getElementById('filterArea');
+            area.innerHTML = '';
+            if (type === 'farmer') {
+                area.innerHTML = `
+            <div class="row g-2 align-items-center">
+                <div class="col-md-2"><input id="f_name" type="text" class="form-control filter-input" placeholder="Search Name"></div>
+                <div class="col-md-2"><input id="f_mobile" type="text" class="form-control filter-input" placeholder="Mobile"></div>
+                <div class="col-md-2"><select id="f_district" class="form-control filter-input"><option value="">District</option><option>Dhaka</option><option>Chattogram</option><option>Rajshahi</option></select></div>
+                <div class="col-md-2"><select id="f_upazila" class="form-control filter-input"><option value="">Upazila</option><option>Dhanmondi</option><option>Mirpur</option></select></div>
+                <div class="col-md-2"><select id="f_gender" class="form-control filter-input"><option value="">Gender</option><option>Male</option><option>Female</option></select></div>
+                <div class="col-md-2 text-end"><button id="btn_search" class="btn btn-primary btn-sm">Search</button> <button id="btn_reset" class="btn btn-secondary btn-sm">Reset</button></div>
+            </div>`;
+            } else if (type === 'retailer') {
+                area.innerHTML = `
+            <div class="row g-2 align-items-center">
+                <div class="col-md-3"><input id="r_name" type="text" class="form-control filter-input" placeholder="Retailer Name"></div>
+                <div class="col-md-3"><input id="r_mobile" type="text" class="form-control filter-input" placeholder="Mobile"></div>
+                <div class="col-md-3"><select id="r_district" class="form-control filter-input"><option value="">District</option><option>Dhaka</option><option>Chattogram</option></select></div>
+                <div class="col-md-3 text-end"><button id="btn_search" class="btn btn-primary btn-sm">Search</button> <button id="btn_reset" class="btn btn-secondary btn-sm">Reset</button></div>
+            </div>`;
+            } else if (type === 'dealer') {
+                area.innerHTML = `
+            <div class="row g-2 align-items-center">
+                <div class="col-md-3"><input id="d_name" type="text" class="form-control filter-input" placeholder="Dealer Name"></div>
+                <div class="col-md-3"><input id="d_mobile" type="text" class="form-control filter-input" placeholder="Mobile"></div>
+                <div class="col-md-3"><select id="d_district" class="form-control filter-input"><option value="">District</option><option>Dhaka</option><option>Chattogram</option></select></div>
+                <div class="col-md-3 text-end"><button id="btn_search" class="btn btn-primary btn-sm">Search</button> <button id="btn_reset" class="btn btn-secondary btn-sm">Reset</button></div>
+            </div>`;
+            } else if (type === 'others') {
+                area.innerHTML = `
+            <div class="row g-2 align-items-center">
+                <div class="col-md-3"><input id="o_name" type="text" class="form-control filter-input" placeholder="Name / Org"></div>
+                <div class="col-md-3"><input id="o_mobile" type="text" class="form-control filter-input" placeholder="Mobile"></div>
+                <div class="col-md-3"><select id="o_category" class="form-control filter-input"><option value="">Category</option><option>NGO</option><option>SAAO</option><option>Scientific Officer</option></select></div>
+                <div class="col-md-3 text-end"><button id="btn_search" class="btn btn-primary btn-sm">Search</button> <button id="btn_reset" class="btn btn-secondary btn-sm">Reset</button></div>
+            </div>`;
             }
 
-            document.getElementById('emptyNote').classList.add('d-none');
-            document.getElementById('crm_table').classList.remove('d-none');
+            // attach handlers
+            document.getElementById('btn_search').addEventListener('click', applyFilters);
+            document.getElementById('btn_reset').addEventListener('click', function() {
+                renderReport(currentType);
+            });
+        }
 
+        function renderReport(type) {
+            currentType = type;
+            document.getElementById('current_type').innerText = capitalize(type);
+            renderKPIs(type);
+            renderFilters(type);
+            hideAllTables();
+            const data = demo[type];
+            currentData = [...(data.rows || [])];
+            if (!currentData.length) {
+                document.getElementById('emptyNote').classList.remove('d-none');
+            } else {
+                document.getElementById('emptyNote').classList.add('d-none');
+            }
+            if (type === 'farmer') {
+                document.getElementById('table_farmer').classList.remove('d-none');
+                renderFarmerRows(currentData);
+            }
+            if (type === 'retailer') {
+                document.getElementById('table_retailer').classList.remove('d-none');
+                renderRetailerRows(currentData);
+            }
+            if (type === 'dealer') {
+                document.getElementById('table_dealer').classList.remove('d-none');
+                renderDealerRows(currentData);
+            }
+            if (type === 'others') {
+                document.getElementById('table_others').classList.remove('d-none');
+                renderOthersRows(currentData);
+            }
+        }
+
+        function hideAllTables() {
+            ['table_farmer', 'table_retailer', 'table_dealer', 'table_others'].forEach(id => document.getElementById(id)
+                .classList.add('d-none'));
+        }
+
+        function renderFarmerRows(rows) {
+            const tbody = document.getElementById('tbody_farmer');
+            tbody.innerHTML = '';
+            if (!rows.length) return;
             rows.forEach(r => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                <td>${escapeHtml(r.id)}</td>
-                <td>${escapeHtml(r.name)}</td>
-                <td>${escapeHtml(r.mobile)}</td>
-                <td>${escapeHtml(r.district)}</td>
-                <td>${escapeHtml(r.upazila)}</td>
-                <td>${escapeHtml(r.union)}</td>
-                <td>${escapeHtml(r.gender)}</td>
-                <td>${escapeHtml(r.crop)}</td>
-                <td>${escapeHtml(r.lead_source)}</td>
-                <td>${escapeHtml(r.status)}</td>
-            `;
+            <td>${escapeHtml(r.id)}</td>
+            <td>${escapeHtml(r.name)}</td>
+            <td>${escapeHtml(r.mobile)}</td>
+            <td>${escapeHtml(r.district)}</td>
+            <td>${escapeHtml(r.upazila)}</td>
+            <td>${escapeHtml((r.crops||[]).join(', '))}</td>
+            <td>${escapeHtml(r.land_size)} Acre</td>
+            <td>${escapeHtml(r.lead_source)}</td>
+            <td>${escapeHtml(r.lead_status)}</td>
+            <td><button class="btn btn-sm btn-outline-primary me-1" onclick="showDetails('farmer','${r.id}')">View</button><button class="btn btn-sm btn-outline-secondary" onclick="callNumber('${r.mobile}')">Call</button></td>
+        `;
                 tbody.appendChild(tr);
             });
+        }
+
+        function renderRetailerRows(rows) {
+            const tbody = document.getElementById('tbody_retailer');
+            tbody.innerHTML = '';
+            if (!rows.length) return;
+            rows.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td>${escapeHtml(r.id)}</td>
+            <td>${escapeHtml(r.name)}</td>
+            <td>${escapeHtml((r.mobiles||[]).join(', '))}</td>
+            <td>${escapeHtml(r.district + ' / ' + r.upazila)}</td>
+            <td>${escapeHtml(r.interest)}</td>
+            <td>${escapeHtml((r.product_list||[]).join(', '))}</td>
+            <td>${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>`: ''}</td>
+            <td>${escapeHtml(r.status||'')}</td>
+            <td><button class="btn btn-sm btn-outline-primary me-1" onclick="showDetails('retailer','${r.id}')">View</button></td>
+        `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderDealerRows(rows) {
+            const tbody = document.getElementById('tbody_dealer');
+            tbody.innerHTML = '';
+            if (!rows.length) return;
+            rows.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td>${escapeHtml(r.id)}</td>
+            <td>${escapeHtml(r.name)}</td>
+            <td>${escapeHtml((r.mobiles||[]).join(', '))}</td>
+            <td>${escapeHtml(r.district + ' / ' + r.upazila)}</td>
+            <td>${escapeHtml(r.recommended || '')}</td>
+            <td>${escapeHtml((r.product_list||[]).join(', '))}</td>
+            <td>${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>`: ''}</td>
+            <td>${escapeHtml(r.status||'')}</td>
+            <td><button class="btn btn-sm btn-outline-primary me-1" onclick="showDetails('dealer','${r.id}')">View</button></td>
+        `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderOthersRows(rows) {
+            const tbody = document.getElementById('tbody_others');
+            tbody.innerHTML = '';
+            if (!rows.length) return;
+            rows.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+            <td>${escapeHtml(r.id)}</td>
+            <td>${escapeHtml(r.name)}</td>
+            <td>${escapeHtml((r.mobiles||[]).join(', '))}</td>
+            <td>${escapeHtml(r.category||'')}</td>
+            <td>${escapeHtml(r.interaction_history||'')}</td>
+            <td>${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>`: ''}</td>
+            <td>${escapeHtml(r.status||'')}</td>
+            <td><button class="btn btn-sm btn-outline-primary me-1" onclick="showDetails('others','${r.id}')">View</button></td>
+        `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function showDetails(type, id) {
+            const rec = demo[type].rows.find(r => r.id === id);
+            if (!rec) return;
+            const modal = document.getElementById('modalBody');
+            modal.innerHTML = buildDetailsHtml(type, rec);
+            var myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+            myModal.show();
+        }
+
+        function buildDetailsHtml(type, r) {
+            let html = '<div class="row">';
+            if (type === 'farmer') {
+                html +=
+                    `<div class="col-md-6"><h6>Basic</h6><p><strong>ID:</strong> ${escapeHtml(r.id)}<br><strong>Name:</strong> ${escapeHtml(r.name)}<br><strong>Mobile:</strong> ${escapeHtml(r.mobile)}<br><strong>Phone Own:</strong> ${escapeHtml(r.phone_own)}</p></div>`;
+                html +=
+                    `<div class="col-md-6"><h6>Location</h6><p><strong>District:</strong> ${escapeHtml(r.district)}<br><strong>Upazila:</strong> ${escapeHtml(r.upazila)}<br><strong>Union:</strong> ${escapeHtml(r.union)}<br><strong>Village:</strong> ${escapeHtml(r.village)}</p></div>`;
+                html +=
+                    `<div class="col-12"><h6>Crop & Interest</h6><p><strong>Crops:</strong> ${escapeHtml((r.crops||[]).join(', '))}<br><strong>Land Size:</strong> ${escapeHtml(r.land_size)} Acre<br><strong>Interests:</strong> ${escapeHtml((r.interests||[]).join(', '))}</p></div>`;
+                html +=
+                    `<div class="col-12"><h6>Problem & Solution</h6><p><strong>Problem:</strong> ${escapeHtml(r.problem_query)}<br><strong>Solution:</strong> ${escapeHtml(r.solution)}<br><strong>Additional:</strong> ${escapeHtml(r.additional)}</p></div>`;
+            } else if (type === 'retailer') {
+                html +=
+                    `<div class="col-md-6"><h6>Retailer</h6><p><strong>ID:</strong> ${escapeHtml(r.id)}<br><strong>Name:</strong> ${escapeHtml(r.name)}<br><strong>Mobiles:</strong> ${escapeHtml((r.mobiles||[]).join(', '))}</p></div>`;
+                html +=
+                    `<div class="col-md-6"><h6>Location & Links</h6><p><strong>District/Upazila:</strong> ${escapeHtml(r.district + ' / ' + r.upazila)}<br><strong>ACCL:</strong> ${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>` : ''}</p></div>`;
+                html +=
+                    `<div class="col-12"><h6>Products & Remarks</h6><p>${escapeHtml((r.product_list||[]).join(', '))}<br>${escapeHtml(r.remarks||'')}</p></div>`;
+            } else if (type === 'dealer') {
+                html +=
+                    `<div class="col-md-6"><h6>Dealer</h6><p><strong>ID:</strong> ${escapeHtml(r.id)}<br><strong>Name:</strong> ${escapeHtml(r.name)}<br><strong>Mobiles:</strong> ${escapeHtml((r.mobiles||[]).join(', '))}</p></div>`;
+                html +=
+                    `<div class="col-md-6"><h6>Business</h6><p><strong>Recommended:</strong> ${escapeHtml(r.recommended||'')}<br><strong>ACCL:</strong> ${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>` : ''}</p></div>`;
+                html +=
+                    `<div class="col-12"><h6>Product List & Remarks</h6><p>${escapeHtml((r.product_list||[]).join(', '))}<br>${escapeHtml(r.remarks||'')}</p></div>`;
+            } else if (type === 'others') {
+                html +=
+                    `<div class="col-md-6"><h6>Contact</h6><p><strong>ID:</strong> ${escapeHtml(r.id)}<br><strong>Category:</strong> ${escapeHtml(r.category)}<br><strong>Name:</strong> ${escapeHtml(r.name)}<br><strong>Mobiles:</strong> ${escapeHtml((r.mobiles||[]).join(', '))}</p></div>`;
+                html +=
+                    `<div class="col-md-6"><h6>History & Links</h6><p><strong>Interaction History:</strong> ${escapeHtml(r.interaction_history||'')}<br><strong>ACCL:</strong> ${r.acc_link? `<a href='${escapeHtml(r.acc_link)}' target='_blank'>Link</a>` : ''}</p></div>`;
+                html += `<div class="col-12"><h6>Remarks</h6><p>${escapeHtml(r.remarks||'')}</p></div>`;
+            }
+            html += '</div>';
+            return html;
+        }
+
+        function callNumber(mobile) { // integrate with your telephone system here (example uses tel:)
+            if (!mobile) {
+                alert('No mobile number');
+                return;
+            }
+            // If you have a click-to-call system, replace with appropriate URL/POST
+            window.location.href = `tel:${mobile}`;
+        }
+
+        function applyFilters() {
+            const type = currentType;
+            let filtered = [...currentData];
+            if (type === 'farmer') {
+                const name = document.getElementById('f_name').value.trim().toLowerCase();
+                const mobile = document.getElementById('f_mobile').value.trim();
+                const district = document.getElementById('f_district').value;
+                const upazila = document.getElementById('f_upazila').value;
+                const gender = document.getElementById('f_gender').value;
+                filtered = filtered.filter(r => {
+                    if (name && !String(r.name).toLowerCase().includes(name)) return false;
+                    if (mobile && !String(r.mobile).includes(mobile)) return false;
+                    if (district && String(r.district) !== district) return false;
+                    if (upazila && String(r.upazila) !== upazila) return false;
+                    if (gender && String(r.gender) !== gender) return false;
+                    return true;
+                });
+                renderFarmerRows(filtered);
+            } else if (type === 'retailer') {
+                const name = document.getElementById('r_name').value.trim().toLowerCase();
+                const mobile = document.getElementById('r_mobile').value.trim();
+                const district = document.getElementById('r_district').value;
+                filtered = filtered.filter(r => {
+                    if (name && !String(r.name).toLowerCase().includes(name)) return false;
+                    if (mobile && !((r.mobiles || []).join(', ').includes(mobile))) return false;
+                    if (district && String(r.district) !== district) return false;
+                    return true;
+                });
+                renderRetailerRows(filtered);
+            } else if (type === 'dealer') {
+                const name = document.getElementById('d_name').value.trim().toLowerCase();
+                const mobile = document.getElementById('d_mobile').value.trim();
+                const district = document.getElementById('d_district').value;
+                filtered = filtered.filter(r => {
+                    if (name && !String(r.name).toLowerCase().includes(name)) return false;
+                    if (mobile && !((r.mobiles || []).join(', ').includes(mobile))) return false;
+                    if (district && String(r.district) !== district) return false;
+                    return true;
+                });
+                renderDealerRows(filtered);
+            } else if (type === 'others') {
+                const name = document.getElementById('o_name').value.trim().toLowerCase();
+                const mobile = document.getElementById('o_mobile').value.trim();
+                const cat = document.getElementById('o_category').value;
+                filtered = filtered.filter(r => {
+                    if (name && !String(r.name).toLowerCase().includes(name)) return false;
+                    if (mobile && !((r.mobiles || []).join(', ').includes(mobile))) return false;
+                    if (cat && String(r.category) !== cat) return false;
+                    return true;
+                });
+                renderOthersRows(filtered);
+            }
         }
 
         function capitalize(s) {
@@ -446,7 +657,6 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             renderReport('farmer');
-
             document.querySelectorAll('.report-switch').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.report-switch').forEach(b => b.classList.remove(
@@ -456,36 +666,12 @@
                 });
             });
 
-            document.getElementById('btn_search').addEventListener('click', function() {
-                const name = document.getElementById('f_name').value.trim().toLowerCase();
-                const mobile = document.getElementById('f_mobile').value.trim();
-                const district = document.getElementById('f_district').value;
-                const upazila = document.getElementById('f_upazila').value;
-                const gender = document.getElementById('f_gender').value;
-
-                const filteredRows = currentData.filter(r => {
-                    if (name && !String(r.name).toLowerCase().includes(name)) return false;
-                    if (mobile && !String(r.mobile).includes(mobile)) return false;
-                    if (district && String(r.district) !== district) return false;
-                    if (upazila && String(r.upazila) !== upazila) return false;
-                    if (gender && String(r.gender) !== gender) return false;
-                    return true;
-                });
-
-                renderTableRows(filteredRows);
-            });
-
-            document.getElementById('btn_reset').addEventListener('click', function() {
-                ['f_name', 'f_mobile', 'f_district', 'f_upazila', 'f_gender'].forEach(id => document
-                    .getElementById(id).value = '');
-                renderReport(currentType);
-            });
-
-            document.getElementById('export_excel').addEventListener('click', () => {
-                alert('Export Excel (demo)');
+            document.getElementById('export_excel').addEventListener('click',
+        () => { // replace with real export to server
+                alert('Export Excel - implement server-side export (send current filters and type)');
             });
             document.getElementById('export_pdf').addEventListener('click', () => {
-                alert('Export PDF (demo)');
+                alert('Export PDF - implement server-side export (send current filters and type)');
             });
         });
     </script>
