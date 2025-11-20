@@ -77,16 +77,16 @@
         <!-- SWITCH BUTTONS -->
         <div class="row mb-3">
             <div class="col-3">
-                <div class="report-switch active" data-type="farmer">Farmer</div>
+                <div class="report-switch active" data-type="farmer">Farmer Report</div>
             </div>
             <div class="col-3">
-                <div class="report-switch" data-type="retailer">Retailer</div>
+                <div class="report-switch" data-type="retailer">Retailer Report</div>
             </div>
             <div class="col-3">
-                <div class="report-switch" data-type="dealer">Dealer</div>
+                <div class="report-switch" data-type="dealer">Dealer Report</div>
             </div>
             <div class="col-3">
-                <div class="report-switch" data-type="others">Others</div>
+                <div class="report-switch" data-type="others">Others Report</div>
             </div>
         </div>
 
