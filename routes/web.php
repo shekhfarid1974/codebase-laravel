@@ -43,22 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', [CrmFormController::class, 'store'])->name('store');
         Route::get('/data', [CrmFormController::class, 'getData'])->name('data');
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
-
-        // Individual category forms - using controller methods
-        // Route::get('/farmer', [CrmFormController::class, 'farmer'])->name('farmer');
-        // Route::get('/retailer', [CrmFormController::class, 'retailer'])->name('retailer');
-        // Route::get('/dealer', [CrmFormController::class, 'dealer'])->name('dealer');
-        // Route::get('/others', [CrmFormController::class, 'others'])->name('others');
         Route::get('/campaign', [CrmFormController::class, 'campaign'])->name('campaign');
-    });
-
-    // CRM Routes (for the CRM submenu)
-    Route::prefix('crm')->name('crm.')->group(function () {
-        Route::get('/farmer', [CrmController::class, 'farmer'])->name('farmer');
-        Route::get('/dealer', [CrmController::class, 'dealer'])->name('dealer');
-        Route::get('/retailer', [CrmController::class, 'retailer'])->name('retailer');
-        Route::get('/others', [CrmController::class, 'others'])->name('other');
-        Route::get('/campaign', [CrmController::class, 'campaign'])->name('campaign');
     });
 
     // Survey Routes - Fixed to match sidebar
@@ -88,12 +73,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/reset', [LeadController::class, 'reset'])->name('reset');
     });
 
-    // Campaigns Routes
-    Route::prefix('campaigns')->name('campaigns.')->group(function () {
-        Route::get('/active', [CampaignController::class, 'active'])->name('active');
-        Route::get('/create', [CampaignController::class, 'create'])->name('create');
-        Route::get('/archive', [CampaignController::class, 'archive'])->name('archive');
-    });
 
     // FAQs Routes
     Route::prefix('faqs')->group(function () {

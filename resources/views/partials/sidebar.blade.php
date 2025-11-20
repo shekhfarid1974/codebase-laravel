@@ -45,42 +45,6 @@
             </div>
         </div>
 
-        {{-- <div class="menu-section">
-            <div class="section-title">CRM</div>
-            <a href="#" class="menu-item submenu-trigger" data-submenu="crmSubmenu">
-                <i class="fas fa-users menu-icon"></i>
-                <span class="menu-title">CRM</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
-                <a href="{{ route('crmform.farmer') }}"
-                    class="menu-item {{ request()->routeIs('crm.farmer') ? 'active' : '' }}">
-                    <i class="fas fa-user-tie menu-icon"></i>
-                    <span class="menu-title">Farmer CRM</span>
-                </a>
-                <a href="{{ route('crmform.dealer') }}"
-                    class="menu-item {{ request()->routeIs('crm.dealer') ? 'active' : '' }}">
-                    <i class="fas fa-store menu-icon"></i>
-                    <span class="menu-title">Dealer CRM</span>
-                </a>
-                <a href="{{ route('crmform.retailer') }}"
-                    class="menu-item {{ request()->routeIs('crm.retailer') ? 'active' : '' }}">
-                    <i class="fas fa-shopping-cart menu-icon"></i>
-                    <span class="menu-title">Retailer CRM</span>
-                </a>
-                <a href="{{ route('crmform.others') }}"
-                    class="menu-item {{ request()->routeIs('crm.other') ? 'active' : '' }}">
-                    <i class="fas fa-user-friends menu-icon"></i>
-                    <span class="menu-title">Other CRM</span>
-                </a>
-                <a href="{{ route('crmform.campaign') }}"
-                    class="menu-item {{ request()->routeIs('crm.campaign') ? 'active' : '' }}">
-                    <i class="fas fa-bullhorn menu-icon"></i>
-                    <span class="menu-title">Campaign CRM</span>
-                </a>
-            </div>
-        </div> --}}
-
         <div class="menu-section">
             <div class="section-title">Operations</div>
 
