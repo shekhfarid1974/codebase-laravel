@@ -1,23 +1,12 @@
-@extends('layouts.standalone')
-@section('title', 'Others CRM Form')
 
-@push('styles')
-    <style>
-        /* Others-specific styles if needed */
-        .others-icon {
-            color: #6c757d;
-        }
-    </style>
-@endpush
 
-@section('content')
     <!-- Customer Form Card -->
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">
-                <i class="fas fa-ellipsis-h others-icon"></i>
+    <div class="card mb-3 shadow-none bg-none">
+        <div class="card-header d-flex justify-content-between align-items-center bg-white">
+            <h5 class="card-title ">
+                <i class="fas fa-store dealer-icon"></i>
                 <span>Others Information</span>
-            </h2>
+            </h5>
 
             <div class="agent-info">
                 <i class="fas fa-user-tie"></i>
@@ -31,60 +20,60 @@
             <form method="POST" id="store_or_update_form">
                 @csrf
                 <input type="hidden" name="agent" value="{{ $agent ?? 'Default' }}">
-                <input type="hidden" name="customer_category" id="customer_category" value="Others">
-
-                <!-- Category Tabs -->
-                <div class="category-tabs" role="tablist">
-                    <a href="{{ route('crmform.farmer') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-tractor"></i> Farmer
-                    </a>
-                    <a href="{{ route('crmform.retailer') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-shopping-cart"></i> Retailer
-                    </a>
-                    <a href="{{ route('crmform.dealer') }}" class="category-tab" role="tab" aria-selected="false">
-                        <i class="fas fa-store"></i> Dealer
-                    </a>
-                    <a href="{{ route('crmform.others') }}" class="category-tab active" role="tab" aria-selected="true">
-                        <i class="fas fa-ellipsis-h"></i> Others
-                    </a>
-                </div>
-
-                <!-- Dynamic Fields Container -->
-                <div id="dynamic_fields" class="category-fields" role="tabpanel">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Name
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
+                <input type="hidden" name="customer_category" id="customer_category" value="Dealer">
+                <div class="row">
+                    <!-- Name -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Name <span class="sr-only">(required)</span></label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter full name" value="Farid Test" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Mobile Number
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <input type="text" name="phone_number" class="form-control readonly" value="{{ $phone_number ?? '' }}" readonly required>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Mobile Number <span class="sr-only">(required)</span></label>
+                            <input type="text" name="phone_number" class="form-control" value="{{ $phone_number ?? '' }}" readonly required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Gender
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <select name="gender" class="form-select select2-hide" required>
+                    </div>
+
+                    <!-- Phone Number Own -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label ">Phone Number Own</label>
+                            <select name="own_number" class="form-control">
+                                <option value="Yes" {{ (isset($own_number) && $own_number=='Yes') ? 'selected' : '' }}>Yes</option>
+                                <option value="No" {{ (isset($own_number) && $own_number=='No') ? 'selected' : '' }}>No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Alternative Contact Number -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Alternative Contact Number <span class="sr-only">(required)</span></label>
+                            <input type="text" name="alt_number" class="form-control" placeholder="Enter alternative contact number" required>
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Gender <span class="sr-only">(required)</span></label>
+                            <select name="gender" class="form-control" required>
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                District
-                            </label>
-                            <select name="district_id" class="form-select">
+                    </div>
+
+                    <!-- District -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">District <span class="sr-only">(required)</span></label>
+                            <select name="district_id" class="form-control" required>
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -96,13 +85,13 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Upazila
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <select name="upazila_id" class="form-select" required>
+                    </div>
+
+                    <!-- Upazila -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Upazila <span class="sr-only">(required)</span></label>
+                            <select name="upazila_id" class="form-control" required>
                                 <option value="">Select Upazila</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -114,13 +103,13 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Union
-                                <span class="sr-only">(required)</span>
-                            </label>
-                            <select name="union_id" class="form-select" required>
+                    </div>
+
+                    <!-- Union -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Union <span class="sr-only">(required)</span></label>
+                            <select name="union_id" class="form-control" required>
                                 <option value="">Select Union</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -132,39 +121,42 @@
                                 <option value="8">Mymensingh</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label required">
-                                Village
-                                <span class="sr-only">(required)</span>
-                            </label>
+                    </div>
+
+                    <!-- Village -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label  required">Village <span class="sr-only">(required)</span></label>
                             <input type="text" name="village" class="form-control" placeholder="Enter village name" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Others Interests
-                            </label>
-                            <select name="interested_query" multiple class="form-select select2-multiple">
+                    </div>
+
+                    <!-- Others Interests -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label ">Others Interests</label>
+                            <select name="others_interested_query[]" id="others_interested_query" class="form-control select2" multiple>
                                 <option value="Product">Product</option>
                                 <option value="Officer Information">Officer Information</option>
                                 <option value="Disease">Disease</option>
                                 <option value="Complain">Complain</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Additional Details
-                            </label>
-                            <textarea name="verbatim" class="form-control" placeholder="Any additional information" rows="2"></textarea>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label ">Additional Details</label>
+                            <textarea name="verbatim" class="form-control" rows="2" placeholder="Any additional information"></textarea>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                Customer Type
-                            </label>
-                            <select name="customer_type" class="form-select">
+                    </div>
+
+                    <!-- Customer Type -->
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label ">Customer Type</label>
+                            <select name="customer_type" class="form-control">
                                 <option value="">Select Customer Type</option>
                                 <option value="SAAO">SAAO</option>
                                 <option value="Scientific Officer">Scientific Officer</option>
@@ -172,313 +164,109 @@
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="text-center mt-4">
-                        <button class="btn btn-success" type="button" id="save-btn">
-                            <i class="fas fa-save"></i> Save Customer
-                        </button>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <button class="btn btn-success" type="button" id="save-btn">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>
 
-    <!-- Interaction History Card -->
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">
+    <div class="card mb-3 shadow-none bg-none">
+        <div class="card-header bg-white">
+            <h4 class="card-title d-flex  align-items-center gap-2">
                 <i class="fas fa-history"></i>
-                Interaction History
-            </h2>
+                Products List
+            </h4>
         </div>
 
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table" id="data-datatable">
-                    <thead>
-                        <tr>
-                            <th>SL</th>
-                            <th>Name</th>
-                            <th>Phone Number</th>
-                            <th>Problem</th>
-                            <th>Solution</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Sarah Officer</td>
-                            <td>01777888999</td>
-                            <td>Technical inquiry</td>
-                            <td>Provided technical guidance</td>
-                            <td><button class="action-btn" title="Call"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+        <div class="card-body">
+            <div class="row g-4">
 
-    <!-- Knowledge Base Card -->
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">
-                <i class="fas fa-book"></i>
-                Knowledge Base FAQ
-            </h2>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table" id="faq-datatable">
-                    <thead>
-                        <tr>
-                            <th>SL</th>
-                            <th>Question</th>
-                            <th>Category</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>General agricultural guidelines?</td>
-                            <td>General</td>
-                            <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Government agricultural schemes?</td>
-                            <td>Schemes</td>
-                            <td><button class="action-btn" title="View"><i class="fas fa-eye"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; {{ date('Y') }} All rights reserved | Developed by Shekh Farid
-            <a href="https://myolbd.com" target="_blank">My Outsourcing Ltd</a>
-        </p>
-    </footer>
-@endsection
-
-@push('scripts')
-    <script>
-        (function($) {
-            'use strict';
-
-            // DOM Ready
-            $(document).ready(function() {
-                initializeApplication();
-            });
-
-            function initializeApplication() {
-                initializeSelect2();
-                initializeDataTables();
-                initializeEventHandlers();
-                showLoader();
-            }
-
-            function initializeSelect2() {
-                $('select').each(function() {
-                    const $el = $(this);
-                    const config = {
-                        width: '100%',
-                        placeholder: 'Select options',
-                        allowClear: true
-                    };
-
-                    if ($el.hasClass('select2-hide') || $el.attr('name') === 'gender') {
-                        config.minimumResultsForSearch = Infinity;
-                    }
-
-                    if ($el.attr('multiple') || $el.hasClass('select2-multiple')) {
-                        config.closeOnSelect = false;
-                    }
-
-                    $el.select2(config);
-                });
-            }
-
-            function initializeDataTables() {
-                // Interaction History Table
-                $('#data-datatable').DataTable({
-                    processing: false,
-                    serverSide: false,
-                    responsive: true,
-                    searching: true,
-                    bInfo: true,
-                    paging: true,
-                    language: {
-                        emptyTable: '<div class="text-center py-4 text-muted">No interaction records found</div>',
-                        zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
-                    }
-                });
-
-                // FAQ Table
-                $('#faq-datatable').DataTable({
-                    processing: false,
-                    serverSide: false,
-                    responsive: true,
-                    searching: true,
-                    bInfo: true,
-                    paging: true,
-                    language: {
-                        emptyTable: '<div class="text-center py-4 text-muted">No FAQ records found</div>',
-                        zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
-                    }
-                });
-            }
-
-            function initializeEventHandlers() {
-                // Save button handler
-                $(document).on('click', '#save-btn', handleSave);
-
-                // District change handler
-                $(document).on('change', '[name="district_id"]', handleDistrictChange);
-            }
-
-            function handleSave() {
-                if (!validateForm()) {
-                    showNotification('error', 'Please fill all required fields');
-                    return;
-                }
-
-                const formData = new FormData(document.getElementById('store_or_update_form'));
-
-                $.ajax({
-                    url: "{{ route('crmform.store') }}",
-                    type: "POST",
-                    data: formData,
-                    dataType: "JSON",
-                    contentType: false,
-                    processData: false,
-                    cache: false,
-                    beforeSend: function() {
-                        $('#save-btn').html('<i class="fas fa-spinner fa-spin"></i> Saving...').prop('disabled', true);
-                    },
-                    complete: function() {
-                        $('#save-btn').html('<i class="fas fa-save"></i> Save Customer').prop('disabled', false);
-                    },
-                    success: function(data) {
-                        clearValidationErrors();
-
-                        if (data.status == false) {
-                            handleValidationErrors(data.errors);
-                        } else {
-                            showNotification(data.status, data.message);
-                            if (data.status == 'success') {
-                                console.log('Customer saved successfully');
-                            }
-                        }
-                    },
-                    error: function(xhr, ajaxOption, thrownError) {
-                        console.error('Error:', thrownError, xhr.statusText, xhr.responseText);
-                        showNotification('error', 'An error occurred. Please try again.');
-                    }
-                });
-            }
-
-            function validateForm() {
-                const requiredFields = $(`[required]`);
-                let isValid = true;
-
-                clearValidationErrors();
-
-                requiredFields.each(function() {
-                    if (!$(this).val().trim()) {
-                        $(this).addClass('is-invalid');
-                        isValid = false;
-                    }
-                });
-
-                return isValid;
-            }
-
-            function clearValidationErrors() {
-                $('.is-invalid').removeClass('is-invalid');
-                $('.invalid-feedback').remove();
-            }
-
-            function handleValidationErrors(errors) {
-                $.each(errors, function(key, value) {
-                    showNotification('error', value);
-                    $(`[name="${key}"]`).addClass('is-invalid');
-                });
-            }
-
-            function handleDistrictChange() {
-                const districtId = $(this).val();
-                const $upazilaSelect = $('[name="upazila_id"]');
-
-                // Clear existing options
-                $upazilaSelect.empty().append('<option value="">Select Upazila</option>');
-
-                if (districtId) {
-                    // Simulate loading upazilas based on district
-                    const upazilas = getUpazilasByDistrict(districtId);
-                    upazilas.forEach(upazila => {
-                        $upazilaSelect.append(`<option value="${upazila.id}">${upazila.name}</option>`);
-                    });
-                }
-
-                $upazilaSelect.trigger('change');
-            }
-
-            function getUpazilasByDistrict(districtId) {
-                // Mock data - replace with actual API call
-                const upazilaData = {
-                    '1': [{ id: '1', name: 'Dhaka North' }, { id: '2', name: 'Dhaka South' }],
-                    '2': [{ id: '3', name: 'Chittagong City' }, { id: '4', name: 'Rangunia' }],
-                    // Add more districts as needed
-                };
-
-                return upazilaData[districtId] || [];
-            }
-
-            function showLoader() {
-                const loader = $('#topbar-loader');
-                loader.removeClass('d-none');
-
-                setTimeout(() => loader.css('width', '30%'), 100);
-                setTimeout(() => loader.css('width', '70%'), 500);
-                setTimeout(() => loader.css('width', '100%'), 800);
-
-                $(window).on('load', function() {
-                    setTimeout(() => loader.fadeOut(300), 400);
-                });
-            }
-
-            function showNotification(type, message) {
-                // Remove existing notifications
-                $('.alert').remove();
-
-                const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
-                const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-
-                const alertDiv = $(`
-                    <div class="alert ${alertClass} alert-dismissible">
-                        <i class="fas ${icon}"></i>
-                        <span>${message}</span>
-                        <button type="button" class="btn-close">&times;</button>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Crop Protection Insecticide">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Crop Protection Insecticide</h5>
+                            <p class="card-text"><strong>Category:</strong> Insecticide</p>
+                            <p class="card-text">Advanced formula for comprehensive crop protection against various insects.</p>
+                            <h6 class="mt-auto">Price: ৳ 1,250</h6>
+                        </div>
                     </div>
-                `);
+                </div>
 
-                $('body').append(alertDiv);
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Fungicide Pro Max">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Fungicide Pro Max</h5>
+                            <p class="card-text"><strong>Category:</strong> Fungicide</p>
+                            <p class="card-text">Effective fungal disease control for multiple crops with long-lasting protection.</p>
+                            <h6 class="mt-auto">Price: ৳ 980</h6>
+                        </div>
+                    </div>
+                </div>
 
-                // Auto remove after 5 seconds
-                setTimeout(() => alertDiv.fadeOut(300, () => alertDiv.remove()), 5000);
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Weed Master Herbicide">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Weed Master Herbicide</h5>
+                            <p class="card-text"><strong>Category:</strong> Herbicide</p>
+                            <p class="card-text">Broad-spectrum weed control solution for clean and healthy crops.</p>
+                            <h6 class="mt-auto">Price: ৳ 1,150</h6>
+                        </div>
+                    </div>
+                </div>
 
-                // Close button handler
-                alertDiv.find('.btn-close').on('click', function() {
-                    alertDiv.fadeOut(300, () => alertDiv.remove());
-                });
-            }
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Growth Booster Fertilizer">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Growth Booster Fertilizer</h5>
+                            <p class="card-text"><strong>Category:</strong> Fertilizer</p>
+                            <p class="card-text">Organic growth enhancer for improved yield and plant health.</p>
+                            <h6 class="mt-auto">Price: ৳ 850</h6>
+                        </div>
+                    </div>
+                </div>
 
-        })(jQuery);
-    </script>
-@endpush
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Seed Treatment Kit">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Seed Treatment Kit</h5>
+                            <p class="card-text"><strong>Category:</strong> Seed Treatment</p>
+                            <p class="card-text">Complete seed protection package for better germination and early growth.</p>
+                            <h6 class="mt-auto">Price: ৳ 2,300</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-none border">
+                        <img src="https://placehold.co/600x400/EEE/31343C" class="card-img-top" alt="Soil Conditioner Pro">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Soil Conditioner Pro</h5>
+                            <p class="card-text"><strong>Category:</strong> Soil Care</p>
+                            <p class="card-text">Improves soil structure and nutrient availability for optimal plant growth.</p>
+                            <h6 class="mt-auto">Price: ৳ 1,750</h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
