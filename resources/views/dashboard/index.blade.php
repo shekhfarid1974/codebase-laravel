@@ -4,7 +4,7 @@
 @section('page_title', 'Dashboard')
 
 @section('content')
-{{-- <div id="dashboardView">
+<div id="dashboardView">
     <div class="row">
         <div class="col-md-3">
             <div class="dashboard-card">
@@ -199,5 +199,5 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 @endsection

@@ -20,15 +20,23 @@
             <!-- CRM FORM Submenu - Fixed structure -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="crmFormSubmenu">
                 <i class="fas fa-user-plus menu-icon"></i>
-                <span class="menu-title">CRM FORM</span>
+                <span class="menu-title">Inbound</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
             <div class="submenu {{ request()->routeIs('crmform.*') ? 'show' : '' }}" id="crmFormSubmenu">
                 <a href="{{ route('crmform.create', ['type' => 'inbound']) }}"
                     class="menu-item {{ request()->is('crmform/create/inbound') ? 'active' : '' }}">
                     <i class="fas fa-phone-volume menu-icon"></i>
-                    <span class="menu-title">Inbound Form</span>
+                    <span class="menu-title">Inbound</span>
                 </a>
+            </div>
+
+            <a href="#" class="menu-item submenu-trigger" data-submenu="outboundFormSubmenu">
+                <i class="fas fa-user-plus menu-icon"></i>
+                <span class="menu-title">Outbound</span>
+                <i class="fas fa-chevron-down menu-arrow"></i>
+            </a>
+            <div class="submenu {{ request()->routeIs('crmform.*') ? 'show' : '' }}" id="outboundFormSubmenu">
                 <a href="{{ route('crmform.create', ['type' => 'outbound']) }}"
                     class="menu-item {{ request()->is('crmform/create/outbound') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
@@ -37,14 +45,14 @@
             </div>
         </div>
 
-        <div class="menu-section">
+        {{-- <div class="menu-section">
             <div class="section-title">CRM</div>
             <a href="#" class="menu-item submenu-trigger" data-submenu="crmSubmenu">
                 <i class="fas fa-users menu-icon"></i>
                 <span class="menu-title">CRM</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            {{-- <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
+            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
                 <a href="{{ route('crmform.farmer') }}"
                     class="menu-item {{ request()->routeIs('crm.farmer') ? 'active' : '' }}">
                     <i class="fas fa-user-tie menu-icon"></i>
@@ -70,8 +78,8 @@
                     <i class="fas fa-bullhorn menu-icon"></i>
                     <span class="menu-title">Campaign CRM</span>
                 </a>
-            </div> --}}
-        </div>
+            </div>
+        </div> --}}
 
         <div class="menu-section">
             <div class="section-title">Operations</div>
@@ -164,31 +172,6 @@
                     class="menu-item {{ request()->routeIs('leads.reset') ? 'active' : '' }}">
                     <i class="fas fa-redo menu-icon"></i>
                     <span class="menu-title">Reset Lead Data</span>
-                </a>
-            </div>
-
-            <!-- Campaigns Submenu -->
-            <a href="#" class="menu-item submenu-trigger" data-submenu="campaignsSubmenu">
-                <i class="fas fa-bullhorn menu-icon"></i>
-                <span class="menu-title">Campaigns</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('campaigns.*') ? 'show' : '' }}" id="campaignsSubmenu">
-                <a href="{{ route('campaigns.active') }}"
-                    class="menu-item {{ request()->routeIs('campaigns.active') ? 'active' : '' }}">
-                    <i class="fas fa-play-circle menu-icon"></i>
-                    <span class="menu-title">Active Campaigns</span>
-                    <span class="menu-badge">3</span>
-                </a>
-                <a href="{{ route('campaigns.create') }}"
-                    class="menu-item {{ request()->routeIs('campaigns.create') ? 'active' : '' }}">
-                    <i class="fas fa-plus menu-icon"></i>
-                    <span class="menu-title">Create Campaign</span>
-                </a>
-                <a href="{{ route('campaigns.archive') }}"
-                    class="menu-item {{ request()->routeIs('campaigns.archive') ? 'active' : '' }}">
-                    <i class="fas fa-archive menu-icon"></i>
-                    <span class="menu-title">Campaign Archive</span>
                 </a>
             </div>
 
