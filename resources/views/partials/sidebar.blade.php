@@ -44,7 +44,7 @@
                 <span class="menu-title">CRM</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
+            {{-- <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmSubmenu">
                 <a href="{{ route('crmform.farmer') }}"
                     class="menu-item {{ request()->routeIs('crm.farmer') ? 'active' : '' }}">
                     <i class="fas fa-user-tie menu-icon"></i>
@@ -70,7 +70,7 @@
                     <i class="fas fa-bullhorn menu-icon"></i>
                     <span class="menu-title">Campaign CRM</span>
                 </a>
-            </div>
+            </div> --}}
         </div>
 
         <div class="menu-section">
