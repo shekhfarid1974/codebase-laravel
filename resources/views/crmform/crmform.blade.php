@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="container">
-            
 
             <ul class="nav nav-pills bg-white border p-3 border-bottom-0 rounded" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">

@@ -23,9 +23,9 @@
                 <span class="menu-title">Inbound</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu {{ request()->routeIs('crmform.*') ? 'show' : '' }}" id="crmFormSubmenu">
-                <a href="{{ route('crmform.create', ['type' => 'inbound']) }}"
-                    class="menu-item {{ request()->is('crmform/create/inbound') ? 'active' : '' }}">
+            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmFormSubmenu">
+                <a target="_blank" href="{{ route('crmform.create') }}"
+                    class="menu-item {{ request()->is('crm/form/inbound') ? 'active' : '' }}">
                     <i class="fas fa-phone-volume menu-icon"></i>
                     <span class="menu-title">Inbound</span>
                 </a>
@@ -36,11 +36,21 @@
                 <span class="menu-title">Outbound</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
-            <div class="submenu {{ request()->routeIs('crmform.*') ? 'show' : '' }}" id="outboundFormSubmenu">
-                <a href="{{ route('crmform.create', ['type' => 'outbound']) }}"
-                    class="menu-item {{ request()->is('crmform/create/outbound') ? 'active' : '' }}">
+            <div class="submenu {{ request()->routeIs('outbound.*') ? 'show' : '' }}" id="outboundFormSubmenu">
+                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'navara-campaign']) }}"
+                    class="menu-item {{ request()->is('outbound/form/navara-campaign') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
-                    <span class="menu-title">Outbound Form</span>
+                    <span class="menu-title">Navara Campaign</span>
+                </a>
+                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'general-survey']) }}"
+                    class="menu-item {{ request()->is('outbound/form/general-survey') ? 'active' : '' }}">
+                    <i class="fas fa-phone menu-icon"></i>
+                    <span class="menu-title">General Survey</span>
+                </a>
+                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'meeting-feedback']) }}"
+                    class="menu-item {{ request()->is('outbound/form/meeting-feedback') ? 'active' : '' }}">
+                    <i class="fas fa-phone menu-icon"></i>
+                    <span class="menu-title">Meeting Feedback</span>
                 </a>
             </div>
         </div>

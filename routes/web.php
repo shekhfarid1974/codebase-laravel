@@ -15,6 +15,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OutboundCrmFormController;
 
 // Public routes
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -37,13 +38,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings/mail', [SettingsController::class, 'mailConfigure'])->name('mail.configure');
 
     // CRM Form Routes - Fixed to match sidebar
-    Route::prefix('crmform')->name('crmform.')->group(function () {
+    Route::prefix('crm')->name('crmform.')->group(function () {
         // Dynamic form creation with type parameter
-        Route::get('/create/{type}', [CrmFormController::class, 'create'])->name('create');
+        Route::get('/form/inbound', [CrmFormController::class, 'create'])->name('create');
         Route::post('/store', [CrmFormController::class, 'store'])->name('store');
         Route::get('/data', [CrmFormController::class, 'getData'])->name('data');
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
         Route::get('/campaign', [CrmFormController::class, 'campaign'])->name('campaign');
+    });
+    // Outbound
+    Route::group(['prefix' => 'outbound','as'=>'outbound.'], function () {
+        // Navara Campaign - Outbound
+        Route::get('form/{type}', [OutboundCrmFormController::class, 'formType'])->name('form.type');
     });
 
     // Survey Routes - Fixed to match sidebar
