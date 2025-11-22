@@ -10,62 +10,13 @@ class CrmFormController extends Controller
     {
         $phone_number = $request->get('phone_number', '01521204476');
         $agent = $request->get('agent', 'ShekhFarid');
-
         return view('crmform.crmform', [
             'phone_number' => $phone_number,
             'agent' => $agent,
-            'title' => 'CRM Form',
+            'title' => 'Inbound CRM Form',
             'data' => null,
         ]);
-    }
 
-    // Individual category form methods
-    public function farmer(Request $request)
-    {
-        $phone_number = $request->get('phone_number', '01521204476');
-        $agent = $request->get('agent', 'ShekhFarid');
-
-        return view('crmform.inbound.farmer', [
-            'phone_number' => $phone_number,
-            'agent' => $agent,
-            'title' => 'Farmer CRM Form',
-        ]);
-    }
-
-    public function retailer(Request $request)
-    {
-        $phone_number = $request->get('phone_number', '01521204476');
-        $agent = $request->get('agent', 'ShekhFarid');
-
-        return view('crmform.inbound.retailer', [
-            'phone_number' => $phone_number,
-            'agent' => $agent,
-            'title' => 'Retailer CRM Form',
-        ]);
-    }
-
-    public function dealer(Request $request)
-    {
-        $phone_number = $request->get('phone_number', '01521204476');
-        $agent = $request->get('agent', 'ShekhFarid');
-
-        return view('crmform.inbound.dealer', [
-            'phone_number' => $phone_number,
-            'agent' => $agent,
-            'title' => 'Dealer CRM Form',
-        ]);
-    }
-
-    public function others(Request $request)
-    {
-        $phone_number = $request->get('phone_number', '01521204476');
-        $agent = $request->get('agent', 'ShekhFarid');
-
-        return view('crmform.inbound.others', [
-            'phone_number' => $phone_number,
-            'agent' => $agent,
-            'title' => 'Others CRM Form',
-        ]);
     }
 
     public function store(Request $request)
