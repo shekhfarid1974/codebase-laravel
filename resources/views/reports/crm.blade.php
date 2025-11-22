@@ -667,9 +667,9 @@
             });
 
             document.getElementById('export_excel').addEventListener('click',
-        () => { // replace with real export to server
-                alert('Export Excel - implement server-side export (send current filters and type)');
-            });
+                () => { // replace with real export to server
+                    alert('Export Excel - implement server-side export (send current filters and type)');
+                });
             document.getElementById('export_pdf').addEventListener('click', () => {
                 alert('Export PDF - implement server-side export (send current filters and type)');
             });
