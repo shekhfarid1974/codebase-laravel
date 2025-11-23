@@ -34,6 +34,19 @@
                                 <div class="col-md-12">
 
                                     <div class="mb-3">
+                                        <label class="form-label">নাম</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার নাম লিখুন">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">ঠিকানা</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার ঠিকানা লিখুন">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">জমির পরিমান</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার জমির পরিমান লিখুন">
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label class="form-label">১) আপনি কি রহিম মিয়া বলছেন?</label>
                                         <select name="rahim_mia" id="rahim_mia" class="form-select">
                                             <option value="">Select</option>

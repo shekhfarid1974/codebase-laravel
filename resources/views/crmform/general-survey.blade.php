@@ -33,6 +33,18 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="mb-3">
+                                        <label class="form-label">নাম</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার নাম লিখুন">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">ঠিকানা</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার ঠিকানা লিখুন">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">জমির পরিমান</label>
+                                        <input type="text" class="form-control" name="address" placeholder="আপনার জমির পরিমান লিখুন">
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label">১) চাষের প্রধান ফসল কোনটি?</label>
                                         <select name="crop_main" id="crop_main" class="form-select">
                                             <option value="">Select</option>
