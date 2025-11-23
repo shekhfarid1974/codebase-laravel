@@ -1,6 +1,7 @@
 @extends('layouts.standalone')
 @section('title', $title)
 @push('styles')
+
 @endpush
 
 @section('content')
@@ -87,8 +88,7 @@
 
                                     <div id="q3_when_block" class="mb-3 d-none">
                                         <label class="form-label">কবে নাগাদ অফারটি নিতে চান?</label>
-                                        <input type="text" name="q3_when" class="form-control"
-                                            placeholder="উদাহরণঃ ২-৩ দিনের মধ্যে">
+                                        <input type="text" name="q3_when" class="form-control" placeholder="উদাহরণঃ ২-৩ দিনের মধ্যে">
                                     </div>
 
                                     <div id="q3_no_opinion" class="mb-3 d-none">
@@ -132,7 +132,7 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // Q1 elements
             let q1 = $('#q1_online_offer');
@@ -149,14 +149,16 @@
 
 
             // Q1 Logic
-            q1.on('change', function() {
+            q1.on('change', function () {
                 if ($(this).val() === 'yes') {
                     q2_block.removeClass('d-none');
                     q1_no_reason.addClass('d-none');
-                } else if ($(this).val() === 'no') {
+                }
+                else if ($(this).val() === 'no') {
                     q2_block.addClass('d-none');
                     q1_no_reason.removeClass('d-none');
-                } else {
+                }
+                else {
                     q2_block.addClass('d-none');
                     q1_no_reason.addClass('d-none');
                 }
@@ -164,7 +166,7 @@
 
 
             // Q3 Logic
-            q3.on('change', function() {
+            q3.on('change', function () {
                 if ($(this).val() === 'yes') {
 
                     q3_offer.removeClass('d-none');
@@ -187,11 +189,12 @@
 
 
             // Interested Logic
-            q3_interested_select.on('change', function() {
+            q3_interested_select.on('change', function () {
                 if ($(this).val() === 'yes') {
                     q3_when.removeClass('d-none');
                     q3_no_reason.addClass('d-none');
-                } else if ($(this).val() === 'no') {
+                }
+                else if ($(this).val() === 'no') {
                     q3_when.addClass('d-none');
                     q3_no_reason.removeClass('d-none');
                 }

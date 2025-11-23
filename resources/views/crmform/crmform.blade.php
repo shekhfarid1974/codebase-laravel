@@ -1,48 +1,40 @@
 @extends('layouts.standalone')
 @section('title', $title)
 @push('styles')
+
 @endpush
 
 @section('content')
     <div class="container">
 
-        <ul class="nav nav-pills bg-white border p-3 border-bottom-0 rounded" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="farmer-tab" data-bs-toggle="pill" data-bs-target="#pills-farmer"
-                    type="button" role="tab" aria-controls="pills-farmer" aria-selected="true"><i
-                        class="fas fa-tractor"></i> Farmer</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="retailer-tab" data-bs-toggle="pill" data-bs-target="#pills-retailer"
-                    type="button" role="tab" aria-controls="pills-retailer" aria-selected="false"><i
-                        class="fas fa-shopping-cart"></i> Retailer</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="dealer-tab" data-bs-toggle="pill" data-bs-target="#pills-dealer" type="button"
-                    role="tab" aria-controls="pills-dealer" aria-selected="false"><i class="fas fa-store"></i>
-                    Dealer</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="otherdata-tab" data-bs-toggle="pill" data-bs-target="#pills-otherdata"
-                    type="button" role="tab" aria-controls="pills-otherdata" aria-selected="false"><i
-                        class="fas fa-ellipsis-h"></i> Others</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-farmer" role="tabpanel" aria-labelledby="farmer-tab"
-                tabindex="0">
-                @include('crmform.inbound.farmer')
+            <ul class="nav nav-pills bg-white border p-3 border-bottom-0 rounded" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="farmer-tab" data-bs-toggle="pill" data-bs-target="#pills-farmer" type="button" role="tab" aria-controls="pills-farmer" aria-selected="true"><i class="fas fa-tractor"></i> Farmer</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="retailer-tab" data-bs-toggle="pill" data-bs-target="#pills-retailer" type="button" role="tab" aria-controls="pills-retailer" aria-selected="false"><i class="fas fa-shopping-cart"></i> Retailer</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dealer-tab" data-bs-toggle="pill" data-bs-target="#pills-dealer" type="button" role="tab" aria-controls="pills-dealer" aria-selected="false"><i class="fas fa-store"></i> Dealer</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="otherdata-tab" data-bs-toggle="pill" data-bs-target="#pills-otherdata" type="button" role="tab" aria-controls="pills-otherdata" aria-selected="false"><i class="fas fa-ellipsis-h"></i> Others</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-farmer" role="tabpanel" aria-labelledby="farmer-tab" tabindex="0">
+                    @include('crmform.inbound.farmer')
+                </div>
+                <div class="tab-pane fade" id="pills-retailer" role="tabpanel" aria-labelledby="retailer-tab" tabindex="0">
+                    @include('crmform.inbound.retailer')
+                </div>
+                <div class="tab-pane fade" id="pills-dealer" role="tabpanel" aria-labelledby="dealer-tab" tabindex="0">
+                    @include('crmform.inbound.dealer')
+                </div>
+                <div class="tab-pane fade" id="pills-otherdata" role="tabpanel" aria-labelledby="otherdata-tab" tabindex="0">
+                    @include('crmform.inbound.others')
+                </div>
             </div>
-            <div class="tab-pane fade" id="pills-retailer" role="tabpanel" aria-labelledby="retailer-tab" tabindex="0">
-                @include('crmform.inbound.retailer')
-            </div>
-            <div class="tab-pane fade" id="pills-dealer" role="tabpanel" aria-labelledby="dealer-tab" tabindex="0">
-                @include('crmform.inbound.dealer')
-            </div>
-            <div class="tab-pane fade" id="pills-otherdata" role="tabpanel" aria-labelledby="otherdata-tab" tabindex="0">
-                @include('crmform.inbound.others')
-            </div>
-        </div>
 
 
         <!-- Footer -->
@@ -142,5 +134,6 @@
                 zeroRecords: '<div class="text-center py-4 text-muted">No matching records found</div>'
             }
         });
+
     </script>
 @endpush
