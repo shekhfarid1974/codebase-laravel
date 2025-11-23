@@ -251,16 +251,6 @@
 
             </div>
 
-<<<<<<< HEAD
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <button class="btn btn-success" type="button" id="save-btn">
-                            <i class="fas fa-save"></i> Save
-                        </button>
-                    </div>
-                </div>
-=======
     <!-- Knowledge Base Card -->
     <div class="card mb-3 shadow-none bg-none">
         <div class="card-header bg-white">
@@ -343,7 +333,6 @@
 
                     </tbody>
                 </table>
->>>>>>> 2a2f0a093ff23873b49ea1dfb6a1a00b6e00a3b6
             </div>
 
         </form>

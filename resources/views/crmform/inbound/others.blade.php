@@ -14,15 +14,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="card-body">
-        <form method="POST" id="store_or_update_form">
-            @csrf
-            <input type="hidden" name="agent" value="{{ $agent ?? 'Default' }}">
-            <input type="hidden" name="customer_category" id="customer_category" value="Dealer">
-            <div class="row">
-                <!-- Name -->
-=======
     <div class="card mb-3 shadow-none bg-none">
         <div class="card-header bg-white d-flex align-items-center justify-content-between">
             <h4 class="card-title d-flex align-items-center gap-2">
@@ -37,7 +28,6 @@
         <div class="card-body">
             <div class="row g-4">
 
->>>>>>> 2a2f0a093ff23873b49ea1dfb6a1a00b6e00a3b6
                 <div class="col-md-4">
                     <div class="form-group mb-3">
                         <label class="form-label  required">Name <span class="sr-only">(required)</span></label>
