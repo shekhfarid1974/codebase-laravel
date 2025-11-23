@@ -16,6 +16,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OutboundCrmFormController;
+use App\Http\Controllers\InboundReportController;
+use App\Http\Controllers\OutboundReportController;
 
 // Public routes
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -46,8 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/get-category-fields', [CrmFormController::class, 'getCategoryFields'])->name('getCategoryFields');
         Route::get('/campaign', [CrmFormController::class, 'campaign'])->name('campaign');
     });
-    // Outbound
-    Route::group(['prefix' => 'outbound','as'=>'outbound.'], function () {
+    // Outbound CRM Form
+    Route::group(['prefix' => 'outbound', 'as' => 'outbound.'], function () {
         // Navara Campaign - Outbound
         Route::get('form/{type}', [OutboundCrmFormController::class, 'formType'])->name('form.type');
     });
@@ -58,10 +60,19 @@ Route::middleware('auth')->group(function () {
         Route::get('/reports', [LeadController::class, 'surveyReports'])->name('reports');
     });
 
+    //Inbound Reports Routes
+    Route::prefix('inbound')->name('inbound_reports.')->group(function () {
+        Route::get('/', [InboundReportController::class, 'index'])->name('index');
+    });
+
+
+    //Outbound Reports Routes
+    Route::prefix('outbound')->name('outbound_reports.')->group(function () {
+        Route::get('/', [OutboundReportController::class, 'index'])->name('index');
+    });
+
     // Reports Routes
     Route::prefix('reports')->name('reports.')->group(function () {
-        Route::get('/crm', [ReportController::class, 'crm'])->name('crm');
-        Route::get('/campaign', [ReportController::class, 'campaign'])->name('campaign');
         Route::get('/sms', [ReportController::class, 'sms'])->name('sms');
         Route::get('/ticket', [ReportController::class, 'ticket'])->name('ticket');
     });

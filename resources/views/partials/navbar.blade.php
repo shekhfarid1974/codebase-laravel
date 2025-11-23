@@ -45,7 +45,7 @@
                 <i class="fas fa-chevron-down profile-arrow"></i>
             </div>
             <div class="dropdown-menu" id="profileDropdown">
-                {{-- <a href="{{ route('profile') }}" class="dropdown-item">
+                <a href="{{ route('profile') }}" class="dropdown-item">
                     <i class="fas fa-user"></i>
                     My Profile
                 </a>
@@ -57,7 +57,7 @@
                     <i class="fas fa-palette"></i>
                     Theme Settings
                 </a>
-                <div class="dropdown-divider"></div> --}}
+                <div class="dropdown-divider"></div>
                 {{-- Logout Form --}}
                 <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
                     @csrf

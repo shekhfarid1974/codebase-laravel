@@ -37,17 +37,17 @@
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
             <div class="submenu {{ request()->routeIs('outbound.*') ? 'show' : '' }}" id="outboundFormSubmenu">
-                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'navara-campaign']) }}"
+                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'navara-campaign']) }}"
                     class="menu-item {{ request()->is('outbound/form/navara-campaign') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
                     <span class="menu-title">Navara Campaign</span>
                 </a>
-                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'general-survey']) }}"
+                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'general-survey']) }}"
                     class="menu-item {{ request()->is('outbound/form/general-survey') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
                     <span class="menu-title">General Survey</span>
                 </a>
-                <a target="_blank" href="{{ route('outbound.form.type',['type' => 'meeting-feedback']) }}"
+                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'meeting-feedback']) }}"
                     class="menu-item {{ request()->is('outbound/form/meeting-feedback') ? 'active' : '' }}">
                     <i class="fas fa-phone menu-icon"></i>
                     <span class="menu-title">Meeting Feedback</span>
@@ -77,6 +77,37 @@
                 </a>
             </div>
 
+            <!-- Inbound Reports Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="inboundreportsSubmenu">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                <span class="menu-title">Inbound Reports</span>
+                <i class="fas fa-chevron-down menu-arrow"></i>
+            </a>
+            <div class="submenu {{ request()->routeIs('inbound_reports.*') ? 'show' : '' }}"
+                id="inboundreportsSubmenu">
+                <a href="{{ route('inbound_reports.index') }}"
+                    class="menu-item {{ request()->routeIs('inbound_reports.index') ? 'active' : '' }}">
+                    <i class="fas fa-users-cog menu-icon"></i>
+                    <span class="menu-title">CRM Reports</span>
+                </a>
+            </div>
+
+
+            <!-- Outbound Reports Submenu -->
+            <a href="#" class="menu-item submenu-trigger" data-submenu="outboundreportsSubmenu">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                <span class="menu-title">Outbound Reports</span>
+                <i class="fas fa-chevron-down menu-arrow"></i>
+            </a>
+            <div class="submenu {{ request()->routeIs('outbound_reports.*') ? 'show' : '' }}"
+                id="outboundreportsSubmenu">
+                <a href="{{ route('outbound_reports.index') }}"
+                    class="menu-item {{ request()->routeIs('outbound_reports.index') ? 'active' : '' }}">
+                    <i class="fas fa-bullhorn menu-icon"></i>
+                    <span class="menu-title">Campaign Reports</span>
+                </a>
+            </div>
+
             <!-- Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
@@ -84,16 +115,6 @@
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
             <div class="submenu {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="reportsSubmenu">
-                <a href="{{ route('reports.crm') }}"
-                    class="menu-item {{ request()->routeIs('reports.crm') ? 'active' : '' }}">
-                    <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">CRM Reports</span>
-                </a>
-                <a href="{{ route('reports.campaign') }}"
-                    class="menu-item {{ request()->routeIs('reports.campaign') ? 'active' : '' }}">
-                    <i class="fas fa-bullhorn menu-icon"></i>
-                    <span class="menu-title">Campaign Reports</span>
-                </a>
                 <a href="{{ route('reports.sms') }}"
                     class="menu-item {{ request()->routeIs('reports.sms') ? 'active' : '' }}">
                     <i class="fas fa-sms menu-icon"></i>
@@ -177,7 +198,7 @@
                     <span class="menu-title">Crop</span>
                 </a>
                 <a href="{{ route('faqs.identifications') }}"
-                    class="menu-item {{ request()->routeIs('faqs.identification') ? 'active' : '' }}">
+                    class="menu-item {{ request()->routeIs('faqs.identifications') ? 'active' : '' }}">
                     <i class="fas fa-fingerprint menu-icon"></i>
                     <span class="menu-title">Identification</span>
                 </a>
@@ -330,6 +351,7 @@
             transform: translateX(0);
         }
     }
+
 
     /* Active state improvements */
     .menu-item.active {
