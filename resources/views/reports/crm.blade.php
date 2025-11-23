@@ -107,7 +107,7 @@
         <div class="row mb-4" id="kpiRow">
             <div class="col-md-3 mb-3">
                 <div class="kpi-box">
-                    <div class="small-muted">Total Customers</div>
+                    <div class="small-muted">Total Calls</div>
                     <h4 id="kpi_customers">0</h4>
                 </div>
             </div>

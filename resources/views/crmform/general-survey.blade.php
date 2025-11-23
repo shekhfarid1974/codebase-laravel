@@ -1,7 +1,6 @@
 @extends('layouts.standalone')
 @section('title', $title)
 @push('styles')
-
 @endpush
 
 @section('content')
@@ -46,12 +45,14 @@
 
                                     <div class="mb-3 d-none" id="crop_other_block">
                                         <label class="form-label">অন্যান্য ফসল লিখুন</label>
-                                        <input type="text" class="form-control" name="crop_other" placeholder="ফসলের নাম লিখুন...">
+                                        <input type="text" class="form-control" name="crop_other"
+                                            placeholder="ফসলের নাম লিখুন...">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">২) আপনার জমির জলমর পরিমান কত?</label>
-                                        <input type="text" class="form-control" name="water_level" placeholder="উদাহরণ: মাঝারি / কম / বেশি">
+                                        <input type="text" class="form-control" name="water_level"
+                                            placeholder="উদাহরণ: মাঝারি / কম / বেশি">
                                     </div>
 
                                     <div class="mb-3">
@@ -64,7 +65,8 @@
                                     </div>
 
                                     <div class="mb-3 d-none" id="ametar_usage_block">
-                                        <label class="form-label">৪) আমেটার ক্রপ কেয়ার এর ব্যবহারের নিয়ম সম্পর্কে জানেন?</label>
+                                        <label class="form-label">৪) আমেটার ক্রপ কেয়ার এর ব্যবহারের নিয়ম সম্পর্কে
+                                            জানেন?</label>
                                         <select name="ametar_usage" id="ametar_usage" class="form-select">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
@@ -87,11 +89,13 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">৫) নিয়ম সংগ্রহ করার পছন্দের স্থান কোনটি?</label>
-                                        <input type="text" class="form-control" name="source_place" placeholder="উদাহরণ: দোকান / অফিস / প্রতিনিধি">
+                                        <input type="text" class="form-control" name="source_place"
+                                            placeholder="উদাহরণ: দোকান / অফিস / প্রতিনিধি">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">৬) আমেটার ক্রপ কেয়ার এর প্রতিনিধি সম্পর্কে শুনেছেন?</label>
+                                        <label class="form-label">৬) আমেটার ক্রপ কেয়ার এর প্রতিনিধি সম্পর্কে
+                                            শুনেছেন?</label>
                                         <select name="ametar_rep" class="form-select">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
@@ -148,7 +152,7 @@
 
 
             // (3) Ametar Name Known?
-            $('#ametar_know').on('change', function () {
+            $('#ametar_know').on('change', function() {
                 if ($(this).val() === 'yes') {
                     $('#ametar_usage_block').removeClass('d-none');
                 } else {
@@ -160,7 +164,7 @@
 
 
             // (4) Usage Known?
-            $('#ametar_usage').on('change', function () {
+            $('#ametar_usage').on('change', function() {
                 if ($(this).val() === 'yes') {
                     $('#ametar_whatknow_block').removeClass('d-none');
 
@@ -179,5 +183,4 @@
 
         });
     </script>
-
 @endpush

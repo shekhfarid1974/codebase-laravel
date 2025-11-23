@@ -1,7 +1,6 @@
 @extends('layouts.standalone')
 @section('title', $title)
 @push('styles')
-
 @endpush
 
 @section('content')
@@ -44,12 +43,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">২) আপনার ঠিকানা কোন এলাকায়?</label>
-                                        <input type="text" class="form-control" name="address" placeholder="আপনার এলাকা লিখুন">
+                                        <input type="text" class="form-control" name="address"
+                                            placeholder="আপনার এলাকা লিখুন">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">
-                                            ৩) মে মাসের ৩ তারিখে খ বাজারে অটো ক্রপ কেয়ার এর একটি মিটিং হয়েছিল। আপনি উপস্থিত ছিলেন?
+                                            ৩) মে মাসের ৩ তারিখে খ বাজারে অটো ক্রপ কেয়ার এর একটি মিটিং হয়েছিল। আপনি
+                                            উপস্থিত ছিলেন?
                                         </label>
                                         <select name="meeting_attend" id="meeting_attend" class="form-select">
                                             <option value="">Select</option>
