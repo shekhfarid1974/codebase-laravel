@@ -102,7 +102,7 @@
             processing: false,
             serverSide: false,
             responsive: true,
-            searching: true,
+            searching: false,
             bInfo: true,
             paging: true,
             data: [

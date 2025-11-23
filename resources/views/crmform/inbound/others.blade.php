@@ -182,11 +182,14 @@
     </div>
 
     <div class="card mb-3 shadow-none bg-none">
-        <div class="card-header bg-white">
-            <h4 class="card-title d-flex  align-items-center gap-2">
+        <div class="card-header bg-white d-flex align-items-center justify-content-between">
+            <h4 class="card-title d-flex align-items-center gap-2">
                 <i class="fas fa-history"></i>
                 Products List
             </h4>
+            <div class="">
+                <input type="search" class="form-control" placeholder="Search...">
+            </div>
         </div>
 
         <div class="card-body">

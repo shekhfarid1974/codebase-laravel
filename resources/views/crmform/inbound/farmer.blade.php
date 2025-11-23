@@ -292,6 +292,67 @@
             </h5>
         </div>
         <div class="card-body">
+            <div class="row mb-3 g-3 align-items-end">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search...">
+                    </div>
+                </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <select class="form-select" name="crop" required="">
+                                <option value="">Select Crop</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Maize">Maize</option>
+                                <option value="Jute">Jute</option>
+                                <option value="Tomato">Tomato</option>
+                                <option value="Potato">Potato</option>
+                                <option value="Sugarcane">Sugarcane</option>
+                                <option value="Cotton">Cotton</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-select" name="category" required="">
+                                <option value="">Select Category</option>
+                                <option value="Disease">Disease</option>
+                                <option value="Pest">Pest</option>
+                                <option value="Nutrition">Nutrition</option>
+                                <option value="Soil">Soil</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Weed">Weed Management</option>
+                                <option value="Harvesting">Harvesting</option>
+                                <option value="Storage">Storage</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-select" name="identification" required="">
+                                <option value="">Select Identification</option>
+                                <option value="Disease">Disease</option>
+                                <option value="Pest">Pest</option>
+                                <option value="Nutrition">Nutrition</option>
+                                <option value="Soil">Soil</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Weed">Weed Management</option>
+                                <option value="Harvesting">Harvesting</option>
+                                <option value="Storage">Storage</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                            <button type="button" class="btn btn-primary"><i class="fas fa-filter"></i> Filter</button>
+                        </div>
+                    </div>
+
+                </div>
             <div class="table-responsive">
                 <table class="table table-bordered w-100" id="faq-datatable">
                     <thead>
