@@ -101,12 +101,24 @@
             </a>
             <div class="submenu {{ request()->routeIs('outbound_reports.*') ? 'show' : '' }}"
                 id="outboundreportsSubmenu">
-                <a href="{{ route('outbound_reports.index') }}"
-                    class="menu-item {{ request()->routeIs('outbound_reports.index') ? 'active' : '' }}">
+                <a href="{{ route('outbound_reports.questionnaire') }}"
+                    class="menu-item {{ request()->routeIs('outbound_reports.questionnaire') ? 'active' : '' }}">
                     <i class="fas fa-bullhorn menu-icon"></i>
-                    <span class="menu-title">Campaign Reports</span>
+                    <span class="menu-title">Questionnaire</span>
+                </a>
+                <a href="{{ route('outbound_reports.general-survey.form') }}"
+                    class="menu-item {{ request()->routeIs('outbound_reports.general-survey.form') ? 'active' : '' }}">
+                    <i class="fas fa-clipboard-check menu-icon"></i>
+                    <span class="menu-title">General Survey</span>
+                </a>
+                <a href="{{ route('outbound_reports.feedback-survey') }}"
+                    class="menu-item {{ request()->routeIs('outbound_reports.feedback-survey') ? 'active' : '' }}">
+                    <i class="fas fa-comment-dots menu-icon"></i>
+                    <span class="menu-title">Feedback Survey</span>
                 </a>
             </div>
+
+
 
             <!-- Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
