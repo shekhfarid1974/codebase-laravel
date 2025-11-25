@@ -54,12 +54,6 @@ Route::middleware('auth')->group(function () {
         Route::get('form/{type}', [OutboundCrmFormController::class, 'formType'])->name('form.type');
     });
 
-    // Survey Routes - Fixed to match sidebar
-    Route::prefix('survey')->name('survey.')->group(function () {
-        Route::get('/lead', [LeadController::class, 'surveyLead'])->name('lead');
-        Route::get('/reports', [LeadController::class, 'surveyReports'])->name('reports');
-    });
-
     //Inbound Reports Routes
     Route::prefix('inbound')->name('inbound_reports.')->group(function () {
         Route::get('/', [InboundReportController::class, 'index'])->name('index');
@@ -68,8 +62,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/reports/dealer', [InboundReportController::class, 'dealer'])->name('dealer');
         Route::get('/reports/others', [InboundReportController::class, 'others'])->name('others');
     });
-
-
 
 
     // Outbound Reports Routes

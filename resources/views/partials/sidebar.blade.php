@@ -66,24 +66,6 @@
         <div class="menu-section">
             <div class="section-title">Operations</div>
 
-            <a href="#" class="menu-item submenu-trigger" data-submenu="surveySubmenu">
-                <i class="fas fa-poll menu-icon"></i>
-                <span class="menu-title">Survey</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('survey.*') ? 'show' : '' }}" id="surveySubmenu">
-                <a href="{{ route('survey.lead') }}"
-                    class="menu-item {{ request()->routeIs('survey.lead') ? 'active' : '' }}">
-                    <i class="fas fa-user-plus menu-icon"></i>
-                    <span class="menu-title">Survey Lead</span>
-                </a>
-                <a href="{{ route('survey.reports') }}"
-                    class="menu-item {{ request()->routeIs('survey.reports') ? 'active' : '' }}">
-                    <i class="fas fa-chart-pie menu-icon"></i>
-                    <span class="menu-title">Survey Reports</span>
-                </a>
-            </div>
-
             <a href="#" class="menu-item submenu-trigger" data-submenu="inboundreportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Inbound Reports</span>
@@ -139,7 +121,7 @@
 
             <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
-                <span class="menu-title">Reports</span>
+                <span class="menu-title">Reports SMS/Ticket</span>
                 <i class="fas fa-chevron-down menu-arrow"></i>
             </a>
             <div class="submenu {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="reportsSubmenu">

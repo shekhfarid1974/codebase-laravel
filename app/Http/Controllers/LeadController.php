@@ -13,14 +13,4 @@ class LeadController extends Controller
     {
         return view('leads.reset');
     }
-
-    public function surveyLead()
-    {
-        return view('survey.lead');
-    }
-
-    public function surveyReports()
-    {
-        return view('survey.reports');
-    }
 }
