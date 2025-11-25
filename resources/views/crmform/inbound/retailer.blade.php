@@ -154,7 +154,18 @@
                         </div>
                     </div>
 
+                     <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-danger">Is Ticket</label>
+                            <select name="is_ticket" class="form-select">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
+
 
 
                 <div class="row">

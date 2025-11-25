@@ -117,6 +117,7 @@
                                     <th style="width:14%">Interests / Interaction History</th>
                                     <th style="width:8%">Status</th>
                                     <th style="width:14%">Date</th>
+                                    <th style="width:6%">Is ticket</th>
                                 </tr>
                             </thead>
 
@@ -138,6 +139,7 @@
                                     <td>Product, Officer Information (Meeting: 2025-05-10)</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 2 -->
@@ -156,6 +158,7 @@
                                     <td>Disease, Complain (Email: 2025-11-20)</td>
                                     <td><span class="badge bg-warning text-dark">Pending</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 3 -->
@@ -174,6 +177,7 @@
                                     <td>Product, Officer Information</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 4 -->
@@ -192,6 +196,7 @@
                                     <td>Complain, Disease</td>
                                     <td><span class="badge bg-warning text-dark">Pending</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                             </tbody>

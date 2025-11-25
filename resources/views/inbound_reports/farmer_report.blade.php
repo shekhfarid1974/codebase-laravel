@@ -145,6 +145,7 @@
                                     <th style="width:12%">Lead Source</th>
                                     <th style="width:8%">ACCL User</th>
                                     <th style="width:12%">Date</th>
+                                    <th style="width:6%">Is ticket</th>
                                 </tr>
                             </thead>
 
@@ -174,6 +175,7 @@
                                     <td>
                                         2024-11-25
                                     </td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 2 -->
@@ -201,6 +203,7 @@
                                     <td>
                                         2024-11-25
                                     </td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 3 -->
@@ -228,6 +231,7 @@
                                     <td>
                                         2024-11-25
                                     </td>
+                                    <td>Yes</td>
                                 </tr>
                             </tbody>
                         </table>

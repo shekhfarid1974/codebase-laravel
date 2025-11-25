@@ -162,6 +162,15 @@
                         <textarea name="verbatim" rows="2" class="form-control" placeholder="Any additional information"></textarea>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label class="form-label text-danger">Is Ticket</label>
+                        <select name="is_ticket" class="form-select">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <div class="text-center">
                         <button class="btn btn-success" type="button" id="save-btn">

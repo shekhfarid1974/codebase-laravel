@@ -228,6 +228,8 @@
                         </div>
                     </div>
 
+
+
                     <!-- User of ACCL Product -->
                     <div class="col-md-4">
                         <div class="form-group mb-3">
@@ -235,6 +237,16 @@
                             <select name="existing_customer" class="form-control">
                                 <option value="Yes">Yes</option>
                                 <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label text-danger">Is Ticket</label>
+                            <select name="is_ticket" class="form-select">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
                             </select>
                         </div>
                     </div>
@@ -346,6 +358,7 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="col-md-3">
                         <div>
                             <button type="button" class="btn btn-primary"><i class="fas fa-filter"></i> Filter</button>

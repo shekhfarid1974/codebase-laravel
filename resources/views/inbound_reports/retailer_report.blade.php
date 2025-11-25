@@ -130,6 +130,7 @@
                                     <th style="width:14%">Retailer Interests</th>
                                     <th style="width:14%">Additional Details</th>
                                     <th style="width:8%">Date</th>
+                                    <th style="width:6%">Is ticket</th>
                                 </tr>
                             </thead>
 
@@ -150,6 +151,7 @@
                                     <td>Dealer Info, Offers</td>
                                     <td>Interested to expand business</td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 2 -->
@@ -167,6 +169,7 @@
                                     <td>New Retailer Acquisition</td>
                                     <td>Looking for dealership</td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 3 -->
@@ -184,6 +187,7 @@
                                     <td>Complain, Officer Info</td>
                                     <td>Requested information about field officer</td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                             </tbody>

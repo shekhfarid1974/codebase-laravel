@@ -135,6 +135,7 @@
                                     <th style="width:12%">Additional Details</th>
                                     <th style="width:8%">Status</th>
                                     <th style="width:8%">Date</th>
+                                    <th style="width:6%">Is ticket</th>
                                 </tr>
                             </thead>
 
@@ -157,6 +158,7 @@
                                     <td>Interested in bulk supply</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 2 -->
@@ -176,6 +178,7 @@
                                     <td>Requested price list and availability</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                                 <!-- Row 3 -->
@@ -195,6 +198,7 @@
                                     <td>Has query about delivery timeline</td>
                                     <td><span class="badge bg-warning text-dark">Inactive</span></td>
                                     <td>2024-11-25</td>
+                                    <td>Yes</td>
                                 </tr>
 
                             </tbody>
