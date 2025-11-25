@@ -115,18 +115,21 @@
                     <strong>Report Data — Dealer</strong>
 
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body ">
                     <div class="table-responsive">
                         <table id="table_dealer" class="table table-bordered table-striped mb-0 table-fixed">
                             <thead class="table-light">
                                 <tr>
                                     <th style="width:6%">ID</th>
-                                    <th style="width:16%">Dealer Name</th>
-                                    <th style="width:12%">Mobile</th>
+                                    <th style="width:12%">Name</th>
+                                    <th style="width:10%">Mobile</th>
+                                    <th style="width:10%">Own Number</th>
+                                    <th style="width:10%">Alt. Number</th>
+                                    <th style="width:6%">Gender</th>
                                     <th style="width:8%">District</th>
                                     <th style="width:8%">Upazila</th>
                                     <th style="width:8%">Union</th>
-                                    <th style="width:8%">Village</th>
+                                    <th style="width:10%">Village</th>
                                     <th style="width:12%">Dealer Interests</th>
                                     <th style="width:12%">Recommended</th>
                                     <th style="width:12%">Additional Details</th>
@@ -140,12 +143,15 @@
                                 <!-- Row 1 -->
                                 <tr>
                                     <td>DL-001</td>
-                                    <td>North East Agro</td>
-                                    <td>01733445566</td>
-                                    <td>Sylhet</td>
-                                    <td>Kanaighat</td>
-                                    <td>Fatehpur</td>
-                                    <td>Shibganj</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>New Dealership, Offers</td>
                                     <td>Pesticides & Fertilizers</td>
                                     <td>Interested in bulk supply</td>
@@ -156,12 +162,15 @@
                                 <!-- Row 2 -->
                                 <tr>
                                     <td>DL-002</td>
-                                    <td>Bhuiyan Seeds</td>
-                                    <td>01899887766</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
                                     <td>Dhaka</td>
-                                    <td>Keraniganj</td>
-                                    <td>Joydebpur</td>
-                                    <td>Shantinagar</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Product Info, Credit Limit</td>
                                     <td>Hybrid Seeds</td>
                                     <td>Requested price list and availability</td>
@@ -172,12 +181,15 @@
                                 <!-- Row 3 -->
                                 <tr>
                                     <td>DL-003</td>
-                                    <td>Rahim Traders</td>
-                                    <td>01777778888</td>
-                                    <td>Chittagong</td>
-                                    <td>Boalkhali</td>
-                                    <td>Fatikchhari</td>
-                                    <td>Kanchanpur</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Officer Info, Complain</td>
                                     <td>Seeds, Agro Chemicals</td>
                                     <td>Has query about delivery timeline</td>
@@ -197,5 +209,43 @@
 
 @push('scripts')
     <script>
+        table = new DataTable('#table_dealer', {
+            processing: false,
+            serverSide: false,
+            responsive: false,
+            order: [], // Initial no order
+            bInfo: true, // Show total number of data
+            bFilter: false, // Hide default search box
+            ordering: false,
+            searching: false,
+            lengthMenu: [
+                [5, 10, 15, 25, 50, 100, 200],
+                [5, 10, 15, 25, 50, 100, 200]
+            ],
+            pageLength: 15, // Rows per page
+            language: {
+                emptyTable: '<strong class="text-danger">No Data Found</strong>',
+                infoEmpty: '',
+                zeroRecords: '<strong class="text-danger">No Data Found</strong>',
+                paginate: {
+                    previous: "Previous",
+                    next: "Next"
+                },
+                lengthMenu: `_MENU_ `,
+            },
+            dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
+                buttons: [
+                {
+                    text: '<i class="fas fa-file-download fa-sm"></i> Export',
+                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                },
+                {
+                    text: '+ Add New',
+                    className: 'btn btn-sm btn-primary add_btn'
+                },
+            ]
+        });
     </script>
 @endpush

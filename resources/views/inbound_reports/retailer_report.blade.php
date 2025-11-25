@@ -112,20 +112,21 @@
                     <strong>Report Data — Retailer</strong>
 
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div class="table-responsive">
                         <table id="table_retailer" class="table table-bordered table-striped mb-0 table-fixed">
                             <thead class="table-light">
                                 <tr>
                                     <th style="width:6%">ID</th>
-                                    <th style="width:14%">Retailer Name</th>
+                                    <th style="width:12%">Name</th>
                                     <th style="width:10%">Mobile</th>
-                                    <th style="width:8%">Own No</th>
+                                    <th style="width:10%">Own Number</th>
                                     <th style="width:10%">Alt. Number</th>
+                                    <th style="width:6%">Gender</th>
                                     <th style="width:8%">District</th>
                                     <th style="width:8%">Upazila</th>
                                     <th style="width:8%">Union</th>
-                                    <th style="width:8%">Village</th>
+                                    <th style="width:10%">Village</th>
                                     <th style="width:14%">Retailer Interests</th>
                                     <th style="width:14%">Additional Details</th>
                                     <th style="width:8%">Date</th>
@@ -137,14 +138,15 @@
                                 <!-- Row 1 -->
                                 <tr>
                                     <td>RTL-001</td>
-                                    <td>Maa Enterprise</td>
-                                    <td>01823456789</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
                                     <td>Yes</td>
-                                    <td>01711112222</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
                                     <td>Dhaka</td>
-                                    <td>Savar</td>
-                                    <td>Birulia</td>
-                                    <td>Ghoshbag</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Dealer Info, Offers</td>
                                     <td>Interested to expand business</td>
                                     <td>2024-11-25</td>
@@ -153,14 +155,15 @@
                                 <!-- Row 2 -->
                                 <tr>
                                     <td>RTL-002</td>
-                                    <td>Jamal Store</td>
-                                    <td>01987654321</td>
-                                    <td>No</td>
-                                    <td>01799990022</td>
-                                    <td>Cumilla</td>
-                                    <td>Barura</td>
-                                    <td>Khoshbas</td>
-                                    <td>South Para</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>New Retailer Acquisition</td>
                                     <td>Looking for dealership</td>
                                     <td>2024-11-25</td>
@@ -169,14 +172,15 @@
                                 <!-- Row 3 -->
                                 <tr>
                                     <td>RTL-003</td>
-                                    <td>Rahman Agro</td>
-                                    <td>01722223333</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
                                     <td>Yes</td>
-                                    <td>01855556666</td>
-                                    <td>Rajshahi</td>
-                                    <td>Puthia</td>
-                                    <td>Belpukur</td>
-                                    <td>Shibpur</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Complain, Officer Info</td>
                                     <td>Requested information about field officer</td>
                                     <td>2024-11-25</td>
@@ -195,5 +199,43 @@
 
 @push('scripts')
     <script>
+        table = new DataTable('#table_retailer', {
+            processing: false,
+            serverSide: false,
+            responsive: false,
+            order: [], // Initial no order
+            bInfo: true, // Show total number of data
+            bFilter: false, // Hide default search box
+            ordering: false,
+            searching: false,
+            lengthMenu: [
+                [5, 10, 15, 25, 50, 100, 200],
+                [5, 10, 15, 25, 50, 100, 200]
+            ],
+            pageLength: 15, // Rows per page
+            language: {
+                emptyTable: '<strong class="text-danger">No Data Found</strong>',
+                infoEmpty: '',
+                zeroRecords: '<strong class="text-danger">No Data Found</strong>',
+                paginate: {
+                    previous: "Previous",
+                    next: "Next"
+                },
+                lengthMenu: `_MENU_ `,
+            },
+            dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
+                buttons: [
+                {
+                    text: '<i class="fas fa-file-download fa-sm"></i> Export',
+                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                },
+                {
+                    text: '+ Add New',
+                    className: 'btn btn-sm btn-primary add_btn'
+                },
+            ]
+        });
     </script>
 @endpush

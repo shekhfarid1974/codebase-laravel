@@ -53,19 +53,19 @@
                 </div>
                 <div class="col-md-3">
                     <div class="kpi-box">
-                        <div class="small-muted">Total Leads</div>
+                        <div class="small-muted">Total Problems</div>
                         <h4 id="kpi_farmer_leads">320</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="kpi-box">
-                        <div class="small-muted">ACCL Users</div>
+                        <div class="small-muted">Total Solutions</div>
                         <h4 id="kpi_farmer_users">210</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="kpi-box">
-                        <div class="small-muted">Avg Land Size</div>
+                        <div class="small-muted">Recomended Products</div>
                         <h4 id="kpi_farmer_land">2.4 Acre</h4>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
 
                 </div>
 
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div class="table-responsive">
                         <table id="table_farmer" class="table table-bordered table-striped mb-0 table-fixed">
                             <thead class="table-light">
@@ -239,8 +239,105 @@
     </div>
 
 @endsection
-
+{{-- table = new DataTable('#table_farmer', {
+    processing: true,
+    serverSide: true,
+    responsive: false,
+    order: [], // Initial no order
+    bInfo: true, // Show total number of data
+    bFilter: false, // Hide default search box
+    ordering: false,
+    lengthMenu: [
+        [5, 10, 15, 25, 50, 100, 200],
+        [5, 10, 15, 25, 50, 100, 200]
+    ],
+    pageLength: 15, // Rows per page
+    ajax: {
+        url: "{{ route('app.appointments.index') }}",
+        type: "GET",
+        dataType: "JSON",
+        data: function (d) {
+            d._token      = _token;
+            d.search      = $('input[name="search_here"]').val();
+        },
+    },
+    columns: [
+        {data: 'DT_RowIndex'},
+        {data: 'app_id'},
+        {data: 'patient_id'},
+        {data: 'doctor_id'},
+        {data: 'slot'},
+        {data: 'priority'},
+        {data: 'status'},
+        {data: 'district_id'},
+        {data: 'appointment_date'},
+        {data: 'created_at'},
+        {data: 'action'}
+    ],
+    language: {
+        emptyTable: '<strong class="text-danger">No Data Found</strong>',
+        infoEmpty: '',
+        zeroRecords: '<strong class="text-danger">No Data Found</strong>',
+        paginate: {
+            previous: "Previous",
+            next: "Next"
+        },
+        lengthMenu: `_MENU_ <input name="search_here" class="form-control-sm form-control ms-2 shadow-none rounded-0" placeholder="Search here..." autocomplete="off"/>`,
+    },
+    dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
+        buttons: [
+        {
+            text: '<i class="fas fa-file-download fa-sm"></i> Export',
+            className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+        },
+        {
+            text: '+ Add New',
+            className: 'btn btn-sm btn-primary add_btn'
+        },
+    ]
+}); --}}
 @push('scripts')
     <script>
+        table = new DataTable('#table_farmer', {
+            processing: false,
+            serverSide: false,
+            responsive: false,
+            order: [], // Initial no order
+            bInfo: true, // Show total number of data
+            bFilter: false, // Hide default search box
+            ordering: false,
+            searching: false,
+            lengthMenu: [
+                [5, 10, 15, 25, 50, 100, 200],
+                [5, 10, 15, 25, 50, 100, 200]
+            ],
+            pageLength: 15, // Rows per page
+            language: {
+                emptyTable: '<strong class="text-danger">No Data Found</strong>',
+                infoEmpty: '',
+                zeroRecords: '<strong class="text-danger">No Data Found</strong>',
+                paginate: {
+                    previous: "Previous",
+                    next: "Next"
+                },
+                lengthMenu: `_MENU_ `,
+            },
+            dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
+                buttons: [
+                {
+                    text: '<i class="fas fa-file-download fa-sm"></i> Export',
+                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                },
+                {
+                    text: '+ Add New',
+                    className: 'btn btn-sm btn-primary add_btn'
+                },
+            ]
+        });
+
     </script>
 @endpush

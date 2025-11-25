@@ -98,17 +98,23 @@
                     <strong>Report Data — Others</strong>
 
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div class="table-responsive">
                         <table id="table_others" class="table table-bordered table-striped mb-0 table-fixed">
                             <thead class="table-light">
                                 <tr>
                                     <th style="width:6%">ID</th>
-                                    <th style="width:22%">Name / Organisation</th>
-                                    <th style="width:12%">Mobile(s)</th>
+                                    <th style="width:12%">Name</th>
+                                    <th style="width:10%">Mobile</th>
+                                    <th style="width:10%">Own Number</th>
+                                    <th style="width:10%">Alt. Number</th>
+                                    <th style="width:6%">Gender</th>
+                                    <th style="width:8%">District</th>
+                                    <th style="width:8%">Upazila</th>
+                                    <th style="width:8%">Union</th>
+                                    <th style="width:10%">Village</th>
                                     <th style="width:12%">Category</th>
                                     <th style="width:14%">Interests / Interaction History</th>
-                                    <th style="width:12%">ACCL Link</th>
                                     <th style="width:8%">Status</th>
                                     <th style="width:14%">Date</th>
                                 </tr>
@@ -119,11 +125,17 @@
                                 <!-- Row 1 -->
                                 <tr>
                                     <td>OTH-001</td>
-                                    <td>Ministry of Agriculture</td>
-                                    <td>N/A</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Govt</td>
                                     <td>Product, Officer Information (Meeting: 2025-05-10)</td>
-                                    <td><span class="badge bg-success">Yes</span></td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
                                 </tr>
@@ -131,11 +143,17 @@
                                 <!-- Row 2 -->
                                 <tr>
                                     <td>OTH-002</td>
-                                    <td>Shuvro Media</td>
-                                    <td>01511223344</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Media</td>
                                     <td>Disease, Complain (Email: 2025-11-20)</td>
-                                    <td><span class="badge bg-warning text-dark">No</span></td>
                                     <td><span class="badge bg-warning text-dark">Pending</span></td>
                                     <td>2024-11-25</td>
                                 </tr>
@@ -143,11 +161,17 @@
                                 <!-- Row 3 -->
                                 <tr>
                                     <td>OTH-003</td>
-                                    <td>Green NGO</td>
-                                    <td>01766778899</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>NGO</td>
                                     <td>Product, Officer Information</td>
-                                    <td><span class="badge bg-success">Yes</span></td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>2024-11-25</td>
                                 </tr>
@@ -155,11 +179,17 @@
                                 <!-- Row 4 -->
                                 <tr>
                                     <td>OTH-004</td>
-                                    <td>Dr. Karim (Scientific Officer)</td>
-                                    <td>01812345678</td>
+                                    <td>Farid Test</td>
+                                    <td>01521204476</td>
+                                    <td>Yes</td>
+                                    <td>01711110001</td>
+                                    <td>Male</td>
+                                    <td>Dhaka</td>
+                                    <td>Dhamrai</td>
+                                    <td>Kushura</td>
+                                    <td>Charpara</td>
                                     <td>Scientific Officer</td>
                                     <td>Complain, Disease</td>
-                                    <td><span class="badge bg-warning text-dark">No</span></td>
                                     <td><span class="badge bg-warning text-dark">Pending</span></td>
                                     <td>2024-11-25</td>
                                 </tr>
@@ -176,5 +206,43 @@
 
 @push('scripts')
     <script>
+        table = new DataTable('#table_others', {
+            processing: false,
+            serverSide: false,
+            responsive: false,
+            order: [], // Initial no order
+            bInfo: true, // Show total number of data
+            bFilter: false, // Hide default search box
+            ordering: false,
+            searching: false,
+            lengthMenu: [
+                [5, 10, 15, 25, 50, 100, 200],
+                [5, 10, 15, 25, 50, 100, 200]
+            ],
+            pageLength: 15, // Rows per page
+            language: {
+                emptyTable: '<strong class="text-danger">No Data Found</strong>',
+                infoEmpty: '',
+                zeroRecords: '<strong class="text-danger">No Data Found</strong>',
+                paginate: {
+                    previous: "Previous",
+                    next: "Next"
+                },
+                lengthMenu: `_MENU_ `,
+            },
+            dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
+                buttons: [
+                {
+                    text: '<i class="fas fa-file-download fa-sm"></i> Export',
+                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                },
+                {
+                    text: '+ Add New',
+                    className: 'btn btn-sm btn-primary add_btn'
+                },
+            ]
+        });
     </script>
 @endpush

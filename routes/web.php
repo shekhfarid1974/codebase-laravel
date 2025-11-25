@@ -70,9 +70,14 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    //Outbound Reports Routes
+
+
+    // Outbound Reports Routes
     Route::prefix('outbound')->name('outbound_reports.')->group(function () {
-        Route::get('/', [OutboundReportController::class, 'index'])->name('index');
+        Route::get('/questionnaire', [OutboundReportController::class, 'questionnaire'])->name('questionnaire');
+        Route::get('/general-survey', [OutboundReportController::class, 'showForm'])->name('general-survey.form');
+        Route::post('/submit-survey', [OutboundReportController::class, 'submitSurvey'])->name('general-survey.submit');
+        Route::get('/feedback-survey', [OutboundReportController::class, 'feedbackSurvey'])->name('feedback-survey');
     });
 
     // Reports Routes

@@ -34,15 +34,15 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">নাম</label>
-                                        <input type="text" class="form-control" name="address" placeholder="আপনার নাম লিখুন">
+                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক নাম লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">ঠিকানা</label>
-                                        <input type="text" class="form-control" name="address" placeholder="আপনার ঠিকানা লিখুন">
+                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">জমির পরিমান</label>
-                                        <input type="text" class="form-control" name="address" placeholder="আপনার জমির পরিমান লিখুন">
+                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">১) আপনি অনলাইন অফারটি সম্পর্কে জানেন? *</label>
