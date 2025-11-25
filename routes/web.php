@@ -84,7 +84,10 @@ Route::middleware('auth')->group(function () {
     // Leads Routes
     Route::prefix('leads')->name('leads.')->group(function () {
         Route::get('/import', [LeadController::class, 'import'])->name('import');
+        Route::post('/import', [LeadController::class, 'storeImport'])->name('import.store');
         Route::get('/reset', [LeadController::class, 'reset'])->name('reset');
+        Route::delete('/reset', [LeadController::class, 'destroyAll'])->name('reset.destroy');
+        Route::get('/template', [LeadController::class, 'downloadTemplate'])->name('template.download');
     });
 
 
@@ -116,8 +119,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/send-bulk', [SmsController::class, 'sendBulk'])->name('sendBulk');
     });
 
+
     // Profile routes
     Route::prefix('profile')->group(function () {
-        Route::get('/', [ProfileController::class, 'index'])->name('profile');
+        Route::get('/', [ProfileController::class, 'show'])->name('profile');
     });
 });

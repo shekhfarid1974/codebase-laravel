@@ -68,3 +68,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 1.Laravel Request Lifecycle
 2.Service Providers (core service providers:Routes, middleware, Auth, Cache, Session, mail)
+3. Dependency Injection (DI) & Service Container (SC)
+4. Optimizing Eloquent Queries
+5. Policy vs. Gate (Authorization)
+6. Other Key Concepts Caching in Laravel,Database Transactions,Eloquent Relationships,Macros in Laravel,Queues in Laravel,Optimization Techniques,API Authentication,Testing
+7. Security Best Practices
+8. Other Key Technologies for Senior Developers Git (Version Control System),Deployment Knowledge ci/cd,Docker (Containerization),DevOps Basic Knowledge (Linux)
+9.javascript,jquery,html,css

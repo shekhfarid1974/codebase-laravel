@@ -13,7 +13,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
-    public function show(Request $request) // Added Request parameter
+    public function show(Request $request)
     {
         $user = Auth::user(); // Get the currently authenticated user
 
