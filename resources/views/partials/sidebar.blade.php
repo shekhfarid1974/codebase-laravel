@@ -73,10 +73,25 @@
             </a>
             <div class="submenu {{ request()->routeIs('inbound_reports.*') ? 'show' : '' }}"
                 id="inboundreportsSubmenu">
-                <a href="{{ route('inbound_reports.index') }}"
-                    class="menu-item {{ request()->routeIs('inbound_reports.index') ? 'active' : '' }}">
+                <a href="{{ route('inbound_reports.farmer') }}"
+                    class="menu-item {{ request()->routeIs('inbound_reports.farmer') ? 'active' : '' }}">
                     <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">CRM Reports</span>
+                    <span class="menu-title">Farmer Reports</span>
+                </a>
+                <a href="{{ route('inbound_reports.retailer') }}"
+                    class="menu-item {{ request()->routeIs('inbound_reports.retailer') ? 'active' : '' }}">
+                    <i class="fas fa-users-cog menu-icon"></i>
+                    <span class="menu-title">Retailer Reports</span>
+                </a>
+                <a href="{{ route('inbound_reports.dealer') }}"
+                    class="menu-item {{ request()->routeIs('inbound_reports.dealer') ? 'active' : '' }}">
+                    <i class="fas fa-users-cog menu-icon"></i>
+                    <span class="menu-title">Dealer Reports</span>
+                </a>
+                <a href="{{ route('inbound_reports.others') }}"
+                    class="menu-item {{ request()->routeIs('inbound_reports.others') ? 'active' : '' }}">
+                    <i class="fas fa-users-cog menu-icon"></i>
+                    <span class="menu-title">Others Reports</span>
                 </a>
             </div>
 
