@@ -1,5 +1,14 @@
-<!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <i class="fas fa-seedling"></i>
+            <span class="logo-text">ACCL</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggleClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
     <nav class="sidebar-menu">
         <div class="menu-section">
             <div class="section-title">Main</div>
@@ -17,7 +26,6 @@
         <div class="menu-section">
             <div class="section-title">CRM FORMS</div>
 
-            <!-- CRM FORM Submenu - Fixed structure -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="crmFormSubmenu">
                 <i class="fas fa-user-plus menu-icon"></i>
                 <span class="menu-title">Inbound</span>
@@ -58,7 +66,6 @@
         <div class="menu-section">
             <div class="section-title">Operations</div>
 
-            <!-- Survey Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="surveySubmenu">
                 <i class="fas fa-poll menu-icon"></i>
                 <span class="menu-title">Survey</span>
@@ -77,7 +84,6 @@
                 </a>
             </div>
 
-            <!-- Inbound Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="inboundreportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Inbound Reports</span>
@@ -92,8 +98,6 @@
                 </a>
             </div>
 
-
-            <!-- Outbound Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="outboundreportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Outbound Reports</span>
@@ -118,9 +122,6 @@
                 </a>
             </div>
 
-
-
-            <!-- Reports Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
                 <i class="fas fa-chart-bar menu-icon"></i>
                 <span class="menu-title">Reports</span>
@@ -139,7 +140,6 @@
                 </a>
             </div>
 
-            <!-- Ticket Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="ticketSubmenu">
                 <i class="fas fa-ticket-alt menu-icon"></i>
                 <span class="menu-title">Ticket</span>
@@ -163,7 +163,6 @@
                 </a>
             </div>
 
-            <!-- Lead Management Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="leadSubmenu">
                 <i class="fas fa-user-friends menu-icon"></i>
                 <span class="menu-title">Lead Management</span>
@@ -182,7 +181,6 @@
                 </a>
             </div>
 
-            <!-- FAQ Management Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="faqSubmenu">
                 <i class="fas fa-question-circle menu-icon"></i>
                 <span class="menu-title">FAQ Management</span>
@@ -216,8 +214,6 @@
                 </a>
             </div>
 
-
-            <!-- Product Features Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="productSubmenu">
                 <i class="fas fa-box menu-icon"></i>
                 <span class="menu-title">Product Features</span>
@@ -241,7 +237,6 @@
                 </a>
             </div>
 
-            <!-- SMS Center Submenu -->
             <a href="#" class="menu-item submenu-trigger" data-submenu="smsSubmenu">
                 <i class="fas fa-sms menu-icon"></i>
                 <span class="menu-title">SMS Center</span>
@@ -273,11 +268,168 @@
     </nav>
 </aside>
 
+<style>
+    /* Sidebar Styles */
+    .sidebar {
+        width: 260px;
+        background: #fff;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        background: #f8f9fa;
+    }
+
+    .sidebar-header .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .sidebar-header .logo i {
+        color: #007E33;
+        font-size: 1.5rem;
+    }
+
+    .sidebar-header .logo .logo-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .sidebar-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #666;
+        padding: 5px;
+        border-radius: 4px;
+        display: none;
+    }
+
+    .sidebar-toggle:hover {
+        background: #f0f0f0;
+        color: #007E33;
+    }
+
+    .sidebar-menu {
+        padding: 15px 0;
+    }
+
+    .menu-section {
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #666;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+        position: relative;
+    }
+
+    .menu-item:hover {
+        background: #f8f9fa;
+        color: #007E33;
+    }
+
+    .menu-item.active {
+        background: rgba(0, 126, 51, 0.1);
+        color: #007E33;
+        font-weight: 600;
+        border-left: 3px solid #007E33;
+    }
+
+    .menu-icon {
+        width: 20px;
+        margin-right: 10px;
+        text-align: center;
+        color: #666;
+    }
+
+    .menu-item.active .menu-icon {
+        color: #007E33;
+    }
+
+    .menu-title {
+        flex: 1;
+    }
+
+    .menu-arrow {
+        transition: transform 0.3s ease;
+        margin-left: auto;
+    }
+
+    .menu-arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+    .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: #fafafa;
+    }
+
+    .submenu.show {
+        max-height: 500px;
+    }
+
+    .submenu .menu-item {
+        padding-left: 45px;
+        font-size: 0.85rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .sidebar {
+            transform: translateX(-100%);
+            width: 260px;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-toggle {
+            display: block;
+        }
+    }
+</style>
+
 <script>
-    // Enhanced submenu functionality
     document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarToggleClose = document.getElementById('sidebarToggleClose');
         const submenuTriggers = document.querySelectorAll('.submenu-trigger');
 
+        // Submenu functionality
         submenuTriggers.forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -310,66 +462,26 @@
             });
         });
 
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebar = document.getElementById('sidebar');
-
-        if (mobileMenuToggle && sidebar) {
-            mobileMenuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('show');
-            });
-
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992 &&
-                    !sidebar.contains(e.target) &&
-                    !mobileMenuToggle.contains(e.target)) {
-                    sidebar.classList.remove('show');
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992 && sidebar.classList.contains('active')) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
                 }
+            }
+        });
+
+        // Toggle sidebar open/close
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.add('active');
+            });
+        }
+
+        if (sidebarToggleClose) {
+            sidebarToggleClose.addEventListener('click', function() {
+                sidebar.classList.remove('active');
             });
         }
     });
 </script>
-
-<style>
-    /* Enhanced submenu styles */
-    .menu-arrow {
-        transition: transform 0.3s ease;
-        margin-left: auto;
-    }
-
-    .menu-arrow.rotate {
-        transform: rotate(180deg);
-    }
-
-    .submenu {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .submenu.show {
-        max-height: 500px;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 992px) {
-        .sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s;
-        }
-
-        .sidebar.show {
-            transform: translateX(0);
-        }
-    }
-
-
-    /* Active state improvements */
-    .menu-item.active {
-        background-color: rgba(0, 126, 51, 0.1);
-        color: var(--primary-color);
-        font-weight: 600;
-        border-left: 3px solid var(--primary-color);
-    }
-</style>

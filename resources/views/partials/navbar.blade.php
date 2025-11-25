@@ -1,20 +1,21 @@
 <!-- Header -->
 <header class="header">
-    <div class="logo">
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+    <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="logo-icon">
+        <div class="logo">
             <i class="fas fa-seedling"></i>
+            <span class="logo-text">ACCL</span>
         </div>
-        <div class="logo-text">ACCL</div>
         <h2 class="page-title" id="pageTitle">@yield('page_title', 'Dashboard')</h2>
     </div>
+
     <div class="header-right">
         <!-- CRM Form Button -->
         <button class="crm-form-btn" id="crmFormBtn">
             <i class="fas fa-plus-circle"></i>
-            CRM Form
+            <span>CRM Form</span>
         </button>
 
         <div class="search-container">
@@ -28,7 +29,6 @@
         <div class="profile-dropdown">
             <div class="profile-trigger" id="profileTrigger">
                 <div class="profile-avatar">
-                    {{-- Display user initials --}}
                     @auth
                         {{ strtoupper(substr(auth()->user()->name, 0, 2)) }}
                     @else
@@ -58,7 +58,6 @@
                     Theme Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                {{-- Logout Form --}}
                 <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
                     @csrf
                 </form>
@@ -72,92 +71,77 @@
     </div>
 </header>
 
-<script>
-    // Profile dropdown functionality - Simplified version
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('Navbar script loaded'); // Debug line
-
-        const profileTrigger = document.getElementById('profileTrigger');
-        const profileDropdown = document.getElementById('profileDropdown');
-        const crmFormBtn = document.getElementById('crmFormBtn');
-
-        console.log('Profile Trigger:', profileTrigger); // Debug
-        console.log('Profile Dropdown:', profileDropdown); // Debug
-
-        // Profile dropdown toggle
-        if (profileTrigger && profileDropdown) {
-            profileTrigger.addEventListener('click', function(e) {
-                e
-                    .stopPropagation(); // This prevents the outside click listener from immediately closing it
-                console.log('Profile trigger clicked'); // Debug
-                // Explicitly add the 'show' class. If it's already there, it won't add it again.
-                // If it's not, it will add it.
-                profileDropdown.classList.add('show');
-            });
-
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (profileDropdown && profileDropdown.classList.contains('show')) {
-                    if (!profileTrigger.contains(e.target) && !profileDropdown.contains(e.target)) {
-                        console.log('Closing dropdown - clicked outside'); // Debug
-                        profileDropdown.classList.remove('show');
-                    }
-                }
-            });
-
-            // Close dropdown when clicking on dropdown items
-            const dropdownItems = profileDropdown.querySelectorAll('.dropdown-item');
-            if (dropdownItems) { // Check if dropdownItems exist before iterating
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        console.log('Dropdown item clicked'); // Debug
-                        profileDropdown.classList.remove('show');
-                    });
-                });
-            }
-        } else {
-            console.error('Profile elements not found!');
-        }
-
-        // CRM Form Button functionality
-        if (crmFormBtn) {
-            crmFormBtn.addEventListener('click', function() {
-                // Use your new CRM form URL
-                const crmUrl = '{{ url('/crmform') }}?phone_number=01521204476&agent=ShekhFarid';
-
-                console.log('Opening New CRM Form:', crmUrl);
-
-                // Open in NEW TAB
-                window.open(crmUrl, '_blank');
-            });
-        }
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebar = document.querySelector('.sidebar');
-
-        if (mobileMenuToggle && sidebar) {
-            mobileMenuToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Mobile menu clicked'); // Debug
-                sidebar.classList.toggle('show');
-            });
-
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992 && sidebar.classList.contains('show')) {
-                    if (!sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                        sidebar.classList.remove('show');
-                    }
-                }
-            });
-        }
-    });
-</script>
-
 <style>
-    /* CRM Form Button Styles */
+    /* Navbar Styles */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 60px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 260px;
+        right: 0;
+        z-index: 900;
+        transition: left 0.3s ease;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .sidebar-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #666;
+        padding: 8px;
+        border-radius: 4px;
+        display: none;
+    }
+
+    .sidebar-toggle:hover {
+        background: #f0f0f0;
+        color: #007E33;
+    }
+
+    .header-left .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-left .logo i {
+        color: #007E33;
+        font-size: 1.5rem;
+    }
+
+    .header-left .logo .logo-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .page-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* CRM Form Button */
     .crm-form-btn {
         display: flex;
         align-items: center;
@@ -171,7 +155,6 @@
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin-right: 15px;
         box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
     }
 
@@ -190,9 +173,114 @@
         font-size: 0.8rem;
     }
 
-    /* Profile dropdown styles that work with your existing CSS */
+    /* Search Container */
+    .search-container {
+        position: relative;
+        margin-right: 20px;
+    }
+
+    .search-input {
+        width: 200px;
+        padding: 6px 35px 6px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+        width: 250px;
+        border-color: #007E33;
+        box-shadow: 0 0 0 0.2rem rgba(0, 126, 51, 0.25);
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+        pointer-events: none;
+    }
+
+    /* Notification Icon */
+    .notification-icon {
+        position: relative;
+        font-size: 1.1rem;
+        color: #6c757d;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+
+    .notification-icon:hover {
+        color: #007E33;
+        background-color: rgba(0, 126, 51, 0.1);
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    /* Profile Dropdown */
     .profile-dropdown {
         position: relative;
+    }
+
+    .profile-trigger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+        gap: 8px;
+    }
+
+    .profile-trigger:hover {
+        background-color: rgba(0, 126, 51, 0.1);
+    }
+
+    .profile-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #007E33 0%, #00a041 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .profile-name {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: #333;
+    }
+
+    .profile-arrow {
+        font-size: 0.8rem;
+        color: #6c757d;
+        transition: transform 0.3s ease;
+    }
+
+    .profile-dropdown.show .profile-arrow {
+        transform: rotate(180deg);
     }
 
     .dropdown-menu {
@@ -251,55 +339,14 @@
         margin: 4px 0;
     }
 
-    .profile-trigger {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: background-color 0.2s;
-        gap: 8px;
-    }
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .header {
+            left: 0;
+        }
 
-    .profile-trigger:hover {
-        background-color: rgba(0, 126, 51, 0.1);
-    }
-
-    .profile-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #007E33 0%, #00a041 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 600;
-        font-size: 12px;
-    }
-
-    .profile-name {
-        font-weight: 500;
-        font-size: 0.9rem;
-        color: #333;
-    }
-
-    .profile-arrow {
-        font-size: 0.8rem;
-        color: #6c757d;
-        transition: transform 0.3s ease;
-    }
-
-    .profile-dropdown.show .profile-arrow {
-        transform: rotate(180deg);
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-        .crm-form-btn {
-            margin-right: 10px;
-            padding: 6px 12px;
-            font-size: 0.8rem;
+        .sidebar-toggle {
+            display: block;
         }
 
         .crm-form-btn span {
@@ -308,7 +355,24 @@
 
         .crm-form-btn i {
             margin-right: 0;
-            font-size: 0.9rem;
+        }
+
+        .page-title {
+            display: none;
+        }
+
+        .search-input {
+            width: 150px;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .search-container {
+            display: none;
         }
 
         .profile-name {
@@ -319,96 +383,69 @@
             display: none;
         }
 
-        .dropdown-menu {
-            right: -10px;
-            min-width: 160px;
-        }
-
-        .search-container {
-            display: none;
+        .crm-form-btn {
+            padding: 8px;
         }
     }
 
     @media (max-width: 576px) {
-        .crm-form-btn {
-            margin-right: 5px;
-            padding: 6px 8px;
+        .header {
+            padding: 0 10px;
+        }
+
+        .header-right {
+            gap: 10px;
         }
 
         .notification-icon {
-            margin-right: 10px;
+            margin-right: 0;
         }
 
-        .logo-text {
-            font-size: 1.2rem;
+        .notification-badge {
+            width: 14px;
+            height: 14px;
+            font-size: 0.6rem;
         }
-
-        .page-title {
-            font-size: 1rem;
-            margin-left: 10px;
-        }
-    }
-
-    /* Search container improvements */
-    .search-container {
-        position: relative;
-        margin-right: 20px;
-    }
-
-    .search-input {
-        width: 200px;
-        padding: 6px 35px 6px 12px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .search-input:focus {
-        width: 250px;
-        border-color: #007E33;
-        box-shadow: 0 0 0 0.2rem rgba(0, 126, 51, 0.25);
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #6c757d;
-        pointer-events: none;
-    }
-
-    /* Notification icon improvements */
-    .notification-icon {
-        position: relative;
-        margin-right: 20px;
-        font-size: 1.1rem;
-        color: #6c757d;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 4px;
-        transition: all 0.2s;
-    }
-
-    .notification-icon:hover {
-        color: #007E33;
-        background-color: rgba(0, 126, 51, 0.1);
-    }
-
-    .notification-badge {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        background-color: #dc3545;
-        color: white;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.7rem;
-        font-weight: 600;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const crmFormBtn = document.getElementById('crmFormBtn');
+
+        // Profile dropdown
+        if (profileTrigger && profileDropdown) {
+            profileTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profileDropdown.classList.add('show');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (profileDropdown.classList.contains('show')) {
+                    if (!profileTrigger.contains(e.target) && !profileDropdown.contains(e.target)) {
+                        profileDropdown.classList.remove('show');
+                    }
+                }
+            });
+
+            const dropdownItems = profileDropdown.querySelectorAll('.dropdown-item');
+            if (dropdownItems) {
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        profileDropdown.classList.remove('show');
+                    });
+                });
+            }
+        }
+
+        // CRM Form Button
+        if (crmFormBtn) {
+            crmFormBtn.addEventListener('click', function() {
+                const crmUrl = '{{ url('/crmform') }}?phone_number=01521204476&agent=ShekhFarid';
+                window.open(crmUrl, '_blank');
+            });
+        }
+    });
+</script>
