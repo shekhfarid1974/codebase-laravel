@@ -63,6 +63,10 @@ Route::middleware('auth')->group(function () {
     //Inbound Reports Routes
     Route::prefix('inbound')->name('inbound_reports.')->group(function () {
         Route::get('/', [InboundReportController::class, 'index'])->name('index');
+        Route::get('/reports/farmer', [InboundReportController::class, 'farmer'])->name('farmer');
+        Route::get('/reports/retailer', [InboundReportController::class, 'retailer'])->name('retailer');
+        Route::get('/reports/dealer', [InboundReportController::class, 'dealer'])->name('dealer');
+        Route::get('/reports/others', [InboundReportController::class, 'others'])->name('others');
     });
 
 

@@ -92,7 +92,7 @@
                     <div class="card-body">
                         <form class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Search Name">
+                                <input type="text" class="form-control" placeholder="Search Name, Phone Number">
                             </div>
                             <div class="col-md-3">
                                 <select name="district_id" class="form-select" required="">
@@ -120,16 +120,11 @@
                                     <option value="8">Mymensingh</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select" aria-label="Gender filter">
-                                    <option selected>Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
+
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -138,9 +133,7 @@
                 <div class="card mb-2">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <strong>Report Data — Farmer</strong>
-                        <div>
-                            <a href="#" class="btn btn-outline-success btn-sm me-1">Export Excel</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body p-0">
@@ -168,7 +161,7 @@
                                         <th style="width:10%">Lead Status</th>
                                         <th style="width:12%">Lead Source</th>
                                         <th style="width:8%">ACCL User</th>
-                                        <th style="width:12%">Actions</th>
+                                        <th style="width:12%">Date</th>
                                     </tr>
                                 </thead>
 
@@ -196,7 +189,7 @@
                                         <td>Farmer Meeting, Website</td>
                                         <td>No</td>
                                         <td>
-                                            <a href="#" class="btn btn-link btn-sm p-0 me-2">View</a>
+                                            2024-11-25
                                         </td>
                                     </tr>
 
@@ -223,7 +216,7 @@
                                         <td>Referral, Call Center</td>
                                         <td>Yes</td>
                                         <td>
-                                            <a href="#" class="btn btn-link btn-sm p-0 me-2">View</a>
+                                            2024-11-25
                                         </td>
                                     </tr>
 
@@ -250,7 +243,7 @@
                                         <td>Website, DAE</td>
                                         <td>No</td>
                                         <td>
-                                            <a href="#" class="btn btn-link btn-sm p-0 me-2">View</a>
+                                            2024-11-25
                                         </td>
                                     </tr>
                                 </tbody>
@@ -317,16 +310,11 @@
                                     <option value="Offers">Offers</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select" aria-label="Status filter">
-                                    <option selected>Status</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
+
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -335,9 +323,7 @@
                 <div class="card mb-2">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <strong>Report Data — Retailer</strong>
-                        <div>
-                            <a href="#" class="btn btn-outline-success btn-sm me-1">Export Excel</a>
-                        </div>
+
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -355,7 +341,7 @@
                                         <th style="width:8%">Village</th>
                                         <th style="width:14%">Retailer Interests</th>
                                         <th style="width:14%">Additional Details</th>
-                                        <th style="width:8%">Actions</th>
+                                        <th style="width:8%">Date</th>
                                     </tr>
                                 </thead>
 
@@ -374,7 +360,7 @@
                                         <td>Ghoshbag</td>
                                         <td>Dealer Info, Offers</td>
                                         <td>Interested to expand business</td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 2 -->
@@ -390,7 +376,7 @@
                                         <td>South Para</td>
                                         <td>New Retailer Acquisition</td>
                                         <td>Looking for dealership</td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 3 -->
@@ -406,7 +392,7 @@
                                         <td>Shibpur</td>
                                         <td>Complain, Officer Info</td>
                                         <td>Requested information about field officer</td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                 </tbody>
@@ -464,13 +450,7 @@
                                     <option value="8">Mymensingh</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select" aria-label="Status filter">
-                                    <option selected>Status</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
+
                             <div class="col-md-3">
                                 <select name="dealer_interested_query" id="dealer_interested_query" class="form-select">
                                     <option value="">Dealer Interests</option>
@@ -485,7 +465,8 @@
                             </div>
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -494,9 +475,7 @@
                 <div class="card mb-2">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <strong>Report Data — Dealer</strong>
-                        <div>
-                            <a href="#" class="btn btn-outline-success btn-sm me-1">Export Excel</a>
-                        </div>
+
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -514,7 +493,7 @@
                                         <th style="width:12%">Recommended</th>
                                         <th style="width:12%">Additional Details</th>
                                         <th style="width:8%">Status</th>
-                                        <th style="width:8%">Actions</th>
+                                        <th style="width:8%">Date</th>
                                     </tr>
                                 </thead>
 
@@ -533,7 +512,7 @@
                                         <td>Pesticides & Fertilizers</td>
                                         <td>Interested in bulk supply</td>
                                         <td><span class="badge bg-success">Active</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 2 -->
@@ -549,7 +528,7 @@
                                         <td>Hybrid Seeds</td>
                                         <td>Requested price list and availability</td>
                                         <td><span class="badge bg-success">Active</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 3 -->
@@ -565,7 +544,7 @@
                                         <td>Seeds, Agro Chemicals</td>
                                         <td>Has query about delivery timeline</td>
                                         <td><span class="badge bg-warning text-dark">Inactive</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                 </tbody>
@@ -617,12 +596,11 @@
                                     <option value="NGO">NGO</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Interaction Type">
-                            </div>
+
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -631,9 +609,7 @@
                 <div class="card mb-2">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <strong>Report Data — Others</strong>
-                        <div>
-                            <a href="#" class="btn btn-outline-success btn-sm me-1">Export Excel</a>
-                        </div>
+
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -647,7 +623,7 @@
                                         <th style="width:14%">Interests / Interaction History</th>
                                         <th style="width:12%">ACCL Link</th>
                                         <th style="width:8%">Status</th>
-                                        <th style="width:14%">Actions</th>
+                                        <th style="width:14%">Date</th>
                                     </tr>
                                 </thead>
 
@@ -662,7 +638,7 @@
                                         <td>Product, Officer Information (Meeting: 2025-05-10)</td>
                                         <td><span class="badge bg-success">Yes</span></td>
                                         <td><span class="badge bg-success">Active</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 2 -->
@@ -674,7 +650,7 @@
                                         <td>Disease, Complain (Email: 2025-11-20)</td>
                                         <td><span class="badge bg-warning text-dark">No</span></td>
                                         <td><span class="badge bg-warning text-dark">Pending</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 3 -->
@@ -686,7 +662,7 @@
                                         <td>Product, Officer Information</td>
                                         <td><span class="badge bg-success">Yes</span></td>
                                         <td><span class="badge bg-success">Active</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                     <!-- Row 4 -->
@@ -698,7 +674,7 @@
                                         <td>Complain, Disease</td>
                                         <td><span class="badge bg-warning text-dark">No</span></td>
                                         <td><span class="badge bg-warning text-dark">Pending</span></td>
-                                        <td><a href="#" class="btn btn-link btn-sm p-0 me-2">View</a></td>
+                                        <td>2024-11-25</td>
                                     </tr>
 
                                 </tbody>
