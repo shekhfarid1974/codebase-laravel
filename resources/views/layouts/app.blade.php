@@ -409,7 +409,7 @@
             text-align: center;
             vertical-align: middle;
             user-select: none;
-            border: 1px solid transparent;
+            /* border: 1px solid transparent; */
             padding: 0.375rem 0.75rem;
             font-size: 1rem;
             line-height: 1.5;
@@ -788,6 +788,7 @@
             }
         }
     </style>
+    @stack('styles')
 </head>
 
 <body>
@@ -1121,6 +1122,7 @@
             initializeDataTables();
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
