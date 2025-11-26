@@ -123,8 +123,8 @@
 
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
-                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
+                                <button type="reset" class="btn btn-sm btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -313,8 +313,8 @@
 
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
-                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
+                                <button type="reset" class="btn btn-sm btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -465,8 +465,8 @@
                             </div>
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
-                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
+                                <button type="reset" class="btn btn-sm btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -599,8 +599,8 @@
 
                             <div class="col-md-3 d-flex">
                                 <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
-                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
+                                <button type="reset" class="btn btn-sm btn-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
