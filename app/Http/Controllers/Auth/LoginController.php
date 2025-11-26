@@ -39,6 +39,18 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
+            // Check if user is active after successful login
+            $user = $this->guard()->user();
+            if (!$user->isActive()) {
+                $this->guard()->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                
+                return back()->withErrors([
+                    'login' => 'Your account has been deactivated. Please contact administrator.',
+                ]);
+            }
+            
             return $this->sendLoginResponse($request);
         }
 
@@ -69,7 +81,7 @@ class LoginController extends Controller
         $credentials = [
             $field => $login,
             'password' => $password,
-            'active' => 1,
+            'status' => true, // Check status field instead of active
         ];
 
         return $this->guard()->attempt(
@@ -78,7 +90,6 @@ class LoginController extends Controller
         );
     }
 
-    // Override to handle redirection more explicitly
     protected function sendLoginResponse(Request $request)
     {
         $request->session()->regenerate();
@@ -117,7 +128,7 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
         }
 
+        // Return to your main application layout instead of auth layout
         return view('auth.login');
-        // return view('auth.login', ['isRegister' => false]);
     }
 }
