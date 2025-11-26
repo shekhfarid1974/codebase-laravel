@@ -73,10 +73,10 @@
                 <div class="card-body">
                     <form class="row g-3">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" placeholder="Name, Mobile">
+                            <input type="text" class="form-control form-control-sm" placeholder="Name, Mobile">
                         </div>
                         <div class="col-md-3">
-                            <select name="district_id" class="form-select" required="">
+                            <select name="district_id" class="form-select form-select-sm" required="">
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="col-md-3">
-                            <select name="dealer_interested_query" id="dealer_interested_query" class="form-select">
+                            <select name="dealer_interested_query" id="dealer_interested_query" class="form-select form-select-sm">
                                 <option value="">Dealer Interests</option>
                                 <option value="New dealership">New dealership</option>
                                 <option value="Credit Limit">Credit Limit</option>
@@ -102,9 +102,9 @@
 
                         </div>
                         <div class="col-md-3 d-flex">
-                            <button type="submit" class="btn btn-success me-2">Search</button>
-                            <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                            <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                            <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                            <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                         </div>
                     </form>
                 </div>
@@ -243,11 +243,11 @@
                 buttons: [
                 {
                     text: '<i class="fas fa-file-download fa-sm"></i> Export',
-                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                    className: 'excelButton btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-info export_btn btn-sm btn-primary rounded-0 text-white'
                 },
                 {
                     text: '+ Add New',
-                    className: 'btn btn-sm btn-primary add_btn'
+                    className: 'btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary add_btn btn-sm btn-primary'
                 },
             ]
         });

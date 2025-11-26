@@ -9,7 +9,7 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 FAQ Categories
                 <div>
-                    <a href="{{ route('faqs.categories.create') }}" class="btn btn-primary" >
+                    <a href="{{ route('faqs.categories.create') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" >
                         <i class="fas fa-plus"></i> Add
                     </a>
                 </div>
@@ -33,13 +33,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -50,13 +50,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -67,13 +67,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -84,13 +84,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -101,13 +101,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -118,13 +118,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -135,13 +135,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -152,13 +152,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -169,13 +169,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -186,13 +186,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -203,13 +203,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -229,7 +229,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add New FAQ</h5>
-                    <button type="button" class="btn-close" onclick="closeModal('addFaqModal')"></button>
+                    <button type="button" class="btn btn-sm btn-primary-close" onclick="closeModal('addFaqModal')"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addFaqForm">
@@ -237,7 +237,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Crop</label>
-                                    <select class="form-control" id="faqCrop" required>
+                                    <select class="form-control form-control-sm" id="faqCrop" required>
                                         <option value="">Select Crop</option>
                                         <option value="Rice">Rice</option>
                                         <option value="Wheat">Wheat</option>
@@ -250,7 +250,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Category</label>
-                                    <select class="form-control" id="faqCategory" required>
+                                    <select class="form-control form-control-sm" id="faqCategory" required>
                                         <option value="">Select Category</option>
                                         <option value="Disease">Disease</option>
                                         <option value="Pest">Pest</option>
@@ -263,24 +263,24 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Identification</label>
-                            <input type="textarea" class="form-control" id="faqIdentification"
+                            <input type="textarea" class="form-control form-control-sm" id="faqIdentification"
                                 placeholder="Enter problem identification" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Problem Description</label>
-                            <textarea class="form-control" id="faqProblem" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" id="faqProblem" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Solution</label>
-                            <textarea class="form-control" id="faqSolution" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" id="faqSolution" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Upload Image/Video</label>
-                            <input type="file" class="form-control" id="faqImage" accept="image/*,video/*">
+                            <input type="file" class="form-control form-control-sm" id="faqImage" accept="image/*,video/*">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Status</label>
-                            <select class="form-control" id="faqStatus" required>
+                            <select class="form-control form-control-sm" id="faqStatus" required>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                             </select>
@@ -288,8 +288,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('addFaqModal')">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="saveFaq()">Save FAQ</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="closeModal('addFaqModal')">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" onclick="saveFaq()">Save FAQ</button>
                 </div>
             </div>
         </div>
@@ -301,7 +301,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">FAQ Details</h5>
-                    <button type="button" class="btn-close" onclick="closeModal('viewFaqModal')"></button>
+                    <button type="button" class="btn btn-sm btn-primary-close" onclick="closeModal('viewFaqModal')"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row mb-3">
@@ -340,7 +340,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('viewFaqModal')">Close</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="closeModal('viewFaqModal')">Close</button>
                 </div>
             </div>
         </div>
@@ -352,7 +352,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit FAQ</h5>
-                    <button type="button" class="btn-close" onclick="closeModal('editFaqModal')"></button>
+                    <button type="button" class="btn btn-sm btn-primary-close" onclick="closeModal('editFaqModal')"></button>
                 </div>
                 <div class="modal-body">
                     <form id="editFaqForm">
@@ -361,7 +361,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Crop</label>
-                                    <select class="form-control" id="editFaqCrop" required>
+                                    <select class="form-control form-control-sm" id="editFaqCrop" required>
                                         <option value="">Select Crop</option>
                                         <option value="Rice">Rice</option>
                                         <option value="Wheat">Wheat</option>
@@ -374,7 +374,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label">Category</label>
-                                    <select class="form-control" id="editFaqCategory" required>
+                                    <select class="form-control form-control-sm" id="editFaqCategory" required>
                                         <option value="">Select Category</option>
                                         <option value="Disease">Disease</option>
                                         <option value="Pest">Pest</option>
@@ -387,24 +387,24 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Identification</label>
-                            <input type="text" class="form-control" id="editFaqIdentification" required>
+                            <input type="text" class="form-control form-control-sm" id="editFaqIdentification" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Problem Description</label>
-                            <textarea class="form-control" id="editFaqProblem" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" id="editFaqProblem" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Solution</label>
-                            <textarea class="form-control" id="editFaqSolution" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" id="editFaqSolution" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Upload Image/Video</label>
-                            <input type="file" class="form-control" id="editFaqImage" accept="image/*,video/*">
+                            <input type="file" class="form-control form-control-sm" id="editFaqImage" accept="image/*,video/*">
                             <div id="currentImage" class="mt-2"></div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Status</label>
-                            <select class="form-control" id="editFaqStatus" required>
+                            <select class="form-control form-control-sm" id="editFaqStatus" required>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                             </select>
@@ -412,8 +412,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('editFaqModal')">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="updateFaq()">Update FAQ</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="closeModal('editFaqModal')">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" onclick="updateFaq()">Update FAQ</button>
                 </div>
             </div>
         </div>
@@ -425,16 +425,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirm Deletion</h5>
-                    <button type="button" class="btn-close" onclick="closeModal('deleteFaqModal')"></button>
+                    <button type="button" class="btn btn-sm btn-primary-close" onclick="closeModal('deleteFaqModal')"></button>
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete this FAQ? This action cannot be undone.</p>
                     <p><strong>FAQ ID:</strong> <span id="deleteFaqId"></span></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary"
                         onclick="closeModal('deleteFaqModal')">Cancel</button>
-                    <button type="button" class="btn btn-danger" onclick="confirmDeleteFaq()">Delete</button>
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-danger" onclick="confirmDeleteFaq()">Delete</button>
                 </div>
             </div>
         </div>

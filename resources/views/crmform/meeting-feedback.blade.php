@@ -35,20 +35,20 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">নাম</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক নাম লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক নাম লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">ঠিকানা</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">জমির পরিমান</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">১) আপনি কি রহিম মিয়া বলছেন?</label>
-                                        <select name="rahim_mia" id="rahim_mia" class="form-select">
+                                        <select name="rahim_mia" id="rahim_mia" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -57,14 +57,14 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">২) আপনার ঠিকানা কোন এলাকায়?</label>
-                                        <input type="text" class="form-control" name="address" placeholder="আপনার এলাকা লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="আপনার এলাকা লিখুন">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">
                                             ৩) মে মাসের ৩ তারিখে খ বাজারে অটো ক্রপ কেয়ার এর একটি মিটিং হয়েছিল। আপনি উপস্থিত ছিলেন?
                                         </label>
-                                        <select name="meeting_attend" id="meeting_attend" class="form-select">
+                                        <select name="meeting_attend" id="meeting_attend" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -73,17 +73,17 @@
 
                                     <div class="mb-3 d-none" id="discussion_topic_block">
                                         <label class="form-label">৪) কোন বিষয়ে আলোচনা হয়েছিল আপনার মনে আছে?</label>
-                                        <textarea class="form-control" rows="2" name="discussion_topic"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" name="discussion_topic"></textarea>
                                     </div>
 
                                     <div class="mb-3 d-none" id="product_opinion_block">
                                         <label class="form-label">৫) পণ্যটি নিয়ে আপনার কোনো মতামত আছে?</label>
-                                        <textarea class="form-control" rows="2" name="product_opinion"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" name="product_opinion"></textarea>
                                     </div>
 
                                     <div class="mb-3 d-none" id="product_used_block">
                                         <label class="form-label">৬) আপনি কি পণ্যটি ক্রয় করেছেন বা ব্যবহার করেছেন?</label>
-                                        <select name="product_used" class="form-select">
+                                        <select name="product_used" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -98,7 +98,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button class="btn btn-success" type="button" id="save-btn">
+                                        <button class="btn btn-sm btn-primary btn btn-sm btn-primary-success" type="button" id="save-btn btn-sm btn-primary">
                                             <i class="fas fa-save"></i> Save
                                         </button>
                                     </div>

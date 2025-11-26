@@ -34,19 +34,19 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">নাম</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক নাম লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক নাম লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">ঠিকানা</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">জমির পরিমান</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">১) চাষের প্রধান ফসল কোনটি?</label>
-                                        <select name="crop_main" id="crop_main" class="form-select">
+                                        <select name="crop_main" id="crop_main" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="dhaan">ধান</option>
                                             <option value="sobji">সবজি</option>
@@ -58,17 +58,17 @@
 
                                     <div class="mb-3 d-none" id="crop_other_block">
                                         <label class="form-label">অন্যান্য ফসল লিখুন</label>
-                                        <input type="text" class="form-control" name="crop_other" placeholder="ফসলের নাম লিখুন...">
+                                        <input type="text" class="form-control form-control-sm" name="crop_other" placeholder="ফসলের নাম লিখুন...">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">২) আপনার জমির জলমর পরিমান কত?</label>
-                                        <input type="text" class="form-control" name="water_level" placeholder="উদাহরণ: মাঝারি / কম / বেশি">
+                                        <input type="text" class="form-control form-control-sm" name="water_level" placeholder="উদাহরণ: মাঝারি / কম / বেশি">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">৩) আমেটার ক্রপ কেয়ার এর নাম সম্পর্কে জানেন?</label>
-                                        <select name="ametar_know" id="ametar_know" class="form-select">
+                                        <select name="ametar_know" id="ametar_know" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -77,7 +77,7 @@
 
                                     <div class="mb-3 d-none" id="ametar_usage_block">
                                         <label class="form-label">৪) আমেটার ক্রপ কেয়ার এর ব্যবহারের নিয়ম সম্পর্কে জানেন?</label>
-                                        <select name="ametar_usage" id="ametar_usage" class="form-select">
+                                        <select name="ametar_usage" id="ametar_usage" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="mb-3 d-none" id="ametar_learn_block">
                                         <label class="form-label">নিয়ম সম্পর্কে জানতে চান?</label>
-                                        <select class="form-select" name="ametar_learn">
+                                        <select class="form-select form-select-sm" name="ametar_learn">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -94,17 +94,17 @@
 
                                     <div class="mb-3 d-none" id="ametar_whatknow_block">
                                         <label class="form-label">নিয়ম সম্পর্কে কী কী জানেন?</label>
-                                        <textarea class="form-control" rows="2" name="ametar_whatknow"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" name="ametar_whatknow"></textarea>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">৫) নিয়ম সংগ্রহ করার পছন্দের স্থান কোনটি?</label>
-                                        <input type="text" class="form-control" name="source_place" placeholder="উদাহরণ: দোকান / অফিস / প্রতিনিধি">
+                                        <input type="text" class="form-control form-control-sm" name="source_place" placeholder="উদাহরণ: দোকান / অফিস / প্রতিনিধি">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">৬) আমেটার ক্রপ কেয়ার এর প্রতিনিধি সম্পর্কে শুনেছেন?</label>
-                                        <select name="ametar_rep" class="form-select">
+                                        <select name="ametar_rep" class="form-select form-select-sm">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -113,7 +113,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">৭) নিয়ম সম্পর্কে আপনার মতামত কী?</label>
-                                        <textarea name="final_opinion" class="form-control" rows="3"></textarea>
+                                        <textarea name="final_opinion" class="form-control form-control-sm" rows="3"></textarea>
                                     </div>
 
                                 </div>
@@ -123,7 +123,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button class="btn btn-success" type="button" id="save-btn">
+                                        <button class="btn btn-sm btn-primary btn btn-sm btn-primary-success" type="button" id="save-btn btn-sm btn-primary">
                                             <i class="fas fa-save"></i> Save
                                         </button>
                                     </div>

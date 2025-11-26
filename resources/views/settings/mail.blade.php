@@ -15,13 +15,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Mail Host</label>
-                            <input type="text" class="form-control" id="mailHost" value="smtp.accl.com.bd" required>
+                            <input type="text" class="form-control form-control-sm" id="mailHost" value="smtp.accl.com.bd" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Port</label>
-                            <input type="number" class="form-control" id="mailPort" value="587" required>
+                            <input type="number" class="form-control form-control-sm" id="mailPort" value="587" required>
                         </div>
                     </div>
                 </div>
@@ -29,13 +29,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Username</label>
-                            <input type="email" class="form-control" id="mailUsername" value="noreply@accl.com.bd" required>
+                            <input type="email" class="form-control form-control-sm" id="mailUsername" value="noreply@accl.com.bd" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" id="mailPassword" value="••••••••" required>
+                            <input type="password" class="form-control form-control-sm" id="mailPassword" value="••••••••" required>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Encryption</label>
-                            <select class="form-control" id="mailEncryption">
+                            <select class="form-control form-control-sm" id="mailEncryption">
                                 <option value="tls" selected>TLS</option>
                                 <option value="ssl">SSL</option>
                                 <option value="none">None</option>
@@ -53,19 +53,19 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">From Email</label>
-                            <input type="email" class="form-control" id="mailFrom" value="noreply@accl.com.bd" required>
+                            <input type="email" class="form-control form-control-sm" id="mailFrom" value="noreply@accl.com.bd" required>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between mt-4">
-                    <button type="button" class="btn btn-secondary" onclick="resetMailConfig()">
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="resetMailConfig()">
                         <i class="fas fa-redo"></i> Reset
                     </button>
                     <div>
-                        <button type="button" class="btn btn-warning" onclick="testMailConfig()">
+                        <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-warning" onclick="testMailConfig()">
                             <i class="fas fa-paper-plane"></i> Test Mail
                         </button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary">
                             <i class="fas fa-save"></i> Save Configuration
                         </button>
                     </div>

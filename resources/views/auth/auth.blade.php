@@ -52,7 +52,7 @@
                         me</label>
                 </div>
 
-                <button type="submit" class="btn">Sign In</button>
+                <button type="submit" class="btn btn-sm btn-primary">Sign In</button>
 
                 <div class="toggle-container">
                     <p>Don't have an account? <a href="{{ route('register') }}" id="show-register">Register</a></p>
@@ -125,7 +125,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
 
-                <button type="submit" class="btn">Register</button>
+                <button type="submit" class="btn btn-sm btn-primary">Register</button>
 
                 <div class="toggle-container">
                     <p>Already have an account? <a href="{{ route('login') }}" id="show-login">Login</a></p>

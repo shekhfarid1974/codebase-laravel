@@ -30,7 +30,7 @@
                         me</label>
                 </div>
 
-                <button type="submit" class="btn">Sign In</button>
+                <button type="submit" class="btn btn-sm btn-primary">Sign In</button>
 
                 <div class="toggle-container">
                     <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>

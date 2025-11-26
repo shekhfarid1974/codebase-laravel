@@ -18,13 +18,13 @@
             border: 1px solid #dee2e6;
         }
         .select2-container .select2-selection--single {
-            height: 38px;
+            height: 32px;
         }
         .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 38px;
+            line-height: 32px;
         }
         .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 38px;
+            height: 32px;
         }
         .select2-container--default.select2-container--focus .select2-selection--multiple {
             border: 1px solid #dee2e6;
@@ -33,7 +33,7 @@
             border: 1px solid #dee2e6;
         }
         .select2-container .select2-selection--multiple {
-            min-height: 38px;
+            min-height: 32px;
         }
         .nav-pills .nav-link, .nav-pills .show > .nav-link {
             color: #198754;

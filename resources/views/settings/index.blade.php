@@ -56,7 +56,7 @@
                 <!-- Add more general settings as needed -->
             </div>
             <div class="card-content" style="padding: 20px; text-align: center;">
-                <button class="btn btn-primary">
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary">
                     <i class="ri-save-line"></i>
                     Save Settings
                 </button>
@@ -79,14 +79,14 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-outline">
+                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-outline">
                         <i class="ri-key-line"></i>
                         Change Password
                     </button>
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-outline">
+                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-outline">
                         <i class="ri-logout-box-r-line"></i>
                         Log out of other sessions
                     </button>

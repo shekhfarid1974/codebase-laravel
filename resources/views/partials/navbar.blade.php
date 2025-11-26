@@ -13,7 +13,7 @@
 
     <div class="header-right">
         <!-- CRM Form Button -->
-        <button class="crm-form-btn" id="crmFormBtn">
+        <button class="crm-form-btn btn-sm btn-primary" id="crmFormbtn btn-sm btn-primary">
             <i class="fas fa-plus-circle"></i>
             <span>CRM Form</span>
         </button>
@@ -142,7 +142,7 @@
     }
 
     /* CRM Form Button */
-    .crm-form-btn {
+    .crm-form-btn btn-sm btn-primary {
         display: flex;
         align-items: center;
         gap: 8px;
@@ -158,18 +158,18 @@
         box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
     }
 
-    .crm-form-btn:hover {
+    .crm-form-btn btn-sm btn-primary:hover {
         background: linear-gradient(135deg, #006627 0%, #008533 100%);
         transform: translateY(-1px);
         box-shadow: 0 4px 8px rgba(0, 126, 51, 0.3);
     }
 
-    .crm-form-btn:active {
+    .crm-form-btn btn-sm btn-primary:active {
         transform: translateY(0);
         box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
     }
 
-    .crm-form-btn i {
+    .crm-form-btn btn-sm btn-primary i {
         font-size: 0.8rem;
     }
 
@@ -349,11 +349,11 @@
             display: block;
         }
 
-        .crm-form-btn span {
+        .crm-form-btn btn-sm btn-primary span {
             display: none;
         }
 
-        .crm-form-btn i {
+        .crm-form-btn btn-sm btn-primary i {
             margin-right: 0;
         }
 
@@ -383,7 +383,7 @@
             display: none;
         }
 
-        .crm-form-btn {
+        .crm-form-btn btn-sm btn-primary {
             padding: 8px;
         }
     }
@@ -413,7 +413,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const profileTrigger = document.getElementById('profileTrigger');
         const profileDropdown = document.getElementById('profileDropdown');
-        const crmFormBtn = document.getElementById('crmFormBtn');
+        const crmFormbtn btn-sm btn-primary = document.getElementById('crmFormbtn btn-sm btn-primary');
 
         // Profile dropdown
         if (profileTrigger && profileDropdown) {
@@ -441,8 +441,8 @@
         }
 
         // CRM Form Button
-        if (crmFormBtn) {
-            crmFormBtn.addEventListener('click', function() {
+        if (crmFormbtn btn-sm btn-primary) {
+            crmFormbtn btn-sm btn-primary.addEventListener('click', function() {
                 const crmUrl = '{{ url('/crmform') }}?phone_number=01521204476&agent=ShekhFarid';
                 window.open(crmUrl, '_blank');
             });

@@ -34,19 +34,19 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">নাম</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক নাম লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক নাম লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">ঠিকানা</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক ঠিকানা লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">জমির পরিমান</label>
-                                        <input type="text" class="form-control" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
+                                        <input type="text" class="form-control form-control-sm" name="address" placeholder="গ্রাহক জমির পরিমান লিখুন">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">১) আপনি অনলাইন অফারটি সম্পর্কে জানেন? *</label>
-                                        <select class="form-select" name="q1_online_offer" id="q1_online_offer">
+                                        <select class="form-select form-select-sm" name="q1_online_offer" id="q1_online_offer">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -55,7 +55,7 @@
 
                                     <div id="q2_block" class="mb-3 d-none">
                                         <label class="form-label">২) পেতে জানলেন কীভাবে?</label>
-                                        <select class="form-select" name="q2_media">
+                                        <select class="form-select form-select-sm" name="q2_media">
                                             <option value="">Select</option>
                                             <option value="officer">অফিসার</option>
                                             <option value="farmer">ফিল্ড</option>
@@ -67,13 +67,13 @@
 
                                     <div id="q1_no_reason" class="mb-3 d-none">
                                         <label class="form-label">অফারটি জানেন না — কারণ/মন্তব্য</label>
-                                        <textarea class="form-control" rows="2" name="q1_reason"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" name="q1_reason"></textarea>
                                     </div>
 
 
                                     <div class="mb-3">
                                         <label class="form-label">৩) আপনি ১০ লিটার নাভারা নিতে চান?</label>
-                                        <select class="form-select" name="q3_buy" id="q3_buy">
+                                        <select class="form-select form-select-sm" name="q3_buy" id="q3_buy">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -82,7 +82,7 @@
 
                                     <div id="q3_offer_payesen" class="mb-3 d-none">
                                         <label class="form-label">অফারটি পেয়েছেন?</label>
-                                        <select class="form-select" name="q3_offer_received">
+                                        <select class="form-select form-select-sm" name="q3_offer_received">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -91,7 +91,7 @@
 
                                     <div id="q3_interested_block" class="mb-3 d-none">
                                         <label class="form-label">অফারটি নিতে আগ্রহী?</label>
-                                        <select class="form-select" name="q3_interested" id="q3_interested">
+                                        <select class="form-select form-select-sm" name="q3_interested" id="q3_interested">
                                             <option value="">Select</option>
                                             <option value="yes">হ্যাঁ</option>
                                             <option value="no">না</option>
@@ -100,17 +100,17 @@
 
                                     <div id="q3_when_block" class="mb-3 d-none">
                                         <label class="form-label">কবে নাগাদ অফারটি নিতে চান?</label>
-                                        <input type="text" name="q3_when" class="form-control" placeholder="উদাহরণঃ ২-৩ দিনের মধ্যে">
+                                        <input type="text" name="q3_when" class="form-control form-control-sm" placeholder="উদাহরণঃ ২-৩ দিনের মধ্যে">
                                     </div>
 
                                     <div id="q3_no_opinion" class="mb-3 d-none">
                                         <label class="form-label">কারণ ও মতামত</label>
-                                        <textarea class="form-control" rows="2" name="q3_no_reason"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="2" name="q3_no_reason"></textarea>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">৪) অফারটি নিয়ে আপনার পক্ষ থেকে মতামত?</label>
-                                        <textarea class="form-control" rows="3" name="q4_opinion"></textarea>
+                                        <textarea class="form-control form-control-sm" rows="3" name="q4_opinion"></textarea>
                                     </div>
 
                                 </div>
@@ -120,7 +120,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <button class="btn btn-success" type="button" id="save-btn">
+                                        <button class="btn btn-sm btn-primary btn btn-sm btn-primary-success" type="button" id="save-btn btn-sm btn-primary">
                                             <i class="fas fa-save"></i> Save
                                         </button>
                                     </div>

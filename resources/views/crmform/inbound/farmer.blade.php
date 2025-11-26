@@ -25,7 +25,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Name <span class="sr-only">(required)</span></label>
-                            <input type="text" name="name" class="form-control" placeholder="Enter full name" value="Farid Test" required>
+                            <input type="text" name="name" class="form-control form-control-sm" placeholder="Enter full name" value="Farid Test" required>
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Mobile Number <span class="sr-only">(required)</span></label>
-                            <input type="text" name="phone_number" class="form-control" value="{{ $phone_number ?? '' }}" readonly required>
+                            <input type="text" name="phone_number" class="form-control form-control-sm" value="{{ $phone_number ?? '' }}" readonly required>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Phone Number Own</label>
-                            <select name="own_number" class="form-control">
+                            <select name="own_number" class="form-control form-control-sm">
                                 <option value="Yes" {{ (isset($own_number) && $own_number=='Yes') ? 'selected' : '' }}>Yes</option>
                                 <option value="No" {{ (isset($own_number) && $own_number=='No') ? 'selected' : '' }}>No</option>
                             </select>
@@ -52,7 +52,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Alternative Contact Number <span class="sr-only">(required)</span></label>
-                            <input type="text" name="alt_number" class="form-control" placeholder="Enter alternative contact number" required>
+                            <input type="text" name="alt_number" class="form-control form-control-sm" placeholder="Enter alternative contact number" required>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Gender <span class="sr-only">(required)</span></label>
-                            <select name="gender" class="form-control" required>
+                            <select name="gender" class="form-control form-control-sm" required>
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -72,7 +72,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">District <span class="sr-only">(required)</span></label>
-                            <select name="district_id" class="form-control" required>
+                            <select name="district_id" class="form-control form-control-sm" required>
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -90,7 +90,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Upazila <span class="sr-only">(required)</span></label>
-                            <select name="upazila_id" class="form-control" required>
+                            <select name="upazila_id" class="form-control form-control-sm" required>
                                 <option value="">Select Upazila</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -108,7 +108,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Union <span class="sr-only">(required)</span></label>
-                            <select name="union_id" class="form-control" required>
+                            <select name="union_id" class="form-control form-control-sm" required>
                                 <option value="">Select Union</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -126,7 +126,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Village <span class="sr-only">(required)</span></label>
-                            <input type="text" name="village" class="form-control" placeholder="Enter village name" required>
+                            <input type="text" name="village" class="form-control form-control-sm" placeholder="Enter village name" required>
                         </div>
                     </div>
 
@@ -134,7 +134,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Targeted Crop</label>
-                            <select name="targeted_crop[]" class="form-control select2" multiple>
+                            <select name="targeted_crop[]" class="form-select form-select-sm select2" multiple>
                                 <option value="Rice">Rice</option>
                                 <option value="Maize">Maize</option>
                                 <option value="Onion">Onion</option>
@@ -147,7 +147,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Land Size (Decimal)</label>
-                            <input type="text" name="land_size" class="form-control" placeholder="Land size in decimals">
+                            <input type="text" name="land_size" class="form-control form-control-sm" placeholder="Land size in decimals">
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Products Interests</label>
-                            <select name="product_interest[]" class="form-control select2" multiple>
+                            <select name="product_interest[]" class="form-select form-select-sm select2" multiple>
                                 <option value="Insecticide">Insecticide</option>
                                 <option value="Fungicide">Fungicide</option>
                                 <option value="Herbicide">Herbicide</option>
@@ -168,7 +168,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Problem/Query</label>
-                            <textarea name="q_type" rows="2" class="form-control" placeholder="Describe the problem"></textarea>
+                            <textarea name="q_type" rows="2" class="form-control form-control-sm" placeholder="Describe the problem"></textarea>
                         </div>
                     </div>
 
@@ -176,7 +176,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Additional Details</label>
-                            <textarea name="verbatim" rows="2" class="form-control" placeholder="Customer Provided notes or other crop info"></textarea>
+                            <textarea name="verbatim" rows="2" class="form-control form-control-sm" placeholder="Customer Provided notes or other crop info"></textarea>
                         </div>
                     </div>
 
@@ -184,7 +184,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Recommended Products</label>
-                            <select name="product_solution[]" class="form-control select2" multiple>
+                            <select name="product_solution[]" class="form-select form-select-sm select2" multiple>
                                 <option value="Fertilizer A">Fertilizer A</option>
                                 <option value="Pesticide B">Pesticide B</option>
                                 <option value="Herbicide C">Herbicide C</option>
@@ -198,7 +198,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Solution Details</label>
-                            <textarea name="product_solution_text" rows="2" class="form-control" placeholder="Detailed solution information"></textarea>
+                            <textarea name="product_solution_text" rows="2" class="form-control form-control-sm" placeholder="Detailed solution information"></textarea>
                         </div>
                     </div>
 
@@ -206,7 +206,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Lead Status</label>
-                            <select name="lead_status[]" class="form-control select2">
+                            <select name="lead_status[]" class="form-select form-select-sm select2">
                                 <option value="Regular">Regular</option>
                                 <option value="Irregular">Irregular</option>
                             </select>
@@ -217,7 +217,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Lead Source</label>
-                            <select name="lead_source[]" class="form-control select2" multiple>
+                            <select name="lead_source[]" class="form-select form-select-sm select2" multiple>
                                 <option value="Farmer Meeting">Farmer Meeting</option>
                                 <option value="IFS">IFS</option>
                                 <option value="Website">Website</option>
@@ -234,7 +234,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">User of ACCL Product</label>
-                            <select name="existing_customer" class="form-control">
+                            <select name="existing_customer" class="form-control form-control-sm">
                                 <option value="Yes">Yes</option>
                                 <option value="No" selected>No</option>
                             </select>
@@ -244,7 +244,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label text-danger">Is Ticket</label>
-                            <select name="is_ticket" class="form-select">
+                            <select name="is_ticket" class="form-select form-select-sm">
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
@@ -256,7 +256,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-center">
-                            <button class="btn btn-success" type="button" id="save-btn">
+                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-success" type="button" id="save-btn btn-sm btn-primary">
                                 <i class="fas fa-save"></i> Save
                             </button>
                         </div>
@@ -307,13 +307,13 @@
             <div class="row mb-3 g-3 align-items-end">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search...">
+                        <input type="search" class="form-control form-control-sm" placeholder="Search...">
                     </div>
                 </div>
                     <div class="col-md-3">
 
                         <div class="form-group">
-                            <select class="form-select" name="crop" required="">
+                            <select class="form-select form-select-sm" name="crop" required="">
                                 <option value="">Select Crop</option>
                                 <option value="Rice">Rice</option>
                                 <option value="Wheat">Wheat</option>
@@ -330,7 +330,7 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select class="form-select" name="category" required="">
+                            <select class="form-select form-select-sm" name="category" required="">
                                 <option value="">Select Category</option>
                                 <option value="Disease">Disease</option>
                                 <option value="Pest">Pest</option>
@@ -345,7 +345,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select class="form-select" name="identification" required="">
+                            <select class="form-select form-select-sm" name="identification" required="">
                                 <option value="">Select Identification</option>
                                 <option value="Disease">Disease</option>
                                 <option value="Pest">Pest</option>
@@ -361,7 +361,7 @@
 
                     <div class="col-md-3">
                         <div>
-                            <button type="button" class="btn btn-primary"><i class="fas fa-filter"></i> Filter</button>
+                            <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary"><i class="fas fa-filter"></i> Filter</button>
                         </div>
                     </div>
 

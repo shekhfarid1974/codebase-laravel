@@ -48,7 +48,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
 
-                <button type="submit" class="btn">Register</button>
+                <button type="submit" class="btn btn-sm btn-primary">Register</button>
 
                 <div class="toggle-container">
                     <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>

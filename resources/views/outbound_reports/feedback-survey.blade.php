@@ -31,57 +31,57 @@
             background-color: #f8f9fa;
             border-bottom: 2px solid #dee2e6;
         }
-        
+
         /* Additional styling for the card layout */
         .card {
             margin-bottom: 20px;
         }
-        
+
         .card-header {
             background-color: #f8f9fa;
             border-bottom: 1px solid #dee2e6;
             padding: 10px 15px;
         }
-        
+
         .card-body {
             padding: 15px;
         }
-        
+
         .box {
             border: 1px solid #ddd;
             border-radius: 4px;
             margin-bottom: 20px;
         }
-        
+
         .box-header {
             background-color: #f8f9fa;
             border-bottom: 1px solid #ddd;
             padding: 10px 15px;
         }
-        
+
         .box-body {
             padding: 15px;
         }
-        
+
         /* Pagination styling */
         .pagination {
             margin-top: 15px;
             margin-bottom: 0;
         }
-        
+
         .pagination .page-item .page-link {
             color: #007bff;
         }
-        
+
         .pagination .page-item.active .page-link {
             background-color: #007bff;
             border-color: #007bff;
         }
-        
+
         .pagination .page-item.disabled .page-link {
             color: #6c757d;
         }
-        
+
         /* Pagination container */
         .table-footer {
             display: flex;
@@ -89,7 +89,7 @@
             align-items: center;
             margin-top: 15px;
         }
-        
+
         .pagination-info {
             margin-right: 15px;
         }
@@ -104,25 +104,25 @@
                 <!-- Phone Search -->
                 <div class="col-md-3">
                     <label class="fw-bold">Search by Phone</label>
-                    <input type="text" id="phoneSearch" class="form-control" placeholder="Enter phone number">
+                    <input type="text" id="phoneSearch" class="form-control form-control-sm" placeholder="Enter phone number">
                 </div>
 
                 <!-- Date Search -->
                 <div class="col-md-3">
                     <label class="fw-bold">Date</label>
-                    <input type="date" id="dateSearch" class="form-control">
+                    <input type="date" id="dateSearch" class="form-control form-control-sm">
                 </div>
 
                 <!-- Buttons -->
                 <div class="col-md-3 d-flex gap-2">
                     <div class="mt-4">
-                        <button type="button" id="filter-btn" class="btn btn-primary mr-1">Filter</button>
-                        <button id="resetFilters" class="btn btn-danger">Reset</button>
-                        <button id="exportBtn" class="btn btn-primary ms-2">Export</button>
+                        <button type="button" id="filter-btn btn-sm btn-primary" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary mr-1">Filter</button>
+                        <button id="resetFilters" class="btn btn-sm btn-primary btn btn-sm btn-primary-danger">Reset</button>
+                        <button id="exportbtn btn-sm btn-primary" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary ms-2">Export</button>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-12">
                 <div class="box box-solid">
                     <div class="box-header with-border">
@@ -269,7 +269,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+
                         <!-- Pagination -->
                         <div class="table-footer">
                             <div class="pagination-info">

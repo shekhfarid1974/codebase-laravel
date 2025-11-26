@@ -75,10 +75,10 @@
                 <div class="card-body">
                     <form class="row g-3">
                         <div class="col-md-3">
-                            <input type="text" class="form-control" placeholder="Search Name, Phone Number">
+                            <input type="text" class="form-control form-control-sm" placeholder="Search Name, Phone Number">
                         </div>
                         <div class="col-md-3">
-                            <select name="district_id" class="form-select" required="">
+                            <select name="district_id" class="form-select form-select-sm" required="">
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -91,7 +91,7 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <select name="upazila_id" class="form-select" required="">
+                            <select name="upazila_id" class="form-select form-select-sm" required="">
                                 <option value="">Select Upazila</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -105,9 +105,9 @@
                         </div>
 
                         <div class="col-md-3 d-flex">
-                            <button type="submit" class="btn btn-success me-2">Search</button>
-                            <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                            <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                            <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                            <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                            <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                         </div>
                     </form>
                 </div>
@@ -286,7 +286,7 @@
             previous: "Previous",
             next: "Next"
         },
-        lengthMenu: `_MENU_ <input name="search_here" class="form-control-sm form-control ms-2 shadow-none rounded-0" placeholder="Search here..." autocomplete="off"/>`,
+        lengthMenu: `_MENU_ <input name="search_here" class="form-control form-control-sm-sm form-control form-control-sm ms-2 shadow-none rounded-0" placeholder="Search here..." autocomplete="off"/>`,
     },
     dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
         "<'row'<'col-sm-12'tr>>" +
@@ -294,11 +294,11 @@
         buttons: [
         {
             text: '<i class="fas fa-file-download fa-sm"></i> Export',
-            className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+            className: 'excelButton btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-info export_btn btn-sm btn-primary rounded-0 text-white'
         },
         {
             text: '+ Add New',
-            className: 'btn btn-sm btn-primary add_btn'
+            className: 'btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary add_btn btn-sm btn-primary'
         },
     ]
 }); --}}
@@ -334,11 +334,11 @@
                 buttons: [
                 {
                     text: '<i class="fas fa-file-download fa-sm"></i> Export',
-                    className: 'excelButton btn btn-sm btn-info export_btn rounded-0 text-white'
+                    className: 'excelButton btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-info export_btn btn-sm btn-primary rounded-0 text-white'
                 },
                 {
                     text: '+ Add New',
-                    className: 'btn btn-sm btn-primary add_btn'
+                    className: 'btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary add_btn btn-sm btn-primary'
                 },
             ]
         });

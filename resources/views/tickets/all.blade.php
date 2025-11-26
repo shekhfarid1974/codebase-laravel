@@ -9,7 +9,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             All Tickets
             <div>
-                <button class="btn btn-primary" onclick="showCreateTicketModal()">
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" onclick="showCreateTicketModal()">
                     <i class="fas fa-plus"></i> Create New
                 </button>
             </div>
@@ -41,10 +41,10 @@
                             <td>Agent Ahmed</td>
                             <td>2023-09-20</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1024')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1024')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1024')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1024')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -59,10 +59,10 @@
                             <td>Unassigned</td>
                             <td>2023-09-20</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1023')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1023')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1023')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1023')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -77,7 +77,7 @@
                             <td>Field Agent Khan</td>
                             <td>2023-09-19</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1022')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1022')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -92,10 +92,10 @@
                             <td>Supervisor Jaman</td>
                             <td>2023-09-19</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1021')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1021')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1021')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1021')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -110,7 +110,7 @@
                             <td>Agent Fatema</td>
                             <td>2023-09-18</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1020')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1020')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -125,7 +125,7 @@
                             <td>Agent Ahmed</td>
                             <td>2023-09-17</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1019')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1019')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -140,10 +140,10 @@
                             <td>Agent Fatema</td>
                             <td>2023-09-16</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1018')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1018')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1018')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1018')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -158,7 +158,7 @@
                             <td>Field Agent Khan</td>
                             <td>2023-09-15</td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1017')">
+                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1017')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -178,17 +178,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Create New Ticket</h5>
-                <button type="button" class="btn-close" onclick="closeModal('createTicketModal')"></button>
+                <button type="button" class="btn btn-sm btn-primary-close" onclick="closeModal('createTicketModal')"></button>
             </div>
             <div class="modal-body">
                 <form id="createTicketForm">
                     <div class="form-group">
                         <label class="form-label">Title</label>
-                        <input type="text" class="form-control" id="ticketTitle" required>
+                        <input type="text" class="form-control form-control-sm" id="ticketTitle" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Customer</label>
-                        <select class="form-control" id="ticketCustomer" required>
+                        <select class="form-control form-control-sm" id="ticketCustomer" required>
                             <option value="">Select Customer</option>
                             <option value="customer1">Md. Rahman</option>
                             <option value="customer2">Farmer Karim</option>
@@ -197,7 +197,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Category</label>
-                        <select class="form-control" id="ticketCategory" required>
+                        <select class="form-control form-control-sm" id="ticketCategory" required>
                             <option value="">Select Category</option>
                             <option value="advisory">Advisory</option>
                             <option value="product">Product Issue</option>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Priority</label>
-                        <select class="form-control" id="ticketPriority" required>
+                        <select class="form-control form-control-sm" id="ticketPriority" required>
                             <option value="">Select Priority</option>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
@@ -216,11 +216,11 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Description</label>
-                        <textarea class="form-control" id="ticketDescription" rows="4" required></textarea>
+                        <textarea class="form-control form-control-sm" id="ticketDescription" rows="4" required></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Assign To</label>
-                        <select class="form-control" id="ticketAssign">
+                        <select class="form-control form-control-sm" id="ticketAssign">
                             <option value="">Unassigned</option>
                             <option value="agent1">Agent Ahmed</option>
                             <option value="agent2">Agent Fatema</option>
@@ -230,8 +230,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeModal('createTicketModal')">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="createTicket()">Create Ticket</button>
+                <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="closeModal('createTicketModal')">Cancel</button>
+                <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" onclick="createTicket()">Create Ticket</button>
             </div>
         </div>
     </div>

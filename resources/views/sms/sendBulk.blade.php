@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group" id="categorySelect" style="display: none;">
                     <label class="form-label">Select Category</label>
-                    <select class="form-control" id="recipientCategory">
+                    <select class="form-control form-control-sm" id="recipientCategory">
                         <option value="farmer">Farmers</option>
                         <option value="dealer">Dealers</option>
                         <option value="retailer">Retailers</option>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group" id="districtSelect" style="display: none;">
                     <label class="form-label">Select District</label>
-                    <select class="form-control" id="recipientDistrict">
+                    <select class="form-control form-control-sm" id="recipientDistrict">
                         <option value="dhaka">Dhaka</option>
                         <option value="rajshahi">Rajshahi</option>
                         <option value="khulna">Khulna</option>
@@ -57,22 +57,22 @@
                 </div>
                 <div class="form-group" id="customListUpload" style="display: none;">
                     <label class="form-label">Upload Phone List (CSV)</label>
-                    <input type="file" class="form-control" id="phoneList" accept=".csv">
+                    <input type="file" class="form-control form-control-sm" id="phoneList" accept=".csv">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Message</label>
-                    <textarea class="form-control" id="smsMessage" rows="4" placeholder="Enter your message here..."></textarea>
+                    <textarea class="form-control form-control-sm" id="smsMessage" rows="4" placeholder="Enter your message here..."></textarea>
                     <small class="form-text text-muted">0/160 characters</small>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Schedule (Optional)</label>
-                    <input type="datetime-local" class="form-control" id="smsSchedule">
+                    <input type="datetime-local" class="form-control form-control-sm" id="smsSchedule">
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-secondary" onclick="resetSmsForm()">
+                    <button type="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary" onclick="resetSmsForm()">
                         <i class="fas fa-redo"></i> Reset
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary">
                         <i class="fas fa-paper-plane"></i> Send SMS
                     </button>
                 </div>

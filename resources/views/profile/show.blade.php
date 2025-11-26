@@ -40,7 +40,7 @@
         <!-- Optional: Edit Profile Button -->
         <div class="card">
             <div class="card-content" style="padding: 20px; text-align: center;">
-                <button class="btn btn-primary">
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary">
                     <i class="ri-edit-line"></i>
                     Edit Profile
                 </button>

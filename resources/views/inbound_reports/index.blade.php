@@ -44,16 +44,16 @@
 
         <ul class="nav nav-tabs mb-4 gap-2" id="reportTabs" role="tablist" style="border-bottom: none;">
             <li class="nav-item" role="presentation">
-                <button class="btn btn-primary active" id="farmer-tab" data-bs-toggle="tab" data-bs-target="#farmer-content" type="button" role="tab" aria-controls="farmer-content" aria-selected="true">Farmer Report</button>
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary active" id="farmer-tab" data-bs-toggle="tab" data-bs-target="#farmer-content" type="button" role="tab" aria-controls="farmer-content" aria-selected="true">Farmer Report</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="btn btn-primary" id="retailer-tab" data-bs-toggle="tab" data-bs-target="#retailer-content" type="button" role="tab" aria-controls="retailer-content" aria-selected="false">Retailer Report</button>
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" id="retailer-tab" data-bs-toggle="tab" data-bs-target="#retailer-content" type="button" role="tab" aria-controls="retailer-content" aria-selected="false">Retailer Report</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="btn btn-primary" id="dealer-tab" data-bs-toggle="tab" data-bs-target="#dealer-content" type="button" role="tab" aria-controls="dealer-content" aria-selected="false">Dealer Report</button>
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" id="dealer-tab" data-bs-toggle="tab" data-bs-target="#dealer-content" type="button" role="tab" aria-controls="dealer-content" aria-selected="false">Dealer Report</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="btn btn-primary" id="others-tab" data-bs-toggle="tab" data-bs-target="#others-content" type="button" role="tab" aria-controls="others-content" aria-selected="false">Others Report</button>
+                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" id="others-tab" data-bs-toggle="tab" data-bs-target="#others-content" type="button" role="tab" aria-controls="others-content" aria-selected="false">Others Report</button>
             </li>
         </ul>
 
@@ -92,10 +92,10 @@
                     <div class="card-body">
                         <form class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Search Name, Phone Number">
+                                <input type="text" class="form-control form-control-sm" placeholder="Search Name, Phone Number">
                             </div>
                             <div class="col-md-3">
-                                <select name="district_id" class="form-select" required="">
+                                <select name="district_id" class="form-select form-select-sm" required="">
                                     <option value="">Select District</option>
                                     <option value="1">Dhaka</option>
                                     <option value="2">Chittagong</option>
@@ -108,7 +108,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <select name="upazila_id" class="form-select" required="">
+                                <select name="upazila_id" class="form-select form-select-sm" required="">
                                     <option value="">Select Upazila</option>
                                     <option value="1">Dhaka</option>
                                     <option value="2">Chittagong</option>
@@ -122,9 +122,9 @@
                             </div>
 
                             <div class="col-md-3 d-flex">
-                                <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                                <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -286,10 +286,10 @@
                     <div class="card-body">
                         <form class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Shop Name, Mobile">
+                                <input type="text" class="form-control form-control-sm" placeholder="Shop Name, Mobile">
                             </div>
                             <div class="col-md-3">
-                                <select name="district_id" class="form-select" required="">
+                                <select name="district_id" class="form-select form-select-sm" required="">
                                     <option value="">Select District</option>
                                     <option value="1">Dhaka</option>
                                     <option value="2">Chittagong</option>
@@ -302,7 +302,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <select name="product_interest" id="product_interest" class="form-select" >
+                                <select name="product_interest" id="product_interest" class="form-select form-select-sm" >
                                     <option value="New retailer accquisition">Product Interest</option>
                                     <option value="Dealer Information" >Dealer Information</option>
                                     <option value="Officer Information" >Officer Information</option>
@@ -312,9 +312,9 @@
                             </div>
 
                             <div class="col-md-3 d-flex">
-                                <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                                <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -435,10 +435,10 @@
                     <div class="card-body">
                         <form class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Name, Mobile">
+                                <input type="text" class="form-control form-control-sm" placeholder="Name, Mobile">
                             </div>
                             <div class="col-md-3">
-                                <select name="district_id" class="form-select" required="">
+                                <select name="district_id" class="form-select form-select-sm" required="">
                                     <option value="">Select District</option>
                                     <option value="1">Dhaka</option>
                                     <option value="2">Chittagong</option>
@@ -452,7 +452,7 @@
                             </div>
 
                             <div class="col-md-3">
-                                <select name="dealer_interested_query" id="dealer_interested_query" class="form-select">
+                                <select name="dealer_interested_query" id="dealer_interested_query" class="form-select form-select-sm">
                                     <option value="">Dealer Interests</option>
                                     <option value="New dealership">New dealership</option>
                                     <option value="Credit Limit">Credit Limit</option>
@@ -464,9 +464,9 @@
 
                             </div>
                             <div class="col-md-3 d-flex">
-                                <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                                <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>
@@ -586,10 +586,10 @@
                     <div class="card-body">
                         <form class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Name/Org, Mobile">
+                                <input type="text" class="form-control form-control-sm" placeholder="Name/Org, Mobile">
                             </div>
                             <div class="col-md-3">
-                                <select class="form-select" aria-label="Category filter">
+                                <select class="form-select form-select-sm" aria-label="Category filter">
                                     <option selected>Category</option>
                                     <option value="Media">Media</option>
                                     <option value="Govt">Govt</option>
@@ -598,9 +598,9 @@
                             </div>
 
                             <div class="col-md-3 d-flex">
-                                <button type="submit" class="btn btn-success me-2">Search</button>
-                                <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                                <button type ="button" class="btn btn-outline-success me-1">Export</button>
+                                <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                                <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                                <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                             </div>
                         </form>
                     </div>

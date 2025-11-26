@@ -144,7 +144,7 @@
             text-decoration: underline;
         }
 
-        .btn {
+        .btn btn-sm btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -158,12 +158,12 @@
             width: 100%;
         }
 
-        .btn:hover {
+        .btn btn-sm btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        .btn:active {
+        .btn btn-sm btn-primary:active {
             transform: translateY(1px);
         }
 
@@ -216,7 +216,7 @@
         }
 
         /* Loading state */
-        .btn.loading {
+        .btn btn-sm btn-primary.loading {
             opacity: 0.7;
             pointer-events: none;
         }
@@ -288,16 +288,16 @@
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', (e) => {
                 // Add loading state
-                const submitBtn = form.querySelector('.btn');
-                if (submitBtn) {
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Please wait...';
-                    submitBtn.classList.add('loading');
+                const submitbtn btn-sm btn-primary = form.querySelector('.btn btn-sm btn-primary');
+                if (submitbtn btn-sm btn-primary) {
+                    const originalText = submitbtn btn-sm btn-primary.textContent;
+                    submitbtn btn-sm btn-primary.textContent = 'Please wait...';
+                    submitbtn btn-sm btn-primary.classList.add('loading');
 
                     // Re-enable button after 5 seconds in case submission fails
                     setTimeout(() => {
-                        submitBtn.textContent = originalText;
-                        submitBtn.classList.remove('loading');
+                        submitbtn btn-sm btn-primary.textContent = originalText;
+                        submitbtn btn-sm btn-primary.classList.remove('loading');
                     }, 5000);
                 }
             });

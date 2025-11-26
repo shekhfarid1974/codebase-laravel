@@ -403,7 +403,7 @@
         }
 
         /* Button Styles */
-        .btn {
+        .btn btn-sm btn-primary {
             display: inline-block;
             font-weight: 400;
             text-align: center;
@@ -417,67 +417,67 @@
             transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
 
-        .btn-primary {
+        .btn btn-sm btn-primary-primary {
             color: #fff;
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
 
-        .btn-primary:hover {
+        .btn btn-sm btn-primary-primary:hover {
             color: #fff;
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
         }
 
-        .btn-secondary {
+        .btn btn-sm btn-primary-secondary {
             color: #fff;
             background-color: #6c757d;
             border-color: #6c757d;
         }
 
-        .btn-secondary:hover {
+        .btn btn-sm btn-primary-secondary:hover {
             color: #fff;
             background-color: #5a6268;
             border-color: #545b62;
         }
 
-        .btn-success {
+        .btn btn-sm btn-primary-success {
             color: #fff;
             background-color: #28a745;
             border-color: #28a745;
         }
 
-        .btn-success:hover {
+        .btn btn-sm btn-primary-success:hover {
             color: #fff;
             background-color: #218838;
             border-color: #1e7e34;
         }
 
-        .btn-danger {
+        .btn btn-sm btn-primary-danger {
             color: #fff;
             background-color: #dc3545;
             border-color: #dc3545;
         }
 
-        .btn-danger:hover {
+        .btn btn-sm btn-primary-danger:hover {
             color: #fff;
             background-color: #c82333;
             border-color: #bd2130;
         }
 
-        .btn-warning {
+        .btn btn-sm btn-primary-warning {
             color: #212529;
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
 
-        .btn-warning:hover {
+        .btn btn-sm btn-primary-warning:hover {
             color: #212529;
             background-color: #e0a800;
             border-color: #d39e00;
         }
 
-        .btn-sm {
+        .btn btn-sm btn-primary-sm {
             padding: 0.25rem 0.5rem;
             font-size: 0.875rem;
             line-height: 1.5;
@@ -485,7 +485,7 @@
         }
 
         /* Form Styles */
-        .form-control {
+        .form-control form-control-sm {
             display: block;
             width: 100%;
             height: calc(1.5em + 0.75rem + 2px);
@@ -501,7 +501,7 @@
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
 
-        .form-control:focus {
+        .form-control form-control-sm:focus {
             color: #495057;
             background-color: #fff;
             border-color: var(--primary-color);
@@ -649,7 +649,7 @@
             border-bottom-left-radius: calc(0.3rem - 1px);
         }
 
-        .btn-close {
+        .btn btn-sm btn-primary-close {
             box-sizing: content-box;
             width: 1em;
             height: 1em;
@@ -661,7 +661,7 @@
             opacity: 0.5;
         }
 
-        .btn-close:hover {
+        .btn btn-sm btn-primary-close:hover {
             color: #000;
             text-decoration: none;
             opacity: 0.75;
@@ -1021,7 +1021,7 @@
                         <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'} toast-icon"></i>
                         <strong class="me-auto">ACCL Dashboard</strong>
                         <small>Just now</small>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        <button type="button" class="btn btn-sm btn-primary-close" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                     <div class="toast-body">
                         ${message}

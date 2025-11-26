@@ -8,7 +8,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             FAQ Crop
             <div>
-                <a href="{{ route('faqs.crops') }}" class="btn btn-primary" >
+                <a href="{{ route('faqs.crops') }}" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary" >
                     <i class="fas fa-arrow-left"></i> Back
                 </a>
             </div>
@@ -20,16 +20,16 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control form-control-sm" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <select class="form-select" id="status" name="status">
+                            <select class="form-select form-select-sm" id="status" name="status">
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-primary">Save</button>
                     </div>
                 </div>
             </form>
