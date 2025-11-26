@@ -1,8 +1,7 @@
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="logo">
-            <i class="fas fa-seedling"></i>
-            <span class="logo-text">ACCL</span>
+            <img src="/images/accl logo English.png" alt="AUTO CROP CARE LIMITED" width="180" height="60">
         </div>
         <button class="sidebar-toggle" id="sidebarToggleClose">
             <i class="fas fa-times"></i>
@@ -16,127 +15,127 @@
                 <i class="fas fa-tachometer-alt menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
-            <a href="{{ route('mail.configure') }}"
-                class="menu-item {{ request()->routeIs('mail.configure') ? 'active' : '' }}">
-                <i class="fas fa-envelope menu-icon"></i>
-                <span class="menu-title">Mail Configure</span>
-            </a>
+            @can('view settings')
+                <a href="{{ route('mail.configure') }}"
+                    class="menu-item {{ request()->routeIs('mail.configure') ? 'active' : '' }}">
+                    <i class="fas fa-envelope menu-icon"></i>
+                    <span class="menu-title">Mail Configure</span>
+                </a>
+            @endcan
         </div>
 
-        <div class="menu-section">
-            <div class="section-title">CRM FORMS</div>
+        @can('view crm')
+            <div class="menu-section">
+                <div class="section-title">CRM FORMS</div>
 
-            <a href="#" class="menu-item submenu-trigger" data-submenu="crmFormSubmenu">
-                <i class="fas fa-user-plus menu-icon"></i>
-                <span class="menu-title">Inbound</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmFormSubmenu">
-                <a target="_blank" href="{{ route('crmform.create') }}"
-                    class="menu-item {{ request()->is('crm/form/inbound') ? 'active' : '' }}">
-                    <i class="fas fa-phone-volume menu-icon"></i>
-                    <span class="menu-title">Inbound</span>
-                </a>
+                @can('view crm')
+                    <a href="#" class="menu-item submenu-trigger" data-submenu="crmFormSubmenu">
+                        <i class="fas fa-user-plus menu-icon"></i>
+                        <span class="menu-title">Inbound</span>
+                        <i class="fas fa-chevron-down menu-arrow"></i>
+                    </a>
+                    <div class="submenu {{ request()->routeIs('crm.*') ? 'show' : '' }}" id="crmFormSubmenu">
+                        @can('create crm')
+                            <a target="_blank" href="{{ route('crmform.create') }}"
+                                class="menu-item {{ request()->is('crm/form/inbound') ? 'active' : '' }}">
+                                <i class="fas fa-phone-volume menu-icon"></i>
+                                <span class="menu-title">Inbound</span>
+                            </a>
+                        @endcan
+                    </div>
+                @endcan
+
+                @can('create crm')
+                    <a href="#" class="menu-item submenu-trigger" data-submenu="outboundFormSubmenu">
+                        <i class="fas fa-user-plus menu-icon"></i>
+                        <span class="menu-title">Outbound</span>
+                        <i class="fas fa-chevron-down menu-arrow"></i>
+                    </a>
+                    <div class="submenu {{ request()->routeIs('outbound.*') ? 'show' : '' }}" id="outboundFormSubmenu">
+                        <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'navara-campaign']) }}"
+                            class="menu-item {{ request()->is('outbound/form/navara-campaign') ? 'active' : '' }}">
+                            <i class="fas fa-phone menu-icon"></i>
+                            <span class="menu-title">Navara Campaign</span>
+                        </a>
+                        <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'general-survey']) }}"
+                            class="menu-item {{ request()->is('outbound/form/general-survey') ? 'active' : '' }}">
+                            <i class="fas fa-phone menu-icon"></i>
+                            <span class="menu-title">General Survey</span>
+                        </a>
+                        <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'meeting-feedback']) }}"
+                            class="menu-item {{ request()->is('outbound/form/meeting-feedback') ? 'active' : '' }}">
+                            <i class="fas fa-phone menu-icon"></i>
+                            <span class="menu-title">Meeting Feedback</span>
+                        </a>
+                    </div>
+                @endcan
             </div>
+        @endcan
 
-            <a href="#" class="menu-item submenu-trigger" data-submenu="outboundFormSubmenu">
-                <i class="fas fa-user-plus menu-icon"></i>
-                <span class="menu-title">Outbound</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('outbound.*') ? 'show' : '' }}" id="outboundFormSubmenu">
-                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'navara-campaign']) }}"
-                    class="menu-item {{ request()->is('outbound/form/navara-campaign') ? 'active' : '' }}">
-                    <i class="fas fa-phone menu-icon"></i>
-                    <span class="menu-title">Navara Campaign</span>
-                </a>
-                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'general-survey']) }}"
-                    class="menu-item {{ request()->is('outbound/form/general-survey') ? 'active' : '' }}">
-                    <i class="fas fa-phone menu-icon"></i>
-                    <span class="menu-title">General Survey</span>
-                </a>
-                <a target="_blank" href="{{ route('outbound.form.type', ['type' => 'meeting-feedback']) }}"
-                    class="menu-item {{ request()->is('outbound/form/meeting-feedback') ? 'active' : '' }}">
-                    <i class="fas fa-phone menu-icon"></i>
-                    <span class="menu-title">Meeting Feedback</span>
-                </a>
+        @can('view reports')
+            <div class="menu-section">
+                <div class="section-title">Operations</div>
+
+                @can('view reports')
+                    <a href="#" class="menu-item submenu-trigger" data-submenu="inboundreportsSubmenu">
+                        <i class="fas fa-chart-bar menu-icon"></i>
+                        <span class="menu-title">Inbound Reports</span>
+                        <i class="fas fa-chevron-down menu-arrow"></i>
+                    </a>
+                    <div class="submenu {{ request()->routeIs('inbound_reports.*') ? 'show' : '' }}"
+                        id="inboundreportsSubmenu">
+                        <a href="{{ route('inbound_reports.farmer') }}"
+                            class="menu-item {{ request()->routeIs('inbound_reports.farmer') ? 'active' : '' }}">
+                            <i class="fas fa-users-cog menu-icon"></i>
+                            <span class="menu-title">Farmer Reports</span>
+                        </a>
+                        <a href="{{ route('inbound_reports.retailer') }}"
+                            class="menu-item {{ request()->routeIs('inbound_reports.retailer') ? 'active' : '' }}">
+                            <i class="fas fa-users-cog menu-icon"></i>
+                            <span class="menu-title">Retailer Reports</span>
+                        </a>
+                        <a href="{{ route('inbound_reports.dealer') }}"
+                            class="menu-item {{ request()->routeIs('inbound_reports.dealer') ? 'active' : '' }}">
+                            <i class="fas fa-users-cog menu-icon"></i>
+                            <span class="menu-title">Dealer Reports</span>
+                        </a>
+                        <a href="{{ route('inbound_reports.others') }}"
+                            class="menu-item {{ request()->routeIs('inbound_reports.others') ? 'active' : '' }}">
+                            <i class="fas fa-users-cog menu-icon"></i>
+                            <span class="menu-title">Others Reports</span>
+                        </a>
+                    </div>
+                @endcan
+
+                @can('view reports')
+                    <a href="#" class="menu-item submenu-trigger" data-submenu="outboundreportsSubmenu">
+                        <i class="fas fa-chart-bar menu-icon"></i>
+                        <span class="menu-title">Outbound Reports</span>
+                        <i class="fas fa-chevron-down menu-arrow"></i>
+                    </a>
+                    <div class="submenu {{ request()->routeIs('outbound_reports.*') ? 'show' : '' }}"
+                        id="outboundreportsSubmenu">
+                        <a href="{{ route('outbound_reports.questionnaire') }}"
+                            class="menu-item {{ request()->routeIs('outbound_reports.questionnaire') ? 'active' : '' }}">
+                            <i class="fas fa-bullhorn menu-icon"></i>
+                            <span class="menu-title">Questionnaire</span>
+                        </a>
+                        <a href="{{ route('outbound_reports.general-survey.form') }}"
+                            class="menu-item {{ request()->routeIs('outbound_reports.general-survey.form') ? 'active' : '' }}">
+                            <i class="fas fa-clipboard-check menu-icon"></i>
+                            <span class="menu-title">General Survey</span>
+                        </a>
+                        <a href="{{ route('outbound_reports.feedback-survey') }}"
+                            class="menu-item {{ request()->routeIs('outbound_reports.feedback-survey') ? 'active' : '' }}">
+                            <i class="fas fa-comment-dots menu-icon"></i>
+                            <span class="menu-title">Feedback Survey</span>
+                        </a>
+                    </div>
+                @endcan
             </div>
-        </div>
+        @endcan
 
-        <div class="menu-section">
-            <div class="section-title">Operations</div>
-
-            <a href="#" class="menu-item submenu-trigger" data-submenu="inboundreportsSubmenu">
-                <i class="fas fa-chart-bar menu-icon"></i>
-                <span class="menu-title">Inbound Reports</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('inbound_reports.*') ? 'show' : '' }}"
-                id="inboundreportsSubmenu">
-                <a href="{{ route('inbound_reports.farmer') }}"
-                    class="menu-item {{ request()->routeIs('inbound_reports.farmer') ? 'active' : '' }}">
-                    <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">Farmer Reports</span>
-                </a>
-                <a href="{{ route('inbound_reports.retailer') }}"
-                    class="menu-item {{ request()->routeIs('inbound_reports.retailer') ? 'active' : '' }}">
-                    <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">Retailer Reports</span>
-                </a>
-                <a href="{{ route('inbound_reports.dealer') }}"
-                    class="menu-item {{ request()->routeIs('inbound_reports.dealer') ? 'active' : '' }}">
-                    <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">Dealer Reports</span>
-                </a>
-                <a href="{{ route('inbound_reports.others') }}"
-                    class="menu-item {{ request()->routeIs('inbound_reports.others') ? 'active' : '' }}">
-                    <i class="fas fa-users-cog menu-icon"></i>
-                    <span class="menu-title">Others Reports</span>
-                </a>
-            </div>
-
-            <a href="#" class="menu-item submenu-trigger" data-submenu="outboundreportsSubmenu">
-                <i class="fas fa-chart-bar menu-icon"></i>
-                <span class="menu-title">Outbound Reports</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('outbound_reports.*') ? 'show' : '' }}"
-                id="outboundreportsSubmenu">
-                <a href="{{ route('outbound_reports.questionnaire') }}"
-                    class="menu-item {{ request()->routeIs('outbound_reports.questionnaire') ? 'active' : '' }}">
-                    <i class="fas fa-bullhorn menu-icon"></i>
-                    <span class="menu-title">Questionnaire</span>
-                </a>
-                <a href="{{ route('outbound_reports.general-survey.form') }}"
-                    class="menu-item {{ request()->routeIs('outbound_reports.general-survey.form') ? 'active' : '' }}">
-                    <i class="fas fa-clipboard-check menu-icon"></i>
-                    <span class="menu-title">General Survey</span>
-                </a>
-                <a href="{{ route('outbound_reports.feedback-survey') }}"
-                    class="menu-item {{ request()->routeIs('outbound_reports.feedback-survey') ? 'active' : '' }}">
-                    <i class="fas fa-comment-dots menu-icon"></i>
-                    <span class="menu-title">Feedback Survey</span>
-                </a>
-            </div>
-
-            <a href="#" class="menu-item submenu-trigger" data-submenu="reportsSubmenu">
-                <i class="fas fa-chart-bar menu-icon"></i>
-                <span class="menu-title">Reports SMS/Ticket</span>
-                <i class="fas fa-chevron-down menu-arrow"></i>
-            </a>
-            <div class="submenu {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="reportsSubmenu">
-                <a href="{{ route('reports.sms') }}"
-                    class="menu-item {{ request()->routeIs('reports.sms') ? 'active' : '' }}">
-                    <i class="fas fa-sms menu-icon"></i>
-                    <span class="menu-title">SMS Reports</span>
-                </a>
-                <a href="{{ route('reports.ticket') }}"
-                    class="menu-item {{ request()->routeIs('reports.ticket') ? 'active' : '' }}">
-                    <i class="fas fa-ticket-alt menu-icon"></i>
-                    <span class="menu-title">Ticket Reports</span>
-                </a>
-            </div>
-
+        {{-- @can('view tickets')
             <a href="#" class="menu-item submenu-trigger" data-submenu="ticketSubmenu">
                 <i class="fas fa-ticket-alt menu-icon"></i>
                 <span class="menu-title">Ticket</span>
@@ -148,18 +147,22 @@
                     <i class="fas fa-list menu-icon"></i>
                     <span class="menu-title">All Tickets</span>
                 </a>
-                <a href="{{ route('tickets.create') }}"
-                    class="menu-item {{ request()->routeIs('tickets.create') ? 'active' : '' }}">
-                    <i class="fas fa-plus menu-icon"></i>
-                    <span class="menu-title">Create New</span>
-                </a>
+                @can('create tickets')
+                    <a href="{{ route('tickets.create') }}"
+                        class="menu-item {{ request()->routeIs('tickets.create') ? 'active' : '' }}">
+                        <i class="fas fa-plus menu-icon"></i>
+                        <span class="menu-title">Create New</span>
+                    </a>
+                @endcan
                 <a href="{{ route('tickets.resolved') }}"
                     class="menu-item {{ request()->routeIs('tickets.resolved') ? 'active' : '' }}">
                     <i class="fas fa-history menu-icon"></i>
                     <span class="menu-title">Resolved History</span>
                 </a>
             </div>
+        @endcan --}}
 
+        @can('view leads')
             <a href="#" class="menu-item submenu-trigger" data-submenu="leadSubmenu">
                 <i class="fas fa-user-friends menu-icon"></i>
                 <span class="menu-title">Lead Management</span>
@@ -177,7 +180,9 @@
                     <span class="menu-title">Reset Lead Data</span>
                 </a>
             </div>
+        @endcan
 
+        @can('view faqs')
             <a href="#" class="menu-item submenu-trigger" data-submenu="faqSubmenu">
                 <i class="fas fa-question-circle menu-icon"></i>
                 <span class="menu-title">FAQ Management</span>
@@ -189,11 +194,13 @@
                     <i class="fas fa-question-circle menu-icon"></i>
                     <span class="menu-title">View FAQs</span>
                 </a>
-                <a href="{{ route('faqs.add') }}"
-                    class="menu-item {{ request()->routeIs('faqs.add') ? 'active' : '' }}">
-                    <i class="fas fa-plus-circle menu-icon"></i>
-                    <span class="menu-title">Add FAQ</span>
-                </a>
+                @can('create faqs')
+                    <a href="{{ route('faqs.add') }}"
+                        class="menu-item {{ request()->routeIs('faqs.add') ? 'active' : '' }}">
+                        <i class="fas fa-plus-circle menu-icon"></i>
+                        <span class="menu-title">Add FAQ</span>
+                    </a>
+                @endcan
                 <a href="{{ route('faqs.categories') }}"
                     class="menu-item {{ request()->routeIs('faqs.categories') ? 'active' : '' }}">
                     <i class="fas fa-folder-open menu-icon"></i>
@@ -210,7 +217,9 @@
                     <span class="menu-title">Identification</span>
                 </a>
             </div>
+        @endcan
 
+        @can('view products')
             <a href="#" class="menu-item submenu-trigger" data-submenu="productSubmenu">
                 <i class="fas fa-box menu-icon"></i>
                 <span class="menu-title">Product Features</span>
@@ -222,18 +231,22 @@
                     <i class="fas fa-list menu-icon"></i>
                     <span class="menu-title">Product List</span>
                 </a>
-                <a href="{{ route('products.addFeature') }}"
-                    class="menu-item {{ request()->routeIs('products.addFeature') ? 'active' : '' }}">
-                    <i class="fas fa-plus menu-icon"></i>
-                    <span class="menu-title">Add Feature</span>
-                </a>
+                @can('create products')
+                    <a href="{{ route('products.addFeature') }}"
+                        class="menu-item {{ request()->routeIs('products.addFeature') ? 'active' : '' }}">
+                        <i class="fas fa-plus menu-icon"></i>
+                        <span class="menu-title">Add Feature</span>
+                    </a>
+                @endcan
                 <a href="{{ route('products.featureCategories') }}"
                     class="menu-item {{ request()->routeIs('products.featureCategories') ? 'active' : '' }}">
                     <i class="fas fa-tags menu-icon"></i>
                     <span class="menu-title">Feature Categories</span>
                 </a>
             </div>
+        @endcan
 
+        {{-- @can('view sms')
             <a href="#" class="menu-item submenu-trigger" data-submenu="smsSubmenu">
                 <i class="fas fa-sms menu-icon"></i>
                 <span class="menu-title">SMS Center</span>
@@ -255,15 +268,29 @@
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Templates</span>
                 </a>
-                <a href="{{ route('sms.sendBulk') }}"
-                    class="menu-item {{ request()->routeIs('sms.sendBulk') ? 'active' : '' }}">
-                    <i class="fas fa-paper-plane menu-icon"></i>
-                    <span class="menu-title">Send Bulk SMS</span>
+                @can('create sms')
+                    <a href="{{ route('sms.sendBulk') }}"
+                        class="menu-item {{ request()->routeIs('sms.sendBulk') ? 'active' : '' }}">
+                        <i class="fas fa-paper-plane menu-icon"></i>
+                        <span class="menu-title">Send Bulk SMS</span>
+                    </a>
+                @endcan
+            </div>
+        @endcan --}}
+
+        @can('view users')
+            <div class="menu-section">
+                <div class="section-title">Admin</div>
+                <a href="{{ route('users.index') }}"
+                    class="menu-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                    <i class="fas fa-users menu-icon"></i>
+                    <span class="menu-title">User Management</span>
                 </a>
             </div>
-        </div>
+        @endcan
     </nav>
 </aside>
+
 
 <style>
     /* Sidebar Styles */
@@ -289,21 +316,23 @@
         background: #f8f9fa;
     }
 
-    .sidebar-header .logo {
+    .sidebar-header .logo,
+    .sidebar .logo {
+        /* Adjust selector to match your HTML */
         display: flex;
         align-items: center;
-        gap: 10px;
+        justify-content: center;
+        /* Centers the image */
+        padding: 10px 0;
     }
 
-    .sidebar-header .logo i {
-        color: #007E33;
-        font-size: 1.5rem;
-    }
-
-    .sidebar-header .logo .logo-text {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #333;
+    .sidebar-header .logo img,
+    .sidebar .logo img {
+        /* Target the image */
+        max-width: 180px;
+        /* Adjust as needed */
+        height: auto;
+        display: block;
     }
 
     .sidebar-toggle {
@@ -435,26 +464,48 @@
                 const arrow = this.querySelector('.menu-arrow');
 
                 if (submenu) {
-                    // Close other submenus in the same section
+                    // Close other submenus - FIXED: Check if parent section exists
                     const parentSection = this.closest('.menu-section');
-                    const otherSubmenus = parentSection.querySelectorAll('.submenu');
-                    const otherArrows = parentSection.querySelectorAll('.menu-arrow');
 
-                    otherSubmenus.forEach(otherSubmenu => {
-                        if (otherSubmenu !== submenu) {
-                            otherSubmenu.classList.remove('show');
-                        }
-                    });
+                    if (parentSection) {
+                        // If inside a menu section, only close submenus in that section
+                        const otherSubmenus = parentSection.querySelectorAll('.submenu');
+                        const otherArrows = parentSection.querySelectorAll('.menu-arrow');
 
-                    otherArrows.forEach(otherArrow => {
-                        if (otherArrow !== arrow) {
-                            otherArrow.classList.remove('rotate');
-                        }
-                    });
+                        otherSubmenus.forEach(otherSubmenu => {
+                            if (otherSubmenu !== submenu) {
+                                otherSubmenu.classList.remove('show');
+                            }
+                        });
+
+                        otherArrows.forEach(otherArrow => {
+                            if (otherArrow !== arrow) {
+                                otherArrow.classList.remove('rotate');
+                            }
+                        });
+                    } else {
+                        // If not inside a menu section, close all other submenus
+                        const allSubmenus = document.querySelectorAll('.submenu');
+                        const allArrows = document.querySelectorAll('.menu-arrow');
+
+                        allSubmenus.forEach(otherSubmenu => {
+                            if (otherSubmenu !== submenu) {
+                                otherSubmenu.classList.remove('show');
+                            }
+                        });
+
+                        allArrows.forEach(otherArrow => {
+                            if (otherArrow !== arrow && otherArrow !== arrow) {
+                                otherArrow.classList.remove('rotate');
+                            }
+                        });
+                    }
 
                     // Toggle current submenu
                     submenu.classList.toggle('show');
-                    arrow.classList.toggle('rotate');
+                    if (arrow) {
+                        arrow.classList.toggle('rotate');
+                    }
                 }
             });
         });

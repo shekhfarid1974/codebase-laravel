@@ -5,18 +5,19 @@
             <i class="fas fa-bars"></i>
         </button>
         <div class="logo">
-            <i class="fas fa-seedling"></i>
-            <span class="logo-text">ACCL</span>
+            <img src="/images/accl logo.png" alt="ACCL" width="40" height="40">
         </div>
         <h2 class="page-title" id="pageTitle">@yield('page_title', 'Dashboard')</h2>
     </div>
 
     <div class="header-right">
-        <!-- CRM Form Button -->
-        <button class="crm-form-btn" id="crmFormBtn">
-            <i class="fas fa-plus-circle"></i>
-            <span>CRM Form</span>
-        </button>
+        <!-- CRM Form Button - Only show if user can create CRM -->
+        @can('create crm')
+            <button class="crm-form-btn" id="crmFormBtn">
+                <i class="fas fa-plus-circle"></i>
+                <span>CRM Form</span>
+            </button>
+        @endcan
 
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search...">
@@ -49,6 +50,15 @@
                     <i class="fas fa-user"></i>
                     My Profile
                 </a>
+
+                <!-- Only show user management to users with 'view users' permission -->
+                @can('view users')
+                    <a href="{{ route('users.index') }}" class="dropdown-item">
+                        <i class="fas fa-users"></i>
+                        User Management
+                    </a>
+                @endcan
+
                 <a href="#" class="dropdown-item">
                     <i class="fas fa-key"></i>
                     Change Password

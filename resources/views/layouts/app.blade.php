@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'ACCL Admin Dashboard — Classic Edition')</title>
+    <link rel="icon" href="/images/accl logo.png" type="image/png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -45,28 +46,20 @@
             z-index: 1000;
         }
 
+        /* Updated logo styles for image */
         .logo {
             display: flex;
             align-items: center;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
             justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.2rem;
-            margin-right: 10px;
+            /* Centers the image */
+            padding: 10px 0;
         }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+        .logo img {
+            max-width: 180px;
+            /* Adjust this width as needed */
+            height: auto;
+            display: block;
         }
 
         .page-title {
