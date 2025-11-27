@@ -13,10 +13,10 @@
     <div class="header-right">
         <!-- CRM Form Button - Only show if user can create CRM -->
         @can('create crm')
-            <button class="crm-form-btn btn btn-success" id="crmFormBtn">
+            <a href="{{ route('crmform.create',['phone_number' => '01521204476', 'agent' => 'ShekhFarid']) }}" class="crm-form-btn btn btn-success" target="_blank">
                 <i class="fas fa-plus-circle"></i>
                 <span>CRM Form</span>
-            </button>
+            </a>
         @endcan
 
         <div class="search-container">
@@ -423,7 +423,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         const profileTrigger = document.getElementById('profileTrigger');
         const profileDropdown = document.getElementById('profileDropdown');
-        const crmFormbtn = document.getElementById('crmFormbtn btn-sm btn-primary');
 
         // Profile dropdown
         if (profileTrigger && profileDropdown) {
@@ -450,12 +449,5 @@
             }
         }
 
-        // CRM Form Button
-        if (crmFormbtn btn-sm btn-primary) {
-            crmFormbtn btn-sm btn-primary.addEventListener('click', function() {
-                const crmUrl = '{{ url('/crmform') }}?phone_number=01521204476&agent=ShekhFarid';
-                window.open(crmUrl, '_blank');
-            });
-        }
     });
 </script>
