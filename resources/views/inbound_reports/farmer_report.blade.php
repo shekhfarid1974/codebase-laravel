@@ -14,6 +14,7 @@
             border: 1px solid #dee2e6;
             border-bottom: none;
         }
+
         .nav-link.active {
             background-color: #007bff;
             color: white;
@@ -21,6 +22,7 @@
             border-bottom: 3px solid #007bff !important;
             font-weight: 500;
         }
+
         .kpi-box {
             background-color: #fff;
             padding: 1rem;
@@ -28,11 +30,13 @@
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             text-align: center;
         }
+
         .small-muted {
             font-size: 0.85rem;
             color: #6c757d;
             margin-bottom: 0.5rem;
         }
+
         .table-fixed th {
             white-space: nowrap;
         }
@@ -75,7 +79,8 @@
                 <div class="card-body">
                     <form class="row g-3">
                         <div class="col-md-3">
-                            <input type="text" class="form-control form-control-sm" placeholder="Search Name, Phone Number">
+                            <input type="text" class="form-control form-control-sm"
+                                placeholder="Search Name, Phone Number">
                         </div>
                         <div class="col-md-3">
                             <select name="district_id" class="form-select form-select-sm" required="">
@@ -105,9 +110,12 @@
                         </div>
 
                         <div class="col-md-3 d-flex">
-                            <button type="submit" class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
-                            <button type="reset" class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
-                            <button type ="button" class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
+                            <button type="submit"
+                                class="btn btn-sm btn-primary btn btn-sm btn-primary-success me-2">Search</button>
+                            <button type="reset"
+                                class="btn btn-sm btn-primary btn btn-sm btn-primary-secondary me-2">Reset</button>
+                            <button type ="button"
+                                class="btn btn-sm btn-primary btn btn-sm btn-primary-outline-success me-1">Export</button>
                         </div>
                     </form>
                 </div>
@@ -331,8 +339,7 @@
             dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6 text-end'B>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 text-end'p>>",
-                buttons: [
-                {
+            buttons: [{
                     text: '<i class="fas fa-file-download fa-sm"></i> Export',
                     className: 'excelButton btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-info export_btn btn-sm btn-primary rounded-0 text-white'
                 },
@@ -342,6 +349,5 @@
                 },
             ]
         });
-
     </script>
 @endpush
