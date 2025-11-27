@@ -13,7 +13,7 @@
     <div class="header-right">
         <!-- CRM Form Button - Only show if user can create CRM -->
         @can('create crm')
-            <button class="crm-form-btn" id="crmFormBtn">
+            <button class="crm-form-btn btn btn-success" id="crmFormBtn">
                 <i class="fas fa-plus-circle"></i>
                 <span>CRM Form</span>
             </button>
@@ -152,7 +152,7 @@
     }
 
     /* CRM Form Button */
-    .crm-form-btn btn-sm btn-primary {
+    .crm-form-btn .btn-primary {
         display: flex;
         align-items: center;
         gap: 8px;
@@ -168,18 +168,18 @@
         box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
     }
 
-    .crm-form-btn btn-sm btn-primary:hover {
+    .crm-form-btn .btn-primary:hover {
         background: linear-gradient(135deg, #006627 0%, #008533 100%);
         transform: translateY(-1px);
         box-shadow: 0 4px 8px rgba(0, 126, 51, 0.3);
     }
 
-    .crm-form-btn btn-sm btn-primary:active {
+    .crm-form-btn .btn-primary:active {
         transform: translateY(0);
         box-shadow: 0 2px 4px rgba(0, 126, 51, 0.2);
     }
 
-    .crm-form-btn btn-sm btn-primary i {
+    .crm-form-btn .btn-primary i {
         font-size: 0.8rem;
     }
 
@@ -359,11 +359,11 @@
             display: block;
         }
 
-        .crm-form-btn btn-sm btn-primary span {
+        .crm-form-btn .btn-primary span {
             display: none;
         }
 
-        .crm-form-btn btn-sm btn-primary i {
+        .crm-form-btn .btn-primary i {
             margin-right: 0;
         }
 
@@ -393,7 +393,7 @@
             display: none;
         }
 
-        .crm-form-btn btn-sm btn-primary {
+        .crm-form-btn .btn-primary {
             padding: 8px;
         }
     }
@@ -423,7 +423,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const profileTrigger = document.getElementById('profileTrigger');
         const profileDropdown = document.getElementById('profileDropdown');
-        const crmFormbtn btn-sm btn-primary = document.getElementById('crmFormbtn btn-sm btn-primary');
+        const crmFormbtn = document.getElementById('crmFormbtn btn-sm btn-primary');
 
         // Profile dropdown
         if (profileTrigger && profileDropdown) {
