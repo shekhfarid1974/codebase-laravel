@@ -41,10 +41,10 @@
                             <td>Agent Ahmed</td>
                             <td>2023-09-20</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1024')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1024')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1024')">
+                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1024')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -59,10 +59,10 @@
                             <td>Unassigned</td>
                             <td>2023-09-20</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1023')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1023')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1023')">
+                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1023')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -77,7 +77,7 @@
                             <td>Field Agent Khan</td>
                             <td>2023-09-19</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1022')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1022')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -92,10 +92,10 @@
                             <td>Supervisor Jaman</td>
                             <td>2023-09-19</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1021')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1021')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1021')">
+                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1021')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -110,7 +110,7 @@
                             <td>Agent Fatema</td>
                             <td>2023-09-18</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1020')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1020')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -125,7 +125,7 @@
                             <td>Agent Ahmed</td>
                             <td>2023-09-17</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1019')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1019')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -140,10 +140,10 @@
                             <td>Agent Fatema</td>
                             <td>2023-09-16</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1018')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1018')">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editTicket('TK-1018')">
+                                <button class="btn btn-sm btn-warning" onclick="editTicket('TK-1018')">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -158,7 +158,7 @@
                             <td>Field Agent Khan</td>
                             <td>2023-09-15</td>
                             <td>
-                                <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1017')">
+                                <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1017')">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>

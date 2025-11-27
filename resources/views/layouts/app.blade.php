@@ -879,16 +879,7 @@
                     ]
                 });
             }
-            // Initialize FAQ Table
-            if ($('#faqTable').length) {
-                $('#faqTable').DataTable({
-                    responsive: true,
-                    pageLength: 10,
-                    order: [
-                        [4, 'desc']
-                    ]
-                });
-            }
+           
         }
         // Initialize SMS Form
         function initializeSMSForm() {

@@ -243,11 +243,11 @@
                 buttons: [
                 {
                     text: '<i class="fas fa-file-download fa-sm"></i> Export',
-                    className: 'excelButton btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-info export_btn btn-sm btn-primary rounded-0 text-white'
+                    className: 'excelButton btn btn-sm btn-info export_btn btn-sm btn-primary rounded-0 text-white'
                 },
                 {
                     text: '+ Add New',
-                    className: 'btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary add_btn btn-sm btn-primary'
+                    className: 'btn btn-sm btn-primary add_btn btn-sm btn-primary'
                 },
             ]
         });

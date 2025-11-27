@@ -33,13 +33,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -50,13 +50,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -67,13 +67,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -84,13 +84,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -101,13 +101,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -118,13 +118,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -135,13 +135,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -152,13 +152,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -169,13 +169,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -186,13 +186,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -203,13 +203,13 @@
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>2025-09-15</td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-primary" onclick="viewFaq('FAQ-001')">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-warning" onclick="editFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-warning" onclick="editFaq('FAQ-001')">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-danger" onclick="deleteFaq('FAQ-001')">
+                                    <button class="btn btn-sm btn-danger" onclick="deleteFaq('FAQ-001')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>

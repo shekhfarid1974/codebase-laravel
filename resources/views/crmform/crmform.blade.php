@@ -88,7 +88,7 @@
                     orderable: false,
                     searchable: false,
                     render: function(data, type, row) {
-                        return '<button class="action-btn btn-sm btn-primary btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" title="Call"><i class="fas fa-eye"></i></button>';
+                        return '<button class="action-btn btn-sm btn-primary btn btn-sm btn-primary" title="Call"><i class="fas fa-eye"></i></button>';
                     }
                 }
             ],
@@ -125,7 +125,7 @@
                     orderable: false,
                     searchable: false,
                     render: function(data, type, row) {
-                        return '<button class="action-btn btn-sm btn-primary btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" title="View"><i class="fas fa-eye"></i></button>';
+                        return '<button class="action-btn btn-sm btn-primary btn btn-sm btn-primary" title="View"><i class="fas fa-eye"></i></button>';
                     }
                 }
             ],

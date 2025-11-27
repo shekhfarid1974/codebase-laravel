@@ -118,8 +118,8 @@ Route::middleware(['auth'])->group(function () {
     // Products Routes
     Route::prefix('products')->name('products.')->middleware('can:view products')->group(function () {
         Route::get('/list', [ProductController::class, 'list'])->name('list');
-        Route::get('/add-feature', [ProductController::class, 'addFeature'])->name('addFeature')->middleware('can:create products');
-        Route::get('/feature-categories', [ProductController::class, 'featureCategories'])->name('featureCategories');
+        Route::get('/add-product', [ProductController::class, 'addProduct'])->name('addProduct')->middleware('can:create products');
+        Route::get('/add-categories', [ProductController::class, 'addCategory'])->name('addCategory');
     });
 
     // SMS Routes

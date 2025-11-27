@@ -232,16 +232,16 @@
                     <span class="menu-title">Product List</span>
                 </a>
                 @can('create products')
-                    <a href="{{ route('products.addFeature') }}"
-                        class="menu-item {{ request()->routeIs('products.addFeature') ? 'active' : '' }}">
+                    <a href="{{ route('products.addProduct') }}"
+                        class="menu-item {{ request()->routeIs('products.addProduct') ? 'active' : '' }}">
                         <i class="fas fa-plus menu-icon"></i>
-                        <span class="menu-title">Add Feature</span>
+                        <span class="menu-title">Add Product</span>
                     </a>
                 @endcan
-                <a href="{{ route('products.featureCategories') }}"
-                    class="menu-item {{ request()->routeIs('products.featureCategories') ? 'active' : '' }}">
+                <a href="{{ route('products.addCategory') }}"
+                    class="menu-item {{ request()->routeIs('products.addCategory') ? 'active' : '' }}">
                     <i class="fas fa-tags menu-icon"></i>
-                    <span class="menu-title">Feature Categories</span>
+                    <span class="menu-title">Add Categories</span>
                 </a>
             </div>
         @endcan

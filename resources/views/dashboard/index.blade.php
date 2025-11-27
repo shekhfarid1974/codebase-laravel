@@ -127,7 +127,7 @@
                                         <td>Agent Ahmed</td>
                                         <td>2023-09-20</td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1024')">
+                                            <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1024')">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </td>
@@ -142,7 +142,7 @@
                                         <td>Unassigned</td>
                                         <td>2023-09-20</td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1023')">
+                                            <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1023')">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </td>
@@ -157,7 +157,7 @@
                                         <td>Field Agent Khan</td>
                                         <td>2023-09-19</td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1022')">
+                                            <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1022')">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </td>
@@ -172,7 +172,7 @@
                                         <td>Supervisor Jaman</td>
                                         <td>2023-09-19</td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1021')">
+                                            <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1021')">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </td>
@@ -187,7 +187,7 @@
                                         <td>Agent Fatema</td>
                                         <td>2023-09-18</td>
                                         <td>
-                                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-sm btn btn-sm btn-primary-primary" onclick="viewTicket('TK-1020')">
+                                            <button class="btn btn-sm btn-primary" onclick="viewTicket('TK-1020')">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </td>

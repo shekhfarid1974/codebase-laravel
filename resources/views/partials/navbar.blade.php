@@ -12,12 +12,12 @@
 
     <div class="header-right">
         <!-- CRM Form Button - Only show if user can create CRM -->
-        @can('create crm')
-            <a href="{{ route('crmform.create',['phone_number' => '01521204476', 'agent' => 'ShekhFarid']) }}" class="crm-form-btn btn btn-success" target="_blank">
+        {{-- @can('create crm')
+            <button class="crm-form-btn" id="crmFormBtn">
                 <i class="fas fa-plus-circle"></i>
                 <span>CRM Form</span>
-            </a>
-        @endcan
+            </button>
+        @endcan --}}
 
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search...">
@@ -59,14 +59,14 @@
                     </a>
                 @endcan
 
-                <a href="#" class="dropdown-item">
+                {{-- <a href="#" class="dropdown-item">
                     <i class="fas fa-key"></i>
                     Change Password
                 </a>
                 <a href="#" class="dropdown-item">
                     <i class="fas fa-palette"></i>
                     Theme Settings
-                </a>
+                </a> --}}
                 <div class="dropdown-divider"></div>
                 <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
                     @csrf
