@@ -11,13 +11,13 @@ class ProductController extends Controller
         return view('products.list');
     }
 
-    public function addFeature()
+    public function addProduct()
     {
-        return view('products.addFeature');
+        return view('products.addProduct');
     }
 
-    public function featureCategories()
+    public function addCategory()
     {
-        return view('products.featureCategrories');
+        return view('products.addCategory');
     }
 }
