@@ -3,7 +3,7 @@
     <!-- Customer Form Card -->
     <div class="card mb-3 shadow-none bg-none">
         <div class="card-header d-flex justify-content-between align-items-center bg-white">
-            <h5 class="card-title ">
+            <h5 class="card-title mb-0">
                 <i class="fas fa-store dealer-icon"></i>
                 <span>Others Information</span>
             </h5>
@@ -42,7 +42,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label ">Phone Number Own</label>
-                            <select name="own_number" class="form-control form-control-sm">
+                            <select name="own_number" class="form-select form-select-sm">
                                 <option value="Yes" {{ (isset($own_number) && $own_number=='Yes') ? 'selected' : '' }}>Yes</option>
                                 <option value="No" {{ (isset($own_number) && $own_number=='No') ? 'selected' : '' }}>No</option>
                             </select>
@@ -61,7 +61,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Gender <span class="sr-only">(required)</span></label>
-                            <select name="gender" class="form-control form-control-sm" required>
+                            <select name="gender" class="form-select form-select-sm" required>
                                 <option value="">Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -73,7 +73,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">District <span class="sr-only">(required)</span></label>
-                            <select name="district_id" class="form-control form-control-sm" required>
+                            <select name="district_id" class="form-select form-select-sm" required>
                                 <option value="">Select District</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -91,7 +91,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Upazila <span class="sr-only">(required)</span></label>
-                            <select name="upazila_id" class="form-control form-control-sm" required>
+                            <select name="upazila_id" class="form-select form-select-sm" required>
                                 <option value="">Select Upazila</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -109,7 +109,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label class="form-label  required">Union <span class="sr-only">(required)</span></label>
-                            <select name="union_id" class="form-control form-control-sm" required>
+                            <select name="union_id" class="form-select form-select-sm" required>
                                 <option value="">Select Union</option>
                                 <option value="1">Dhaka</option>
                                 <option value="2">Chittagong</option>
@@ -179,7 +179,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-center">
-                            <button class="btn btn-sm btn-primary btn btn-sm btn-primary-success" type="button" id="save-btn btn-sm btn-primary">
+                            <button class="btn btn-sm btn-success" type="button" id="save-btn">
                                 <i class="fas fa-save"></i> Save
                             </button>
                         </div>
@@ -192,7 +192,7 @@
 
     <div class="card mb-3 shadow-none bg-none">
         <div class="card-header bg-white d-flex align-items-center justify-content-between">
-            <h4 class="card-title d-flex align-items-center gap-2">
+            <h4 class="card-title d-flex align-items-center gap-2 mb-0">
                 <i class="fas fa-history"></i>
                 Products List
             </h4>
